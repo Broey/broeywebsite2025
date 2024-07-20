@@ -1,0 +1,290 @@
+/* styles.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    padding-top: 60px; /* Adjust based on the height of your fixed header */
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent background */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: fixed; /* Make header fixed at the top */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+header nav ul li a:hover {
+    color: #138f13a6; /* Change color on hover */
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-content .logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.bio-image {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.bio-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+}
+
+section {
+    padding: 50px 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Flexbox layout for embed containers */
+.embed-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.embed-container-music {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.embed-container-music iframe {
+    flex: 1;
+    min-width: 300px;
+    max-width: 300px;
+    height: 480px;
+}
+
+@media (max-width: 800px) {
+    .embed-container-music iframe {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 500px) {
+    .embed-container-music iframe {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #000;
+}
+
+
+/* Center text in the music section */
+#music h2, #music p {
+    text-align: center;
+}
+
+
+/* Center content in the video section */
+#videos {
+    text-align: center;
+}
+
+/* Center video player */
+#videos iframe {
+    margin: 0 auto;
+}
+
+/* Apply the same layout for the store section */
+#store .embed-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+#store .embed-container > div {
+    flex: 1 1 calc(33% - 20px);
+    max-width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#store .embed-container > div > .shopify-buy__product {
+    width: 100%;
+}
+
+#store .embed-container > div > .shopify-buy__product-wrapper {
+    width: 100%;
+}
+.embed-container-store {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.embed-container div {
+    width: 30%;
+    margin: 10px;
+}
+.embed-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.embed-container div {
+    width: 30%;
+    margin: 10px;
+}
+
+#store {
+    text-align: center;
+}
+
+#store h2, #store p {
+    text-align: center;
+    width: 100%;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#contact p {
+    width: 100%;
+    text-align: center;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#contact .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#contact label {
+    margin-bottom: 5px;
+}
+
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+#contact textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+#contact button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgb(11, 80, 20);
+    border: none;
+    color: #e9e9e9;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#contact button:hover {
+    background-color: #00cc00;
+}
+
+
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
