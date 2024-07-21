@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -9,18 +7,8 @@ body {
     padding: 0;
     padding-top: 60px; /* Adjust based on the height of your fixed header */
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    header nav ul li {
-        margin: 10px 0;
-    }
-}
-
+/* Header styles */
 header {
     background-color: rgba(0, 0, 0, 0.8); /* Transparent background */
     padding: 15px 0;
@@ -50,10 +38,43 @@ header nav ul li a {
     font-size: 16px;
     transition: color 0.3s; /* Smooth transition for hover effect */
 }
+
 header nav ul li a:hover {
     color: #138f13a6; /* Change color on hover */
 }
 
+/* Section styles */
+section {
+    padding: 0px 0px;
+    margin: 20px 0; /* Add margin between sections */
+    border-top: 1px solid #333; /* Border to separate sections */
+}
+
+#home {
+    background-color: #1b1b1b;
+}
+
+#about {
+    background-color: #222;
+}
+
+#music {
+    background-color: #1b1b1b;
+}
+
+#videos {
+    background-color: #222;
+}
+
+#store {
+    background-color: #1b1b1b;
+}
+
+#contact {
+    background-color: #222;
+}
+
+/* Hero section styles */
 .hero {
     position: relative;
     height: 100vh;
@@ -61,7 +82,7 @@ header nav ul li a:hover {
 }
 
 .hero-video {
-    position: absolute;
+    position: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -83,7 +104,15 @@ header nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-.bio-image {
+/* About section styles */
+#about .about-logo {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+#about .bio-image {
     width: 200px;
     height: auto;
     border-radius: 50%;
@@ -91,15 +120,12 @@ header nav ul li a:hover {
     margin: 0 auto;
 }
 
+
 .bio-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
     padding: 20px;
-}
-
-section {
-    padding: 50px 20px;
 }
 
 h2 {
@@ -107,7 +133,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Flexbox layout for embed containers */
+/* Embed container styles */
 .embed-container {
     display: flex;
     flex-wrap: wrap;
@@ -118,15 +144,18 @@ h2 {
 .embed-container-music {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px; /* Adjust based on your container width */
 }
 
 .embed-container-music iframe {
-    flex: 1;
-    min-width: 300px;
-    max-width: 300px;
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
     height: 480px;
+    border: none;
 }
 
 @media (max-width: 800px) {
@@ -143,18 +172,10 @@ h2 {
     }
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #000;
-}
-
-
 /* Center text in the music section */
 #music h2, #music p {
     text-align: center;
 }
-
 
 /* Center content in the video section */
 #videos {
@@ -189,6 +210,7 @@ footer {
 #store .embed-container > div > .shopify-buy__product-wrapper {
     width: 100%;
 }
+
 .embed-container-store {
     display: flex;
     justify-content: space-around;
@@ -219,6 +241,7 @@ footer {
     width: 100%;
 }
 
+/* Contact section styles */
 #contact {
     display: flex;
     flex-direction: column;
@@ -281,10 +304,50 @@ footer {
     background-color: #00cc00;
 }
 
-
+/* Footer styles */
 footer {
     background-color: #000000;
     text-align: center;
-    padding: 20px 0;
+    padding: 40px 20px; /* Increase padding for larger footer */
     margin-top: 40px;
 }
+
+footer .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    padding: 10px 0;
+}
+
+footer .social-links {
+    margin: 20px 0;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #00cc00; /* Hover color for social links */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+}
+

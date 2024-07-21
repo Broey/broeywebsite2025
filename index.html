@@ -33,7 +33,7 @@
         </div>
     </section>
     <section id="about">
-        <h2>About Broey.</h2>
+        <h2><img src="Assets/Brand Assets/T Shirt PNG/broey logo white no background.png" alt="Broey Logo" class="about-logo"></h2>
         <img src="Assets/Brand Assets/promo pic headshot jpeg.jpg" alt="Broey Headshot" class="bio-image">
         <div class="bio-content">
             <p>A multi-talented musician and "real sound guy" who's been making music for over 15 years. With a background in multiple instruments and a passion for creating across genres, Broey.'s sound is diverse and constantly evolving. From chill lofi beats to EDM and everything in between, Broey.'s music defies genre boundaries and showcases his desire to push the limits of creativity.</p>
@@ -874,13 +874,40 @@
         })();
     </script>
 </section>
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Get in touch with Broey.</p>
-    <p>Contact me at: <a href="mailto:broeybeats@gmail.com">broeybeats@gmail.com</a></p>
-    <p> Or feel free to DM me on Socials!</p>
-    </form>
-</section>
 
+<footer>
+    <div class="footer-content">
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Get in touch with Broey.</p>
+            <p>Contact me at: <a href="mailto:broeybeats@gmail.com">broeybeats@gmail.com</a></p>
+            <p> Or feel free to DM me on Socials!</p>
+            </form>
+        </section>
+        <p>&copy; 2024 Broey. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.twitter.com/broeybeats" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/broeybeats" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/@broeybeats" target="_blank">YouTube</a>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.animated-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.style.transform = 'translateY(-5px)';
+            });
+
+            button.addEventListener('mouseout', () => {
+                button.style.transform = 'translateY(0)';
+            });
+        });
+    });
+</script>
+</body>
+</html>
 
 
