@@ -1,0 +1,111 @@
+{
+  "fetchedAt": "2026-06-12T20:08:01.934Z",
+  "artistId": "6HmeISbko4bc0zsZQvIAco",
+  "artistName": "Broey.",
+  "applyMode": false,
+  "fetchStatus": {
+    "credentialsAvailable": false,
+    "ran": false,
+    "message": "Skipped live Spotify API fetch because SPOTIFY_CLIENT_ID and/or SPOTIFY_CLIENT_SECRET were not available. The script/report framework was created and Spotify variables were documented in .env.local.example."
+  },
+  "spotifyReleases": [],
+  "siteMatches": [],
+  "unmatchedSiteReleases": [
+    {
+      "slug": "link",
+      "title": "LiNK",
+      "reason": "LiNK remains pending/manual."
+    },
+    {
+      "slug": "stereo-luv",
+      "title": "STEREO LUV",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "free",
+      "title": "FREE",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "dancing-dumpster-fire",
+      "title": "dancing dumpster fire",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "i-cant-wait-for-love",
+      "title": "I Can't Wait For Love",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "fragments-ep",
+      "title": "Fragments",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "4u",
+      "title": "4u",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "mean-something",
+      "title": "Mean Something",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "fragments-remixes",
+      "title": "Fragments (Remixes)",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "blu",
+      "title": "blu.",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "like-that",
+      "title": "Like That",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "hold-on",
+      "title": "Hold On",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "warning",
+      "title": "Warning",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "hysteria",
+      "title": "hysteria",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "after-you",
+      "title": "After You",
+      "reason": "Spotify API fetch did not run."
+    },
+    {
+      "slug": "paradise",
+      "title": "Paradise",
+      "reason": "Spotify API fetch did not run."
+    }
+  ],
+  "unmatchedSpotifyReleases": [],
+  "discrepancies": [],
+  "safeApplyCandidates": [],
+  "manualReviewItems": [
+    {
+      "subject": "Spotify API credentials",
+      "issue": "live fetch not run",
+      "note": "Add SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET locally, then rerun the reconciliation script."
+    },
+    {
+      "subject": "link",
+      "issue": "pending/manual",
+      "note": "LiNK is intentionally not aligned to Spotify."
+    }
+  ],
+  "applySummary": []
+}

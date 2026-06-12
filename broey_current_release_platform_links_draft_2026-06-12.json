@@ -1,0 +1,1955 @@
+{
+  "report_title": "Broey Current Release Platform Links Draft",
+  "date": "2026-06-12",
+  "scope_note": "Links-only research foundation for current public Broey website release pages. This report intentionally excludes credits, ISRCs, UPCs, labels/distributors, BPM/key, publishing, writers, producers, mixing, mastering, and legal metadata.",
+  "artist_names": [
+    "Broey",
+    "Broey.",
+    "Joe Montaro",
+    "broeybeats"
+  ],
+  "confidence_definitions": {
+    "High": "Direct platform release/track/video URL found via official platform page, official artist page, official Linktree, official smart link, official Bandcamp, or official YouTube/Topic result.",
+    "Medium": "Likely official but derived from a platform ID, regional storefront, official hub, or needs manual open/check before publishing.",
+    "Low": "Not found, wrong match, possible conflict, or should not be added without manual verification."
+  },
+  "excluded": [
+    "LiNK",
+    "unlisted foundation releases",
+    "fan uploads",
+    "unofficial reposts",
+    "credits/legal metadata"
+  ],
+  "releases": [
+    {
+      "title": "FREE",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: FREE - Single by Broey.; Official Linktree lists FREE as a 2026 Broey. single.",
+          "notes": "Direct Spotify album/single URL. This is also the URL that was previously used on the site for dancing dumpster fire; it appears to belong to FREE, not dancing dumpster fire."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/free-single/1892157471",
+          "confidence": "Medium",
+          "source_how_found": "Apple Music artist page lists FREE - Single as latest release; direct album URL was carried from prior draft research but search exposed only artist-page listing.",
+          "notes": "Likely direct Apple release URL. Manually open in Apple Music before publishing because current web search did not expose the direct album page."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=3Ee5ewA2MiQ",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: official platform upload / Topic-style result for FREE by Broey.",
+          "notes": "Use if the site supports official Topic listening links."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/watch?v=3Ee5ewA2MiQ",
+          "confidence": "Medium",
+          "source_how_found": "Derived from the official YouTube video ID for FREE.",
+          "notes": "Needs manual open/check in YouTube Music."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search basis: no confident TIDAL direct release result found for FREE.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Official Broey. Bandcamp search/list did not surface FREE.",
+          "notes": "Do not add unless the artist confirms a Bandcamp page exists."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0GWNQ65S4",
+          "confidence": "Medium",
+          "source_how_found": "Amazon search/ASIN evidence from public result for FREE by Broey.; clean Amazon Music album URL derived from ASIN.",
+          "notes": "Needs manual open/check. Add only after confirming the Amazon Music album page resolves."
+        },
+        {
+          "platform": "Deezer",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Deezer direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official SoundCloud direct link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Official Audius artist hub exists, but no direct FREE release link found.",
+          "notes": "Do not add artist profile as a release link."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://linktr.ee/broeybeats",
+          "confidence": "Medium",
+          "source_how_found": "Official Linktree lists FREE, but the fetch did not expose a clean direct smart-link URL.",
+          "notes": "Use only as fallback if no direct platform links are sufficient."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "YouTube"
+        ],
+        "needs_manual_review": [
+          "Apple Music",
+          "YouTube Music",
+          "Amazon Music",
+          "Official Linktree fallback"
+        ],
+        "not_found": [
+          "TIDAL",
+          "Bandcamp",
+          "Deezer",
+          "SoundCloud",
+          "Audius direct release",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": [
+        "The Spotify URL https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt appears to be FREE, not dancing dumpster fire. Move it to FREE and do not use it on the dancing dumpster fire page."
+      ]
+    },
+    {
+      "title": "blu.",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/6nljucMAQ8fHgb0kBNzLta",
+          "confidence": "High",
+          "source_how_found": "Spotify page/title: blu. - EP by Broey.; official CreateMusic smart link also routes to Spotify.",
+          "notes": "Direct Spotify release URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/blu-single/1869157131",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for blu. - Single by Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=OLAK5uy_nARjDMR_qJuNmpjAqTlePDqHUltOiX1yg",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes YouTube service; playlist URL decoded from platform destination in prior link pass.",
+          "notes": "Likely official YouTube album playlist."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_nARjDMR_qJuNmpjAqTlePDqHUltOiX1yg",
+          "confidence": "Medium",
+          "source_how_found": "Derived from the official YouTube album playlist ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/489787750",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination for blu.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "https://broey.bandcamp.com/album/blu",
+          "confidence": "High",
+          "source_how_found": "Official Broey. Bandcamp album page.",
+          "notes": "Direct Bandcamp release URL."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/sets/blu-860403193",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link and official SoundCloud/broeybeats hub context.",
+          "notes": "Direct official SoundCloud set URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0GGWLLFKY",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Amazon Music destination.",
+          "notes": "Direct Amazon Music album URL."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/897704392",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct blu. Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "https://www.beatport.com/release/blu/5810679",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Beatport destination.",
+          "notes": "Direct Beatport release URL."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/blu",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey. - blu.; CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "YouTube",
+          "TIDAL",
+          "Bandcamp",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Beatport",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [
+          "YouTube Music"
+        ],
+        "not_found": [
+          "Audius direct release"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "STEREO LUV",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/2XU1WGtc5BbePITaatGe9D",
+          "confidence": "High",
+          "source_how_found": "Spotify page/title: STEREO LUV by Broey.; official CreateMusic smart link also routes to Spotify.",
+          "notes": "Direct Spotify release URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/stereo-luv-single/1837799560",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for STEREO LUV - Single by Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=OLAK5uy_lZCSeRIHh032U7XfC86Ih33UFgRZ4R-Mg",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes YouTube service; playlist URL decoded from platform destination in prior link pass.",
+          "notes": "Likely official YouTube album playlist."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_lZCSeRIHh032U7XfC86Ih33UFgRZ4R-Mg",
+          "confidence": "Medium",
+          "source_how_found": "Derived from the official YouTube album playlist ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/458541065",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "https://broey.bandcamp.com/track/stereo-luv",
+          "confidence": "High",
+          "source_how_found": "Official Broey. Bandcamp track page.",
+          "notes": "Direct Bandcamp release URL."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/stereo-luv-1",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes SoundCloud destination.",
+          "notes": "Direct SoundCloud track URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0FPTB7TQR",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Amazon Music destination.",
+          "notes": "Direct Amazon Music album URL."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/816347021",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct STEREO LUV Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "https://www.beatport.com/release/stereo-luv/5355295",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Beatport destination.",
+          "notes": "Direct Beatport release URL."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/stereoluv",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey. - STEREO LUV; CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "YouTube",
+          "TIDAL",
+          "Bandcamp",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Beatport",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [
+          "YouTube Music"
+        ],
+        "not_found": [
+          "Audius direct release"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "dancing dumpster fire",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/1oZeVU9ghK6owsQFnYDPdY",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: dancing dumpster fire - EP by Broey.; official Linktree lists dancing dumpster fire separately from FREE.",
+          "notes": "Correct public Spotify release page based on current research."
+        },
+        {
+          "platform": "Spotify conflict / current site URL",
+          "url": "https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt",
+          "confidence": "Low",
+          "source_how_found": "Spotify search result/page title identifies this URL as FREE - Single by Broey.",
+          "notes": "Do not use this for dancing dumpster fire. This URL belongs on FREE."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/dancing-dumpster-fire/1820012666",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for dancing dumpster fire by Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=OLAK5uy_m1ZFQYUjx7bDctJFqND7L75hIfmfYG-_w",
+          "confidence": "High",
+          "source_how_found": "YouTube official album playlist search result for dancing dumpster fire.",
+          "notes": "Likely official YouTube album playlist."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_m1ZFQYUjx7bDctJFqND7L75hIfmfYG-_w",
+          "confidence": "Medium",
+          "source_how_found": "Derived from the official YouTube album playlist ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search basis: no confident TIDAL direct release result found for dancing dumpster fire.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "https://broey.bandcamp.com/album/dancing-dumpster-fire",
+          "confidence": "High",
+          "source_how_found": "Official Broey. Bandcamp album page.",
+          "notes": "Direct Bandcamp release URL."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official SoundCloud direct release link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Amazon Music direct release result found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Deezer",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Deezer direct release result found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add artist profile as a release link."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://linktr.ee/broeybeats",
+          "confidence": "Medium",
+          "source_how_found": "Official Linktree lists dancing dumpster fire, but fetch did not expose a clean direct smart-link URL.",
+          "notes": "Use only as fallback; direct Spotify/Apple/YouTube/Bandcamp are better."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify https://open.spotify.com/album/1oZeVU9ghK6owsQFnYDPdY",
+          "Apple Music",
+          "YouTube",
+          "Bandcamp"
+        ],
+        "needs_manual_review": [
+          "YouTube Music",
+          "Official Linktree fallback"
+        ],
+        "not_found": [
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Audius direct release",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": [
+        "Replace current site Spotify URL https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt with https://open.spotify.com/album/1oZeVU9ghK6owsQFnYDPdY for dancing dumpster fire."
+      ]
+    },
+    {
+      "title": "I Can't Wait For Love",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/2nqHG03NQFtKUm4grl9DAj",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: I Can't Wait For Love - Single by Broey.; official CreateMusic smart link also routes to Spotify.",
+          "notes": "Direct Spotify release URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/i-cant-wait-for-love-single/1805900957",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for I Can't Wait For Love - Single by Broey. & Broken Blythe.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=OLAK5uy_kTPixthtQQRfkfKQKndRzlBGOCr-0cbKo",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes YouTube service; playlist URL decoded from platform destination in prior link pass.",
+          "notes": "Likely official YouTube album playlist."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_kTPixthtQQRfkfKQKndRzlBGOCr-0cbKo",
+          "confidence": "Medium",
+          "source_how_found": "Derived from the official YouTube album playlist ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/427566340",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official Broey. Bandcamp page found for this collaboration.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/i-cant-wait-for-love",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes SoundCloud destination.",
+          "notes": "Direct SoundCloud track URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0F39J9X94",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Amazon Music destination.",
+          "notes": "Direct Amazon Music album URL."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/736193071",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "https://www.beatport.com/release/i-cant-wait-for-love/5015773",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Beatport destination.",
+          "notes": "Direct Beatport release URL."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/icantwaitforlove",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey., Broken Blythe - I Can't Wait For Love; CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "YouTube",
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Beatport",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [
+          "YouTube Music"
+        ],
+        "not_found": [
+          "Bandcamp",
+          "Audius direct release"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "Mean Something",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/1IOco7DVpyPuePje8qZEnZ",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: Mean Something - Single by Broey.; official CreateMusic smart link also routes to Spotify.",
+          "notes": "Direct Spotify release URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/mean-something-single/1772176805",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for Mean Something - Single by Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=OLAK5uy_lC7gQTFNkQwzWg71HTs0ImdvRNopbySEg",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes YouTube service; playlist URL decoded from platform destination in prior link pass.",
+          "notes": "Likely official YouTube album playlist."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_lC7gQTFNkQwzWg71HTs0ImdvRNopbySEg",
+          "confidence": "Medium",
+          "source_how_found": "Derived from official YouTube playlist ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/391217958",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official Broey. Bandcamp page found for Mean Something.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/mean-something-1",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes SoundCloud destination.",
+          "notes": "Direct SoundCloud track URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0DJG8W8WY",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Amazon Music destination.",
+          "notes": "Direct Amazon Music album URL."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/651735401",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "https://www.beatport.com/release/mean-something/4763481",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Beatport destination.",
+          "notes": "Direct Beatport release URL."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/meansomething",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey. - Mean Something; CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "YouTube",
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Beatport",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [
+          "YouTube Music"
+        ],
+        "not_found": [
+          "Bandcamp",
+          "Audius direct release"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "4u",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/0lvaKQqHglh6aHU78gB42M",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: 4u - Single by Broey.; official CreateMusic smart link also routes to Spotify.",
+          "notes": "Direct Spotify album/single URL. Prefer over track URL for release-page button."
+        },
+        {
+          "platform": "Spotify track",
+          "url": "https://open.spotify.com/track/2RPd2RuizRxJP1ZQ061YIL",
+          "confidence": "Medium",
+          "source_how_found": "Spotify search result for 4u track by Broey. & notminimal.",
+          "notes": "Use only if site specifically wants track URLs; album/single URL is cleaner."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/4u-single/1752540493",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for 4u - Single by Broey. & notminimal.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=gG9b17Y-GEI",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: Broey., notminimal. - 4u (Official Video) on Broey. channel; description points to CreateMusic smart link.",
+          "notes": "Official channel video, not a Topic upload. Good Watch/listening link."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/watch?v=gG9b17Y-GEI",
+          "confidence": "Medium",
+          "source_how_found": "Derived from the official YouTube video ID; YouTube Music search showed 4u as a video result.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/369907613",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official Broey. Bandcamp page found for 4u in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/4u",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes SoundCloud destination.",
+          "notes": "Direct SoundCloud track URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0D79Q4ZHS",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Amazon Music destination.",
+          "notes": "Direct Amazon Music album URL."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/602990992",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "https://audius.co/broeybeats/broey-notminimal-4u",
+          "confidence": "Medium",
+          "source_how_found": "Known direct Audius/broeybeats URL from previous pass; official Audius artist hub is linked from Linktree.",
+          "notes": "Manually open/check before publishing."
+        },
+        {
+          "platform": "Beatport",
+          "url": "https://www.beatport.com/release/4u/4618623",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Beatport destination.",
+          "notes": "Direct Beatport release URL."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/4u",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey., notminimal. - 4u; CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify album/single",
+          "Apple Music",
+          "YouTube official video",
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Beatport",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [
+          "Spotify track if needed",
+          "YouTube Music",
+          "Audius"
+        ],
+        "not_found": [
+          "Bandcamp"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "Fragments",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: Fragments - EP by Broey.; official CreateMusic smart link also routes to Spotify.",
+          "notes": "Direct Spotify EP release URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/fragments-ep/1729476600",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for Fragments EP by Broey.",
+          "notes": "Direct Apple Music EP release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search found official Topic videos for individual Fragments tracks such as Like That and Eyes On Me, but no confident full EP playlist.",
+          "notes": "Do not add a YouTube release-level link until a full official playlist/release URL is confirmed."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Fragments EP YouTube Music release page found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/344095853",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Palms Out review explicitly notes no Bandcamp for Fragments; official Broey. Bandcamp list did not surface it.",
+          "notes": "Do not add Bandcamp."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/sets/fragments-807582035",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes SoundCloud destination.",
+          "notes": "Direct official SoundCloud set URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B0CV4MNZJV",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Amazon Music destination.",
+          "notes": "Direct Amazon Music album URL."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/544619982",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Fragments Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport direct release result found for Fragments in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/fragments",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey. - Fragments EP; CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [],
+        "not_found": [
+          "YouTube release-level link",
+          "YouTube Music release-level link",
+          "Bandcamp",
+          "Audius direct release",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "Fragments (Remixes)",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/0I3culeJDMjf1rIcl0guyB",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: Fragments (Remixes) - EP by Broey.",
+          "notes": "Direct Spotify EP release URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/fragments-remixes/1742637606",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for Fragments (Remixes) by Broey.",
+          "notes": "Direct Apple Music album/release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=OLAK5uy_lCBCvuruoKn5fK9Hwu3tkI_bns0oV6Z8g",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: Fragments (Remixes) official album playlist.",
+          "notes": "Likely official YouTube album playlist."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_lCBCvuruoKn5fK9Hwu3tkI_bns0oV6Z8g",
+          "confidence": "Medium",
+          "source_how_found": "Derived from official YouTube album playlist ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/359004950",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes TIDAL destination.",
+          "notes": "Direct TIDAL album URL."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official Broey. Bandcamp page found for Fragments (Remixes).",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "https://soundcloud.com/broeybeats/sets/fragments-remixes-2",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes SoundCloud destination.",
+          "notes": "Direct official SoundCloud set URL; manually verify current visibility."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "CreateMusic smart-link result exposed Amazon service, but prior decoded destination appeared to collide with original Fragments Amazon ID.",
+          "notes": "Do not add Amazon until manually confirmed."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/576922861",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Deezer destination.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Fragments (Remixes) Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "https://www.beatport.com/release/fragments-remixes/4544508",
+          "confidence": "High",
+          "source_how_found": "Official CreateMusic smart link exposes Beatport destination.",
+          "notes": "Direct Beatport release URL."
+        },
+        {
+          "platform": "Official hub / smart link",
+          "url": "https://createmusic.fm/fragments-remixes",
+          "confidence": "High",
+          "source_how_found": "Official Linktree points to Broey. - Fragments (Remixes); CreateMusic smart link lists service buttons.",
+          "notes": "Use after direct platform links as release hub."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "YouTube",
+          "TIDAL",
+          "SoundCloud",
+          "Deezer",
+          "Beatport",
+          "CreateMusic smart link"
+        ],
+        "needs_manual_review": [
+          "YouTube Music"
+        ],
+        "not_found": [
+          "Bandcamp",
+          "Amazon Music direct remixes URL",
+          "Audius direct release"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": [
+        "Do not add Amazon Music for Fragments (Remixes) until direct remixes album URL is manually confirmed; the smart-link destination may collide with original Fragments."
+      ]
+    },
+    {
+      "title": "Warning",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/0m7quPpvC0EVQ21J86apaa",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: Warning - Single by Cryztal Grid & Broey.",
+          "notes": "Direct Spotify album/single URL. Prefer over track URL."
+        },
+        {
+          "platform": "Spotify track",
+          "url": "https://open.spotify.com/track/7r5cCLB4dwN8RAW7WEzYlR",
+          "confidence": "Medium",
+          "source_how_found": "Spotify search result for Warning track by Cryztal Grid & Broey.",
+          "notes": "Use only if site specifically wants track URLs; album/single URL is cleaner."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/warning-single/1673797798",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for Warning - Single by Cryztal Grid & Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search returned gameplay/playlist-style uses and no confident official Topic/channel release result.",
+          "notes": "Do not add unofficial usage videos."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Found a Bass Rebels compilation playlist containing Warning, not a direct release page.",
+          "notes": "Do not add compilation playlist as the release link unless manually approved."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search returned TIDAL/Cryztal Grid context but no confident direct Warning release URL.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No Bandcamp direct release found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official SoundCloud release link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search returned Bass Rebels Best Of 2023 compilation containing Warning, not direct single.",
+          "notes": "Do not add compilation as release link unless manually approved."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/en/album/410679107",
+          "confidence": "High",
+          "source_how_found": "Deezer search result/page: Warning by Cryztal Grid, Broey.",
+          "notes": "Direct Deezer album URL."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport direct release result found.",
+          "notes": "Do not add until manually found."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify album/single",
+          "Apple Music",
+          "Deezer"
+        ],
+        "needs_manual_review": [
+          "Spotify track if needed"
+        ],
+        "not_found": [
+          "YouTube",
+          "YouTube Music direct release",
+          "TIDAL",
+          "Bandcamp",
+          "SoundCloud",
+          "Amazon Music direct single",
+          "Audius",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "Hold On",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/7iZkuzxea9D0SHEIXv3bVA",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: Hold On - Single by Broey.",
+          "notes": "Direct Spotify album/single URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/hold-on-single/1684637507",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for Hold On - Single by Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Search found a feedback/content video about Hold On, not an official listening upload.",
+          "notes": "Do not add non-listening feedback video as platform link."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident YouTube Music direct release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident TIDAL direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "https://broey.bandcamp.com/track/hold-on",
+          "confidence": "High",
+          "source_how_found": "Official Broey. Bandcamp track page.",
+          "notes": "Direct Bandcamp release URL."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official SoundCloud direct release link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Amazon Music direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Deezer",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Deezer direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport direct release result found.",
+          "notes": "Do not add until manually found."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "Bandcamp"
+        ],
+        "needs_manual_review": [],
+        "not_found": [
+          "YouTube",
+          "YouTube Music",
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Audius",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "hysteria",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/track/12I7dRdt4uhBXMOKFSm7NV",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: hysteria by Broey.",
+          "notes": "Track URL found; album/single release URL not found in current pass."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/gb/album/hysteria-single/1602310014",
+          "confidence": "High",
+          "source_how_found": "Apple Music release page/search result for hysteria - Single by Broey. in GB storefront.",
+          "notes": "Direct Apple release URL; manually check preferred US storefront if needed."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=ffnbbnsniSs",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: Broey. - hysteria (Official Visualizer Video).",
+          "notes": "Official visualizer/listening video."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No distinct YouTube Music release link found.",
+          "notes": "You may test https://music.youtube.com/watch?v=ffnbbnsniSs manually, but do not add until confirmed."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident TIDAL direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "https://broey.bandcamp.com/track/hysteria",
+          "confidence": "Medium",
+          "source_how_found": "Official Broey. Bandcamp list/search result surfaces hysteria; direct URL follows Bandcamp title slug pattern.",
+          "notes": "Manually open before publishing; confidence is Medium because direct page was not opened in this pass."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official SoundCloud direct release link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Amazon Music direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Deezer",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Deezer direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport direct release result found.",
+          "notes": "Do not add until manually found."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify track",
+          "Apple Music GB storefront",
+          "YouTube official visualizer"
+        ],
+        "needs_manual_review": [
+          "Bandcamp",
+          "Preferred Apple Music US storefront if needed"
+        ],
+        "not_found": [
+          "Spotify album/single URL",
+          "YouTube Music",
+          "TIDAL",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Audius",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    },
+    {
+      "title": "After You",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/10KYFjdvz7plRKXRmSQqtb",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: After You - Single by Mr. Hilroy and Broey.",
+          "notes": "Direct Spotify album/single URL. Preferred over duplicate-looking track URLs."
+        },
+        {
+          "platform": "Spotify duplicate track candidate",
+          "url": "https://open.spotify.com/track/6opbzAYwuez08lDZKk0Xif",
+          "confidence": "Medium",
+          "source_how_found": "Spotify search result for After You track by Mr. Hilroy and Broey.",
+          "notes": "Possible track URL. Keep as review-only; album/single URL is cleaner."
+        },
+        {
+          "platform": "Spotify duplicate track candidate",
+          "url": "https://open.spotify.com/track/6FbkBStYXocZZHQJ7afWnT",
+          "confidence": "Low",
+          "source_how_found": "Additional Spotify search result surfaced another After You track URL.",
+          "notes": "Potential duplicate/region/version issue. Do not add unless manually confirmed."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/ca/album/after-you-single/1726655763",
+          "confidence": "High",
+          "source_how_found": "Apple Music/Shazam search result for After You - Single by Broey. & Mr. Hilroy in CA storefront.",
+          "notes": "Direct Apple Music album URL; manually check preferred US storefront."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=TN90jROEvHw",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: Topic-style official upload for After You.",
+          "notes": "Official Topic listening link."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/watch?v=TN90jROEvHw",
+          "confidence": "Medium",
+          "source_how_found": "Derived from official YouTube video ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident TIDAL direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No Bandcamp direct release found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "Stereofox/third-party context suggests the track exists on SoundCloud, but no clean official URL was found in current pass.",
+          "notes": "Do not add until direct official SoundCloud link is found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "https://music.amazon.co.uk/albums/B08N5PY9F5",
+          "confidence": "Medium",
+          "source_how_found": "Amazon Music UK search result for After You.",
+          "notes": "Direct Amazon Music URL but regional storefront; manually verify if using."
+        },
+        {
+          "platform": "Deezer",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Deezer direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport direct release result found.",
+          "notes": "Do not add until manually found."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify album/single",
+          "Apple Music CA storefront",
+          "YouTube Topic"
+        ],
+        "needs_manual_review": [
+          "YouTube Music",
+          "Spotify duplicate track candidates",
+          "Amazon Music UK",
+          "Preferred Apple US storefront"
+        ],
+        "not_found": [
+          "TIDAL",
+          "Bandcamp",
+          "SoundCloud direct official",
+          "Deezer",
+          "Audius",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": [
+        "Two Spotify track URLs surfaced for After You. Use album/single URL unless manual review confirms a specific track URL should be used."
+      ]
+    },
+    {
+      "title": "Like That",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident standalone Spotify single/release URL found for original Like That.",
+          "notes": "Do not use the notminimal remix URL for original Like That."
+        },
+        {
+          "platform": "Spotify fallback / Fragments EP",
+          "url": "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7",
+          "confidence": "Medium",
+          "source_how_found": "Spotify Fragments EP release page contains Like That as the opener.",
+          "notes": "Use only if the website accepts parent-EP links on standalone track pages. Otherwise keep Spotify empty/manual."
+        },
+        {
+          "platform": "Spotify wrong match / remix",
+          "url": "https://open.spotify.com/track/2LmeFHopJy6QSuyAdrntMC",
+          "confidence": "Low",
+          "source_how_found": "Spotify search result identifies this as Like That - notminimal. Remix from Fragments (Remixes).",
+          "notes": "Do not use for the original Like That page."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/like-that-single/1730121194",
+          "confidence": "High",
+          "source_how_found": "Apple Music/Shazam search result for Like That - Single by Broey.",
+          "notes": "Direct Apple Music single URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=COOMXMksJ9E",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: official platform upload for Like That from Fragments.",
+          "notes": "Official Topic/listening link."
+        },
+        {
+          "platform": "YouTube official visualizer",
+          "url": "https://www.youtube.com/channel/UCiPFLFHcbBW0RE5oHBPAvAw",
+          "confidence": "Low",
+          "source_how_found": "Broey. YouTube channel search result lists Broey. - Like That (Official Visualizer), but direct video URL was not captured.",
+          "notes": "Do not add channel URL as release link; manually find direct video if desired."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/watch?v=COOMXMksJ9E",
+          "confidence": "Medium",
+          "source_how_found": "Derived from official YouTube video ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No standalone TIDAL Like That direct release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No official Broey. Bandcamp page found for Like That.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct official SoundCloud link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No standalone Amazon Music direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Deezer",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No standalone Deezer direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport direct release result found.",
+          "notes": "Do not add until manually found."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Apple Music",
+          "YouTube Topic"
+        ],
+        "needs_manual_review": [
+          "YouTube Music",
+          "Spotify parent EP fallback",
+          "Direct official visualizer URL if manually found"
+        ],
+        "not_found": [
+          "Standalone Spotify single URL",
+          "TIDAL",
+          "Bandcamp",
+          "SoundCloud",
+          "Amazon Music",
+          "Deezer",
+          "Audius",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": [
+        "Do not add Spotify track https://open.spotify.com/track/2LmeFHopJy6QSuyAdrntMC to the original Like That page; it is the notminimal remix."
+      ]
+    },
+    {
+      "title": "Paradise",
+      "links": [
+        {
+          "platform": "Spotify",
+          "url": "https://open.spotify.com/album/2nkJjtXF1s41m8DscqlMK2",
+          "confidence": "High",
+          "source_how_found": "Spotify search result/page title: Paradise - Single by Broey.",
+          "notes": "Direct Spotify album/single URL."
+        },
+        {
+          "platform": "Apple Music",
+          "url": "https://music.apple.com/us/album/paradise-single/1705775795",
+          "confidence": "High",
+          "source_how_found": "Apple Music search result/release page for Paradise - Single by Broey.",
+          "notes": "Direct Apple Music release URL."
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/watch?v=KjO1tX506ww",
+          "confidence": "High",
+          "source_how_found": "YouTube search result: official Topic-style upload for Paradise by Broey.",
+          "notes": "Official Topic listening link."
+        },
+        {
+          "platform": "YouTube Music",
+          "url": "https://music.youtube.com/watch?v=KjO1tX506ww",
+          "confidence": "Medium",
+          "source_how_found": "Derived from official YouTube video ID.",
+          "notes": "Needs manual YouTube Music open/check."
+        },
+        {
+          "platform": "TIDAL",
+          "url": "https://tidal.com/album/314502943",
+          "confidence": "Medium",
+          "source_how_found": "MusicBrainz external links for Paradise list TIDAL album URL.",
+          "notes": "Likely direct TIDAL release URL; manually verify because source is third-party database."
+        },
+        {
+          "platform": "Bandcamp",
+          "url": "https://broey.bandcamp.com/track/paradise",
+          "confidence": "High",
+          "source_how_found": "Official Broey. Bandcamp track page.",
+          "notes": "Direct Bandcamp release URL."
+        },
+        {
+          "platform": "SoundCloud",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct official SoundCloud link found in current pass.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Amazon Music",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Amazon Music direct release result found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Deezer",
+          "url": "https://www.deezer.com/album/483973225",
+          "confidence": "Medium",
+          "source_how_found": "MusicBrainz external links for Paradise list Deezer album URL.",
+          "notes": "Likely direct Deezer release URL; manually verify because source is third-party database."
+        },
+        {
+          "platform": "Audius",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No direct Audius release link found.",
+          "notes": "Do not add until manually found."
+        },
+        {
+          "platform": "Beatport",
+          "url": "Not found / needs manual search",
+          "confidence": "Low",
+          "source_how_found": "No confident Beatport result found.",
+          "notes": "Do not add until manually found."
+        }
+      ],
+      "recommended_website_links": {
+        "safe_to_add": [
+          "Spotify",
+          "Apple Music",
+          "YouTube",
+          "Bandcamp"
+        ],
+        "needs_manual_review": [
+          "YouTube Music",
+          "TIDAL",
+          "Deezer"
+        ],
+        "not_found": [
+          "SoundCloud",
+          "Amazon Music",
+          "Audius",
+          "Beatport"
+        ]
+      },
+      "important_review_checks": [
+        "Confirm the title exactly matches the website release title.",
+        "Confirm artist display includes Broey / Broey. or the correct collaborator.",
+        "Confirm the URL is the release page or official platform track/video page, not a playlist, artist profile, fan upload, or random repost.",
+        "Confirm whether Spotify URL is an album/single release URL or a track URL.",
+        "Confirm whether YouTube is an official Topic upload, official Broey/channel upload, official label upload, or unofficial upload.",
+        "Flag storefront/regional URL differences before publishing if the website prefers US/global canonical links."
+      ],
+      "conflicts_duplicates_ambiguous_links": []
+    }
+  ],
+  "master_summary": {
+    "releases_with_complete_spotify_apple_youtube_or_ytm_coverage": [
+      "FREE",
+      "blu.",
+      "STEREO LUV",
+      "dancing dumpster fire",
+      "I Can't Wait For Love",
+      "Mean Something",
+      "4u",
+      "Fragments (Remixes)",
+      "hysteria",
+      "After You",
+      "Paradise"
+    ],
+    "releases_missing_spotify": [
+      "Like That"
+    ],
+    "releases_missing_apple_music": [],
+    "releases_missing_youtube_or_youtube_music": [
+      "Fragments",
+      "Warning",
+      "Hold On"
+    ],
+    "releases_with_bandcamp_links": [
+      {
+        "title": "blu.",
+        "urls": [
+          "https://broey.bandcamp.com/album/blu"
+        ]
+      },
+      {
+        "title": "STEREO LUV",
+        "urls": [
+          "https://broey.bandcamp.com/track/stereo-luv"
+        ]
+      },
+      {
+        "title": "dancing dumpster fire",
+        "urls": [
+          "https://broey.bandcamp.com/album/dancing-dumpster-fire"
+        ]
+      },
+      {
+        "title": "Hold On",
+        "urls": [
+          "https://broey.bandcamp.com/track/hold-on"
+        ]
+      },
+      {
+        "title": "hysteria",
+        "urls": [
+          "https://broey.bandcamp.com/track/hysteria"
+        ]
+      },
+      {
+        "title": "Paradise",
+        "urls": [
+          "https://broey.bandcamp.com/track/paradise"
+        ]
+      }
+    ],
+    "releases_with_tidal_links": [
+      {
+        "title": "blu.",
+        "urls": [
+          "https://tidal.com/album/489787750"
+        ]
+      },
+      {
+        "title": "STEREO LUV",
+        "urls": [
+          "https://tidal.com/album/458541065"
+        ]
+      },
+      {
+        "title": "I Can't Wait For Love",
+        "urls": [
+          "https://tidal.com/album/427566340"
+        ]
+      },
+      {
+        "title": "Mean Something",
+        "urls": [
+          "https://tidal.com/album/391217958"
+        ]
+      },
+      {
+        "title": "4u",
+        "urls": [
+          "https://tidal.com/album/369907613"
+        ]
+      },
+      {
+        "title": "Fragments",
+        "urls": [
+          "https://tidal.com/album/344095853"
+        ]
+      },
+      {
+        "title": "Fragments (Remixes)",
+        "urls": [
+          "https://tidal.com/album/359004950"
+        ]
+      },
+      {
+        "title": "Paradise",
+        "urls": [
+          "https://tidal.com/album/314502943"
+        ]
+      }
+    ],
+    "links_that_need_manual_review": [
+      "FREE",
+      "blu.",
+      "STEREO LUV",
+      "dancing dumpster fire",
+      "I Can't Wait For Love",
+      "Mean Something",
+      "4u",
+      "Fragments (Remixes)",
+      "Warning",
+      "hysteria",
+      "After You",
+      "Like That",
+      "Paradise"
+    ],
+    "recommended_exact_link_updates": [
+      "FREE Spotify: https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt",
+      "dancing dumpster fire Spotify: https://open.spotify.com/album/1oZeVU9ghK6owsQFnYDPdY",
+      "Remove/replace dancing dumpster fire current-site Spotify URL https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt because it appears to be FREE.",
+      "Do not add LiNK links in this pass.",
+      "Do not add Fragments (Remixes) Amazon Music until the direct remixes album destination is manually confirmed.",
+      "Do not add Like That Spotify remix URL to the original Like That page.",
+      "Use direct platform release URLs first; include CreateMusic smart links only as secondary hubs."
+    ]
+  }
+}

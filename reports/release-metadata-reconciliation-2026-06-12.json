@@ -1,0 +1,84 @@
+{
+  "date": "2026-06-12",
+  "status": "review_artifact_only_do_not_import",
+  "source_foundation_files": [
+    "C:\\Users\\phill\\Downloads\\broey_release_metadata_foundation_draft_2026-06-12.json",
+    "C:\\Users\\phill\\Downloads\\broey_release_metadata_foundation_draft_2026-06-12.md"
+  ],
+  "production_content_modified": false,
+  "summary": {
+    "site_release_count_after_draft_filter": 35,
+    "primary_model_file": "content/releases.ts",
+    "primary_recommendation": "Add only approved high-confidence direct platform links first; do not publish formal credits, UPCs, ISRCs, BPM/key, sample details, legal rights, label/distributor/publisher data, or foundation-era archive pages without manual verification.",
+    "link_pending_manual": true,
+    "foundation_era_default": "internal_noindex_until_approved"
+  },
+  "current_model_gaps": [
+    "No separate original_release_date, dsp_release_date, or display_date fields.",
+    "Visibility only removes draft releases; undefined visibility is public.",
+    "No explicit indexing/noindex field.",
+    "Project tracks are hidden from archive but still generated and included in sitemap unless showInSitemap is false.",
+    "Credits and details have no source, confidence, or publish approval fields.",
+    "Smart links and direct DSP links are not differentiated structurally."
+  ],
+  "release_matches": [
+    { "slug": "free", "site_title": "FREE", "research_title": "FREE", "confidence": "High", "bucket": "current-era" },
+    { "slug": "blu", "site_title": "blu.", "research_title": "blu.", "confidence": "High", "bucket": "current-era" },
+    { "slug": "stereo-luv", "site_title": "STEREO LUV", "research_title": "STEREO LUV", "confidence": "High", "bucket": "current-era" },
+    { "slug": "link", "site_title": "LiNK", "research_title": "LiNK", "confidence": "Low", "bucket": "pending-manual" },
+    { "slug": "dancing-dumpster-fire", "site_title": "dancing dumpster fire", "research_title": "dancing dumpster fire", "confidence": "High", "bucket": "current-era" },
+    { "slug": "i-cant-wait-for-love", "site_title": "I Can't Wait For Love", "research_title": "I Can't Wait For Love", "confidence": "High", "bucket": "current-era" },
+    { "slug": "mean-something", "site_title": "Mean Something", "research_title": "Mean Something", "confidence": "High", "bucket": "current-era" },
+    { "slug": "4u", "site_title": "4u", "research_title": "4u", "confidence": "High", "bucket": "current-era" },
+    { "slug": "fragments-ep", "site_title": "Fragments", "research_title": "Fragments", "confidence": "High", "bucket": "current-era" },
+    { "slug": "fragments-remixes", "site_title": "Fragments (Remixes)", "research_title": "Fragments (Remixes)", "confidence": "High", "bucket": "current-era" },
+    { "slug": "warning", "site_title": "Warning", "research_title": "Warning", "confidence": "High", "bucket": "transition" },
+    { "slug": "hold-on", "site_title": "Hold On", "research_title": "Hold On", "confidence": "High", "bucket": "transition" },
+    { "slug": "hysteria", "site_title": "hysteria", "research_title": "hysteria", "confidence": "High", "bucket": "transition" },
+    { "slug": "paradise", "site_title": "Paradise", "research_title": "Paradise", "confidence": "Medium", "bucket": "foundation-archive" },
+    { "slug": "after-you", "site_title": "After You", "research_title": "After You", "confidence": "Low/Medium", "bucket": "public-archive-candidate" }
+  ],
+  "safe_platform_link_candidates": [
+    { "release": "FREE", "platform": "Apple Music", "url": "https://music.apple.com/us/album/free-single/1892157471", "status": "Safe to add" },
+    { "release": "blu.", "platform": "Apple Music", "url": "https://music.apple.com/us/album/blu-single/1869157131", "status": "Safe to add" },
+    { "release": "blu.", "platform": "Bandcamp", "url": "https://broey.bandcamp.com/album/blu", "status": "Safe to add" },
+    { "release": "STEREO LUV", "platform": "Apple Music", "url": "https://music.apple.com/us/album/stereo-luv-single/1837799560", "status": "Safe to add" },
+    { "release": "STEREO LUV", "platform": "Bandcamp", "url": "https://broey.bandcamp.com/track/stereo-luv", "status": "Safe to add" },
+    { "release": "dancing dumpster fire", "platform": "Apple Music", "url": "https://music.apple.com/us/album/dancing-dumpster-fire/1820012666", "status": "Safe to add" },
+    { "release": "dancing dumpster fire", "platform": "Bandcamp", "url": "https://broey.bandcamp.com/album/dancing-dumpster-fire", "status": "Safe to add" },
+    { "release": "I Can't Wait For Love", "platform": "Apple Music", "url": "https://music.apple.com/us/album/i-cant-wait-for-love-single/1805900957", "status": "Safe to add" },
+    { "release": "I Can't Wait For Love", "platform": "Spotify", "url": "https://open.spotify.com/album/2nqHG03NQFtKUm4grl9DAj", "status": "Safe to add after direct page check" },
+    { "release": "Mean Something", "platform": "Apple Music", "url": "https://music.apple.com/us/album/mean-something-single/1772176805", "status": "Safe to add" },
+    { "release": "Mean Something", "platform": "Spotify", "url": "https://open.spotify.com/album/1IOco7DVpyPuePje8qZEnZ", "status": "Safe to add after direct page check" },
+    { "release": "4u", "platform": "Apple Music", "url": "https://music.apple.com/us/album/4u-single/1752540493", "status": "Safe to add" },
+    { "release": "4u", "platform": "Spotify", "url": "https://open.spotify.com/album/0lvaKQqHglh6aHU78gB42M", "status": "Safe to add after direct page check" },
+    { "release": "Fragments", "platform": "Apple Music", "url": "https://music.apple.com/us/album/fragments-ep/1729476600", "status": "Safe to add" },
+    { "release": "Fragments", "platform": "Spotify", "url": "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7", "status": "Safe to add after direct page check" },
+    { "release": "Fragments (Remixes)", "platform": "Apple Music", "url": "https://music.apple.com/us/album/fragments-remixes/1742637606", "status": "Safe to add" },
+    { "release": "Warning", "platform": "Spotify album", "url": "https://open.spotify.com/album/0m7quPpvC0EVQ21J86apaa", "status": "Safe to add after direct page check" },
+    { "release": "Hold On", "platform": "Bandcamp", "url": "https://broey.bandcamp.com/track/hold-on", "status": "Safe to add if transition releases remain public" },
+    { "release": "hysteria", "platform": "Bandcamp", "url": "https://broey.bandcamp.com/track/hysteria", "status": "Safe to add if transition releases remain public" }
+  ],
+  "do_not_publish_without_manual_verification": [
+    "Writer/composer",
+    "Producer",
+    "Mixing",
+    "Mastering",
+    "Artwork/design",
+    "UPC",
+    "ISRC",
+    "Distributor",
+    "Publishing",
+    "Label/legal rights",
+    "BPM/key",
+    "Sample details",
+    "MusicBrainz-derived platform URLs"
+  ],
+  "recommended_phases": [
+    "Phase 1A: Add only high-confidence platform links to current public releases.",
+    "Phase 1B: Add display_date, original_release_date, dsp_release_date, visibility, indexing, and verification status fields.",
+    "Phase 1C: Add approved credits/details after manual validation.",
+    "Phase 1D: Handle archive/foundation releases separately with noindex/internal visibility unless approved.",
+    "Phase 1E: Final release-page QA for links, metadata, sitemap, structured data, and mobile layout."
+  ]
+}

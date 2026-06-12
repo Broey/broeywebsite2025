@@ -1,0 +1,646 @@
+{
+  "generatedAt": "2026-06-12T20:44:06.136Z",
+  "sourceReport": "scripts/catalog-sync-report.json",
+  "dryRunExecuted": true,
+  "credentialsAvailable": true,
+  "tidalSummary": {
+    "catalogReleaseCount": 58,
+    "catalogCollectionCount": 31,
+    "catalogTrackCount": 52,
+    "catalogTileCandidateCount": 58,
+    "localReleaseCount": 35,
+    "matchedExistingReleaseCount": 34,
+    "possibleNewReleaseCount": 24,
+    "possibleNewTileCount": 24,
+    "ambiguousMatchCount": 0,
+    "localMissingFromDspCount": 3
+  },
+  "scopedReleases": [
+    {
+      "slug": "free",
+      "siteTitle": "FREE",
+      "siteType": "single",
+      "siteReleaseDate": "2026-05-07",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/514645954",
+      "currentCatalogTidalId": "514645954",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "FREE",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2026-05-07",
+      "tidalId": "514645954",
+      "tidalUrl": "https://tidal.com/browse/album/514645954",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry."
+      ]
+    },
+    {
+      "slug": "blu",
+      "siteTitle": "blu.",
+      "siteType": "single",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/489787750",
+      "currentCatalogTidalId": "489787750",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "blu.",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2025-09-12",
+      "tidalId": "489787750",
+      "tidalUrl": "https://tidal.com/browse/album/489787750",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2025-09-12; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "stereo-luv",
+      "siteTitle": "STEREO LUV",
+      "siteType": "single",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/458541065",
+      "currentCatalogTidalId": "458541065",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "STEREO LUV",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2025-10-03",
+      "tidalId": "458541065",
+      "tidalUrl": "https://tidal.com/browse/album/458541065",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2025-10-03; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "dancing-dumpster-fire",
+      "siteTitle": "dancing dumpster fire",
+      "siteType": "ep",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/441546103",
+      "currentCatalogTidalId": "441546103",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "dancing dumpster fire",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2025-08-02",
+      "tidalId": "441546103",
+      "tidalUrl": "https://tidal.com/browse/album/441546103",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2025-08-02; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "i-cant-wait-for-love",
+      "siteTitle": "I Can't Wait For Love",
+      "siteType": "single",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": null,
+      "currentCatalogTidalId": null,
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "I Can't Wait For Love",
+      "tidalArtistDisplay": "Broey. & Broken Blythe",
+      "tidalReleaseDate": "2025-05-02",
+      "tidalId": "427566340",
+      "tidalUrl": "https://tidal.com/browse/album/427566340",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "title"
+      ],
+      "linkStatus": "TIDAL link missing but high-confidence match found",
+      "proposedStatus": "Safe candidate for future TIDAL link add",
+      "mismatchNotes": [
+        "Safe candidate for future TIDAL link add only after manual approval."
+      ]
+    },
+    {
+      "slug": "mean-something",
+      "siteTitle": "Mean Something",
+      "siteType": "single",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/391217958",
+      "currentCatalogTidalId": "391217958",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Mean Something",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2024-11-01",
+      "tidalId": "391217958",
+      "tidalUrl": "https://tidal.com/browse/album/391217958",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2024-11-01; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "4u",
+      "siteTitle": "4u",
+      "siteType": "single",
+      "siteReleaseDate": "2024-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/369907613",
+      "currentCatalogTidalId": "369907613",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "4u",
+      "tidalArtistDisplay": "Broey. & notminimal.",
+      "tidalReleaseDate": "2024-07-19",
+      "tidalId": "369907613",
+      "tidalUrl": "https://tidal.com/browse/album/369907613",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2024-00-00 differs from TIDAL 2024-07-19; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "fragments-ep",
+      "siteTitle": "Fragments",
+      "siteType": "ep",
+      "siteReleaseDate": "2024-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/344095853",
+      "currentCatalogTidalId": "344095853",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Fragments",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2024-03-29",
+      "tidalId": "344095853",
+      "tidalUrl": "https://tidal.com/browse/album/344095853",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2024-00-00 differs from TIDAL 2024-03-29; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "fragments-remixes",
+      "siteTitle": "Fragments (Remixes)",
+      "siteType": "remix",
+      "siteReleaseDate": "2024-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/359004950",
+      "currentCatalogTidalId": "359004950",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Fragments (Remixes)",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2024-05-10",
+      "tidalId": "359004950",
+      "tidalUrl": "https://tidal.com/browse/album/359004950",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2024-00-00 differs from TIDAL 2024-05-10; do not overwrite dates in this phase."
+      ]
+    },
+    {
+      "slug": "warning",
+      "siteTitle": "Warning",
+      "siteType": "single",
+      "siteReleaseDate": "2023-03-10",
+      "currentTidalLinks": [
+        "https://tidal.com/browse/album/279433677"
+      ],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/279433677",
+      "currentCatalogTidalId": "279433677",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Warning",
+      "tidalArtistDisplay": "Cryztal Grid & Broey.",
+      "tidalReleaseDate": "2023-03-10",
+      "tidalId": "279433677",
+      "tidalUrl": "https://tidal.com/browse/album/279433677",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL link already correct",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "No mismatch found in report-only comparison."
+      ]
+    },
+    {
+      "slug": "hold-on",
+      "siteTitle": "Hold On",
+      "siteType": "single",
+      "siteReleaseDate": "2023-05-08",
+      "currentTidalLinks": [
+        "https://tidal.com/browse/album/291346877"
+      ],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/291346877",
+      "currentCatalogTidalId": "291346877",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Hold On",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2023-05-08",
+      "tidalId": "291346877",
+      "tidalUrl": "https://tidal.com/browse/album/291346877",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL link already correct",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "No mismatch found in report-only comparison."
+      ]
+    },
+    {
+      "slug": "hysteria",
+      "siteTitle": "hysteria",
+      "siteType": "single",
+      "siteReleaseDate": "2022-01-13",
+      "currentTidalLinks": [
+        "https://tidal.com/browse/album/210567515"
+      ],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/210567515",
+      "currentCatalogTidalId": "210567515",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "hysteria",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2022-01-13",
+      "tidalId": "210567515",
+      "tidalUrl": "https://tidal.com/browse/album/210567515",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL link already correct",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "No mismatch found in report-only comparison."
+      ]
+    },
+    {
+      "slug": "after-you",
+      "siteTitle": "After You",
+      "siteType": "single",
+      "siteReleaseDate": "2020-11-30",
+      "currentTidalLinks": [
+        "https://tidal.com/browse/album/340981922"
+      ],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/340981922",
+      "currentCatalogTidalId": "340981922",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "After You",
+      "tidalArtistDisplay": "Broey. & Mr. Hilroy",
+      "tidalReleaseDate": "2020-11-30",
+      "tidalId": "340981922",
+      "tidalUrl": "https://tidal.com/browse/album/340981922",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL link already correct",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "No mismatch found in report-only comparison."
+      ]
+    },
+    {
+      "slug": "like-that",
+      "siteTitle": "Like That",
+      "siteType": "single",
+      "siteReleaseDate": "2024-03-15",
+      "currentTidalLinks": [
+        "https://tidal.com/browse/album/344685076"
+      ],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/344685076",
+      "currentCatalogTidalId": "344685076",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Like That",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2024-03-15",
+      "tidalId": "344685076",
+      "tidalUrl": "https://tidal.com/browse/album/344685076",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL link already correct",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "No mismatch found in report-only comparison."
+      ]
+    },
+    {
+      "slug": "paradise",
+      "siteTitle": "Paradise",
+      "siteType": "single",
+      "siteReleaseDate": "2019-03-23",
+      "currentTidalLinks": [
+        "https://tidal.com/browse/album/314502943"
+      ],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/314502943",
+      "currentCatalogTidalId": "314502943",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "Paradise",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2019-03-23",
+      "tidalId": "314502943",
+      "tidalUrl": "https://tidal.com/browse/album/314502943",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL link already correct",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "No mismatch found in report-only comparison."
+      ]
+    }
+  ],
+  "projectTrackTidal": [
+    {
+      "slug": "glfm",
+      "title": "GLFM",
+      "parentReleaseSlug": "dancing-dumpster-fire",
+      "directTidalLinks": [
+        "https://tidal.com/browse/track/441546108"
+      ],
+      "catalogSourceUrl": "https://tidal.com/browse/track/441546108"
+    }
+  ],
+  "unmatchedRelevant": [
+    {
+      "title": "blu. (radio version)",
+      "slug": "blu-blu-radio-version",
+      "type": "single",
+      "collectionType": "Track",
+      "isCollection": false,
+      "suggestedTileType": "trackTile",
+      "year": 2025,
+      "releaseDate": "2025-09-12",
+      "artistName": "Broey.",
+      "collectionName": "blu.",
+      "parentCollectionTitle": "blu.",
+      "parentCollectionSlug": "blu",
+      "parentCollectionId": "489787750",
+      "parentCollectionType": "EP",
+      "trackNumber": 1,
+      "trackCount": 2,
+      "rawKind": "tracks",
+      "source": "tidal",
+      "provider": "tidal",
+      "sourceId": "489787751",
+      "tidalId": "489787751",
+      "sourceUrl": "https://tidal.com/browse/track/489787751"
+    },
+    {
+      "title": "blu. (extended mix)",
+      "slug": "blu-blu-extended-mix",
+      "type": "single",
+      "collectionType": "Track",
+      "isCollection": false,
+      "suggestedTileType": "trackTile",
+      "year": 2025,
+      "releaseDate": "2025-09-12",
+      "artistName": "Broey.",
+      "collectionName": "blu.",
+      "parentCollectionTitle": "blu.",
+      "parentCollectionSlug": "blu",
+      "parentCollectionId": "489787750",
+      "parentCollectionType": "EP",
+      "trackNumber": 2,
+      "trackCount": 2,
+      "rawKind": "tracks",
+      "source": "tidal",
+      "provider": "tidal",
+      "sourceId": "489787752",
+      "tidalId": "489787752",
+      "sourceUrl": "https://tidal.com/browse/track/489787752"
+    }
+  ],
+  "highlights": {
+    "linkPendingManual": true,
+    "free": {
+      "slug": "free",
+      "siteTitle": "FREE",
+      "siteType": "single",
+      "siteReleaseDate": "2026-05-07",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/514645954",
+      "currentCatalogTidalId": "514645954",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "FREE",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2026-05-07",
+      "tidalId": "514645954",
+      "tidalUrl": "https://tidal.com/browse/album/514645954",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "date",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry."
+      ]
+    },
+    "blu": {
+      "slug": "blu",
+      "siteTitle": "blu.",
+      "siteType": "single",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/489787750",
+      "currentCatalogTidalId": "489787750",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "blu.",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2025-09-12",
+      "tidalId": "489787750",
+      "tidalUrl": "https://tidal.com/browse/album/489787750",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2025-09-12; do not overwrite dates in this phase."
+      ]
+    },
+    "stereoLuv": {
+      "slug": "stereo-luv",
+      "siteTitle": "STEREO LUV",
+      "siteType": "single",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/458541065",
+      "currentCatalogTidalId": "458541065",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "STEREO LUV",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2025-10-03",
+      "tidalId": "458541065",
+      "tidalUrl": "https://tidal.com/browse/album/458541065",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2025-10-03; do not overwrite dates in this phase."
+      ]
+    },
+    "dancingDumpsterFire": {
+      "slug": "dancing-dumpster-fire",
+      "siteTitle": "dancing dumpster fire",
+      "siteType": "ep",
+      "siteReleaseDate": "2025-00-00",
+      "currentTidalLinks": [],
+      "currentCatalogSourceUrl": "https://tidal.com/browse/album/441546103",
+      "currentCatalogTidalId": "441546103",
+      "tidalMatchFound": true,
+      "matchSource": "matchedExistingReleases",
+      "tidalTitle": "dancing dumpster fire",
+      "tidalArtistDisplay": "Broey.",
+      "tidalReleaseDate": "2025-08-02",
+      "tidalId": "441546103",
+      "tidalUrl": "https://tidal.com/browse/album/441546103",
+      "matchConfidence": "High",
+      "matchScore": 100,
+      "confidenceReasons": [
+        "slug",
+        "title",
+        "year"
+      ],
+      "linkStatus": "TIDAL fallback present but should be reviewed",
+      "proposedStatus": "Already present / no action needed",
+      "mismatchNotes": [
+        "TIDAL currently renders through catalogSource fallback, not a direct release.links entry.",
+        "Site releaseDate 2025-00-00 differs from TIDAL 2025-08-02; do not overwrite dates in this phase."
+      ]
+    }
+  },
+  "constraints": {
+    "reportOnly": true,
+    "releaseDataChanged": false,
+    "writeOrMergeCommandsRun": false
+  }
+}

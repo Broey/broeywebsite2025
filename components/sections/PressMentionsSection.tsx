@@ -123,10 +123,8 @@ function PressLedgerItem({
 
 function HomePressTeaser() {
   const { preview } = pressMentionsCopy;
-  const featuredItem = homePressItems[0];
-  const supportingItems = homePressItems.slice(1);
 
-  if (!featuredItem) {
+  if (homePressItems.length === 0) {
     return null;
   }
 
@@ -136,41 +134,42 @@ function HomePressTeaser() {
       aria-labelledby="homepage-press-title"
     >
       <div className="homepage-section-inner">
-        <SectionHeader
-          eyebrow={preview.eyebrow}
-          title={preview.heading}
-          titleId="homepage-press-title"
-          description={preview.description}
-        />
-        <div className="homepage-press-teaser">
-          <article className="homepage-press-feature">
-            {featuredItem.pullQuote ? (
-              <blockquote className="homepage-press-quote">
-                &quot;{featuredItem.pullQuote}&quot;
-              </blockquote>
-            ) : null}
-            <div className="homepage-press-actions">
-              <PressExternalLink item={featuredItem} />
-              <Link href={preview.ctaHref} className="press-mention-link press-mention-link-secondary">
-                {preview.ctaLabel} <span aria-hidden="true">&rarr;</span>
-              </Link>
-            </div>
-          </article>
+        <div className="homepage-press-strip-header">
+          <h2 id="homepage-press-title" className="homepage-press-strip-title">
+            {preview.heading}
+          </h2>
+          <p className="homepage-press-strip-copy">{preview.description}</p>
+        </div>
 
-          {supportingItems.length > 0 ? (
-            <div className="homepage-press-support" aria-label="More press mentions">
-              <p className="homepage-press-support-label">Also mentioned</p>
-              {supportingItems.map((item) => (
-                <article key={item.id} className="homepage-press-row">
-                  <div>
-                    <p className="press-mention-outlet">{item.outlet}</p>
-                    <p className="press-mention-topic">{item.releaseOrTopic}</p>
-                  </div>
-                  <PressExternalLink item={item} />
-                </article>
-              ))}
-            </div>
-          ) : null}
+        <div className="homepage-press-callouts" aria-label="Selected press mentions">
+          {homePressItems.map((item) => (
+            <article key={item.id} className="homepage-press-callout">
+              <div className="homepage-press-callout-head">
+                <p className="press-mention-outlet">{item.outlet}</p>
+                <p className="homepage-press-release-label">
+                  <span className="homepage-press-release-kicker">Release</span>
+                  <span className="homepage-press-release-separator" aria-hidden="true">
+                    &mdash;
+                  </span>
+                  <span className="homepage-press-release-title">
+                    {item.releaseOrTopic}
+                  </span>
+                </p>
+              </div>
+              {item.pullQuote ? (
+                <blockquote className="homepage-press-callout-quote">
+                  &quot;{item.pullQuote}&quot;
+                </blockquote>
+              ) : null}
+              <PressExternalLink item={item} />
+            </article>
+          ))}
+        </div>
+
+        <div className="homepage-press-actions" aria-label="More press coverage">
+          <Link href={preview.ctaHref} className="press-mention-link press-mention-link-secondary">
+            {preview.ctaLabel} <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>
