@@ -144,14 +144,11 @@ function HomePressTeaser() {
         />
         <div className="homepage-press-teaser">
           <article className="homepage-press-feature">
-            <p className="press-mention-outlet">{featuredItem.outlet}</p>
-            <p className="press-mention-topic">{featuredItem.releaseOrTopic}</p>
             {featuredItem.pullQuote ? (
               <blockquote className="homepage-press-quote">
                 &quot;{featuredItem.pullQuote}&quot;
               </blockquote>
             ) : null}
-            <p className="homepage-press-summary">{featuredItem.summary}</p>
             <div className="homepage-press-actions">
               <PressExternalLink item={featuredItem} />
               <Link href={preview.ctaHref} className="press-mention-link press-mention-link-secondary">
@@ -162,11 +159,12 @@ function HomePressTeaser() {
 
           {supportingItems.length > 0 ? (
             <div className="homepage-press-support" aria-label="More press mentions">
+              <p className="homepage-press-support-label">Also mentioned</p>
               {supportingItems.map((item) => (
                 <article key={item.id} className="homepage-press-row">
                   <div>
                     <p className="press-mention-outlet">{item.outlet}</p>
-                    <p className="press-ledger-summary">{item.summary}</p>
+                    <p className="press-mention-topic">{item.releaseOrTopic}</p>
                   </div>
                   <PressExternalLink item={item} />
                 </article>

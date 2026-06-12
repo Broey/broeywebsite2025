@@ -28,9 +28,9 @@ export type PressItem = {
 export const pressMentionsCopy = {
   preview: {
     eyebrow: "Press & Mentions",
-    heading: "Outside notes on the current Broey. era.",
+    heading: "Press & Mentions",
     description:
-      "A fast credibility layer from independent writeups covering Broey.'s shift into raw, emotional, genre-fluid electronic music.",
+      "Broey has been covered by outlets like We Rave You, Insight Music, and LOUDNESS.",
     ctaLabel: "View all press",
     ctaHref: "/press",
   },

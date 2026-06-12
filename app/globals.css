@@ -2855,15 +2855,16 @@ body.has-global-player .site-shell {
 
 .homepage-press-teaser {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.48fr);
   gap: clamp(0.8rem, 1.8vw, 1.25rem);
   align-items: stretch;
 }
 
 .homepage-press-feature {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-content: start;
-  gap: clamp(0.64rem, 1.2vw, 0.9rem);
+  gap: clamp(0.72rem, 1.3vw, 1rem);
   min-width: 0;
   border-top: 1px solid rgba(240, 236, 225, 0.16);
   padding-top: clamp(0.9rem, 1.7vw, 1.2rem);
@@ -2875,13 +2876,13 @@ body.has-global-player .site-shell {
 }
 
 .homepage-press-quote {
-  max-width: 52rem;
+  max-width: 42rem;
   margin: 0;
   color: white;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.8vw, 4.8rem);
+  font-size: clamp(1.28rem, 2.35vw, 2rem);
   font-weight: 650;
-  line-height: 0.96;
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
@@ -2897,8 +2898,11 @@ body.has-global-player .site-shell {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
-  align-items: center;
-  margin-top: 0.15rem;
+  align-items: flex-start;
+  align-self: end;
+  justify-content: flex-end;
+  margin-top: 0;
+  text-align: right;
 }
 
 .press-mention-link-secondary {
@@ -2911,6 +2915,18 @@ body.has-global-player .site-shell {
   border-left: 1px solid rgba(240, 236, 225, 0.1);
 }
 
+.homepage-press-support-label {
+  margin: 0;
+  border-top: 1px solid rgba(240, 236, 225, 0.1);
+  padding: clamp(0.8rem, 1.3vw, 0.95rem) 0 0 clamp(0.85rem, 1.6vw, 1.2rem);
+  color: rgba(240, 236, 225, 0.62);
+  font-size: 0.66rem;
+  font-weight: 780;
+  letter-spacing: 0.11em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
 .homepage-press-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -2921,7 +2937,7 @@ body.has-global-player .site-shell {
 }
 
 .homepage-press-row:first-child {
-  border-top: 1px solid rgba(240, 236, 225, 0.1);
+  border-top: 0;
 }
 
 .press-mentions {
@@ -6278,6 +6294,7 @@ a.about-pillar-card:hover {
 
   .merch-mobile-track {
     width: calc(100% + 1rem);
+    align-items: stretch;
     margin-inline: -0.5rem;
     padding: 0.12rem 0.5rem 1rem;
     scroll-padding-inline: 0.5rem;
@@ -6290,12 +6307,42 @@ a.about-pillar-card:hover {
 
   .merch-mobile-slide .merch-card {
     width: 100%;
+    height: clamp(32.25rem, 136vw, 34rem);
+    min-height: clamp(32.25rem, 136vw, 34rem);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
       rgba(8, 12, 17, 0.72);
     box-shadow:
       0 16px 38px rgba(0, 0, 0, 0.28),
       inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  }
+
+  .merch-mobile-slide .merch-card-artwork {
+    flex: 0 0 auto;
+    height: clamp(17.75rem, 80vw, 20.25rem);
+    aspect-ratio: auto;
+  }
+
+  .merch-mobile-slide .merch-card-copy {
+    min-height: 0;
+    padding-top: 0.78rem;
+  }
+
+  .merch-mobile-slide .merch-card-title {
+    display: -webkit-box;
+    min-height: 2.72rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .merch-mobile-slide .merch-card-description {
+    min-height: 3.92rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .merch-mobile-slide .merch-card-action {
+    padding-top: 0.78rem;
   }
 
   .merch-artwork-image {
@@ -6542,15 +6589,25 @@ a.about-pillar-card:hover {
   }
 
   .homepage-press-feature {
+    grid-template-columns: 1fr;
     gap: 0.72rem;
   }
 
   .homepage-press-quote {
-    font-size: clamp(2rem, 13.5vw, 3.4rem);
+    font-size: clamp(1.34rem, 6.4vw, 1.82rem);
+  }
+
+  .homepage-press-actions {
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .homepage-press-support {
     border-left: 0;
+  }
+
+  .homepage-press-support-label {
+    padding-left: 0;
   }
 
   .homepage-press-row {
@@ -6780,7 +6837,7 @@ a.about-pillar-card:hover {
     left: auto;
     flex: 0 0 min(84vw, 22.5rem);
     width: min(84vw, 22.5rem);
-    overflow: visible;
+    overflow: hidden;
     opacity: 1;
     filter: none;
     transform: none;
@@ -6797,9 +6854,8 @@ a.about-pillar-card:hover {
   }
 
   .music-release-carousel-stage[data-native-scroll="true"] .music-release-card-glow {
-    inset: -1.15rem;
-    display: block;
-    opacity: 0.28;
+    display: none;
+    opacity: 0;
   }
 
   .music-release-carousel-stage[data-native-scroll="true"] > .music-carousel-index-cue,
@@ -6811,30 +6867,15 @@ a.about-pillar-card:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(0.72rem, 3.2vw, 1rem);
-    width: min(100%, 24rem);
-    margin: 0.08rem auto 0;
+    width: min(100%, 8rem);
+    margin: 0.42rem auto 0;
     padding-inline: 1rem;
   }
 
   .music-carousel-mobile-status {
     display: grid;
-    gap: 0.34rem;
     justify-items: center;
-    min-width: 5.35rem;
-  }
-
-  .music-carousel-mobile-controls .music-carousel-control {
-    width: 2.45rem;
-    height: 2.45rem;
-    border-color: rgba(240, 236, 225, 0.24);
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.024)),
-      rgba(6, 9, 13, 0.72);
-    color: rgba(240, 236, 225, 0.86);
-    box-shadow:
-      0 12px 28px rgba(0, 0, 0, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    min-width: 0;
   }
 
   .music-carousel-mobile-controls .music-carousel-spin-cue,
@@ -6846,31 +6887,30 @@ a.about-pillar-card:hover {
 
   .music-carousel-mobile-controls .music-carousel-spin-cue {
     display: inline-flex;
-    opacity: 0.9;
-    filter:
-      drop-shadow(0 0 18px rgba(63, 177, 217, 0.24))
-      drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
-  }
-
-  .music-carousel-mobile-controls .music-carousel-index-cue {
-    border: 1px solid rgba(240, 236, 225, 0.18);
-    border-radius: 999px;
-    background:
-      linear-gradient(90deg, rgba(63, 177, 217, 0.12), rgba(211, 169, 91, 0.11)),
-      rgba(6, 9, 13, 0.78);
-    padding: 0.38rem 0.56rem;
-    color: rgba(240, 236, 225, 0.88);
-    box-shadow:
-      0 10px 28px rgba(0, 0, 0, 0.34),
-      0 0 18px rgba(63, 177, 217, 0.12);
-    text-shadow: none;
+    opacity: 0.76;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
   }
 
   .music-carousel-mobile-controls .music-carousel-spin-cue-track {
-    border-color: rgba(240, 236, 225, 0.28);
+    width: 4rem;
+    height: 1.04rem;
+    border-color: rgba(240, 236, 225, 0.2);
     background:
-      linear-gradient(90deg, rgba(63, 177, 217, 0.18), rgba(211, 169, 91, 0.16)),
-      rgba(6, 9, 13, 0.72);
+      linear-gradient(90deg, rgba(63, 177, 217, 0.12), rgba(211, 169, 91, 0.1)),
+      rgba(6, 9, 13, 0.58);
+  }
+
+  .music-carousel-mobile-controls .music-carousel-spin-cue-grip {
+    left: 0.3rem;
+    width: 0.56rem;
+    height: 0.56rem;
+    box-shadow:
+      0 0 0 3px rgba(63, 177, 217, 0.1),
+      0 0 10px rgba(63, 177, 217, 0.42);
+  }
+
+  .music-carousel-mobile-controls .music-carousel-spin-cue-chevron {
+    display: none !important;
   }
 
   .music-release-carousel-scroll {
@@ -6910,7 +6950,7 @@ a.about-pillar-card:hover {
     left: auto;
     flex: 0 0 min(84vw, 22.5rem);
     width: min(84vw, 22.5rem);
-    overflow: visible;
+    overflow: hidden;
     opacity: 1;
     filter: none;
     transform: none;
