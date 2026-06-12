@@ -1,0 +1,56 @@
+{
+  "4u": {
+    "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+    "status": "released",
+    "notes": "Source confirmed in collaborations folder; release is already staged in Release Library released and public on the website.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "after-you": {
+    "sourceFolder": "D:\\Broey\\Collaborations\\Mr. Hilroy\\Finished tracks\\After You",
+    "status": "released",
+    "notes": "Verified collaboration source folder and catalog links; public website release uses curated catalog metadata.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "link": {
+    "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+    "status": "pending",
+    "notes": "Source folder confirmed; keep pending until the public catalog/TIDAL enrichment is finalized.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "blu": {
+    "sourceFolder": "D:\\Broey\\Releases\\Already Released\\blu",
+    "status": "released",
+    "notes": "Source folder confirmed; release is already staged in Release Library released and public on the website.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "glfm": {
+    "sourceFolder": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\GLFM",
+    "status": "released",
+    "notes": "Nested source confirmed inside dancing dumpster fire; public website release is linked to the verified TIDAL track.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "i-cant-wait-for-love": {
+    "sourceFolder": "D:\\Broey\\Collaborations\\Bonfire B\\I Can't Wait For Love",
+    "status": "released",
+    "notes": "Verified collaboration source folder; public website release has a real Create Music catalog link.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "like-that": {
+    "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That",
+    "status": "released",
+    "notes": "Nested source confirmed inside Fragments EP; public website release is linked to verified Apple Music and TIDAL catalog entries.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "warning": {
+    "sourceFolder": "D:\\Broey\\Collaborations\\Cryztal Grid\\Warning",
+    "status": "released",
+    "notes": "Verified collaboration source folder and catalog links; local artwork is available from the source folder and now staged for the website.",
+    "shouldStageToReleaseLibrary": false
+  },
+  "fragments-remixes": {
+    "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Remixes",
+    "status": "released",
+    "notes": "Nested source confirmed under Fragments EP; release is already staged in Release Library released and public on the website.",
+    "shouldStageToReleaseLibrary": false
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "generatedAt": "2026-06-08T17:06:03.708Z",
+  "sourceInventoryPath": "scripts\\release-library-inventory.json",
+  "sourceContentPath": "content\\releases.ts",
+  "summary": {
+    "totalReleases": 8,
+    "websiteReadyCount": 8,
+    "blockedCount": 0,
+    "exactDateCount": 1,
+    "placeholderDateCount": 7,
+    "contentMatchCount": 8,
+    "listenActionCount": 2,
+    "carouselEnabledCount": 8,
+    "catalogStatusCount": 8,
+    "missingArtworkCount": 0,
+    "missingRequiredMetadataCount": 0
+  },
+  "releases": [
+    {
+      "releaseFolderName": "2024-00-00 - 4u",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2024-00-00 - 4u",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2024-00-00 - 4u\\release.json",
+      "releaseDatePrefix": "2024-00-00",
+      "inferredTitle": "4u",
+      "inferredSlug": "4u",
+      "inferredReleaseType": null,
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\Broey & notminimal - 4u artwork.jpg",
+      "artworkPath": "artwork/cover.jpg",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "4u",
+        "slug": "4u",
+        "type": "remix"
+      },
+      "proposedReleaseJson": {
+        "title": "4u",
+        "slug": "4u",
+        "type": "remix",
+        "status": "released",
+        "releaseDate": "2024-00-00",
+        "year": 2024,
+        "artworkPath": "artwork/cover.jpg",
+        "carouselEnabled": true,
+        "carouselPriority": 9,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (type unknown -> remix).",
+        "Folder placeholder date kept (2024-00-00).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 9.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2024-00-00 - Fragments EP",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2024-00-00 - Fragments EP",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2024-00-00 - Fragments EP\\release.json",
+      "releaseDatePrefix": "2024-00-00",
+      "inferredTitle": "Fragments EP",
+      "inferredSlug": "fragments-ep",
+      "inferredReleaseType": "ep",
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\DSC03715.jpg",
+      "artworkPath": "artwork/cover.jpg",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "Fragments EP",
+        "slug": "fragments-ep",
+        "type": "ep"
+      },
+      "proposedReleaseJson": {
+        "title": "Fragments EP",
+        "slug": "fragments-ep",
+        "type": "ep",
+        "status": "released",
+        "releaseDate": "2024-00-00",
+        "year": 2024,
+        "artworkPath": "artwork/cover.jpg",
+        "carouselEnabled": true,
+        "carouselPriority": 5,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata matched from content/releases.ts.",
+        "Folder placeholder date kept (2024-00-00).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 5.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2024-00-00 - Fragments Remixes",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2024-00-00 - Fragments Remixes",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2024-00-00 - Fragments Remixes\\release.json",
+      "releaseDatePrefix": "2024-00-00",
+      "inferredTitle": "Fragments Remixes",
+      "inferredSlug": "fragments-remixes",
+      "inferredReleaseType": "remix",
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\Fragments The Remixes Artwork.jpg",
+      "artworkPath": "artwork/cover.jpg",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "Fragments (Remixes)",
+        "slug": "fragments-remixes",
+        "type": "remix"
+      },
+      "proposedReleaseJson": {
+        "title": "Fragments (Remixes)",
+        "slug": "fragments-remixes",
+        "type": "remix",
+        "status": "released",
+        "releaseDate": "2024-00-00",
+        "year": 2024,
+        "artworkPath": "artwork/cover.jpg",
+        "carouselEnabled": true,
+        "carouselPriority": 7,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (title Fragments Remixes -> Fragments (Remixes)).",
+        "Folder placeholder date kept (2024-00-00).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 7.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2025-00-00 - BLU",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - BLU",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - BLU\\release.json",
+      "releaseDatePrefix": "2025-00-00",
+      "inferredTitle": "BLU",
+      "inferredSlug": "blu",
+      "inferredReleaseType": null,
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\blu. artwork.png",
+      "artworkPath": "artwork/cover.png",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "BLU",
+        "slug": "blu",
+        "type": "single"
+      },
+      "proposedReleaseJson": {
+        "title": "BLU",
+        "slug": "blu",
+        "type": "single",
+        "status": "released",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "artworkPath": "artwork/cover.png",
+        "carouselEnabled": true,
+        "carouselPriority": 4,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (type unknown -> single).",
+        "Folder placeholder date kept (2025-00-00).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 4.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2025-00-00 - dancing dumpster fire",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - dancing dumpster fire",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - dancing dumpster fire\\release.json",
+      "releaseDatePrefix": "2025-00-00",
+      "inferredTitle": "Dancing Dumpster Fire",
+      "inferredSlug": "dancing-dumpster-fire",
+      "inferredReleaseType": null,
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\Adobe Express - file (2).jpg",
+      "artworkPath": "artwork/cover.jpg",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "dancing dumpster fire",
+        "slug": "dancing-dumpster-fire",
+        "type": "ep"
+      },
+      "proposedReleaseJson": {
+        "title": "dancing dumpster fire",
+        "slug": "dancing-dumpster-fire",
+        "type": "ep",
+        "status": "released",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "artworkPath": "artwork/cover.jpg",
+        "carouselEnabled": true,
+        "carouselPriority": 6,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (title Dancing Dumpster Fire -> dancing dumpster fire; type unknown -> ep).",
+        "Folder placeholder date kept (2025-00-00).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 6.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2025-00-00 - Mean Something",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - Mean Something",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - Mean Something\\release.json",
+      "releaseDatePrefix": "2025-00-00",
+      "inferredTitle": "Mean Something",
+      "inferredSlug": "mean-something",
+      "inferredReleaseType": null,
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\DSC06269.jpg",
+      "artworkPath": "artwork/cover.jpg",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "Mean Something",
+        "slug": "mean-something",
+        "type": "single"
+      },
+      "proposedReleaseJson": {
+        "title": "Mean Something",
+        "slug": "mean-something",
+        "type": "single",
+        "status": "released",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "artworkPath": "artwork/cover.jpg",
+        "carouselEnabled": true,
+        "carouselPriority": 8,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (type unknown -> single).",
+        "Folder placeholder date kept (2025-00-00).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 8.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2025-00-00 - STEREO LUV",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - STEREO LUV",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2025-00-00 - STEREO LUV\\release.json",
+      "releaseDatePrefix": "2025-00-00",
+      "inferredTitle": "STEREO LUV",
+      "inferredSlug": "stereo-luv",
+      "inferredReleaseType": null,
+      "distributorReleaseDate": null,
+      "distributorDateIsExact": false,
+      "releaseDateSource": "folder",
+      "releaseDateIsExact": false,
+      "artworkSourceFile": "artwork\\STEREO LUV (2).png",
+      "artworkPath": "artwork/cover.png",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "STEREO LUV",
+        "slug": "stereo-luv",
+        "type": "single"
+      },
+      "proposedReleaseJson": {
+        "title": "STEREO LUV",
+        "slug": "stereo-luv",
+        "type": "single",
+        "status": "released",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "artworkPath": "artwork/cover.png",
+        "listenAction": {
+          "kind": "disco-embed",
+          "provider": "disco",
+          "embedUrl": "https://broeybeats.disco.ac/e/t/163013451?s=-iKLOiEjvYkHdhylWiKgVOaNsfo%3AQsm0RJkf&artwork=false&color=%234E98FF&theme=dark",
+          "label": "Listen in player"
+        },
+        "carouselEnabled": true,
+        "carouselPriority": 3,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (type unknown -> single).",
+        "Folder placeholder date kept (2025-00-00).",
+        "Listen action resolved from content/releases.ts: disco-embed (https://broeybeats.disco.ac/e/t/163013451?s=-iKLOiEjvYkHdhylWiKgVOaNsfo%3AQsm0RJkf&artwork=false&color=%234E98FF&theme=dark).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 3.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    },
+    {
+      "releaseFolderName": "2026-05-07 - FREE",
+      "releaseFolderPath": "D:\\Broey\\Release Library\\released\\2026-05-07 - FREE",
+      "releaseJsonPath": "D:\\Broey\\Release Library\\released\\2026-05-07 - FREE\\release.json",
+      "releaseDatePrefix": "2026-05-07",
+      "inferredTitle": "FREE",
+      "inferredSlug": "free",
+      "inferredReleaseType": null,
+      "distributorReleaseDate": "2026-05-07",
+      "distributorDateIsExact": true,
+      "releaseDateSource": "distributor",
+      "releaseDateIsExact": true,
+      "artworkSourceFile": "artwork\\free (4).png",
+      "artworkPath": "artwork/cover.png",
+      "contentMatch": {
+        "matched": true,
+        "method": "slug",
+        "source": "content/releases.ts",
+        "title": "FREE",
+        "slug": "free",
+        "type": "single"
+      },
+      "proposedReleaseJson": {
+        "title": "FREE",
+        "slug": "free",
+        "type": "single",
+        "status": "released",
+        "releaseDate": "2026-05-07",
+        "year": 2026,
+        "artworkPath": "artwork/cover.png",
+        "listenAction": {
+          "kind": "disco-embed",
+          "provider": "disco",
+          "embedUrl": "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark",
+          "label": "Listen in player"
+        },
+        "carouselEnabled": true,
+        "carouselPriority": 2,
+        "catalogStatus": "tidal"
+      },
+      "blockers": [],
+      "websiteReady": true,
+      "notes": [
+        "Canonical metadata from content/releases.ts overrides folder inference (type unknown -> single).",
+        "Exact distributor release date used (2026-05-07).",
+        "Listen action resolved from content/releases.ts: disco-embed (https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark).",
+        "Carousel metadata resolved from content/releases.ts: enabled, priority 2.",
+        "Catalog status resolved from content/releases.ts: tidal."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1932 @@
+{
+  "generatedAt": "2026-06-09T07:29:02.689Z",
+  "sourceInventoryPath": "scripts\\released-folder-inventory.json",
+  "summary": {
+    "total": 29,
+    "highConfidenceCount": 9,
+    "mediumConfidenceCount": 6,
+    "lowConfidenceCount": 14,
+    "websiteMatchCount": 9,
+    "distributorMatchCount": 9,
+    "tidalMatchCount": 6,
+    "carouselCandidateCount": 6,
+    "missingAudioCount": 1,
+    "missingArtworkCount": 6,
+    "slugMismatchCount": 0,
+    "curatedCarouselMissingFromScanCount": 3,
+    "knownMappedExternalFoldersCount": 5,
+    "unmappedMissingReleasesCount": 0
+  },
+  "releaseFolderMap": {
+    "curatedCarouselMissingFromScan": [
+      {
+        "slug": "4u",
+        "title": "4u",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "fragments-remixes",
+        "title": "Fragments (Remixes)",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Remixes",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "title": "LiNK",
+        "type": "Single",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "knownMappedExternalFolders": [
+      {
+        "slug": "4u",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "notes": "Source confirmed in collaborations folder; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "after-you",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Mr. Hilroy\\Finished tracks\\After You",
+        "notes": "Verified collaboration source folder and catalog links; public website release uses curated catalog metadata.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "i-cant-wait-for-love",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Bonfire B\\I Can't Wait For Love",
+        "notes": "Verified collaboration source folder; public website release has a real Create Music catalog link.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "notes": "Source folder confirmed; keep pending until the public catalog/TIDAL enrichment is finalized.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "warning",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Cryztal Grid\\Warning",
+        "notes": "Verified collaboration source folder and catalog links; artwork still needs a local source before setting an explicit coverImage.",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "unmappedMissingReleases": []
+  },
+  "entries": [
+    {
+      "folderName": "After the Rain - ES42",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42",
+      "title": "After the Rain - ES42",
+      "slug": "after-the-rain-es42",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42\\Clouds gif n cover\\IMG_2795.PNG",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42\\After the Rain.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "medium",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "Medium confidence: media present and clear folder/title evidence but incomplete canonical matching.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "Back When",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Back When",
+      "title": "Back When",
+      "slug": "back-when",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2023-09-01",
+      "year": 2023,
+      "upc": "197773361701",
+      "catalogNumber": "CAT876933",
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Back When",
+          "mixVersion": "",
+          "ISRC": "QZTRX2379154",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:54",
+          "genre": "Electronic",
+          "subgenre": "Bass"
+        }
+      ],
+      "isrcs": [
+        "QZTRX2379154"
+      ],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Back When\\Back When (3000 × 3000 px).jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Back When\\Broey. - back when (unreleased).mp3",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug",
+        "slug": "back-when",
+        "title": "Back When",
+        "type": "Single",
+        "releaseDate": "2023-09-01",
+        "year": 2023,
+        "upc": "197773361701",
+        "catalogNumber": "CAT876933",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Back When",
+            "mixVersion": "",
+            "ISRC": "QZTRX2379154",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:54",
+            "genre": "Electronic",
+            "subgenre": "Bass"
+          }
+        ],
+        "isrcs": [
+          "QZTRX2379154"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Official distributor inventory match found; using distributor data as primary enrichment.",
+        "Distributor metadata selected despite no website match."
+      ]
+    },
+    {
+      "folderName": "Beside You",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Beside You",
+      "title": "Beside You",
+      "slug": "beside-you",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Beside You\\2019-10-22_Broey_-_Beside_You.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Beside You\\Broey. - Beside you [M] - PV Release.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "medium",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "Medium confidence: media present and clear folder/title evidence but incomplete canonical matching.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "blu",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\blu",
+      "title": "BLU",
+      "slug": "blu",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2025-00-00",
+      "year": 2025,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": null,
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\blu\\blu v1.mp3",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": true,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Canonical website metadata match: BLU / blu (Single) from content/releases.ts.",
+        "Artwork missing; visual confidence is reduced."
+      ]
+    },
+    {
+      "folderName": "Closure_Closer",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Closure_Closer",
+      "title": "Closure / Closer",
+      "slug": "closure-closer",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": "2020-08-02",
+      "year": 2020,
+      "upc": "4018939428174",
+      "catalogNumber": "CAT4018939428174",
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Closure",
+          "mixVersion": "",
+          "ISRC": "DEQ022005568",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:46",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Closer",
+          "mixVersion": "",
+          "ISRC": "DEQ022005569",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:03",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "isrcs": [
+        "DEQ022005568",
+        "DEQ022005569"
+      ],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Closure_Closer\\Aug2 closure _ closer Artwork.png",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Closure_Closer\\Closure _ Closer - Final [M] one take.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug",
+        "slug": "closure-closer",
+        "title": "Closure / Closer",
+        "type": "EP",
+        "releaseDate": "2020-08-02",
+        "year": 2020,
+        "upc": "4018939428174",
+        "catalogNumber": "CAT4018939428174",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Closure",
+            "mixVersion": "",
+            "ISRC": "DEQ022005568",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:46",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 2,
+            "title": "Closer",
+            "mixVersion": "",
+            "ISRC": "DEQ022005569",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:03",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          }
+        ],
+        "isrcs": [
+          "DEQ022005568",
+          "DEQ022005569"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Official distributor inventory match found; using distributor data as primary enrichment.",
+        "Distributor metadata selected despite no website match."
+      ]
+    },
+    {
+      "folderName": "Contrast",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Contrast",
+      "title": "Contrast",
+      "slug": "contrast",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": "2023-08-04",
+      "year": 2023,
+      "upc": "197773344582",
+      "catalogNumber": "CAT876424",
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Falling",
+          "mixVersion": "",
+          "ISRC": "QZTRX2377079",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:50",
+          "genre": "Dance",
+          "subgenre": "Jungle"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Falling",
+          "mixVersion": "Almost Anyone Remix",
+          "ISRC": "QZTRX2377099",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "06:36",
+          "genre": "Dance",
+          "subgenre": "Electro House"
+        },
+        {
+          "trackNumber": 3,
+          "title": "Origins",
+          "mixVersion": "Almost Anyone Remix",
+          "ISRC": "QZTRX2377116",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "05:05",
+          "genre": "Electronic",
+          "subgenre": "Electronica"
+        }
+      ],
+      "isrcs": [
+        "QZTRX2377079",
+        "QZTRX2377099",
+        "QZTRX2377116"
+      ],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Contrast\\Contrast [Mixed Version] Project\\contrast artwork.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Contrast\\Origins\\Origins Raw Master.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug",
+        "slug": "contrast",
+        "title": "Contrast",
+        "type": "EP",
+        "releaseDate": "2023-08-04",
+        "year": 2023,
+        "upc": "197773344582",
+        "catalogNumber": "CAT876424",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Falling",
+            "mixVersion": "",
+            "ISRC": "QZTRX2377079",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:50",
+            "genre": "Dance",
+            "subgenre": "Jungle"
+          },
+          {
+            "trackNumber": 2,
+            "title": "Falling",
+            "mixVersion": "Almost Anyone Remix",
+            "ISRC": "QZTRX2377099",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "06:36",
+            "genre": "Dance",
+            "subgenre": "Electro House"
+          },
+          {
+            "trackNumber": 3,
+            "title": "Origins",
+            "mixVersion": "Almost Anyone Remix",
+            "ISRC": "QZTRX2377116",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "05:05",
+            "genre": "Electronic",
+            "subgenre": "Electronica"
+          }
+        ],
+        "isrcs": [
+          "QZTRX2377079",
+          "QZTRX2377099",
+          "QZTRX2377116"
+        ],
+        "available": true
+      },
+      "tidalMatch": true,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Official distributor inventory match found; using distributor data as primary enrichment.",
+        "Type remains unclear or inferred with low certainty.",
+        "Distributor metadata selected despite no website match."
+      ]
+    },
+    {
+      "folderName": "dancing dumpster fire",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire",
+      "title": "dancing dumpster fire",
+      "slug": "dancing-dumpster-fire",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": "2025-00-00",
+      "year": 2025,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\GLFM\\Broey. - GLFM (2).png",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\shake\\Broey. - Shake! (more saturated drums).mp3",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": true,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Canonical website metadata match: dancing dumpster fire / dancing-dumpster-fire (EP) from content/releases.ts.",
+        "Type remains unclear or inferred with low certainty."
+      ]
+    },
+    {
+      "folderName": "Deja Vu",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Deja Vu",
+      "title": "Deja Vu",
+      "slug": "deja-vu",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": null,
+      "audioCandidate": null,
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing audio",
+        "missing artwork",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Audio missing; media confidence is reduced.",
+        "Artwork missing; visual confidence is reduced.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "Eternity",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Eternity",
+      "title": "Eternity",
+      "slug": "eternity",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2022-12-02",
+      "year": 2022,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Eternity\\eternity artwork 2022.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Eternity\\old mixes\\Eternity 2022 M - Final Disto Version.mp3",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": true,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "pending-tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "No website match found; using TIDAL import metadata as secondary enrichment.",
+        "Type remains unclear or inferred with low certainty."
+      ]
+    },
+    {
+      "folderName": "Fragments EP",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP",
+      "title": "Fragments EP",
+      "slug": "fragments-ep",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": "2024-00-00",
+      "year": 2024,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That\\like that art 1400x1400.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That\\Like That Final M.wav",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": true,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Canonical website metadata match: Fragments EP / fragments-ep (EP) from content/releases.ts.",
+        "Type remains unclear or inferred with low certainty."
+      ]
+    },
+    {
+      "folderName": "free",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\free",
+      "title": "FREE",
+      "slug": "free",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2026-05-07",
+      "year": 2026,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\free\\free (1).jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\free\\DISTRIBUTION FINALS\\Broey. - FREE FINAL INSANE HI RES.wav",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug+date",
+        "slug": "free",
+        "title": "FREE",
+        "type": "Single",
+        "releaseDate": "2026-05-07",
+        "year": 2026,
+        "upc": "824296258828",
+        "catalogNumber": "CAT1759024",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "FREE",
+            "mixVersion": "",
+            "ISRC": "GBRKQ2618451",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:50",
+            "genre": "Electronic",
+            "subgenre": "House"
+          }
+        ],
+        "isrcs": [
+          "GBRKQ2618451"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": true,
+      "listenAction": {
+        "kind": "disco-embed",
+        "embedUrl": "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark",
+        "provider": "disco",
+        "label": "Listen in player"
+      },
+      "catalogStatus": "tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Canonical website metadata match: FREE / free (Single) from content/releases.ts.",
+        "Type remains unclear or inferred with low certainty."
+      ]
+    },
+    {
+      "folderName": "Gimmie Dat",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat",
+      "title": "Gimmie Dat",
+      "slug": "gimmie-dat",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": "2022-10-21",
+      "year": 2022,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat\\halftime edit artwork.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat\\Gimmie Dat.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": true,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "pending-tidal",
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "No website match found; using TIDAL import metadata as secondary enrichment."
+      ]
+    },
+    {
+      "folderName": "Hold On",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Hold On",
+      "title": "Hold On",
+      "slug": "hold-on",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2023-05-08",
+      "year": 2023,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Hold On\\Broey\\Hold On Artwork 2000x2000.png",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Hold On\\Broey. - Hold On .mp3",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug+date",
+        "slug": "hold-on",
+        "title": "Hold On",
+        "type": "Single",
+        "releaseDate": "2023-05-08",
+        "year": 2023,
+        "upc": "197368866475",
+        "catalogNumber": "CAT829295",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Hold On",
+            "mixVersion": "",
+            "ISRC": "GBRKQ2380565",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:35",
+            "genre": "Electronic",
+            "subgenre": "Drum & Bass"
+          }
+        ],
+        "isrcs": [
+          "GBRKQ2380565"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Canonical website metadata match: Hold On / hold-on (Single) from content/releases.ts."
+      ]
+    },
+    {
+      "folderName": "hysteria",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\hysteria",
+      "title": "hysteria",
+      "slug": "hysteria",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2022-01-13",
+      "year": 2022,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\hysteria\\Red Neon Modern Minimal Music Album Cover (3000 x 3000 px).jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\hysteria\\hysteria.wav",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Canonical website metadata match: hysteria / hysteria (Single) from content/releases.ts."
+      ]
+    },
+    {
+      "folderName": "imu",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\imu",
+      "title": "imu",
+      "slug": "imu",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\imu\\imu artwork.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\imu\\Broey - IMU (instrumental) - 2023remix and master.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "medium",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "Medium confidence: media present and clear folder/title evidence but incomplete canonical matching.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "mean something",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\mean something",
+      "title": "Mean Something",
+      "slug": "mean-something",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2025-00-00",
+      "year": 2025,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\mean something\\vividfeverdreams_Album_art_trippy_mean_something_in_bold_stylis_855b36fe-cd50-46eb-8dc8-196eda32097c.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\mean something\\Mean Something [24_48k M].mp3",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": true,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Canonical website metadata match: Mean Something / mean-something (Single) from content/releases.ts.",
+        "Type remains unclear or inferred with low certainty."
+      ]
+    },
+    {
+      "folderName": "New Beginnings",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\New Beginnings",
+      "title": "New Beginnings",
+      "slug": "new-beginnings",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2021-08-17",
+      "year": 2021,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\New Beginnings\\2021 0817 Broey. - New Beginnings\\Tons_of_Friends_Cover.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\New Beginnings\\2021 0817 Broey. - New Beginnings\\B 05 Broey. - New Beginnings.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": true,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "pending-tidal",
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "No website match found; using TIDAL import metadata as secondary enrichment."
+      ]
+    },
+    {
+      "folderName": "Paradise",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Paradise",
+      "title": "Paradise",
+      "slug": "paradise",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2019-03-23",
+      "year": 2019,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": null,
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Paradise\\Paradise [M].mp3",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug+date",
+        "slug": "paradise",
+        "title": "Paradise",
+        "type": "Single",
+        "releaseDate": "2019-03-23",
+        "year": 2019,
+        "upc": "194271698971",
+        "catalogNumber": "CAT194271698971",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Paradise",
+            "mixVersion": "",
+            "ISRC": "QZES51970012",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:22",
+            "genre": "Hip Hop/Rap",
+            "subgenre": "Hip Hop/Rap"
+          }
+        ],
+        "isrcs": [
+          "QZES51970012"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Canonical website metadata match: Paradise / paradise (Single) from content/releases.ts.",
+        "Artwork missing; visual confidence is reduced."
+      ]
+    },
+    {
+      "folderName": "Phantasm",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Phantasm",
+      "title": "Phantasm",
+      "slug": "phantasm",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": null,
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Phantasm\\phantasm SP clip.mp3",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Artwork missing; visual confidence is reduced.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "Pillow Thoughts",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts",
+      "title": "Pillow Thoughts",
+      "slug": "pillow-thoughts",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts\\2019-11-20_Broey_-_Pillow_Thoughts.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts\\Broey. - Pillow Thoughts [M] - PV release.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "medium",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "Medium confidence: media present and clear folder/title evidence but incomplete canonical matching.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "PROPPA",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\PROPPA",
+      "title": "PROPPA",
+      "slug": "proppa",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2023-07-14",
+      "year": 2023,
+      "upc": "197773344445",
+      "catalogNumber": "CAT876403",
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "PROPPA",
+          "mixVersion": "",
+          "ISRC": "QZTRX2377004",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:27",
+          "genre": "Electronic",
+          "subgenre": "Drum & Bass"
+        }
+      ],
+      "isrcs": [
+        "QZTRX2377004"
+      ],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\PROPPA\\PROPPA ART.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\PROPPA\\Broey. - PROPPA [M] (24 bit).wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug",
+        "slug": "proppa",
+        "title": "PROPPA",
+        "type": "Single",
+        "releaseDate": "2023-07-14",
+        "year": 2023,
+        "upc": "197773344445",
+        "catalogNumber": "CAT876403",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "PROPPA",
+            "mixVersion": "",
+            "ISRC": "QZTRX2377004",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:27",
+            "genre": "Electronic",
+            "subgenre": "Drum & Bass"
+          }
+        ],
+        "isrcs": [
+          "QZTRX2377004"
+        ],
+        "available": true
+      },
+      "tidalMatch": true,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Official distributor inventory match found; using distributor data as primary enrichment.",
+        "Distributor metadata selected despite no website match."
+      ]
+    },
+    {
+      "folderName": "Reflections",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Reflections",
+      "title": "Reflections",
+      "slug": "reflections",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2021-02-26",
+      "year": 2021,
+      "upc": "4018939441814",
+      "catalogNumber": "CAT4018939441814",
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Reflections",
+          "mixVersion": "",
+          "ISRC": "DEQ022106228",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:50",
+          "genre": "Hip Hop/Rap",
+          "subgenre": "Hip Hop/Rap"
+        }
+      ],
+      "isrcs": [
+        "DEQ022106228"
+      ],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Reflections\\when the heavens meet the earth.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Reflections\\Broey. - Reflections [M] Short (1).wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug",
+        "slug": "reflections",
+        "title": "Reflections",
+        "type": "Single",
+        "releaseDate": "2021-02-26",
+        "year": 2021,
+        "upc": "4018939441814",
+        "catalogNumber": "CAT4018939441814",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Reflections",
+            "mixVersion": "",
+            "ISRC": "DEQ022106228",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:50",
+            "genre": "Hip Hop/Rap",
+            "subgenre": "Hip Hop/Rap"
+          }
+        ],
+        "isrcs": [
+          "DEQ022106228"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Official distributor inventory match found; using distributor data as primary enrichment.",
+        "Distributor metadata selected despite no website match."
+      ]
+    },
+    {
+      "folderName": "Sexy Bach",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Sexy Bach",
+      "title": "Sexy Bach",
+      "slug": "sexy-bach",
+      "type": "EP",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Sexy Bach\\idle hand.png",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Sexy Bach\\sexy bach 2022 update master.mp3",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "medium",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "Medium confidence: media present and clear folder/title evidence but incomplete canonical matching.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "smile",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\smile",
+      "title": "smile",
+      "slug": "smile",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": null,
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\smile\\smile M.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Artwork missing; visual confidence is reduced.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "stereo luv",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\stereo luv",
+      "title": "STEREO LUV",
+      "slug": "stereo-luv",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2025-00-00",
+      "year": 2025,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\stereo luv\\STEREO LUV (1).png",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\stereo luv\\stereo luv narration.wav",
+      "websiteMatch": true,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": true,
+      "listenAction": {
+        "kind": "disco-embed",
+        "embedUrl": "https://broeybeats.disco.ac/e/t/163013451?s=-iKLOiEjvYkHdhylWiKgVOaNsfo%3AQsm0RJkf&artwork=false&color=%234E98FF&theme=dark",
+        "provider": "disco",
+        "label": "Listen in player"
+      },
+      "catalogStatus": "tidal",
+      "confidence": "high",
+      "reviewStatus": "pending",
+      "warnings": [],
+      "notes": [
+        "High confidence: matched canonical metadata plus both required media candidates present.",
+        "Canonical website metadata match: STEREO LUV / stereo-luv (Single) from content/releases.ts."
+      ]
+    },
+    {
+      "folderName": "Tarot's",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Tarot's",
+      "title": "Tarot's",
+      "slug": "tarot-s",
+      "type": "Album",
+      "status": "released",
+      "releaseDate": "2021-04-30",
+      "year": 2021,
+      "upc": "4018939488185",
+      "catalogNumber": "CAT4018939488185",
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Rebirth",
+          "mixVersion": "The Tower",
+          "ISRC": "DEQ022110664",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:27",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Believe in Yourself",
+          "mixVersion": "The Sun",
+          "ISRC": "DEQ022110665",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 3,
+          "title": "Finding a Path",
+          "mixVersion": "The Magician",
+          "ISRC": "DEQ022110666",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:02",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 4,
+          "title": "Guidance",
+          "mixVersion": "The Star",
+          "ISRC": "DEQ022110667",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:19",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 5,
+          "title": "Without Looking Back",
+          "mixVersion": "The Fool",
+          "ISRC": "DEQ022110655",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:53",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 6,
+          "title": "Prosperity",
+          "mixVersion": "The Empress",
+          "ISRC": "DEQ022110668",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:13",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 7,
+          "title": "Celebration",
+          "mixVersion": "Four of Wands",
+          "ISRC": "DEQ022110669",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:37",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 8,
+          "title": "Cure",
+          "mixVersion": "Temperance",
+          "ISRC": "DEQ022110670",
+          "primaryArtists": [],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:40",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "isrcs": [
+        "DEQ022110664",
+        "DEQ022110665",
+        "DEQ022110666",
+        "DEQ022110667",
+        "DEQ022110655",
+        "DEQ022110668",
+        "DEQ022110669",
+        "DEQ022110670"
+      ],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Tarot's\\Aries - Digital (3000x3000).jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Tarot's\\07 Celebration (Four of Wands) M2.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": true,
+        "source": "scripts/distributor-inventory.json",
+        "method": "slug",
+        "slug": "tarot-s",
+        "title": "Tarot's",
+        "type": "Album",
+        "releaseDate": "2021-04-30",
+        "year": 2021,
+        "upc": "4018939488185",
+        "catalogNumber": "CAT4018939488185",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Rebirth",
+            "mixVersion": "The Tower",
+            "ISRC": "DEQ022110664",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:27",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 2,
+            "title": "Believe in Yourself",
+            "mixVersion": "The Sun",
+            "ISRC": "DEQ022110665",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:28",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 3,
+            "title": "Finding a Path",
+            "mixVersion": "The Magician",
+            "ISRC": "DEQ022110666",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:02",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 4,
+            "title": "Guidance",
+            "mixVersion": "The Star",
+            "ISRC": "DEQ022110667",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:19",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 5,
+            "title": "Without Looking Back",
+            "mixVersion": "The Fool",
+            "ISRC": "DEQ022110655",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "01:53",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 6,
+            "title": "Prosperity",
+            "mixVersion": "The Empress",
+            "ISRC": "DEQ022110668",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:13",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 7,
+            "title": "Celebration",
+            "mixVersion": "Four of Wands",
+            "ISRC": "DEQ022110669",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "01:37",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 8,
+            "title": "Cure",
+            "mixVersion": "Temperance",
+            "ISRC": "DEQ022110670",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:40",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          }
+        ],
+        "isrcs": [
+          "DEQ022110664",
+          "DEQ022110665",
+          "DEQ022110666",
+          "DEQ022110667",
+          "DEQ022110655",
+          "DEQ022110668",
+          "DEQ022110669",
+          "DEQ022110670"
+        ],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "Official distributor inventory match found; using distributor data as primary enrichment.",
+        "Type remains unclear or inferred with low certainty.",
+        "Distributor metadata selected despite no website match."
+      ]
+    },
+    {
+      "folderName": "Think about it",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Think about it",
+      "title": "Think About It",
+      "slug": "think-about-it",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": "2022-05-06",
+      "year": 2022,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\Think about it\\Think about it Remix Art_V1.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Think about it\\Think about it - broey. FINAL VERSION AND UPLOAD.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": true,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": "pending-tidal",
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "No website match found; using TIDAL import metadata as secondary enrichment.",
+        "Type remains unclear or inferred with low certainty."
+      ]
+    },
+    {
+      "folderName": "While the Leaves Blow - Linearwave",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave",
+      "title": "While the Leaves Blow - Linearwave",
+      "slug": "while-the-leaves-blow-linearwave",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave\\Broey. & Linearwave - While The Leaves Blow_Artwork.jpg",
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave\\While the Leaves Blow [M2]-1.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "medium",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "notes": [
+        "Medium confidence: media present and clear folder/title evidence but incomplete canonical matching.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    },
+    {
+      "folderName": "Winter Days - Silvers and Golds",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Winter Days - Silvers and Golds",
+      "title": "Winter Days - Silvers and Golds",
+      "slug": "winter-days-silvers-and-golds",
+      "type": "Single",
+      "status": "released",
+      "releaseDate": null,
+      "year": null,
+      "upc": null,
+      "catalogNumber": null,
+      "trackList": [],
+      "isrcs": [],
+      "coverCandidate": null,
+      "audioCandidate": "D:\\Broey\\Releases\\Already Released\\Winter Days - Silvers and Golds\\silvers and golds M.wav",
+      "websiteMatch": false,
+      "distributorMatch": {
+        "match": false,
+        "source": "scripts/distributor-inventory.json",
+        "method": "none",
+        "slug": null,
+        "title": null,
+        "type": null,
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "available": true
+      },
+      "tidalMatch": false,
+      "carouselCandidate": false,
+      "listenAction": null,
+      "catalogStatus": null,
+      "confidence": "low",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "unmatched content release"
+      ],
+      "notes": [
+        "Low confidence: unclear media/type/slug signals or significant gaps in evidence.",
+        "No external metadata match found; inferred from folder scanning.",
+        "Artwork missing; visual confidence is reduced.",
+        "Inference scores were weak.",
+        "No content or TIDAL match; manual review recommended."
+      ]
+    }
+  ]
+}

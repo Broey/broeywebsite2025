@@ -1,0 +1,52 @@
+{
+  "name": "broey-website",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sync:assets": "node scripts/asset-sync.mjs",
+    "sync:assets:dry": "node scripts/asset-sync.mjs \"D:\\Broey\\Broey Website 2025\\Assets\" --dry-run",
+    "sync:assets:go": "node scripts/asset-sync.mjs \"D:\\Broey\\Broey Website 2025\\Assets\" --write-content",
+    "sync:distributor:inventory": "node scripts/distributor-inventory.mjs --file \"content/Broey._InventoryExport_2026-06-08_15_10_45.csv\"",
+    "sync:catalog:dry": "node scripts/catalog-sync.mjs --dry-run",
+    "sync:catalog:itunes:merge-preview": "node scripts/catalog-merge-preview.mjs --provider itunes",
+    "sync:catalog:itunes:review": "node scripts/catalog-import-review.mjs --provider itunes",
+    "sync:catalog:merge": "node scripts/catalog-merge.mjs --write",
+    "sync:catalog:merge:dry": "node scripts/catalog-merge.mjs --dry-run",
+    "sync:catalog:merge-preview": "node scripts/catalog-merge-preview.mjs",
+    "sync:catalog:review": "node scripts/catalog-import-review.mjs",
+    "sync:catalog:tidal:dry": "node scripts/catalog-sync.mjs --provider tidal --dry-run",
+    "sync:catalog:tidal:merge-preview": "node scripts/catalog-merge-preview.mjs --provider tidal",
+    "sync:catalog:tidal:review": "node scripts/catalog-import-review.mjs --provider tidal",
+    "sync:catalog:tidal:write": "node scripts/catalog-sync.mjs --provider tidal --write",
+    "sync:catalog:write": "node scripts/catalog-sync.mjs --write",
+    "sync:released-folders:scan": "node scripts/released-folder-inventory.mjs",
+    "sync:release-library:inventory": "node scripts/release-library-inventory.mjs",
+    "sync:release-library:json-preview": "node scripts/release-library-json-preview.mjs",
+    "sync:release-library:json-write": "node scripts/release-library-json-write.mjs",
+    "sync:release-library:website-sync-preview": "node scripts/release-library-website-sync-preview.mjs",
+    "sync:release-library:website-sync": "node scripts/release-library-website-sync.mjs",
+    "sync:released-folders:metadata-preview": "node scripts/released-folder-metadata-preview.mjs",
+    "sync:released-folders:stage-plan": "node scripts/release-library-stage-plan.mjs",
+    "sync:latest-release-media": "node scripts/asset-sync.mjs --latest-media",
+    "sync:latest-release-media:dry": "node scripts/asset-sync.mjs --latest-media --dry-run"
+  },
+  "dependencies": {
+    "next": "^14.2.30",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.5",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.30",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3"
+  }
+}

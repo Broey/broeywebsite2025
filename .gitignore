@@ -1,0 +1,15 @@
+node_modules
+.next
+.next-dev
+.env*.local
+.DS_Store
+.out
+out
+test-results
+tsconfig.tsbuildinfo
+npm-version.log
+test-start-process.txt
+api_token.txt
+*.backup-*
+*.catalog-merge-backup-*
+*.log

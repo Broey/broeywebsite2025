@@ -1,0 +1,2505 @@
+{
+  "generatedAt": "2026-06-09T07:32:23.832Z",
+  "providerFilter": null,
+  "importedDraftPath": "content/releases.imported.json",
+  "localReleasePath": "content/releases.ts",
+  "outputJsonPath": "scripts/catalog-merge-preview.json",
+  "outputMarkdownPath": "scripts/catalog-merge-preview.md",
+  "note": "Preview only. This does not edit content/releases.ts. Imported entries default to draft visibility unless their imported JSON entry explicitly says visibility: public.",
+  "summary": {
+    "importedDraftCount": 75,
+    "allImportedDraftCount": 75,
+    "reviewedImportCount": 32,
+    "alreadyMergedCount": 0,
+    "wouldAddCount": 32,
+    "publicCount": 0,
+    "draftCount": 32,
+    "manualCount": 32,
+    "skippedPendingCount": 0,
+    "skippedIgnoreCount": 43,
+    "skippedOtherCount": 0,
+    "slugConflictCount": 0,
+    "titleConflictCount": 0
+  },
+  "alreadyMerged": [],
+  "wouldAdd": [
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "another-place-that-i-don-t-wanna-be",
+      "title": "Another Place (That I Don't Wanna Be)",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2025,
+      "releaseDate": "2025-10-28",
+      "collectionTitle": "One Night In Yumeland",
+      "parentReleaseCandidate": "one-night-in-yumeland",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/another-place-that-i-don-t-wanna-be.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/fe/20/e2fe203b-8c9c-5873-5454-0e277d316a82/artwork.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/another-place-that-i-dont-wanna-be/1848588153?i=1848588431&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/another-place-that-i-dont-wanna-be/1848588153?i=1848588431&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1848588431",
+        "artistName": "Dreameater & Broey.",
+        "collectionName": "One Night In Yumeland",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/another-place-that-i-dont-wanna-be/1848588153?i=1848588431&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/fe/20/e2fe203b-8c9c-5873-5454-0e277d316a82/artwork.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Another Place (That I Don't Wanna Be)",
+        "slug": "another-place-that-i-don-t-wanna-be",
+        "type": "single",
+        "year": 2025,
+        "releaseDate": "2025-10-28",
+        "description": "Catalog metadata draft for Another Place (That I Don't Wanna Be) by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/another-place-that-i-don-t-wanna-be.png",
+        "coverAlt": "Another Place (That I Don't Wanna Be) cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/another-place-that-i-dont-wanna-be/1848588153?i=1848588431&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "hyperdrive",
+      "title": "Hyperdrive",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2025,
+      "releaseDate": "2025-10-28",
+      "collectionTitle": "One Night In Yumeland",
+      "parentReleaseCandidate": "one-night-in-yumeland",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/hyperdrive.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/fe/20/e2fe203b-8c9c-5873-5454-0e277d316a82/artwork.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/hyperdrive/1848588153?i=1848588155&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/hyperdrive/1848588153?i=1848588155&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1848588155",
+        "artistName": "Dreameater & Broey.",
+        "collectionName": "One Night In Yumeland",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/hyperdrive/1848588153?i=1848588155&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/fe/20/e2fe203b-8c9c-5873-5454-0e277d316a82/artwork.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Hyperdrive",
+        "slug": "hyperdrive",
+        "type": "single",
+        "year": 2025,
+        "releaseDate": "2025-10-28",
+        "description": "Catalog metadata draft for Hyperdrive by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/hyperdrive.png",
+        "coverAlt": "Hyperdrive cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/hyperdrive/1848588153?i=1848588155&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "4u-mixed",
+      "title": "4u (Mixed)",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2025,
+      "releaseDate": "2025-06-23",
+      "collectionTitle": "Serato Paradise: KITTENS (DJ Mix)",
+      "parentReleaseCandidate": "serato-paradise-kittens-dj-mix",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/4u-mixed.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/02/00/67/02006778-c0f0-e10e-8bc3-a5710cb4bc49/bd67651b-edd4-43be-acf9-e2149d89f382.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/4u-mixed/1820533351?i=1820533834&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/4u-mixed/1820533351?i=1820533834&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1820533834",
+        "artistName": "notminimal. & Broey.",
+        "collectionName": "Serato Paradise: KITTENS (DJ Mix)",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/4u-mixed/1820533351?i=1820533834&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/02/00/67/02006778-c0f0-e10e-8bc3-a5710cb4bc49/bd67651b-edd4-43be-acf9-e2149d89f382.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "4u (Mixed)",
+        "slug": "4u-mixed",
+        "type": "single",
+        "year": 2025,
+        "releaseDate": "2025-06-23",
+        "description": "Catalog metadata draft for 4u (Mixed) by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/4u-mixed.png",
+        "coverAlt": "4u (Mixed) cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/4u-mixed/1820533351?i=1820533834&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "spiral-feat-evan",
+      "title": "Spiral (feat. evän)",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-09-16",
+      "collectionTitle": "Spiral (feat. evän) - Single",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/spiral-feat-evan.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a3/f2/fd/a3f2fd85-ef48-eb76-f4bf-3b2797a9eeaa/1963620843695_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/spiral-feat-ev%C3%A4n-single/1633736948?uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/spiral-feat-ev%C3%A4n-single/1633736948?uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1633736948",
+        "artistName": "No Mic, Strong Maurice & Broey.",
+        "collectionName": "Spiral (feat. evän) - Single",
+        "trackCount": 1,
+        "rawKind": "Album",
+        "sourceUrl": "https://music.apple.com/us/album/spiral-feat-ev%C3%A4n-single/1633736948?uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a3/f2/fd/a3f2fd85-ef48-eb76-f4bf-3b2797a9eeaa/1963620843695_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Spiral (feat. evän)",
+        "slug": "spiral-feat-evan",
+        "type": "single",
+        "year": 2022,
+        "releaseDate": "2022-09-16",
+        "description": "Catalog metadata draft for Spiral (feat. evän) by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/spiral-feat-evan.png",
+        "coverAlt": "Spiral (feat. evän) cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/spiral-feat-ev%C3%A4n-single/1633736948?uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "after-the-rain",
+      "title": "After the Rain",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-01-28",
+      "collectionTitle": "After the Rain - Single",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/after-the-rain.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/9d/54/b6/9d54b6d8-bd21-3cae-d23d-7c7579233a4f/1963620508297_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/after-the-rain-single/1603783366?uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/after-the-rain-single/1603783366?uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1603783366",
+        "artistName": "Broey. & Electricsheep42",
+        "collectionName": "After the Rain - Single",
+        "trackCount": 1,
+        "rawKind": "Album",
+        "sourceUrl": "https://music.apple.com/us/album/after-the-rain-single/1603783366?uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/9d/54/b6/9d54b6d8-bd21-3cae-d23d-7c7579233a4f/1963620508297_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "After the Rain",
+        "slug": "after-the-rain",
+        "type": "single",
+        "year": 2022,
+        "releaseDate": "2022-01-28",
+        "description": "Catalog metadata draft for After the Rain by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/after-the-rain.png",
+        "coverAlt": "After the Rain cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/after-the-rain-single/1603783366?uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "santa-barbara-feat-bnmo",
+      "title": "Santa Barbara (feat. Bnmo)",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2021,
+      "releaseDate": "2021-10-20",
+      "collectionTitle": "Santa Barbara (feat. Bnmo) - Single",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/santa-barbara-feat-bnmo.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/29/ce/49/29ce4964-5132-0f1e-9731-ee7944b48b06/1963620070138_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/santa-barbara-feat-bnmo-single/1581956499?uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/santa-barbara-feat-bnmo-single/1581956499?uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1581956499",
+        "artistName": "Broey., brxtn & Fwn",
+        "collectionName": "Santa Barbara (feat. Bnmo) - Single",
+        "trackCount": 1,
+        "rawKind": "Album",
+        "sourceUrl": "https://music.apple.com/us/album/santa-barbara-feat-bnmo-single/1581956499?uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/29/ce/49/29ce4964-5132-0f1e-9731-ee7944b48b06/1963620070138_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Santa Barbara (feat. Bnmo)",
+        "slug": "santa-barbara-feat-bnmo",
+        "type": "single",
+        "year": 2021,
+        "releaseDate": "2021-10-20",
+        "description": "Catalog metadata draft for Santa Barbara (feat. Bnmo) by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/santa-barbara-feat-bnmo.png",
+        "coverAlt": "Santa Barbara (feat. Bnmo) cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/santa-barbara-feat-bnmo-single/1581956499?uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "silvers-and-golds",
+      "title": "Silvers and Golds",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2021,
+      "releaseDate": "2021-01-25",
+      "collectionTitle": "Winter Days",
+      "parentReleaseCandidate": "winter-days",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/silvers-and-golds.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c1/b0/43/c1b043ae-a0dd-d58b-0013-c14a7644c0c5/cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/silvers-and-golds/1675638891?i=1675639178&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/silvers-and-golds/1675638891?i=1675639178&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1675639178",
+        "artistName": "Broey.",
+        "collectionName": "Winter Days",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/silvers-and-golds/1675638891?i=1675639178&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c1/b0/43/c1b043ae-a0dd-d58b-0013-c14a7644c0c5/cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Silvers and Golds",
+        "slug": "silvers-and-golds",
+        "type": "single",
+        "year": 2021,
+        "releaseDate": "2021-01-25",
+        "description": "Catalog metadata draft for Silvers and Golds by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/silvers-and-golds.png",
+        "coverAlt": "Silvers and Golds cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/silvers-and-golds/1675638891?i=1675639178&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "when-there-s-nothing-else",
+      "title": "When There's Nothing Else",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2020,
+      "releaseDate": "2020-09-01",
+      "collectionTitle": "When There's Nothing Else - Single",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/when-there-s-nothing-else.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/75/38/9c/75389c90-cfc2-0226-29b5-a04fe5e72f61/cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/when-theres-nothing-else-single/1672794949?uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/when-theres-nothing-else-single/1672794949?uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1672794949",
+        "artistName": "Broey. & LeVirya",
+        "collectionName": "When There's Nothing Else - Single",
+        "trackCount": 1,
+        "rawKind": "Album",
+        "sourceUrl": "https://music.apple.com/us/album/when-theres-nothing-else-single/1672794949?uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/75/38/9c/75389c90-cfc2-0226-29b5-a04fe5e72f61/cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "When There's Nothing Else",
+        "slug": "when-there-s-nothing-else",
+        "type": "single",
+        "year": 2020,
+        "releaseDate": "2020-09-01",
+        "description": "Catalog metadata draft for When There's Nothing Else by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/when-there-s-nothing-else.png",
+        "coverAlt": "When There's Nothing Else cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/when-theres-nothing-else-single/1672794949?uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "glass-houses",
+      "title": "Glass Houses",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2020,
+      "releaseDate": "2020-07-10",
+      "collectionTitle": "Summer Days",
+      "parentReleaseCandidate": "summer-days",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/glass-houses.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/32/98/53/32985398-94a1-4b9e-82ab-835c5bf12b2f/cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/glass-houses/1676006479?i=1676007511&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/glass-houses/1676006479?i=1676007511&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1676007511",
+        "artistName": "Remulak & Broey.",
+        "collectionName": "Summer Days",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/glass-houses/1676006479?i=1676007511&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/32/98/53/32985398-94a1-4b9e-82ab-835c5bf12b2f/cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Glass Houses",
+        "slug": "glass-houses",
+        "type": "single",
+        "year": 2020,
+        "releaseDate": "2020-07-10",
+        "description": "Catalog metadata draft for Glass Houses by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/glass-houses.png",
+        "coverAlt": "Glass Houses cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/glass-houses/1676006479?i=1676007511&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "insomnia",
+      "title": "Insomnia",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2020,
+      "releaseDate": "2020-01-01",
+      "collectionTitle": "One Month Study Project, Vol. 2",
+      "parentReleaseCandidate": "one-month-study-project-vol-2",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/insomnia.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8a/c7/c6/8ac7c6bc-1c98-0aaf-c409-ed0798124a34/018736271731_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/insomnia/1491538653?i=1491539075&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/insomnia/1491538653?i=1491539075&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1491539075",
+        "artistName": "Broey.",
+        "collectionName": "One Month Study Project, Vol. 2",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/insomnia/1491538653?i=1491539075&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8a/c7/c6/8ac7c6bc-1c98-0aaf-c409-ed0798124a34/018736271731_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Insomnia",
+        "slug": "insomnia",
+        "type": "single",
+        "year": 2020,
+        "releaseDate": "2020-01-01",
+        "description": "Catalog metadata draft for Insomnia by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/insomnia.png",
+        "coverAlt": "Insomnia cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/insomnia/1491538653?i=1491539075&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "overthinkin",
+      "title": "Overthinkin'",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-12-13",
+      "collectionTitle": "Winter Dreams 2019",
+      "parentReleaseCandidate": "winter-dreams-2019",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/overthinkin.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/85/5b/a3855b1e-66fa-ba79-c831-ac50355b909d/1963623428660_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/overthinkin/1820688691?i=1820688695&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/overthinkin/1820688691?i=1820688695&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1820688695",
+        "artistName": "Electricsheep42, Broey. & Pueblo Vista",
+        "collectionName": "Winter Dreams 2019",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/overthinkin/1820688691?i=1820688695&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/85/5b/a3855b1e-66fa-ba79-c831-ac50355b909d/1963623428660_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Overthinkin'",
+        "slug": "overthinkin",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-12-13",
+        "description": "Catalog metadata draft for Overthinkin' by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/overthinkin.png",
+        "coverAlt": "Overthinkin' cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/overthinkin/1820688691?i=1820688695&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "cedar-and-candles",
+      "title": "Cedar and Candles",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-11-28",
+      "collectionTitle": "Cedar and Candles - Single",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/cedar-and-candles.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/4c/c8/cd/4cc8cdab-7dd8-897e-bffb-64f0dec1f8b3/5059366075820_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/cedar-and-candles-single/1484782065?uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/cedar-and-candles-single/1484782065?uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1484782065",
+        "artistName": "LeVirya & Broey.",
+        "collectionName": "Cedar and Candles - Single",
+        "trackCount": 1,
+        "rawKind": "Album",
+        "sourceUrl": "https://music.apple.com/us/album/cedar-and-candles-single/1484782065?uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/4c/c8/cd/4cc8cdab-7dd8-897e-bffb-64f0dec1f8b3/5059366075820_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Cedar and Candles",
+        "slug": "cedar-and-candles",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-11-28",
+        "description": "Catalog metadata draft for Cedar and Candles by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/cedar-and-candles.png",
+        "coverAlt": "Cedar and Candles cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/cedar-and-candles-single/1484782065?uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "pier-review",
+      "title": "Pier Review",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-10-29",
+      "collectionTitle": "Just Feels",
+      "parentReleaseCandidate": "just-feels",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/pier-review.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/ea/b8/cd/eab8cd2f-8113-dffe-59c7-aebbc2fe4d68/018736564307_cover.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/pier-review/1479882458?i=1479882460&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/pier-review/1479882458?i=1479882460&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1479882460",
+        "artistName": "Chill Select & Broey.",
+        "collectionName": "Just Feels",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/pier-review/1479882458?i=1479882460&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/ea/b8/cd/eab8cd2f-8113-dffe-59c7-aebbc2fe4d68/018736564307_cover.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Pier Review",
+        "slug": "pier-review",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-10-29",
+        "description": "Catalog metadata draft for Pier Review by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/pier-review.png",
+        "coverAlt": "Pier Review cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/pier-review/1479882458?i=1479882460&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "sunset-drives",
+      "title": "Sunset Drives",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-08-25",
+      "collectionTitle": "Lazy Tree Records",
+      "parentReleaseCandidate": "lazy-tree-records",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/sunset-drives.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/e0/c9/c7/e0c9c71b-bb97-a57f-be73-eb125ad69025/193436172721_01_img001.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/sunset-drives/1475982126?i=1475982135&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/sunset-drives/1475982126?i=1475982135&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1475982135",
+        "artistName": "Lazy Tree Records & Broey.",
+        "collectionName": "Lazy Tree Records",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/sunset-drives/1475982126?i=1475982135&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/e0/c9/c7/e0c9c71b-bb97-a57f-be73-eb125ad69025/193436172721_01_img001.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Sunset Drives",
+        "slug": "sunset-drives",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-08-25",
+        "description": "Catalog metadata draft for Sunset Drives by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/sunset-drives.png",
+        "coverAlt": "Sunset Drives cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/sunset-drives/1475982126?i=1475982135&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "whatever",
+      "title": "Whatever",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-08-20",
+      "collectionTitle": "Ep 1",
+      "parentReleaseCandidate": "1",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/whatever.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8d/c9/39/8dc939df-608c-be30-42b4-e138aa1cd44c/193436172868_01_img001.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/whatever/1475999192?i=1475999198&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/whatever/1475999192?i=1475999198&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1475999198",
+        "artistName": "Lazy Tree Records & Broey.",
+        "collectionName": "Ep 1",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/whatever/1475999192?i=1475999198&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8d/c9/39/8dc939df-608c-be30-42b4-e138aa1cd44c/193436172868_01_img001.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Whatever",
+        "slug": "whatever",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-08-20",
+        "description": "Catalog metadata draft for Whatever by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/whatever.png",
+        "coverAlt": "Whatever cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/whatever/1475999192?i=1475999198&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "itunes",
+      "visibility": "draft",
+      "published": false,
+      "slug": "summer-rain",
+      "title": "Summer Rain",
+      "type": "single",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-08-20",
+      "collectionTitle": "Ep 1",
+      "parentReleaseCandidate": "1",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/summer-rain.png",
+        "sourceArtworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8d/c9/39/8dc939df-608c-be30-42b4-e138aa1cd44c/193436172868_01_img001.jpg/1000x1000bb.jpg",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://music.apple.com/us/album/summer-rain/1475999192?i=1475999197&uo=4",
+      "dspLink": {
+        "label": "Apple Music",
+        "platform": "Apple Music",
+        "url": "https://music.apple.com/us/album/summer-rain/1475999192?i=1475999197&uo=4",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "source": "itunes",
+        "sourceId": "1475999197",
+        "artistName": "Lazy Tree Records, Byte & Broey.",
+        "collectionName": "Ep 1",
+        "trackCount": 1,
+        "rawKind": "song",
+        "sourceUrl": "https://music.apple.com/us/album/summer-rain/1475999192?i=1475999197&uo=4",
+        "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8d/c9/39/8dc939df-608c-be30-42b4-e138aa1cd44c/193436172868_01_img001.jpg/1000x1000bb.jpg"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Summer Rain",
+        "slug": "summer-rain",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-08-20",
+        "description": "Catalog metadata draft for Summer Rain by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/summer-rain.png",
+        "coverAlt": "Summer Rain cover art",
+        "links": [
+          {
+            "label": "Apple Music",
+            "platform": "Apple Music",
+            "url": "https://music.apple.com/us/album/summer-rain/1475999192?i=1475999197&uo=4",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "counting",
+      "title": "counting.",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2025,
+      "releaseDate": "2025-11-15",
+      "collectionTitle": "counting.",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/counting.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/474301835",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/474301835",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "474301835",
+        "tidalId": "474301835",
+        "artistName": "Broey.",
+        "collectionName": "counting.",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/474301835"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "counting.",
+        "slug": "counting",
+        "type": "single",
+        "year": 2025,
+        "releaseDate": "2025-11-15",
+        "description": "Catalog metadata draft for counting. by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/counting.png",
+        "coverAlt": "counting. cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/474301835",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "numbers",
+      "title": "Numbers",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2024,
+      "releaseDate": "2024-03-22",
+      "collectionTitle": "Numbers",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/numbers.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/344698087",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/344698087",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "344698087",
+        "tidalId": "344698087",
+        "artistName": "Broey.",
+        "collectionName": "Numbers",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/344698087"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Numbers",
+        "slug": "numbers",
+        "type": "single",
+        "year": 2024,
+        "releaseDate": "2024-03-22",
+        "description": "Catalog metadata draft for Numbers by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/numbers.png",
+        "coverAlt": "Numbers cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/344698087",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "it-s-not-the-end",
+      "title": "It's Not The End",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2023,
+      "releaseDate": "2023-08-25",
+      "collectionTitle": "It's Not The End",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/it-s-not-the-end.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/309205650",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/309205650",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "309205650",
+        "tidalId": "309205650",
+        "artistName": "Almost Anyone & Broey.",
+        "collectionName": "It's Not The End",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/309205650"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "It's Not The End",
+        "slug": "it-s-not-the-end",
+        "type": "single",
+        "year": 2023,
+        "releaseDate": "2023-08-25",
+        "description": "Catalog metadata draft for It's Not The End by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/it-s-not-the-end.png",
+        "coverAlt": "It's Not The End cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/309205650",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "contrast",
+      "title": "Contrast",
+      "type": "ep",
+      "isCollection": true,
+      "suggestedTileType": "collectionTile",
+      "trackCount": 3,
+      "year": 2023,
+      "releaseDate": "2023-08-04",
+      "collectionTitle": "Contrast",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/contrast.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/301898934",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/301898934",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "301898934",
+        "tidalId": "301898934",
+        "artistName": "Broey.",
+        "collectionName": "Contrast",
+        "collectionType": "EP",
+        "isCollection": true,
+        "suggestedTileType": "collectionTile",
+        "trackCount": 3,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/301898934"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Contrast",
+        "slug": "contrast",
+        "type": "ep",
+        "year": 2023,
+        "releaseDate": "2023-08-04",
+        "description": "Catalog metadata draft for Contrast by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/contrast.png",
+        "coverAlt": "Contrast cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/301898934",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "proppa",
+      "title": "PROPPA",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2023,
+      "releaseDate": "2023-07-14",
+      "collectionTitle": "PROPPA",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/proppa.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/301898879",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/301898879",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "301898879",
+        "tidalId": "301898879",
+        "artistName": "Broey.",
+        "collectionName": "PROPPA",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/301898879"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "PROPPA",
+        "slug": "proppa",
+        "type": "single",
+        "year": 2023,
+        "releaseDate": "2023-07-14",
+        "description": "Catalog metadata draft for PROPPA by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/proppa.png",
+        "coverAlt": "PROPPA cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/301898879",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "eternity",
+      "title": "Eternity",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-12-02",
+      "collectionTitle": "Eternity",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/eternity.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/256591416",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/256591416",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "256591416",
+        "tidalId": "256591416",
+        "artistName": "Broey.",
+        "collectionName": "Eternity",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/256591416"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Eternity",
+        "slug": "eternity",
+        "type": "single",
+        "year": 2022,
+        "releaseDate": "2022-12-02",
+        "description": "Catalog metadata draft for Eternity by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/eternity.png",
+        "coverAlt": "Eternity cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/256591416",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "gimmie-dat",
+      "title": "Gimmie Dat",
+      "type": "ep",
+      "isCollection": true,
+      "suggestedTileType": "collectionTile",
+      "trackCount": 2,
+      "year": 2022,
+      "releaseDate": "2022-10-21",
+      "collectionTitle": "Gimmie Dat",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/gimmie-dat.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/248514149",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/248514149",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "248514149",
+        "tidalId": "248514149",
+        "artistName": "Broey.",
+        "collectionName": "Gimmie Dat",
+        "collectionType": "EP",
+        "isCollection": true,
+        "suggestedTileType": "collectionTile",
+        "trackCount": 2,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/248514149"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Gimmie Dat",
+        "slug": "gimmie-dat",
+        "type": "ep",
+        "year": 2022,
+        "releaseDate": "2022-10-21",
+        "description": "Catalog metadata draft for Gimmie Dat by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/gimmie-dat.png",
+        "coverAlt": "Gimmie Dat cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/248514149",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "gimmie-dat-slowed-and-reverbed-edit",
+      "title": "Gimmie Dat (slowed and reverbed edit)",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-10-21",
+      "collectionTitle": "Gimmie Dat (slowed and reverbed edit)",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/gimmie-dat-slowed-and-reverbed-edit.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/256363926",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/256363926",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "256363926",
+        "tidalId": "256363926",
+        "artistName": "Broey.",
+        "collectionName": "Gimmie Dat (slowed and reverbed edit)",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/256363926"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Gimmie Dat (slowed and reverbed edit)",
+        "slug": "gimmie-dat-slowed-and-reverbed-edit",
+        "type": "single",
+        "year": 2022,
+        "releaseDate": "2022-10-21",
+        "description": "Catalog metadata draft for Gimmie Dat (slowed and reverbed edit) by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/gimmie-dat-slowed-and-reverbed-edit.png",
+        "coverAlt": "Gimmie Dat (slowed and reverbed edit) cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/256363926",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "think-about-it-cryztal-grid-remix",
+      "title": "Think About It (Cryztal Grid Remix)",
+      "type": "remix",
+      "isCollection": true,
+      "suggestedTileType": "collectionTile",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-09-30",
+      "collectionTitle": "Think About It (Cryztal Grid Remix)",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/think-about-it-cryztal-grid-remix.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/246453976",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/246453976",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "246453976",
+        "tidalId": "246453976",
+        "artistName": "Broey. & Cryztal Grid",
+        "collectionName": "Think About It (Cryztal Grid Remix)",
+        "collectionType": "Remix",
+        "isCollection": true,
+        "suggestedTileType": "collectionTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/246453976"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Think About It (Cryztal Grid Remix)",
+        "slug": "think-about-it-cryztal-grid-remix",
+        "type": "remix",
+        "year": 2022,
+        "releaseDate": "2022-09-30",
+        "description": "Catalog metadata draft for Think About It (Cryztal Grid Remix) by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/think-about-it-cryztal-grid-remix.png",
+        "coverAlt": "Think About It (Cryztal Grid Remix) cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/246453976",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "spiral",
+      "title": "spiral",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-09-16",
+      "collectionTitle": "spiral",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/spiral.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/237322474",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/237322474",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "237322474",
+        "tidalId": "237322474",
+        "artistName": "no mic & Strong Maurice & Broey.",
+        "collectionName": "spiral",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/237322474"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "spiral",
+        "slug": "spiral",
+        "type": "single",
+        "year": 2022,
+        "releaseDate": "2022-09-16",
+        "description": "Catalog metadata draft for spiral by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/spiral.png",
+        "coverAlt": "spiral cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/237322474",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "think-about-it",
+      "title": "Think About It",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2022,
+      "releaseDate": "2022-05-06",
+      "collectionTitle": "Think About It",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/think-about-it.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/224342028",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/224342028",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "224342028",
+        "tidalId": "224342028",
+        "artistName": "Broey.",
+        "collectionName": "Think About It",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/224342028"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Think About It",
+        "slug": "think-about-it",
+        "type": "single",
+        "year": 2022,
+        "releaseDate": "2022-05-06",
+        "description": "Catalog metadata draft for Think About It by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/think-about-it.png",
+        "coverAlt": "Think About It cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/224342028",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "santa-barbara",
+      "title": "Santa Barbara",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2021,
+      "releaseDate": "2021-10-20",
+      "collectionTitle": "Santa Barbara",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/santa-barbara.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/194683764",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/194683764",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "194683764",
+        "tidalId": "194683764",
+        "artistName": "Broey. & Brxtn & fwn.",
+        "collectionName": "Santa Barbara",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/194683764"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Santa Barbara",
+        "slug": "santa-barbara",
+        "type": "single",
+        "year": 2021,
+        "releaseDate": "2021-10-20",
+        "description": "Catalog metadata draft for Santa Barbara by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/santa-barbara.png",
+        "coverAlt": "Santa Barbara cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/194683764",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "new-beginnings",
+      "title": "New Beginnings",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2021,
+      "releaseDate": "2021-08-17",
+      "collectionTitle": "New Beginnings",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/new-beginnings.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/192797910",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/192797910",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "192797910",
+        "tidalId": "192797910",
+        "artistName": "Broey.",
+        "collectionName": "New Beginnings",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/192797910"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "New Beginnings",
+        "slug": "new-beginnings",
+        "type": "single",
+        "year": 2021,
+        "releaseDate": "2021-08-17",
+        "description": "Catalog metadata draft for New Beginnings by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/new-beginnings.png",
+        "coverAlt": "New Beginnings cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/192797910",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "sunrays",
+      "title": "Sunrays",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2020,
+      "releaseDate": "2020-02-07",
+      "collectionTitle": "Sunrays",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/sunrays.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/201288838",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/201288838",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "201288838",
+        "tidalId": "201288838",
+        "artistName": "Fletcher Reed & Broey.",
+        "collectionName": "Sunrays",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/201288838"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Sunrays",
+        "slug": "sunrays",
+        "type": "single",
+        "year": 2020,
+        "releaseDate": "2020-02-07",
+        "description": "Catalog metadata draft for Sunrays by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/sunrays.png",
+        "coverAlt": "Sunrays cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/201288838",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "hibernaculum",
+      "title": "hibernaculum",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2020,
+      "releaseDate": "2020-01-31",
+      "collectionTitle": "hibernaculum",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/hibernaculum.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/128129924",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/128129924",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "128129924",
+        "tidalId": "128129924",
+        "artistName": "Broey.",
+        "collectionName": "hibernaculum",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/128129924"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "hibernaculum",
+        "slug": "hibernaculum",
+        "type": "single",
+        "year": 2020,
+        "releaseDate": "2020-01-31",
+        "description": "Catalog metadata draft for hibernaculum by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/hibernaculum.png",
+        "coverAlt": "hibernaculum cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/128129924",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    },
+    {
+      "reviewStatus": "manual",
+      "provider": "tidal",
+      "visibility": "draft",
+      "published": false,
+      "slug": "roam",
+      "title": "Roam",
+      "type": "single",
+      "isCollection": true,
+      "suggestedTileType": "singleTile",
+      "trackCount": 1,
+      "year": 2019,
+      "releaseDate": "2019-11-21",
+      "collectionTitle": "Roam",
+      "coverImageCandidate": {
+        "localAssetCandidate": "/assets/cover-art/roam.png",
+        "recommendation": "Prefer a synced local cover asset before publishing. Treat sourceArtworkUrl as review metadata, not a runtime dependency."
+      },
+      "sourceUrl": "https://tidal.com/browse/album/121945075",
+      "dspLink": {
+        "label": "TIDAL",
+        "platform": "TIDAL",
+        "url": "https://tidal.com/browse/album/121945075",
+        "kind": "streaming",
+        "primary": false
+      },
+      "catalogSource": {
+        "provider": "tidal",
+        "source": "tidal",
+        "sourceId": "121945075",
+        "tidalId": "121945075",
+        "artistName": "Steezy Prime & Broey. & no one's perfect",
+        "collectionName": "Roam",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "sourceUrl": "https://tidal.com/browse/album/121945075"
+      },
+      "mergeSafety": {
+        "slugConflict": false,
+        "titleConflict": false,
+        "needsManualCopy": true,
+        "note": "Manual entry: review copy, art, relationship, and links before adding."
+      },
+      "suggestedReleaseEntry": {
+        "title": "Roam",
+        "slug": "roam",
+        "type": "single",
+        "year": 2019,
+        "releaseDate": "2019-11-21",
+        "description": "Catalog metadata draft for Roam by Broey. Review and replace with hand-written site copy before publishing.",
+        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
+        "coverImage": "/assets/cover-art/roam.png",
+        "coverAlt": "Roam cover art",
+        "links": [
+          {
+            "label": "TIDAL",
+            "platform": "TIDAL",
+            "url": "https://tidal.com/browse/album/121945075",
+            "kind": "streaming",
+            "primary": false
+          }
+        ]
+      }
+    }
+  ],
+  "skippedEntries": [
+    {
+      "reviewStatus": "ignore",
+      "title": "Numbers",
+      "slug": "numbers",
+      "sourceId": "1730125658",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Like That",
+      "slug": "like-that",
+      "sourceId": "1730121194",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "It's Not the End",
+      "slug": "it-s-not-the-end",
+      "sourceId": "1701153195",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Contrast",
+      "slug": "contrast",
+      "sourceId": "1694344760",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Proppa",
+      "slug": "proppa",
+      "sourceId": "1694344175",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Hold On",
+      "slug": "hold-on",
+      "sourceId": "1684637507",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Warning",
+      "slug": "warning",
+      "sourceId": "1673797798",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Eternity",
+      "slug": "eternity",
+      "sourceId": "1651738035",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Gimmie Dat (slowed and reverbed edit)",
+      "slug": "gimmie-dat-slowed-and-reverbed-edit",
+      "sourceId": "1651519997",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Gimmie Dat",
+      "slug": "gimmie-dat",
+      "sourceId": "1645176843",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Think About It (Cryztal Grid Remix)",
+      "slug": "think-about-it-cryztal-grid-remix",
+      "sourceId": "1643217887",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Think About It",
+      "slug": "think-about-it",
+      "sourceId": "1618371820",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "hysteria",
+      "slug": "hysteria",
+      "sourceId": "1602310014",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "New Beginnings",
+      "slug": "new-beginnings",
+      "sourceId": "1579234833",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "After You",
+      "slug": "after-you",
+      "sourceId": "1726655763",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Sunrays",
+      "slug": "sunrays",
+      "sourceId": "1583684804",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Roam",
+      "slug": "roam",
+      "sourceId": "1486685229",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Paradise",
+      "slug": "paradise",
+      "sourceId": "1705775795",
+      "provider": "itunes"
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "blu. (radio version)",
+      "slug": "blu-blu-radio-version",
+      "sourceId": "489787751",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "blu.",
+      "trackNumber": 1
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "blu. (extended mix)",
+      "slug": "blu-blu-extended-mix",
+      "sourceId": "489787752",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "blu.",
+      "trackNumber": 2
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "shake!",
+      "slug": "dancing-dumpster-fire-shake",
+      "sourceId": "441546104",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "dancing dumpster fire",
+      "trackNumber": 1
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "old fashion",
+      "slug": "dancing-dumpster-fire-old-fashion",
+      "sourceId": "441546105",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "dancing dumpster fire",
+      "trackNumber": 2
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "lil luv",
+      "slug": "dancing-dumpster-fire-lil-luv",
+      "sourceId": "441546106",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "dancing dumpster fire",
+      "trackNumber": 3
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "brainrot (feat. Vivid Fever Dreams)",
+      "slug": "dancing-dumpster-fire-brainrot-feat-vivid-fever-dreams",
+      "sourceId": "441546107",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "dancing dumpster fire",
+      "trackNumber": 4
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "i can do better (broey. remix)",
+      "slug": "dancing-dumpster-fire-i-can-do-better-broey-remix",
+      "sourceId": "441546109",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "dancing dumpster fire",
+      "trackNumber": 6
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "4u vip",
+      "slug": "dancing-dumpster-fire-4u-vip",
+      "sourceId": "441546110",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "dancing dumpster fire",
+      "trackNumber": 7
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Numbers (tom_ecko Remix)",
+      "slug": "fragments-remixes-numbers-tom-ecko-remix",
+      "sourceId": "359004951",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 1
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Eyes On Me (dreamsuite Remix)",
+      "slug": "fragments-remixes-eyes-on-me-dreamsuite-remix",
+      "sourceId": "359004952",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 2
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Like That (notminimal. Remix)",
+      "slug": "fragments-remixes-like-that-notminimal-remix",
+      "sourceId": "359004953",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 3
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Wanted (Almost Anyone Remix)",
+      "slug": "fragments-remixes-wanted-almost-anyone-remix",
+      "sourceId": "359004954",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 4
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Eyes On Me (Vivid Fever Dreams Remix)",
+      "slug": "fragments-remixes-eyes-on-me-vivid-fever-dreams-remix",
+      "sourceId": "359004956",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 5
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Wanted (Kaiyo Remix)",
+      "slug": "fragments-remixes-wanted-kaiyo-remix",
+      "sourceId": "359004957",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 6
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Eyes On Me (exmaxhina Remix)",
+      "slug": "fragments-remixes-eyes-on-me-exmaxhina-remix",
+      "sourceId": "359004958",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments (Remixes)",
+      "trackNumber": 7
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Run For Cover",
+      "slug": "fragments-run-for-cover",
+      "sourceId": "344095855",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments",
+      "trackNumber": 2
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Wanted",
+      "slug": "fragments-wanted",
+      "sourceId": "344095856",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments",
+      "trackNumber": 3
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Numbers",
+      "slug": "fragments-numbers",
+      "sourceId": "344095857",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments",
+      "trackNumber": 4
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Breathing Room (feat. Vivid Fever Dreams)",
+      "slug": "fragments-breathing-room-feat-vivid-fever-dreams",
+      "sourceId": "344095858",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments",
+      "trackNumber": 5
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Eyes On Me",
+      "slug": "fragments-eyes-on-me",
+      "sourceId": "344095859",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Fragments",
+      "trackNumber": 6
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Falling",
+      "slug": "contrast-falling",
+      "sourceId": "301898935",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Contrast",
+      "trackNumber": 1
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Falling (Almost Anyone Remix)",
+      "slug": "contrast-falling-almost-anyone-remix",
+      "sourceId": "301898936",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Contrast",
+      "trackNumber": 2
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Origins (Almost Anyone Remix)",
+      "slug": "contrast-origins-almost-anyone-remix",
+      "sourceId": "301898937",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Contrast",
+      "trackNumber": 3
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Gimmie Dat",
+      "slug": "gimmie-dat-track-1",
+      "sourceId": "248514150",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Gimmie Dat",
+      "trackNumber": 1
+    },
+    {
+      "reviewStatus": "ignore",
+      "title": "Gimmie Dat (exmaxhina Flip)",
+      "slug": "gimmie-dat-gimmie-dat-exmaxhina-flip",
+      "sourceId": "248514151",
+      "provider": "tidal",
+      "suggestedTileType": "trackTile",
+      "isCollection": false,
+      "parentCollectionTitle": "Gimmie Dat",
+      "trackNumber": 2
+    }
+  ]
+}

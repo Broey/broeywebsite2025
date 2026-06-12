@@ -1,0 +1,2017 @@
+{
+  "generatedAt": "2026-06-09T07:29:37.852Z",
+  "sourceMetadataPath": "scripts\\released-folder-metadata-preview.json",
+  "sourceReleaseLibraryRoot": "D:\\Broey\\Release Library",
+  "summary": {
+    "totalCandidates": 29,
+    "plannedReleasedCount": 15,
+    "plannedPendingCount": 0,
+    "plannedNeedsReviewCount": 14,
+    "safeToStageCount": 15,
+    "highConfidenceCount": 9,
+    "mediumConfidenceCount": 6,
+    "lowConfidenceCount": 14,
+    "sourceHasCoverCount": 23,
+    "sourceHasAudioCount": 28,
+    "readyCopyAudioCount": 15,
+    "readyCopyCoverCount": 23,
+    "websiteMatchCount": 9,
+    "tidalMatchCount": 6,
+    "carouselCandidateCount": 6
+  },
+  "releaseFolderMap": {
+    "curatedCarouselMissingFromScan": [
+      {
+        "slug": "4u",
+        "title": "4u",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "fragments-remixes",
+        "title": "Fragments (Remixes)",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Remixes",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "title": "LiNK",
+        "type": "Single",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "knownMappedExternalFolders": [
+      {
+        "slug": "4u",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "notes": "Source confirmed in collaborations folder; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "after-you",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Mr. Hilroy\\Finished tracks\\After You",
+        "notes": "Verified collaboration source folder and catalog links; public website release uses curated catalog metadata.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "i-cant-wait-for-love",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Bonfire B\\I Can't Wait For Love",
+        "notes": "Verified collaboration source folder; public website release has a real Create Music catalog link.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "notes": "Source folder confirmed; keep pending until the public catalog/TIDAL enrichment is finalized.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "warning",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Cryztal Grid\\Warning",
+        "notes": "Verified collaboration source folder and catalog links; artwork still needs a local source before setting an explicit coverImage.",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "unmappedMissingReleases": []
+  },
+  "mappedSections": {
+    "curatedCarouselMissingFromScan": [
+      {
+        "slug": "4u",
+        "title": "4u",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "fragments-remixes",
+        "title": "Fragments (Remixes)",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Remixes",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "title": "LiNK",
+        "type": "Single",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "knownMappedExternalFolders": [
+      {
+        "slug": "4u",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "notes": "Source confirmed in collaborations folder; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "after-you",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Mr. Hilroy\\Finished tracks\\After You",
+        "notes": "Verified collaboration source folder and catalog links; public website release uses curated catalog metadata.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "i-cant-wait-for-love",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Bonfire B\\I Can't Wait For Love",
+        "notes": "Verified collaboration source folder; public website release has a real Create Music catalog link.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "notes": "Source folder confirmed; keep pending until the public catalog/TIDAL enrichment is finalized.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "warning",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Cryztal Grid\\Warning",
+        "notes": "Verified collaboration source folder and catalog links; artwork still needs a local source before setting an explicit coverImage.",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "unmappedMissingReleases": [],
+    "mappedNotScanned": [
+      {
+        "slug": "4u",
+        "title": "4u",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "reason": "Source confirmed in collaborations folder; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "after-you",
+        "title": "After You",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Mr. Hilroy\\Finished tracks\\After You",
+        "reason": "Verified collaboration source folder and catalog links; public website release uses curated catalog metadata.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "link",
+        "title": "LiNK",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "reason": "Source folder confirmed; keep pending until the public catalog/TIDAL enrichment is finalized.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "pending"
+      },
+      {
+        "slug": "blu",
+        "title": "BLU",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\blu",
+        "reason": "Source folder confirmed; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "glfm",
+        "title": "GLFM",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\GLFM",
+        "reason": "Nested source confirmed inside dancing dumpster fire; public website release is linked to the verified TIDAL track.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "i-cant-wait-for-love",
+        "title": "I Can't Wait For Love",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Bonfire B\\I Can't Wait For Love",
+        "reason": "Verified collaboration source folder; public website release has a real Create Music catalog link.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "like-that",
+        "title": "Like That",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That",
+        "reason": "Nested source confirmed inside Fragments EP; public website release is linked to verified Apple Music and TIDAL catalog entries.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "warning",
+        "title": "Warning",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Cryztal Grid\\Warning",
+        "reason": "Verified collaboration source folder and catalog links; artwork still needs a local source before setting an explicit coverImage.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      },
+      {
+        "slug": "fragments-remixes",
+        "title": "Fragments (Remixes)",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Remixes",
+        "reason": "Nested source confirmed under Fragments EP; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false,
+        "mappedStatus": "released"
+      }
+    ]
+  },
+  "entries": [
+    {
+      "folderName": "After the Rain - ES42",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\after-the-rain-es42",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "After the Rain - ES42",
+        "slug": "after-the-rain-es42",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/after-the-rain-es42/artwork/cover.png",
+        "coverAlt": "After the Rain - ES42 cover art",
+        "releasePath": "/release-library/after-the-rain-es42/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42\\Clouds gif n cover\\IMG_2795.PNG",
+        "targetPath": "D:\\Broey\\Release Library\\released\\after-the-rain-es42\\artwork\\cover.png",
+        "ext": ".PNG",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42\\After the Rain.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\after-the-rain-es42\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "medium",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Back When",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Back When",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\back-when",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Back When",
+        "slug": "back-when",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2023-09-01",
+        "year": 2023,
+        "upc": "197773361701",
+        "catalogNumber": "CAT876933",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Back When",
+            "mixVersion": "",
+            "ISRC": "QZTRX2379154",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:54",
+            "genre": "Electronic",
+            "subgenre": "Bass"
+          }
+        ],
+        "isrcs": [
+          "QZTRX2379154"
+        ],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/back-when/artwork/cover.jpg",
+        "coverAlt": "Back When cover art",
+        "releasePath": "/release-library/back-when/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Back When\\Back When (3000 × 3000 px).jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\back-when\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Back When\\Broey. - back when (unreleased).mp3",
+        "targetPath": "D:\\Broey\\Release Library\\released\\back-when\\audio\\master.mp3",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Beside You",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Beside You",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\beside-you",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Beside You",
+        "slug": "beside-you",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/beside-you/artwork/cover.jpg",
+        "coverAlt": "Beside You cover art",
+        "releasePath": "/release-library/beside-you/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Beside You\\2019-10-22_Broey_-_Beside_You.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\beside-you\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Beside You\\Broey. - Beside you [M] - PV Release.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\beside-you\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "medium",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "blu",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\blu",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\blu",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "BLU",
+        "slug": "blu",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/blu.png",
+        "coverAlt": "BLU cover art",
+        "releasePath": "/release-library/blu/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\blu\\blu v1.mp3",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "audio candidate deferred for review",
+        "copy deferred by mapped folder policy"
+      ],
+      "carouselCandidate": true,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": "released",
+      "mappedSourceFolder": "D:\\Broey\\Releases\\Already Released\\blu",
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Closure_Closer",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Closure_Closer",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\closure-closer",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Closure / Closer",
+        "slug": "closure-closer",
+        "type": "EP",
+        "status": "released",
+        "releaseDate": "2020-08-02",
+        "year": 2020,
+        "upc": "4018939428174",
+        "catalogNumber": "CAT4018939428174",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Closure",
+            "mixVersion": "",
+            "ISRC": "DEQ022005568",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:46",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 2,
+            "title": "Closer",
+            "mixVersion": "",
+            "ISRC": "DEQ022005569",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:03",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          }
+        ],
+        "isrcs": [
+          "DEQ022005568",
+          "DEQ022005569"
+        ],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/closure-closer/artwork/cover.png",
+        "coverAlt": "Closure / Closer cover art",
+        "releasePath": "/release-library/closure-closer/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Closure_Closer\\Aug2 closure _ closer Artwork.png",
+        "targetPath": "D:\\Broey\\Release Library\\released\\closure-closer\\artwork\\cover.png",
+        "ext": ".png",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Closure_Closer\\Closure _ Closer - Final [M] one take.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\closure-closer\\audio\\01 - Closure Closer.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Contrast",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Contrast",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\contrast",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Contrast",
+        "slug": "contrast",
+        "type": "EP",
+        "status": "needs-review",
+        "releaseDate": "2023-08-04",
+        "year": 2023,
+        "upc": "197773344582",
+        "catalogNumber": "CAT876424",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Falling",
+            "mixVersion": "",
+            "ISRC": "QZTRX2377079",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:50",
+            "genre": "Dance",
+            "subgenre": "Jungle"
+          },
+          {
+            "trackNumber": 2,
+            "title": "Falling",
+            "mixVersion": "Almost Anyone Remix",
+            "ISRC": "QZTRX2377099",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "06:36",
+            "genre": "Dance",
+            "subgenre": "Electro House"
+          },
+          {
+            "trackNumber": 3,
+            "title": "Origins",
+            "mixVersion": "Almost Anyone Remix",
+            "ISRC": "QZTRX2377116",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "05:05",
+            "genre": "Electronic",
+            "subgenre": "Electronica"
+          }
+        ],
+        "isrcs": [
+          "QZTRX2377079",
+          "QZTRX2377099",
+          "QZTRX2377116"
+        ],
+        "description": "Review and finalize metadata using TIDAL enrichment.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/contrast/artwork/cover.jpg",
+        "coverAlt": "Contrast cover art",
+        "releasePath": "/release-library/contrast/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "tidal"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Contrast\\Contrast [Mixed Version] Project\\contrast artwork.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\contrast\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Contrast\\Origins\\Origins Raw Master.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": true,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": true,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "dancing dumpster fire",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\dancing-dumpster-fire",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "dancing dumpster fire",
+        "slug": "dancing-dumpster-fire",
+        "type": "EP",
+        "status": "needs-review",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/dancing-dumpster-fire.jpg",
+        "coverAlt": "dancing dumpster fire cover art",
+        "releasePath": "/release-library/dancing-dumpster-fire/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\GLFM\\Broey. - GLFM (2).png",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\dancing-dumpster-fire\\artwork\\cover.png",
+        "ext": ".png",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\shake\\Broey. - Shake! (more saturated drums).mp3",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": true,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Deja Vu",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Deja Vu",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\deja-vu",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Deja Vu",
+        "slug": "deja-vu",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/deja-vu/artwork/cover.png",
+        "coverAlt": "Deja Vu cover art",
+        "releasePath": "/release-library/deja-vu/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "audioCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing audio",
+        "missing artwork",
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Eternity",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Eternity",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\eternity",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Eternity",
+        "slug": "eternity",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": "2022-12-02",
+        "year": 2022,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata using TIDAL enrichment.",
+        "visibility": "draft",
+        "catalogStatus": "pending-tidal",
+        "coverImage": "/release-library/eternity/artwork/cover.jpg",
+        "coverAlt": "Eternity cover art",
+        "releasePath": "/release-library/eternity/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "tidal"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Eternity\\eternity artwork 2022.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\eternity\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Eternity\\old mixes\\Eternity 2022 M - Final Disto Version.mp3",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": true,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": true,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Fragments EP",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\fragments-ep",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Fragments EP",
+        "slug": "fragments-ep",
+        "type": "EP",
+        "status": "needs-review",
+        "releaseDate": "2024-00-00",
+        "year": 2024,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/fragments-ep.jpg",
+        "coverAlt": "Fragments EP cover art",
+        "releasePath": "/release-library/fragments-ep/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That\\like that art 1400x1400.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\fragments-ep\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That\\Like That Final M.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": true,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "free",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\free",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\free",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "FREE",
+        "slug": "free",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": "2026-05-07",
+        "year": 2026,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/free.png",
+        "coverAlt": "FREE by Broey. cover art",
+        "releasePath": "/release-library/free/release.json",
+        "listenAction": {
+          "kind": "disco-embed",
+          "embedUrl": "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark",
+          "provider": "disco",
+          "label": "Listen in player"
+        },
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\free\\free (1).jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\free\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\free\\DISTRIBUTION FINALS\\Broey. - FREE FINAL INSANE HI RES.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": true,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Gimmie Dat",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\gimmie-dat",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Gimmie Dat",
+        "slug": "gimmie-dat",
+        "type": "EP",
+        "status": "released",
+        "releaseDate": "2022-10-21",
+        "year": 2022,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata using TIDAL enrichment.",
+        "visibility": "draft",
+        "catalogStatus": "pending-tidal",
+        "coverImage": "/release-library/gimmie-dat/artwork/cover.jpg",
+        "coverAlt": "Gimmie Dat cover art",
+        "releasePath": "/release-library/gimmie-dat/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "tidal"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat\\halftime edit artwork.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\gimmie-dat\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat\\Gimmie Dat.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\gimmie-dat\\audio\\01 - Gimmie Dat.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": true,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": true,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Hold On",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Hold On",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\hold-on",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Hold On",
+        "slug": "hold-on",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2023-05-08",
+        "year": 2023,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/hold-on.png",
+        "coverAlt": "Hold On cover art",
+        "releasePath": "/release-library/hold-on/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Hold On\\Broey\\Hold On Artwork 2000x2000.png",
+        "targetPath": "D:\\Broey\\Release Library\\released\\hold-on\\artwork\\cover.png",
+        "ext": ".png",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Hold On\\Broey. - Hold On .mp3",
+        "targetPath": "D:\\Broey\\Release Library\\released\\hold-on\\audio\\master.mp3",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [],
+      "carouselCandidate": false,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "hysteria",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\hysteria",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\hysteria",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "hysteria",
+        "slug": "hysteria",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2022-01-13",
+        "year": 2022,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/hysteria.jpg",
+        "coverAlt": "hysteria cover art",
+        "releasePath": "/release-library/hysteria/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\hysteria\\Red Neon Modern Minimal Music Album Cover (3000 x 3000 px).jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\hysteria\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\hysteria\\hysteria.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\hysteria\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [],
+      "carouselCandidate": false,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "imu",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\imu",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\imu",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "imu",
+        "slug": "imu",
+        "type": "EP",
+        "status": "released",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/imu/artwork/cover.jpg",
+        "coverAlt": "imu cover art",
+        "releasePath": "/release-library/imu/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\imu\\imu artwork.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\imu\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\imu\\Broey - IMU (instrumental) - 2023remix and master.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\imu\\audio\\01 - Imu.wav",
+        "selected": true
+      },
+      "confidence": "medium",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "mean something",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\mean something",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\mean-something",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Mean Something",
+        "slug": "mean-something",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/mean-something.jpg",
+        "coverAlt": "Mean Something cover art",
+        "releasePath": "/release-library/mean-something/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\mean something\\vividfeverdreams_Album_art_trippy_mean_something_in_bold_stylis_855b36fe-cd50-46eb-8dc8-196eda32097c.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\mean-something\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\mean something\\Mean Something [24_48k M].mp3",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": true,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "New Beginnings",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\New Beginnings",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\new-beginnings",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "New Beginnings",
+        "slug": "new-beginnings",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2021-08-17",
+        "year": 2021,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata using TIDAL enrichment.",
+        "visibility": "draft",
+        "catalogStatus": "pending-tidal",
+        "coverImage": "/release-library/new-beginnings/artwork/cover.jpg",
+        "coverAlt": "New Beginnings cover art",
+        "releasePath": "/release-library/new-beginnings/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "tidal"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\New Beginnings\\2021 0817 Broey. - New Beginnings\\Tons_of_Friends_Cover.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\new-beginnings\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\New Beginnings\\2021 0817 Broey. - New Beginnings\\B 05 Broey. - New Beginnings.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\new-beginnings\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": true,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": true,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Paradise",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Paradise",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\paradise",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Paradise",
+        "slug": "paradise",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": "2019-03-23",
+        "year": 2019,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/release-library/paradise/artwork/cover.png",
+        "coverAlt": "Paradise artwork pending",
+        "releasePath": "/release-library/paradise/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Paradise\\Paradise [M].mp3",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Phantasm",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Phantasm",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\phantasm",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Phantasm",
+        "slug": "phantasm",
+        "type": "EP",
+        "status": "needs-review",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/phantasm/artwork/cover.png",
+        "coverAlt": "Phantasm cover art",
+        "releasePath": "/release-library/phantasm/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Phantasm\\phantasm SP clip.mp3",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Pillow Thoughts",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\pillow-thoughts",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Pillow Thoughts",
+        "slug": "pillow-thoughts",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/pillow-thoughts/artwork/cover.jpg",
+        "coverAlt": "Pillow Thoughts cover art",
+        "releasePath": "/release-library/pillow-thoughts/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts\\2019-11-20_Broey_-_Pillow_Thoughts.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\pillow-thoughts\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts\\Broey. - Pillow Thoughts [M] - PV release.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\pillow-thoughts\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "medium",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "PROPPA",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\PROPPA",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\proppa",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "PROPPA",
+        "slug": "proppa",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2023-07-14",
+        "year": 2023,
+        "upc": "197773344445",
+        "catalogNumber": "CAT876403",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "PROPPA",
+            "mixVersion": "",
+            "ISRC": "QZTRX2377004",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:27",
+            "genre": "Electronic",
+            "subgenre": "Drum & Bass"
+          }
+        ],
+        "isrcs": [
+          "QZTRX2377004"
+        ],
+        "description": "Review and finalize metadata using TIDAL enrichment.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/proppa/artwork/cover.jpg",
+        "coverAlt": "PROPPA cover art",
+        "releasePath": "/release-library/proppa/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "tidal"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\PROPPA\\PROPPA ART.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\proppa\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\PROPPA\\Broey. - PROPPA [M] (24 bit).wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\proppa\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": true,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": true,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Reflections",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Reflections",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\reflections",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Reflections",
+        "slug": "reflections",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2021-02-26",
+        "year": 2021,
+        "upc": "4018939441814",
+        "catalogNumber": "CAT4018939441814",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Reflections",
+            "mixVersion": "",
+            "ISRC": "DEQ022106228",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:50",
+            "genre": "Hip Hop/Rap",
+            "subgenre": "Hip Hop/Rap"
+          }
+        ],
+        "isrcs": [
+          "DEQ022106228"
+        ],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/reflections/artwork/cover.jpg",
+        "coverAlt": "Reflections cover art",
+        "releasePath": "/release-library/reflections/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Reflections\\when the heavens meet the earth.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\reflections\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Reflections\\Broey. - Reflections [M] Short (1).wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\reflections\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Sexy Bach",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Sexy Bach",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\sexy-bach",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Sexy Bach",
+        "slug": "sexy-bach",
+        "type": "EP",
+        "status": "released",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/sexy-bach/artwork/cover.png",
+        "coverAlt": "Sexy Bach cover art",
+        "releasePath": "/release-library/sexy-bach/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Sexy Bach\\idle hand.png",
+        "targetPath": "D:\\Broey\\Release Library\\released\\sexy-bach\\artwork\\cover.png",
+        "ext": ".png",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Sexy Bach\\sexy bach 2022 update master.mp3",
+        "targetPath": "D:\\Broey\\Release Library\\released\\sexy-bach\\audio\\01 - Sexy Bach.mp3",
+        "selected": true
+      },
+      "confidence": "medium",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "smile",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\smile",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\smile",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "smile",
+        "slug": "smile",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/smile/artwork/cover.png",
+        "coverAlt": "smile cover art",
+        "releasePath": "/release-library/smile/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\smile\\smile M.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "stereo luv",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\stereo luv",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\stereo-luv",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "STEREO LUV",
+        "slug": "stereo-luv",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": "2025-00-00",
+        "year": 2025,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for existing website release.",
+        "visibility": "draft",
+        "catalogStatus": "tidal",
+        "coverImage": "/assets/cover-art/stereo-luv.png",
+        "coverAlt": "STEREO LUV cover art",
+        "releasePath": "/release-library/stereo-luv/release.json",
+        "listenAction": {
+          "kind": "disco-embed",
+          "embedUrl": "https://broeybeats.disco.ac/e/t/163013451?s=-iKLOiEjvYkHdhylWiKgVOaNsfo%3AQsm0RJkf&artwork=false&color=%234E98FF&theme=dark",
+          "provider": "disco",
+          "label": "Listen in player"
+        },
+        "sourceReleaseType": "website"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\stereo luv\\STEREO LUV (1).png",
+        "targetPath": "D:\\Broey\\Release Library\\released\\stereo-luv\\artwork\\cover.png",
+        "ext": ".png",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\stereo luv\\stereo luv narration.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\stereo-luv\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "high",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [],
+      "carouselCandidate": true,
+      "websiteMatch": true,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": true,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Tarot's",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Tarot's",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\tarot-s",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Tarot's",
+        "slug": "tarot-s",
+        "type": "Album",
+        "status": "needs-review",
+        "releaseDate": "2021-04-30",
+        "year": 2021,
+        "upc": "4018939488185",
+        "catalogNumber": "CAT4018939488185",
+        "trackList": [
+          {
+            "trackNumber": 1,
+            "title": "Rebirth",
+            "mixVersion": "The Tower",
+            "ISRC": "DEQ022110664",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:27",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 2,
+            "title": "Believe in Yourself",
+            "mixVersion": "The Sun",
+            "ISRC": "DEQ022110665",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:28",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 3,
+            "title": "Finding a Path",
+            "mixVersion": "The Magician",
+            "ISRC": "DEQ022110666",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:02",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 4,
+            "title": "Guidance",
+            "mixVersion": "The Star",
+            "ISRC": "DEQ022110667",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:19",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 5,
+            "title": "Without Looking Back",
+            "mixVersion": "The Fool",
+            "ISRC": "DEQ022110655",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "01:53",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 6,
+            "title": "Prosperity",
+            "mixVersion": "The Empress",
+            "ISRC": "DEQ022110668",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "03:13",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 7,
+            "title": "Celebration",
+            "mixVersion": "Four of Wands",
+            "ISRC": "DEQ022110669",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "01:37",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          },
+          {
+            "trackNumber": 8,
+            "title": "Cure",
+            "mixVersion": "Temperance",
+            "ISRC": "DEQ022110670",
+            "primaryArtists": [],
+            "featuringArtists": [],
+            "remixers": [],
+            "duration": "02:40",
+            "genre": "Easy Listening",
+            "subgenre": "Lounge"
+          }
+        ],
+        "isrcs": [
+          "DEQ022110664",
+          "DEQ022110665",
+          "DEQ022110666",
+          "DEQ022110667",
+          "DEQ022110655",
+          "DEQ022110668",
+          "DEQ022110669",
+          "DEQ022110670"
+        ],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/tarot-s/artwork/cover.jpg",
+        "coverAlt": "Tarot's cover art",
+        "releasePath": "/release-library/tarot-s/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Tarot's\\Aries - Digital (3000x3000).jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\tarot-s\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Tarot's\\07 Celebration (Four of Wands) M2.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Think about it",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Think about it",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\think-about-it",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Think About It",
+        "slug": "think-about-it",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": "2022-05-06",
+        "year": 2022,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata using TIDAL enrichment.",
+        "visibility": "draft",
+        "catalogStatus": "pending-tidal",
+        "coverImage": "/release-library/think-about-it/artwork/cover.jpg",
+        "coverAlt": "Think About It cover art",
+        "releasePath": "/release-library/think-about-it/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "tidal"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Think about it\\Think about it Remix Art_V1.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\needs-review\\think-about-it\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Think about it\\Think about it - broey. FINAL VERSION AND UPLOAD.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unclear type",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": true,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": true,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "While the Leaves Blow - Linearwave",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave",
+      "targetFolder": "D:\\Broey\\Release Library\\released\\while-the-leaves-blow-linearwave",
+      "targetStatusFolder": "released",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "While the Leaves Blow - Linearwave",
+        "slug": "while-the-leaves-blow-linearwave",
+        "type": "Single",
+        "status": "released",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/while-the-leaves-blow-linearwave/artwork/cover.jpg",
+        "coverAlt": "While the Leaves Blow - Linearwave cover art",
+        "releasePath": "/release-library/while-the-leaves-blow-linearwave/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave\\Broey. & Linearwave - While The Leaves Blow_Artwork.jpg",
+        "targetPath": "D:\\Broey\\Release Library\\released\\while-the-leaves-blow-linearwave\\artwork\\cover.jpg",
+        "ext": ".jpg",
+        "selected": true
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave\\While the Leaves Blow [M2]-1.wav",
+        "targetPath": "D:\\Broey\\Release Library\\released\\while-the-leaves-blow-linearwave\\audio\\master.wav",
+        "selected": true
+      },
+      "confidence": "medium",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "unmatched content release"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": true,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    },
+    {
+      "folderName": "Winter Days - Silvers and Golds",
+      "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Winter Days - Silvers and Golds",
+      "targetFolder": "D:\\Broey\\Release Library\\needs-review\\winter-days-silvers-and-golds",
+      "targetStatusFolder": "needs-review",
+      "sourceResolved": true,
+      "proposedReleaseJson": {
+        "title": "Winter Days - Silvers and Golds",
+        "slug": "winter-days-silvers-and-golds",
+        "type": "Single",
+        "status": "needs-review",
+        "releaseDate": null,
+        "year": null,
+        "upc": null,
+        "catalogNumber": null,
+        "trackList": [],
+        "isrcs": [],
+        "description": "Review and finalize metadata for this inferred release candidate.",
+        "visibility": "draft",
+        "catalogStatus": null,
+        "coverImage": "/release-library/winter-days-silvers-and-golds/artwork/cover.png",
+        "coverAlt": "Winter Days - Silvers and Golds cover art",
+        "releasePath": "/release-library/winter-days-silvers-and-golds/release.json",
+        "listenAction": null,
+        "sourceReleaseType": "folder-inferred"
+      },
+      "coverCopy": {
+        "sourcePath": null,
+        "targetPath": null,
+        "selected": false
+      },
+      "audioCopy": {
+        "sourcePath": "D:\\Broey\\Releases\\Already Released\\Winter Days - Silvers and Golds\\silvers and golds M.wav",
+        "targetPath": null,
+        "selected": false
+      },
+      "confidence": "low",
+      "status": "released",
+      "reviewStatus": "pending",
+      "warnings": [
+        "missing artwork",
+        "unmatched content release",
+        "audio candidate deferred for review"
+      ],
+      "carouselCandidate": false,
+      "websiteMatch": false,
+      "tidalMatch": false,
+      "hasWebsiteMetadata": false,
+      "hasTidalMetadata": false,
+      "safeToStage": false,
+      "mappedStatus": null,
+      "mappedSourceFolder": null,
+      "shouldStageToReleaseLibrary": false
+    }
+  ]
+}

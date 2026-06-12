@@ -1,0 +1,2203 @@
+{
+  "generatedAt": "2026-06-08T15:43:12.175Z",
+  "sourceCsvPath": "content\\Broey._InventoryExport_2026-06-08_15_10_45.csv",
+  "summary": {
+    "totalReleases": 21,
+    "matchedReleases": 12,
+    "unmatchedReleases": 9,
+    "matchedContentReleases": 4,
+    "matchedImportedReleases": 7,
+    "matchedFolderInventoryReleases": 9,
+    "matchesBySource": {
+      "content": 4,
+      "imported": 7,
+      "folderInventory": 9
+    }
+  },
+  "entries": [
+    {
+      "title": "FREE",
+      "slug": "free",
+      "releaseDate": "2026-05-07",
+      "year": 2026,
+      "UPC": "824296258828",
+      "catalogNumber": "CAT1759024",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Electronic",
+      "subgenre": "House",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "FREE",
+          "mixVersion": "",
+          "ISRC": "GBRKQ2618451",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:50",
+          "genre": "Electronic",
+          "subgenre": "House"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "FREE",
+          "mixVersion": "",
+          "ISRC": "GBRKQ2618451",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:50",
+          "genre": "Electronic",
+          "subgenre": "House"
+        }
+      ],
+      "upc": "824296258828",
+      "upcNumeric": "824296258828",
+      "matchSummary": {
+        "matchCount": 2,
+        "sources": [
+          "content/releases.ts",
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "free",
+          "title": "FREE",
+          "type": "Single",
+          "provider": null,
+          "year": 2026
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "free",
+          "title": "FREE",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2026
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Back When",
+      "slug": "back-when",
+      "releaseDate": "2023-09-01",
+      "year": 2023,
+      "UPC": "197773361701",
+      "catalogNumber": "CAT876933",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Electronic",
+      "subgenre": "Bass",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Back When",
+          "mixVersion": "",
+          "ISRC": "QZTRX2379154",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:54",
+          "genre": "Electronic",
+          "subgenre": "Bass"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Back When",
+          "mixVersion": "",
+          "ISRC": "QZTRX2379154",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:54",
+          "genre": "Electronic",
+          "subgenre": "Bass"
+        }
+      ],
+      "upc": "197773361701",
+      "upcNumeric": "197773361701",
+      "matchSummary": {
+        "matchCount": 1,
+        "sources": [
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "back-when",
+          "title": "Back When",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2023
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Contrast",
+      "slug": "contrast",
+      "releaseDate": "2023-08-04",
+      "year": 2023,
+      "UPC": "197773344582",
+      "catalogNumber": "CAT876424",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Dance",
+      "subgenre": "Drum & Bass",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Falling",
+          "mixVersion": "",
+          "ISRC": "QZTRX2377079",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:50",
+          "genre": "Dance",
+          "subgenre": "Jungle"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Falling",
+          "mixVersion": "Almost Anyone Remix",
+          "ISRC": "QZTRX2377099",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [
+            "Almost Anyone"
+          ],
+          "duration": "06:36",
+          "genre": "Dance",
+          "subgenre": "Electro House"
+        },
+        {
+          "trackNumber": 3,
+          "title": "Origins",
+          "mixVersion": "Almost Anyone Remix",
+          "ISRC": "QZTRX2377116",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [
+            "Almost Anyone"
+          ],
+          "duration": "05:05",
+          "genre": "Electronic",
+          "subgenre": "Electronica"
+        }
+      ],
+      "inferredType": "EP",
+      "trackCount": 3,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Falling",
+          "mixVersion": "",
+          "ISRC": "QZTRX2377079",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:50",
+          "genre": "Dance",
+          "subgenre": "Jungle"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Falling",
+          "mixVersion": "Almost Anyone Remix",
+          "ISRC": "QZTRX2377099",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [
+            "Almost Anyone"
+          ],
+          "duration": "06:36",
+          "genre": "Dance",
+          "subgenre": "Electro House"
+        },
+        {
+          "trackNumber": 3,
+          "title": "Origins",
+          "mixVersion": "Almost Anyone Remix",
+          "ISRC": "QZTRX2377116",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [
+            "Almost Anyone"
+          ],
+          "duration": "05:05",
+          "genre": "Electronic",
+          "subgenre": "Electronica"
+        }
+      ],
+      "upc": "197773344582",
+      "upcNumeric": "197773344582",
+      "matchSummary": {
+        "matchCount": 2,
+        "sources": [
+          "content/releases.imported.json",
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "contrast",
+          "title": "Contrast",
+          "type": "EP",
+          "provider": "tidal",
+          "year": 2023
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "contrast",
+          "title": "Contrast",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2023
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "PROPPA",
+      "slug": "proppa",
+      "releaseDate": "2023-07-14",
+      "year": 2023,
+      "UPC": "197773344445",
+      "catalogNumber": "CAT876403",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Dance",
+      "subgenre": "Jungle",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "PROPPA",
+          "mixVersion": "",
+          "ISRC": "QZTRX2377004",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:27",
+          "genre": "Electronic",
+          "subgenre": "Drum & Bass"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "PROPPA",
+          "mixVersion": "",
+          "ISRC": "QZTRX2377004",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:27",
+          "genre": "Electronic",
+          "subgenre": "Drum & Bass"
+        }
+      ],
+      "upc": "197773344445",
+      "upcNumeric": "197773344445",
+      "matchSummary": {
+        "matchCount": 2,
+        "sources": [
+          "content/releases.imported.json",
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "proppa",
+          "title": "Proppa",
+          "type": "Single",
+          "provider": "tidal",
+          "year": 2023
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "proppa",
+          "title": "PROPPA",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2023
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Hold On",
+      "slug": "hold-on",
+      "releaseDate": "2023-05-08",
+      "year": 2023,
+      "UPC": "197368866475",
+      "catalogNumber": "CAT829295",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Electronic",
+      "subgenre": "Drum & Bass",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Hold On",
+          "mixVersion": "",
+          "ISRC": "GBRKQ2380565",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:35",
+          "genre": "Electronic",
+          "subgenre": "Drum & Bass"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Hold On",
+          "mixVersion": "",
+          "ISRC": "GBRKQ2380565",
+          "primaryArtists": [
+            "Broey."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:35",
+          "genre": "Electronic",
+          "subgenre": "Drum & Bass"
+        }
+      ],
+      "upc": "197368866475",
+      "upcNumeric": "197368866475",
+      "matchSummary": {
+        "matchCount": 3,
+        "sources": [
+          "content/releases.ts",
+          "content/releases.imported.json",
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.ts",
+          "slug": "hold-on",
+          "title": "Hold On",
+          "type": "Single",
+          "provider": null,
+          "year": 2023
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "hold-on",
+          "title": "Hold On",
+          "type": "Single",
+          "provider": "tidal",
+          "year": 2023
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "hold-on",
+          "title": "Hold On",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2023
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Tarot's",
+      "slug": "tarot-s",
+      "releaseDate": "2021-04-30",
+      "year": 2021,
+      "UPC": "4018939488185",
+      "catalogNumber": "CAT4018939488185",
+      "releaseArtist": "Linearwave",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Rebirth",
+          "mixVersion": "The Tower",
+          "ISRC": "DEQ022110664",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:27",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Believe in Yourself",
+          "mixVersion": "The Sun",
+          "ISRC": "DEQ022110665",
+          "primaryArtists": [
+            "Linearwave",
+            "Myrthe van de Weetering",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 3,
+          "title": "Finding a Path",
+          "mixVersion": "The Magician",
+          "ISRC": "DEQ022110666",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:02",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 4,
+          "title": "Guidance",
+          "mixVersion": "The Star",
+          "ISRC": "DEQ022110667",
+          "primaryArtists": [
+            "Linearwave",
+            "Myrthe van de Weetering",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:19",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 5,
+          "title": "Without Looking Back",
+          "mixVersion": "The Fool",
+          "ISRC": "DEQ022110655",
+          "primaryArtists": [
+            "Linearwave",
+            "Myrthe van de Weetering",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:53",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 6,
+          "title": "Prosperity",
+          "mixVersion": "The Empress",
+          "ISRC": "DEQ022110668",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:13",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 7,
+          "title": "Celebration",
+          "mixVersion": "Four of Wands",
+          "ISRC": "DEQ022110669",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:37",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 8,
+          "title": "Cure",
+          "mixVersion": "Temperance",
+          "ISRC": "DEQ022110670",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:40",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Album",
+      "trackCount": 8,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Rebirth",
+          "mixVersion": "The Tower",
+          "ISRC": "DEQ022110664",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:27",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Believe in Yourself",
+          "mixVersion": "The Sun",
+          "ISRC": "DEQ022110665",
+          "primaryArtists": [
+            "Linearwave",
+            "Myrthe van de Weetering",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 3,
+          "title": "Finding a Path",
+          "mixVersion": "The Magician",
+          "ISRC": "DEQ022110666",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:02",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 4,
+          "title": "Guidance",
+          "mixVersion": "The Star",
+          "ISRC": "DEQ022110667",
+          "primaryArtists": [
+            "Linearwave",
+            "Myrthe van de Weetering",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:19",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 5,
+          "title": "Without Looking Back",
+          "mixVersion": "The Fool",
+          "ISRC": "DEQ022110655",
+          "primaryArtists": [
+            "Linearwave",
+            "Myrthe van de Weetering",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:53",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 6,
+          "title": "Prosperity",
+          "mixVersion": "The Empress",
+          "ISRC": "DEQ022110668",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:13",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 7,
+          "title": "Celebration",
+          "mixVersion": "Four of Wands",
+          "ISRC": "DEQ022110669",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:37",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 8,
+          "title": "Cure",
+          "mixVersion": "Temperance",
+          "ISRC": "DEQ022110670",
+          "primaryArtists": [
+            "Linearwave",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:40",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939488185",
+      "upcNumeric": "4018939488185",
+      "matchSummary": {
+        "matchCount": 1,
+        "sources": [
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "tarot-s",
+          "title": "Tarot's",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2021
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Finding a Path",
+      "slug": "finding-a-path",
+      "releaseDate": "2021-04-23",
+      "year": 2021,
+      "UPC": "4018939488208",
+      "catalogNumber": "CAT4018939488208",
+      "releaseArtist": "Linearwave",
+      "releaseVersion": "The Magician",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Finding a Path",
+          "mixVersion": "The Magician",
+          "ISRC": "DEQ022110666",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:02",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Finding a Path",
+          "mixVersion": "The Magician",
+          "ISRC": "DEQ022110666",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:02",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939488208",
+      "upcNumeric": "4018939488208",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Believe in Yourself",
+      "slug": "believe-in-yourself",
+      "releaseDate": "2021-04-16",
+      "year": 2021,
+      "UPC": "4018939488192",
+      "catalogNumber": "CAT4018939488192",
+      "releaseArtist": "Linearwave",
+      "releaseVersion": "The Sun",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Believe in Yourself",
+          "mixVersion": "The Sun",
+          "ISRC": "DEQ022110665",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave",
+            "Myrthe van de Weetering"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Believe in Yourself",
+          "mixVersion": "The Sun",
+          "ISRC": "DEQ022110665",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave",
+            "Myrthe van de Weetering"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939488192",
+      "upcNumeric": "4018939488192",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Without Looking Back",
+      "slug": "without-looking-back",
+      "releaseDate": "2021-04-09",
+      "year": 2021,
+      "UPC": "4018939488093",
+      "catalogNumber": "CAT4018939488093",
+      "releaseArtist": "Linearwave",
+      "releaseVersion": "The Fool",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Without Looking Back",
+          "mixVersion": "The Fool",
+          "ISRC": "DEQ022110655",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave",
+            "Myrthe van de Weetering"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:53",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Without Looking Back",
+          "mixVersion": "The Fool",
+          "ISRC": "DEQ022110655",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave",
+            "Myrthe van de Weetering"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "01:53",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939488093",
+      "upcNumeric": "4018939488093",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Reflections",
+      "slug": "reflections",
+      "releaseDate": "2021-02-26",
+      "year": 2021,
+      "UPC": "4018939441814",
+      "catalogNumber": "CAT4018939441814",
+      "releaseArtist": "broeybeats.",
+      "releaseVersion": "",
+      "genre": "Hip Hop/Rap",
+      "subgenre": "Hip Hop/Rap",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Reflections",
+          "mixVersion": "",
+          "ISRC": "DEQ022106228",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:50",
+          "genre": "Hip Hop/Rap",
+          "subgenre": "Hip Hop/Rap"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Reflections",
+          "mixVersion": "",
+          "ISRC": "DEQ022106228",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:50",
+          "genre": "Hip Hop/Rap",
+          "subgenre": "Hip Hop/Rap"
+        }
+      ],
+      "upc": "4018939441814",
+      "upcNumeric": "4018939441814",
+      "matchSummary": {
+        "matchCount": 1,
+        "sources": [
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "reflections",
+          "title": "Reflections",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2021
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Silvers and Golds",
+      "slug": "silvers-and-golds",
+      "releaseDate": "2021-01-25",
+      "year": 2021,
+      "UPC": "4018939417130",
+      "catalogNumber": "CAT4018939417130",
+      "releaseArtist": "broeybeats.",
+      "releaseVersion": "",
+      "genre": "Holiday",
+      "subgenre": "Christmas",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Silvers and Golds",
+          "mixVersion": "",
+          "ISRC": "DEQ022110039",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:29",
+          "genre": "Holiday",
+          "subgenre": "Christmas"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Silvers and Golds",
+          "mixVersion": "",
+          "ISRC": "DEQ022110039",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:29",
+          "genre": "Holiday",
+          "subgenre": "Christmas"
+        }
+      ],
+      "upc": "4018939417130",
+      "upcNumeric": "4018939417130",
+      "matchSummary": {
+        "matchCount": 1,
+        "sources": [
+          "content/releases.imported.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "silvers-and-golds",
+          "title": "Silvers and Golds",
+          "type": "Single",
+          "provider": "tidal",
+          "year": 2021
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "After You",
+      "slug": "after-you",
+      "releaseDate": "2020-11-30",
+      "year": 2020,
+      "UPC": "024543143901",
+      "catalogNumber": "CAT024543143901",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Easy Listening",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "After You",
+          "mixVersion": "",
+          "ISRC": "USANG2110038",
+          "primaryArtists": [
+            "Broey.",
+            "Mr. Hilroy"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:57",
+          "genre": "Easy Listening",
+          "subgenre": "Easy Listening"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "After You",
+          "mixVersion": "",
+          "ISRC": "USANG2110038",
+          "primaryArtists": [
+            "Broey.",
+            "Mr. Hilroy"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:57",
+          "genre": "Easy Listening",
+          "subgenre": "Easy Listening"
+        }
+      ],
+      "upc": "024543143901",
+      "upcNumeric": "024543143901",
+      "matchSummary": {
+        "matchCount": 2,
+        "sources": [
+          "content/releases.ts",
+          "content/releases.imported.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.ts",
+          "slug": "after-you",
+          "title": "After You",
+          "type": "Single",
+          "provider": null,
+          "year": 2020
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "after-you",
+          "title": "After You",
+          "type": "Single",
+          "provider": "tidal",
+          "year": 2020
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "While the Leaves Blow",
+      "slug": "while-the-leaves-blow",
+      "releaseDate": "2020-10-29",
+      "year": 2020,
+      "UPC": "4018939408138",
+      "catalogNumber": "CAT4018939408138",
+      "releaseArtist": "Linearwave",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "While the Leaves Blow",
+          "mixVersion": "",
+          "ISRC": "DEQ022004892",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:24",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "While the Leaves Blow",
+          "mixVersion": "",
+          "ISRC": "DEQ022004892",
+          "primaryArtists": [
+            "broeybeats.",
+            "Linearwave"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:24",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939408138",
+      "upcNumeric": "4018939408138",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Apparitions",
+      "slug": "apparitions",
+      "releaseDate": "2020-09-30",
+      "year": 2020,
+      "UPC": "4018939423377",
+      "catalogNumber": "CAT4018939423377",
+      "releaseArtist": "Remulak",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Easy Listening",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Apparitions",
+          "mixVersion": "",
+          "ISRC": "DEQ022011021",
+          "primaryArtists": [
+            "Remulak",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:31",
+          "genre": "Easy Listening",
+          "subgenre": "Easy Listening"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Apparitions",
+          "mixVersion": "",
+          "ISRC": "DEQ022011021",
+          "primaryArtists": [
+            "Remulak",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:31",
+          "genre": "Easy Listening",
+          "subgenre": "Easy Listening"
+        }
+      ],
+      "upc": "4018939423377",
+      "upcNumeric": "4018939423377",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Closure / Closer",
+      "slug": "closure-closer",
+      "releaseDate": "2020-08-02",
+      "year": 2020,
+      "UPC": "4018939428174",
+      "catalogNumber": "CAT4018939428174",
+      "releaseArtist": "broeybeats.",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Easy Listening",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Closure",
+          "mixVersion": "",
+          "ISRC": "DEQ022005568",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:46",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Closer",
+          "mixVersion": "",
+          "ISRC": "DEQ022005569",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:03",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "EP",
+      "trackCount": 2,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Closure",
+          "mixVersion": "",
+          "ISRC": "DEQ022005568",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:46",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Closer",
+          "mixVersion": "",
+          "ISRC": "DEQ022005569",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:03",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939428174",
+      "upcNumeric": "4018939428174",
+      "matchSummary": {
+        "matchCount": 1,
+        "sources": [
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "closure-closer",
+          "title": "Closure / Closer",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2020
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "Glass Houses",
+      "slug": "glass-houses",
+      "releaseDate": "2020-07-10",
+      "year": 2020,
+      "UPC": "4018939435288",
+      "catalogNumber": "CAT4018939435288",
+      "releaseArtist": "Remulak",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Glass Houses",
+          "mixVersion": "",
+          "ISRC": "DEQ022005401",
+          "primaryArtists": [
+            "Remulak",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:56",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Glass Houses",
+          "mixVersion": "",
+          "ISRC": "DEQ022005401",
+          "primaryArtists": [
+            "Remulak",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:56",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "4018939435288",
+      "upcNumeric": "4018939435288",
+      "matchSummary": {
+        "matchCount": 1,
+        "sources": [
+          "content/releases.imported.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "glass-houses",
+          "title": "Glass Houses",
+          "type": "Single",
+          "provider": "tidal",
+          "year": 2020
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": true
+    },
+    {
+      "title": "12:34",
+      "slug": "12-34",
+      "releaseDate": "2020-04-23",
+      "year": 2020,
+      "UPC": "018736737275",
+      "catalogNumber": "CAT018736737275",
+      "releaseArtist": "broeybeats.",
+      "releaseVersion": "",
+      "genre": "Instrumental",
+      "subgenre": "Instrumental",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "12:34",
+          "mixVersion": "",
+          "ISRC": "USANG2044386",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:05",
+          "genre": "Instrumental",
+          "subgenre": "Instrumental"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "12:34",
+          "mixVersion": "",
+          "ISRC": "USANG2044386",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:05",
+          "genre": "Instrumental",
+          "subgenre": "Instrumental"
+        }
+      ],
+      "upc": "018736737275",
+      "upcNumeric": "018736737275",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "As Anticipated / The Time has Come",
+      "slug": "as-anticipated-the-time-has-come",
+      "releaseDate": "2019-12-27",
+      "year": 2019,
+      "UPC": "018736967634",
+      "catalogNumber": "CAT018736967634",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Electronic",
+      "subgenre": "Electronic",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "As Anticipated",
+          "mixVersion": "",
+          "ISRC": "USANG1924885",
+          "primaryArtists": [
+            "Broey.",
+            "Aviary Day"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "",
+          "genre": "Easy Listening",
+          "subgenre": "Easy Listening"
+        },
+        {
+          "trackNumber": 2,
+          "title": "The Time has Come",
+          "mixVersion": "",
+          "ISRC": "USANG1924886",
+          "primaryArtists": [
+            "Broey.",
+            "Aviary Day"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "",
+          "genre": "Electronic",
+          "subgenre": "Electronic"
+        }
+      ],
+      "inferredType": "EP",
+      "trackCount": 2,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "As Anticipated",
+          "mixVersion": "",
+          "ISRC": "USANG1924885",
+          "primaryArtists": [
+            "Broey.",
+            "Aviary Day"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "",
+          "genre": "Easy Listening",
+          "subgenre": "Easy Listening"
+        },
+        {
+          "trackNumber": 2,
+          "title": "The Time has Come",
+          "mixVersion": "",
+          "ISRC": "USANG1924886",
+          "primaryArtists": [
+            "Broey.",
+            "Aviary Day"
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "",
+          "genre": "Electronic",
+          "subgenre": "Electronic"
+        }
+      ],
+      "upc": "018736967634",
+      "upcNumeric": "018736967634",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Daybreak",
+      "slug": "daybreak",
+      "releaseDate": "2019-12-19",
+      "year": 2019,
+      "UPC": "018736021428",
+      "catalogNumber": "CAT018736021428",
+      "releaseArtist": "broeybeats.",
+      "releaseVersion": "",
+      "genre": "Holiday",
+      "subgenre": "Christmas",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Daybreak",
+          "mixVersion": "",
+          "ISRC": "USANG1925527",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Holiday",
+          "subgenre": "Christmas"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Daybreak",
+          "mixVersion": "",
+          "ISRC": "USANG1925527",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:28",
+          "genre": "Holiday",
+          "subgenre": "Christmas"
+        }
+      ],
+      "upc": "018736021428",
+      "upcNumeric": "018736021428",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Feels so Good",
+      "slug": "feels-so-good",
+      "releaseDate": "2019-09-13",
+      "year": 2019,
+      "UPC": "018736302992",
+      "catalogNumber": "CAT018736302992",
+      "releaseArtist": "broeybeats.",
+      "releaseVersion": "",
+      "genre": "Easy Listening",
+      "subgenre": "Lounge",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Feels so Good",
+          "mixVersion": "",
+          "ISRC": "US3DF1996349",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:29",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Feels so Good",
+          "mixVersion": "",
+          "ISRC": "US3DF1996349",
+          "primaryArtists": [
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "03:29",
+          "genre": "Easy Listening",
+          "subgenre": "Lounge"
+        }
+      ],
+      "upc": "018736302992",
+      "upcNumeric": "018736302992",
+      "matchSummary": {
+        "matchCount": 0,
+        "sources": []
+      },
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        },
+        "importedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": "tidal"
+        },
+        "folderInventoryMatch": {
+          "match": false,
+          "method": "none",
+          "source": "scripts/released-folder-inventory.json",
+          "sourceTag": null,
+          "slug": null,
+          "title": null,
+          "type": null,
+          "provider": null
+        }
+      },
+      "isMatched": false
+    },
+    {
+      "title": "Paradise",
+      "slug": "paradise",
+      "releaseDate": "2019-03-23",
+      "year": 2019,
+      "UPC": "194271698971",
+      "catalogNumber": "CAT194271698971",
+      "releaseArtist": "Broey.",
+      "releaseVersion": "",
+      "genre": "Hip Hop/Rap",
+      "subgenre": "Hip Hop/Rap",
+      "tracks": [
+        {
+          "trackNumber": 1,
+          "title": "Paradise",
+          "mixVersion": "",
+          "ISRC": "QZES51970012",
+          "primaryArtists": [
+            "Broey.",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:22",
+          "genre": "Hip Hop/Rap",
+          "subgenre": "Hip Hop/Rap"
+        }
+      ],
+      "inferredType": "Single",
+      "trackCount": 1,
+      "trackList": [
+        {
+          "trackNumber": 1,
+          "title": "Paradise",
+          "mixVersion": "",
+          "ISRC": "QZES51970012",
+          "primaryArtists": [
+            "Broey.",
+            "broeybeats."
+          ],
+          "featuringArtists": [],
+          "remixers": [],
+          "duration": "02:22",
+          "genre": "Hip Hop/Rap",
+          "subgenre": "Hip Hop/Rap"
+        }
+      ],
+      "upc": "194271698971",
+      "upcNumeric": "194271698971",
+      "matchSummary": {
+        "matchCount": 3,
+        "sources": [
+          "content/releases.ts",
+          "content/releases.imported.json",
+          "scripts/released-folder-inventory.json"
+        ]
+      },
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.ts",
+          "slug": "paradise",
+          "title": "Paradise",
+          "type": "Single",
+          "provider": null,
+          "year": 2019
+        },
+        "importedMatch": {
+          "match": true,
+          "method": "slug+date",
+          "source": "content/releases.imported.json",
+          "slug": "paradise",
+          "title": "Paradise",
+          "type": "Single",
+          "provider": "tidal",
+          "year": 2019
+        },
+        "folderInventoryMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "scripts/released-folder-inventory.json",
+          "slug": "paradise",
+          "title": "Paradise",
+          "type": "Unknown",
+          "provider": null,
+          "year": 2019
+        }
+      },
+      "isMatched": true
+    }
+  ],
+  "matchBreakdown": {
+    "content": 4,
+    "imported": 7,
+    "folderInventory": 9
+  }
+}

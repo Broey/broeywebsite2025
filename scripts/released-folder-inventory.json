@@ -1,0 +1,1891 @@
+{
+  "summary": {
+    "generatedAt": "2026-06-09T07:28:48.183Z",
+    "scanRoot": "D:\\Broey\\Releases\\Already Released",
+    "releaseFolderCount": 29,
+    "audioFileCount": 502,
+    "artworkFileCount": 66,
+    "matchedContentReleaseCount": 9,
+    "matchedTidalImportedCount": 6,
+    "unmatchedCount": 20,
+    "ambiguousTypeCount": 8,
+    "missingAudioCount": 1,
+    "missingArtworkCount": 6,
+    "curatedCarouselMissingFromScanCount": 3,
+    "knownMappedExternalFoldersCount": 5,
+    "unmappedMissingReleasesCount": 0
+  },
+  "entries": [
+    {
+      "folderName": "After the Rain - ES42",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42",
+      "suggestedStandardizedFolderName": "after-the-rain-es42",
+      "possibleTitle": "After the Rain - ES42",
+      "possibleSlug": "after-the-rain-es42",
+      "inferredTitle": "After the Rain - ES42",
+      "inferredSlug": "after-the-rain-es42",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42\\After the Rain.wav",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\After the Rain - ES42\\Clouds gif n cover\\IMG_2795.PNG",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: After the Rain - ES42.",
+        "Heuristic title inferred as After the Rain - ES42; slug inferred as after-the-rain-es42;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "After the Rain - ES42",
+        "slug": "after-the-rain-es42",
+        "type": "single",
+        "coverImage": "/assets/cover-art/after-the-rain-es42.png",
+        "coverAlt": "After the Rain - ES42 cover art",
+        "description": "Review and finalize release metadata for After the Rain - ES42.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Back When",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Back When",
+      "suggestedStandardizedFolderName": "back-when",
+      "possibleTitle": "Back When",
+      "possibleSlug": "back-when",
+      "inferredTitle": "Back When",
+      "inferredSlug": "back-when",
+      "possibleType": "EP",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 10,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Back When\\Broey. - back when (unreleased).mp3",
+      "artworkFileCount": 3,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Back When\\Back When (3000 × 3000 px).jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.67,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Back When.",
+        "Heuristic title inferred as Back When; slug inferred as back-when;",
+        "Type inferred as EP.",
+        "Scanned 10 audio file(s); signature count 2."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Back When",
+        "slug": "back-when",
+        "type": "ep",
+        "coverImage": "/assets/cover-art/back-when.jpg",
+        "coverAlt": "Back When cover art",
+        "description": "Review and finalize release metadata for Back When.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Beside You",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Beside You",
+      "suggestedStandardizedFolderName": "beside-you",
+      "possibleTitle": "Beside You",
+      "possibleSlug": "beside-you",
+      "inferredTitle": "Beside You",
+      "inferredSlug": "beside-you",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Beside You\\Broey. - Beside you [M] - PV Release.wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Beside You\\2019-10-22_Broey_-_Beside_You.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Beside You.",
+        "Heuristic title inferred as Beside You; slug inferred as beside-you;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Beside You",
+        "slug": "beside-you",
+        "type": "single",
+        "coverImage": "/assets/cover-art/beside-you.jpg",
+        "coverAlt": "Beside You cover art",
+        "description": "Review and finalize release metadata for Beside You.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "blu",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\blu",
+      "suggestedStandardizedFolderName": "blu",
+      "possibleTitle": "BLU",
+      "possibleSlug": "blu",
+      "inferredTitle": "blu",
+      "inferredSlug": "blu",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 2,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\blu\\blu v1.mp3",
+      "artworkFileCount": 0,
+      "likelyCoverImage": null,
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: blu.",
+        "Matched content/releases.ts by slug; using canonical title (BLU), slug (blu), type (Single).",
+        "Scanned 2 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "blu",
+          "title": "BLU",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "BLU",
+        "slug": "blu",
+        "type": "single",
+        "coverImage": null,
+        "coverAlt": "BLU cover art",
+        "description": "Review and finalize release metadata for BLU.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "missing artwork"
+      ]
+    },
+    {
+      "folderName": "Closure_Closer",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Closure_Closer",
+      "suggestedStandardizedFolderName": "closure-closer",
+      "possibleTitle": "Closure Closer",
+      "possibleSlug": "closure-closer",
+      "inferredTitle": "Closure Closer",
+      "inferredSlug": "closure-closer",
+      "possibleType": "EP",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 3,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Closure_Closer\\Closure _ Closer - Final [M] one take.wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Closure_Closer\\Aug2 closure _ closer Artwork.png",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.67,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Closure Closer.",
+        "Heuristic title inferred as Closure Closer; slug inferred as closure-closer;",
+        "Type inferred as EP.",
+        "Scanned 3 audio file(s); signature count 3.",
+        "Master/final audio signal detected."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Closure Closer",
+        "slug": "closure-closer",
+        "type": "ep",
+        "coverImage": "/assets/cover-art/closure-closer.png",
+        "coverAlt": "Closure Closer cover art",
+        "description": "Review and finalize release metadata for Closure Closer.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Contrast",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Contrast",
+      "suggestedStandardizedFolderName": "contrast",
+      "possibleTitle": "Contrast",
+      "possibleSlug": "contrast",
+      "inferredTitle": "Contrast",
+      "inferredSlug": "contrast",
+      "possibleType": "Unknown",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 72,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Contrast\\Origins\\Origins Raw Master.wav",
+      "artworkFileCount": 4,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Contrast\\Contrast [Mixed Version] Project\\contrast artwork.jpg",
+      "notesMetadataFileCount": 1,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.4,
+      "matchConfidence": 0.56,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Contrast.",
+        "Heuristic title inferred as Contrast; slug inferred as contrast;",
+        "Type inferred as Unknown.",
+        "Scanned 72 audio file(s); signature count 14.",
+        "Master/final audio signal detected.",
+        "Matched TIDAL import by slug; using as enrichment only."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": "contrast",
+          "title": "Contrast",
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Contrast",
+        "slug": "contrast",
+        "type": "unknown",
+        "coverImage": "/assets/cover-art/contrast.jpg",
+        "coverAlt": "Contrast cover art",
+        "description": "Review and finalize release metadata for Contrast.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "dancing dumpster fire",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire",
+      "suggestedStandardizedFolderName": "dancing-dumpster-fire",
+      "possibleTitle": "dancing dumpster fire",
+      "possibleSlug": "dancing-dumpster-fire",
+      "inferredTitle": "dancing dumpster fire",
+      "inferredSlug": "dancing-dumpster-fire",
+      "possibleType": "EP",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 17,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\shake\\Broey. - Shake! (more saturated drums).mp3",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\dancing dumpster fire\\GLFM\\Broey. - GLFM (2).png",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: dancing dumpster fire.",
+        "Matched content/releases.ts by slug; using canonical title (dancing dumpster fire), slug (dancing-dumpster-fire), type (EP).",
+        "Scanned 17 audio file(s); signature count 7."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "dancing-dumpster-fire",
+          "title": "dancing dumpster fire",
+          "type": "EP"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "dancing dumpster fire",
+        "slug": "dancing-dumpster-fire",
+        "type": "ep",
+        "coverImage": "/assets/cover-art/dancing-dumpster-fire.png",
+        "coverAlt": "dancing dumpster fire cover art",
+        "description": "Review and finalize release metadata for dancing dumpster fire.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type"
+      ]
+    },
+    {
+      "folderName": "Deja Vu",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Deja Vu",
+      "suggestedStandardizedFolderName": "deja-vu",
+      "possibleTitle": "Deja Vu",
+      "possibleSlug": "deja-vu",
+      "inferredTitle": "Deja Vu",
+      "inferredSlug": "deja-vu",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 0,
+      "likelyMasterAudioFile": null,
+      "artworkFileCount": 0,
+      "likelyCoverImage": null,
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Deja Vu.",
+        "Heuristic title inferred as Deja Vu; slug inferred as deja-vu;",
+        "Type inferred as Single."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Deja Vu",
+        "slug": "deja-vu",
+        "type": "single",
+        "coverImage": null,
+        "coverAlt": "Deja Vu cover art",
+        "description": "Review and finalize release metadata for Deja Vu.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "missing audio",
+        "missing artwork",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Eternity",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Eternity",
+      "suggestedStandardizedFolderName": "eternity",
+      "possibleTitle": "Eternity",
+      "possibleSlug": "eternity",
+      "inferredTitle": "Eternity",
+      "inferredSlug": "eternity",
+      "possibleType": "Unknown",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 12,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Eternity\\old mixes\\Eternity 2022 M - Final Disto Version.mp3",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Eternity\\eternity artwork 2022.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.4,
+      "matchConfidence": 0.56,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Eternity.",
+        "Heuristic title inferred as Eternity; slug inferred as eternity;",
+        "Type inferred as Unknown.",
+        "Scanned 12 audio file(s); signature count 7.",
+        "Master/final audio signal detected.",
+        "Matched TIDAL import by slug; using as enrichment only."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": "eternity",
+          "title": "Eternity",
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Eternity",
+        "slug": "eternity",
+        "type": "unknown",
+        "coverImage": "/assets/cover-art/eternity.jpg",
+        "coverAlt": "Eternity cover art",
+        "description": "Review and finalize release metadata for Eternity.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Fragments EP",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Fragments EP",
+      "suggestedStandardizedFolderName": "fragments-ep",
+      "possibleTitle": "Fragments EP",
+      "possibleSlug": "fragments-ep",
+      "inferredTitle": "Fragments EP",
+      "inferredSlug": "fragments-ep",
+      "possibleType": "EP",
+      "inferredType": "EP",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 242,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That\\Like That Final M.wav",
+      "artworkFileCount": 12,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Like That\\like that art 1400x1400.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Fragments EP.",
+        "Matched content/releases.ts by slug; using canonical title (Fragments EP), slug (fragments-ep), type (EP).",
+        "Scanned 242 audio file(s); signature count 23.",
+        "Master/final audio signal detected."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "fragments-ep",
+          "title": "Fragments EP",
+          "type": "EP"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Fragments EP",
+        "slug": "fragments-ep",
+        "type": "ep",
+        "coverImage": "/assets/cover-art/fragments-ep.jpg",
+        "coverAlt": "Fragments EP cover art",
+        "description": "Review and finalize release metadata for Fragments EP.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type"
+      ]
+    },
+    {
+      "folderName": "free",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\free",
+      "suggestedStandardizedFolderName": "free",
+      "possibleTitle": "FREE",
+      "possibleSlug": "free",
+      "inferredTitle": "free",
+      "inferredSlug": "free",
+      "possibleType": "Single",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 16,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\free\\DISTRIBUTION FINALS\\Broey. - FREE FINAL INSANE HI RES.wav",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\free\\free (1).jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: free.",
+        "Matched content/releases.ts by slug; using canonical title (FREE), slug (free), type (Single).",
+        "Scanned 16 audio file(s); signature count 7.",
+        "Master/final audio signal detected."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "free",
+          "title": "FREE",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "FREE",
+        "slug": "free",
+        "type": "single",
+        "coverImage": "/assets/cover-art/free.jpg",
+        "coverAlt": "FREE cover art",
+        "description": "Review and finalize release metadata for FREE.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type"
+      ]
+    },
+    {
+      "folderName": "Gimmie Dat",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat",
+      "suggestedStandardizedFolderName": "gimmie-dat",
+      "possibleTitle": "Gimmie Dat",
+      "possibleSlug": "gimmie-dat",
+      "inferredTitle": "Gimmie Dat",
+      "inferredSlug": "gimmie-dat",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 3,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat\\Gimmie Dat.wav",
+      "artworkFileCount": 3,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Gimmie Dat\\halftime edit artwork.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.56,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Gimmie Dat.",
+        "Heuristic title inferred as Gimmie Dat; slug inferred as gimmie-dat;",
+        "Type inferred as Single.",
+        "Scanned 3 audio file(s); signature count 1.",
+        "Matched TIDAL import by slug; using as enrichment only."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": "gimmie-dat",
+          "title": "Gimmie Dat",
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Gimmie Dat",
+        "slug": "gimmie-dat",
+        "type": "single",
+        "coverImage": "/assets/cover-art/gimmie-dat.jpg",
+        "coverAlt": "Gimmie Dat cover art",
+        "description": "Review and finalize release metadata for Gimmie Dat.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Hold On",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Hold On",
+      "suggestedStandardizedFolderName": "hold-on",
+      "possibleTitle": "Hold On",
+      "possibleSlug": "hold-on",
+      "inferredTitle": "Hold On",
+      "inferredSlug": "hold-on",
+      "possibleType": "Single",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 8,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Hold On\\Broey. - Hold On .mp3",
+      "artworkFileCount": 10,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Hold On\\Broey\\Hold On Artwork 2000x2000.png",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Hold On.",
+        "Matched content/releases.ts by slug; using canonical title (Hold On), slug (hold-on), type (Single).",
+        "Scanned 8 audio file(s); signature count 2."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "hold-on",
+          "title": "Hold On",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Hold On",
+        "slug": "hold-on",
+        "type": "single",
+        "coverImage": "/assets/cover-art/hold-on.png",
+        "coverAlt": "Hold On cover art",
+        "description": "Review and finalize release metadata for Hold On.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": []
+    },
+    {
+      "folderName": "hysteria",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\hysteria",
+      "suggestedStandardizedFolderName": "hysteria",
+      "possibleTitle": "hysteria",
+      "possibleSlug": "hysteria",
+      "inferredTitle": "hysteria",
+      "inferredSlug": "hysteria",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 3,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\hysteria\\hysteria.wav",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\hysteria\\Red Neon Modern Minimal Music Album Cover (3000 x 3000 px).jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: hysteria.",
+        "Matched content/releases.ts by slug; using canonical title (hysteria), slug (hysteria), type (Single).",
+        "Scanned 3 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "hysteria",
+          "title": "hysteria",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "hysteria",
+        "slug": "hysteria",
+        "type": "single",
+        "coverImage": "/assets/cover-art/hysteria.jpg",
+        "coverAlt": "hysteria cover art",
+        "description": "Review and finalize release metadata for hysteria.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": []
+    },
+    {
+      "folderName": "imu",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\imu",
+      "suggestedStandardizedFolderName": "imu",
+      "possibleTitle": "imu",
+      "possibleSlug": "imu",
+      "inferredTitle": "imu",
+      "inferredSlug": "imu",
+      "possibleType": "EP",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 5,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\imu\\Broey - IMU (instrumental) - 2023remix and master.wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\imu\\imu artwork.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.67,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: imu.",
+        "Heuristic title inferred as imu; slug inferred as imu;",
+        "Type inferred as EP.",
+        "Scanned 5 audio file(s); signature count 3.",
+        "Master/final audio signal detected."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "imu",
+        "slug": "imu",
+        "type": "ep",
+        "coverImage": "/assets/cover-art/imu.jpg",
+        "coverAlt": "imu cover art",
+        "description": "Review and finalize release metadata for imu.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "mean something",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\mean something",
+      "suggestedStandardizedFolderName": "mean-something",
+      "possibleTitle": "Mean Something",
+      "possibleSlug": "mean-something",
+      "inferredTitle": "mean something",
+      "inferredSlug": "mean-something",
+      "possibleType": "Single",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 57,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\mean something\\Mean Something [24_48k M].mp3",
+      "artworkFileCount": 3,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\mean something\\vividfeverdreams_Album_art_trippy_mean_something_in_bold_stylis_855b36fe-cd50-46eb-8dc8-196eda32097c.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: mean something.",
+        "Matched content/releases.ts by slug; using canonical title (Mean Something), slug (mean-something), type (Single).",
+        "Scanned 57 audio file(s); signature count 2."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "mean-something",
+          "title": "Mean Something",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Mean Something",
+        "slug": "mean-something",
+        "type": "single",
+        "coverImage": "/assets/cover-art/mean-something.jpg",
+        "coverAlt": "Mean Something cover art",
+        "description": "Review and finalize release metadata for Mean Something.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type"
+      ]
+    },
+    {
+      "folderName": "New Beginnings",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\New Beginnings",
+      "suggestedStandardizedFolderName": "new-beginnings",
+      "possibleTitle": "New Beginnings",
+      "possibleSlug": "new-beginnings",
+      "inferredTitle": "New Beginnings",
+      "inferredSlug": "new-beginnings",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\New Beginnings\\2021 0817 Broey. - New Beginnings\\B 05 Broey. - New Beginnings.wav",
+      "artworkFileCount": 3,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\New Beginnings\\2021 0817 Broey. - New Beginnings\\Tons_of_Friends_Cover.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.56,
+      "inferenceNotes": [
+        "Defaulted title to folder name: New Beginnings.",
+        "Heuristic title inferred as New Beginnings; slug inferred as new-beginnings;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1.",
+        "Matched TIDAL import by slug; using as enrichment only."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": "new-beginnings",
+          "title": "New Beginnings",
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "New Beginnings",
+        "slug": "new-beginnings",
+        "type": "single",
+        "coverImage": "/assets/cover-art/new-beginnings.jpg",
+        "coverAlt": "New Beginnings cover art",
+        "description": "Review and finalize release metadata for New Beginnings.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Paradise",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Paradise",
+      "suggestedStandardizedFolderName": "paradise",
+      "possibleTitle": "Paradise",
+      "possibleSlug": "paradise",
+      "inferredTitle": "Paradise",
+      "inferredSlug": "paradise",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 2,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Paradise\\Paradise [M].mp3",
+      "artworkFileCount": 0,
+      "likelyCoverImage": null,
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Paradise.",
+        "Matched content/releases.ts by slug; using canonical title (Paradise), slug (paradise), type (Single).",
+        "Scanned 2 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "paradise",
+          "title": "Paradise",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Paradise",
+        "slug": "paradise",
+        "type": "single",
+        "coverImage": null,
+        "coverAlt": "Paradise cover art",
+        "description": "Review and finalize release metadata for Paradise.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "missing artwork"
+      ]
+    },
+    {
+      "folderName": "Phantasm",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Phantasm",
+      "suggestedStandardizedFolderName": "phantasm",
+      "possibleTitle": "Phantasm",
+      "possibleSlug": "phantasm",
+      "inferredTitle": "Phantasm",
+      "inferredSlug": "phantasm",
+      "possibleType": "EP",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 3,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Phantasm\\phantasm SP clip.mp3",
+      "artworkFileCount": 0,
+      "likelyCoverImage": null,
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.67,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Phantasm.",
+        "Heuristic title inferred as Phantasm; slug inferred as phantasm;",
+        "Type inferred as EP.",
+        "Scanned 3 audio file(s); signature count 2."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Phantasm",
+        "slug": "phantasm",
+        "type": "ep",
+        "coverImage": null,
+        "coverAlt": "Phantasm cover art",
+        "description": "Review and finalize release metadata for Phantasm.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "missing artwork",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Pillow Thoughts",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts",
+      "suggestedStandardizedFolderName": "pillow-thoughts",
+      "possibleTitle": "Pillow Thoughts",
+      "possibleSlug": "pillow-thoughts",
+      "inferredTitle": "Pillow Thoughts",
+      "inferredSlug": "pillow-thoughts",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts\\Broey. - Pillow Thoughts [M] - PV release.wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Pillow Thoughts\\2019-11-20_Broey_-_Pillow_Thoughts.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Pillow Thoughts.",
+        "Heuristic title inferred as Pillow Thoughts; slug inferred as pillow-thoughts;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Pillow Thoughts",
+        "slug": "pillow-thoughts",
+        "type": "single",
+        "coverImage": "/assets/cover-art/pillow-thoughts.jpg",
+        "coverAlt": "Pillow Thoughts cover art",
+        "description": "Review and finalize release metadata for Pillow Thoughts.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "PROPPA",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\PROPPA",
+      "suggestedStandardizedFolderName": "proppa",
+      "possibleTitle": "PROPPA",
+      "possibleSlug": "proppa",
+      "inferredTitle": "PROPPA",
+      "inferredSlug": "proppa",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 4,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\PROPPA\\Broey. - PROPPA [M] (24 bit).wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\PROPPA\\PROPPA ART.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.56,
+      "inferenceNotes": [
+        "Defaulted title to folder name: PROPPA.",
+        "Heuristic title inferred as PROPPA; slug inferred as proppa;",
+        "Type inferred as Single.",
+        "Scanned 4 audio file(s); signature count 1.",
+        "Matched TIDAL import by slug; using as enrichment only."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": "proppa",
+          "title": "PROPPA",
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "PROPPA",
+        "slug": "proppa",
+        "type": "single",
+        "coverImage": "/assets/cover-art/proppa.jpg",
+        "coverAlt": "PROPPA cover art",
+        "description": "Review and finalize release metadata for PROPPA.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Reflections",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Reflections",
+      "suggestedStandardizedFolderName": "reflections",
+      "possibleTitle": "Reflections",
+      "possibleSlug": "reflections",
+      "inferredTitle": "Reflections",
+      "inferredSlug": "reflections",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Reflections\\Broey. - Reflections [M] Short (1).wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Reflections\\when the heavens meet the earth.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Reflections.",
+        "Heuristic title inferred as Reflections; slug inferred as reflections;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Reflections",
+        "slug": "reflections",
+        "type": "single",
+        "coverImage": "/assets/cover-art/reflections.jpg",
+        "coverAlt": "Reflections cover art",
+        "description": "Review and finalize release metadata for Reflections.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Sexy Bach",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Sexy Bach",
+      "suggestedStandardizedFolderName": "sexy-bach",
+      "possibleTitle": "Sexy Bach",
+      "possibleSlug": "sexy-bach",
+      "inferredTitle": "Sexy Bach",
+      "inferredSlug": "sexy-bach",
+      "possibleType": "EP",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 3,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Sexy Bach\\sexy bach 2022 update master.mp3",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Sexy Bach\\idle hand.png",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.67,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Sexy Bach.",
+        "Heuristic title inferred as Sexy Bach; slug inferred as sexy-bach;",
+        "Type inferred as EP.",
+        "Scanned 3 audio file(s); signature count 2.",
+        "Master/final audio signal detected."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Sexy Bach",
+        "slug": "sexy-bach",
+        "type": "ep",
+        "coverImage": "/assets/cover-art/sexy-bach.png",
+        "coverAlt": "Sexy Bach cover art",
+        "description": "Review and finalize release metadata for Sexy Bach.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "smile",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\smile",
+      "suggestedStandardizedFolderName": "smile",
+      "possibleTitle": "smile",
+      "possibleSlug": "smile",
+      "inferredTitle": "smile",
+      "inferredSlug": "smile",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 2,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\smile\\smile M.wav",
+      "artworkFileCount": 0,
+      "likelyCoverImage": null,
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: smile.",
+        "Heuristic title inferred as smile; slug inferred as smile;",
+        "Type inferred as Single.",
+        "Scanned 2 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "smile",
+        "slug": "smile",
+        "type": "single",
+        "coverImage": null,
+        "coverAlt": "smile cover art",
+        "description": "Review and finalize release metadata for smile.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "missing artwork",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "stereo luv",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\stereo luv",
+      "suggestedStandardizedFolderName": "stereo-luv",
+      "possibleTitle": "STEREO LUV",
+      "possibleSlug": "stereo-luv",
+      "inferredTitle": "stereo luv",
+      "inferredSlug": "stereo-luv",
+      "possibleType": "Single",
+      "inferredType": "EP",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 5,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\stereo luv\\stereo luv narration.wav",
+      "artworkFileCount": 3,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\stereo luv\\STEREO LUV (1).png",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.98,
+      "slugConfidence": 0.98,
+      "typeConfidence": 0.97,
+      "matchConfidence": 0.98,
+      "inferenceNotes": [
+        "Defaulted title to folder name: stereo luv.",
+        "Matched content/releases.ts by slug; using canonical title (STEREO LUV), slug (stereo-luv), type (Single).",
+        "Scanned 5 audio file(s); signature count 4."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.ts",
+          "slug": "stereo-luv",
+          "title": "STEREO LUV",
+          "type": "Single"
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "STEREO LUV",
+        "slug": "stereo-luv",
+        "type": "single",
+        "coverImage": "/assets/cover-art/stereo-luv.png",
+        "coverAlt": "STEREO LUV cover art",
+        "description": "Review and finalize release metadata for STEREO LUV.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": []
+    },
+    {
+      "folderName": "Tarot's",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Tarot's",
+      "suggestedStandardizedFolderName": "tarot-s",
+      "possibleTitle": "Tarot's",
+      "possibleSlug": "tarot-s",
+      "inferredTitle": "Tarot's",
+      "inferredSlug": "tarot-s",
+      "possibleType": "Unknown",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 8,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Tarot's\\07 Celebration (Four of Wands) M2.wav",
+      "artworkFileCount": 4,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Tarot's\\Aries - Digital (3000x3000).jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.4,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Tarot's.",
+        "Heuristic title inferred as Tarot's; slug inferred as tarot-s;",
+        "Type inferred as Unknown.",
+        "Scanned 8 audio file(s); signature count 8."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Tarot's",
+        "slug": "tarot-s",
+        "type": "unknown",
+        "coverImage": "/assets/cover-art/tarot-s.jpg",
+        "coverAlt": "Tarot's cover art",
+        "description": "Review and finalize release metadata for Tarot's.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Think about it",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Think about it",
+      "suggestedStandardizedFolderName": "think-about-it",
+      "possibleTitle": "Think about it",
+      "possibleSlug": "think-about-it",
+      "inferredTitle": "Think about it",
+      "inferredSlug": "think-about-it",
+      "possibleType": "Unknown",
+      "inferredType": "Unknown",
+      "isTypeUnclear": true,
+      "slugMismatch": false,
+      "audioFileCount": 18,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Think about it\\Think about it - broey. FINAL VERSION AND UPLOAD.wav",
+      "artworkFileCount": 2,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\Think about it\\Think about it Remix Art_V1.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.4,
+      "matchConfidence": 0.56,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Think about it.",
+        "Heuristic title inferred as Think about it; slug inferred as think-about-it;",
+        "Type inferred as Unknown.",
+        "Scanned 18 audio file(s); signature count 14.",
+        "Master/final audio signal detected.",
+        "Matched TIDAL import by slug; using as enrichment only."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": true,
+          "method": "slug",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": "think-about-it",
+          "title": "Think About It",
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Think about it",
+        "slug": "think-about-it",
+        "type": "unknown",
+        "coverImage": "/assets/cover-art/think-about-it.jpg",
+        "coverAlt": "Think about it cover art",
+        "description": "Review and finalize release metadata for Think about it.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unclear type",
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "While the Leaves Blow - Linearwave",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave",
+      "suggestedStandardizedFolderName": "while-the-leaves-blow-linearwave",
+      "possibleTitle": "While the Leaves Blow - Linearwave",
+      "possibleSlug": "while-the-leaves-blow-linearwave",
+      "inferredTitle": "While the Leaves Blow - Linearwave",
+      "inferredSlug": "while-the-leaves-blow-linearwave",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave\\While the Leaves Blow [M2]-1.wav",
+      "artworkFileCount": 1,
+      "likelyCoverImage": "D:\\Broey\\Releases\\Already Released\\While the Leaves Blow - Linearwave\\Broey. & Linearwave - While The Leaves Blow_Artwork.jpg",
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: While the Leaves Blow - Linearwave.",
+        "Heuristic title inferred as While the Leaves Blow - Linearwave; slug inferred as while-the-leaves-blow-linearwave;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "While the Leaves Blow - Linearwave",
+        "slug": "while-the-leaves-blow-linearwave",
+        "type": "single",
+        "coverImage": "/assets/cover-art/while-the-leaves-blow-linearwave.jpg",
+        "coverAlt": "While the Leaves Blow - Linearwave cover art",
+        "description": "Review and finalize release metadata for While the Leaves Blow - Linearwave.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "unmatched content release"
+      ]
+    },
+    {
+      "folderName": "Winter Days - Silvers and Golds",
+      "folderPath": "D:\\Broey\\Releases\\Already Released\\Winter Days - Silvers and Golds",
+      "suggestedStandardizedFolderName": "winter-days-silvers-and-golds",
+      "possibleTitle": "Winter Days - Silvers and Golds",
+      "possibleSlug": "winter-days-silvers-and-golds",
+      "inferredTitle": "Winter Days - Silvers and Golds",
+      "inferredSlug": "winter-days-silvers-and-golds",
+      "possibleType": "Single",
+      "inferredType": "Single",
+      "isTypeUnclear": false,
+      "slugMismatch": false,
+      "audioFileCount": 1,
+      "likelyMasterAudioFile": "D:\\Broey\\Releases\\Already Released\\Winter Days - Silvers and Golds\\silvers and golds M.wav",
+      "artworkFileCount": 0,
+      "likelyCoverImage": null,
+      "notesMetadataFileCount": 0,
+      "releaseJsonExists": false,
+      "releaseJsonPath": null,
+      "titleConfidence": 0.61,
+      "slugConfidence": 0.61,
+      "typeConfidence": 0.69,
+      "matchConfidence": 0.18,
+      "inferenceNotes": [
+        "Defaulted title to folder name: Winter Days - Silvers and Golds.",
+        "Heuristic title inferred as Winter Days - Silvers and Golds; slug inferred as winter-days-silvers-and-golds;",
+        "Type inferred as Single.",
+        "Scanned 1 audio file(s); signature count 1."
+      ],
+      "matches": {
+        "contentRelease": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.ts",
+          "slug": null,
+          "title": null,
+          "type": null
+        },
+        "tidalImportedMatch": {
+          "match": false,
+          "method": "none",
+          "source": "content/releases.imported.json",
+          "provider": "tidal",
+          "slug": null,
+          "title": null,
+          "available": true
+        }
+      },
+      "suggestedWebsiteReleaseFields": {
+        "title": "Winter Days - Silvers and Golds",
+        "slug": "winter-days-silvers-and-golds",
+        "type": "single",
+        "coverImage": null,
+        "coverAlt": "Winter Days - Silvers and Golds cover art",
+        "description": "Review and finalize release metadata for Winter Days - Silvers and Golds.",
+        "releaseDate": null,
+        "year": null
+      },
+      "warnings": [
+        "missing artwork",
+        "unmatched content release"
+      ]
+    }
+  ],
+  "releaseFolderMap": {
+    "curatedCarouselMissingFromScan": [
+      {
+        "slug": "4u",
+        "title": "4u",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "fragments-remixes",
+        "title": "Fragments (Remixes)",
+        "type": "Remix",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Releases\\Already Released\\Fragments EP\\Remixes",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "title": "LiNK",
+        "type": "Single",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "knownMappedExternalFolders": [
+      {
+        "slug": "4u",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\notminimal\\broey & notminimal. - 4u",
+        "notes": "Source confirmed in collaborations folder; release is already staged in Release Library released and public on the website.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "after-you",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Mr. Hilroy\\Finished tracks\\After You",
+        "notes": "Verified collaboration source folder and catalog links; public website release uses curated catalog metadata.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "i-cant-wait-for-love",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Bonfire B\\I Can't Wait For Love",
+        "notes": "Verified collaboration source folder; public website release has a real Create Music catalog link.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "link",
+        "status": "pending",
+        "sourceFolder": "D:\\Broey\\Releases\\Unreleased\\link",
+        "notes": "Source folder confirmed; keep pending until the public catalog/TIDAL enrichment is finalized.",
+        "shouldStageToReleaseLibrary": false
+      },
+      {
+        "slug": "warning",
+        "status": "released",
+        "sourceFolder": "D:\\Broey\\Collaborations\\Cryztal Grid\\Warning",
+        "notes": "Verified collaboration source folder and catalog links; artwork still needs a local source before setting an explicit coverImage.",
+        "shouldStageToReleaseLibrary": false
+      }
+    ],
+    "unmappedMissingReleases": []
+  }
+}

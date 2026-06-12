@@ -1,0 +1,545 @@
+{
+  "generatedAt": "2026-06-07T16:04:26.472Z",
+  "sourceRoot": "D:\\Broey\\Broey Website 2025\\Assets",
+  "mode": "full-catalog",
+  "dryRun": true,
+  "overwrite": false,
+  "totalEntries": 15,
+  "copied": 0,
+  "unsupportedFiles": {
+    "image": {
+      "total": 6,
+      "topTypes": [
+        ".zip:2",
+        ".svg:2",
+        ".mp4:1",
+        ".txt:1"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "id": "link",
+      "type": "release",
+      "name": "LiNK",
+      "existingPath": "/assets/cover-art/link.png",
+      "existingValid": true,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/link.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "stereo-luv",
+      "type": "release",
+      "name": "STEREO LUV",
+      "existingPath": "/assets/cover-art/stereo-luv.png",
+      "existingValid": true,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/stereo-luv.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "free",
+      "type": "release",
+      "name": "FREE",
+      "existingPath": "/assets/cover-art/free.png",
+      "existingValid": true,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/free.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "dancing-dumpster-fire",
+      "type": "release",
+      "name": "dancing dumpster fire",
+      "existingPath": "/assets/cover-art/dancing-dumpster-fire.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/dancing-dumpster-fire.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "i-cant-wait-for-love",
+      "type": "release",
+      "name": "I Can",
+      "existingPath": "/assets/cover-art/i-cant-wait-for-love.jpg",
+      "existingValid": true,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\Broey logo for playlists.jpg",
+      "score": 1.68,
+      "destination": "/assets/cover-art/i-cant-wait-for-love.jpg",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\Broey logo for playlists.jpg",
+          "score": 1.68,
+          "normalized": "broey logo for playlists"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        }
+      ],
+      "status": "skipped",
+      "warnings": [],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "fragments-ep",
+      "type": "release",
+      "name": "Fragments EP",
+      "existingPath": "/assets/cover-art/fragments-ep.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/fragments-ep.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "4u",
+      "type": "release",
+      "name": "4u",
+      "existingPath": "/assets/cover-art/4u.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/4u.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "mean-something",
+      "type": "release",
+      "name": "Mean Something",
+      "existingPath": "/assets/cover-art/mean-something.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/mean-something.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "fragments-remixes",
+      "type": "release",
+      "name": "Fragments (Remixes)",
+      "existingPath": "/assets/cover-art/fragments-remixes.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/fragments-remixes.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "glfm",
+      "type": "release",
+      "name": "GLFM",
+      "existingPath": "/assets/cover-art/glfm.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/glfm.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "blu",
+      "type": "release",
+      "name": "BLU",
+      "existingPath": "/assets/cover-art/blu.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/cover-art/blu.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "signal-tee",
+      "type": "merch",
+      "name": "Signal Tee",
+      "existingPath": "/assets/merch/signal-tee.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/merch/signal-tee.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "static-hoodie",
+      "type": "merch",
+      "name": "Static Hoodie",
+      "existingPath": "/assets/merch/static-hoodie.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/merch/static-hoodie.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "waveform-hat",
+      "type": "merch",
+      "name": "Waveform Hat",
+      "existingPath": "/assets/merch/waveform-hat.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/merch/waveform-hat.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    },
+    {
+      "id": "signal-sticker",
+      "type": "merch",
+      "name": "Signal Sticker",
+      "existingPath": "/assets/merch/signal-sticker.jpg",
+      "existingValid": false,
+      "candidate": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+      "score": -0.81,
+      "destination": "/assets/merch/signal-sticker.png",
+      "copied": false,
+      "alternatives": [
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\frag 3.png",
+          "score": -0.81,
+          "normalized": "frag 3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\3.png",
+          "score": -0.81,
+          "normalized": "3"
+        },
+        {
+          "path": "D:\\Broey\\Broey Website 2025\\Assets\\Brand Assets\\T Shirt PNG\\1.png",
+          "score": -1.03,
+          "normalized": "1"
+        }
+      ],
+      "status": "ambiguous",
+      "warnings": [
+        "Multiple equally strong matches; verify before writing content"
+      ],
+      "notes": [
+        "Skipped (exists)"
+      ]
+    }
+  ]
+}
