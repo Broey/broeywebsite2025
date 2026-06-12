@@ -30,16 +30,25 @@ export const pressMentionsCopy = {
     eyebrow: "Press & Mentions",
     heading: "Outside notes on the current Broey. era.",
     description:
-      "Independent writeups tracing Broey.'s evolution into genre-fluid electronic music: raw, emotional, dance-focused, and rooted in years of production instinct.",
-    ctaLabel: "Read More Coverage",
-    ctaHref: "/about#press-mentions",
+      "A fast credibility layer from independent writeups covering Broey.'s shift into raw, emotional, genre-fluid electronic music.",
+    ctaLabel: "View all press",
+    ctaHref: "/press",
   },
-  full: {
+  about: {
     id: "press-mentions",
     eyebrow: "Press & Mentions",
-    heading: "Coverage across the evolution.",
+    heading: "A few outside notes.",
     description:
-      "Broey.'s story has been documented across reviews, interviews, and independent music blogs: from early conversations about lofi foundations and wordless emotional production to recent coverage of Fragments and dancing dumpster fire as a broader, more physical electronic evolution.",
+      "Selected coverage supporting the artist story, with the full archive kept on its own page.",
+    ctaLabel: "View all press",
+    ctaHref: "/press",
+  },
+  archive: {
+    id: "press-archive",
+    eyebrow: "Press Archive",
+    heading: "Coverage archive",
+    description:
+      "Independent reviews, features, and interviews documenting Broey.'s releases and evolution, from early lofi foundations through Fragments and the current electronic era.",
   },
 } as const;
 
@@ -245,6 +254,7 @@ export const homePressItems = pressItems
 
 export const aboutPressItems = pressItems.filter((item) => item.featuredOnAbout);
 export const watchPressItems = pressItems.filter((item) => item.featuredOnWatch);
+export const pressArchiveItems = pressItems.filter((item) => item.group !== "media-appearance");
 
 export type PressEntryType = PressItemType;
 export type PressEntry = PressItem;

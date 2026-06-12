@@ -657,6 +657,10 @@ export function ReleaseCarousel({
   const displayPosition = shapeHandoffPosition(activePosition, motionDirection);
   const activeCountLabel = String(wrapIndex(activeIndex, releaseCountRef.current) + 1).padStart(2, "0");
   const totalCountLabel = String(releaseCountRef.current).padStart(2, "0");
+  const previousTitle =
+    releaseTitles[wrapIndex(activeIndex - 1, releaseCountRef.current)] ?? "previous release";
+  const nextTitle =
+    releaseTitles[wrapIndex(activeIndex + 1, releaseCountRef.current)] ?? "next release";
 
   return (
     <div className="music-release-carousel-shell">
@@ -749,6 +753,44 @@ export function ReleaseCarousel({
             suppressCardClick,
           });
         })}
+      </div>
+      <div className="music-carousel-mobile-controls" aria-label="Release carousel controls">
+        <button
+          type="button"
+          className="music-carousel-control"
+          aria-label={`Previous release: ${previousTitle}`}
+          onClick={() => {
+            markUserActive();
+            move("previous");
+          }}
+        >
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <div className="music-carousel-mobile-status" aria-hidden="true">
+          <div className="music-carousel-spin-cue music-carousel-spin-cue-mobile">
+            <span className="music-carousel-spin-cue-chevron music-carousel-spin-cue-chevron-left" />
+            <span className="music-carousel-spin-cue-track">
+              <span className="music-carousel-spin-cue-grip" />
+            </span>
+            <span className="music-carousel-spin-cue-chevron music-carousel-spin-cue-chevron-right" />
+          </div>
+          <div className="music-carousel-index-cue music-carousel-index-cue-mobile">
+            <span>{activeCountLabel}</span>
+            <span>/</span>
+            <span>{totalCountLabel}</span>
+          </div>
+        </div>
+        <button
+          type="button"
+          className="music-carousel-control"
+          aria-label={`Next release: ${nextTitle}`}
+          onClick={() => {
+            markUserActive();
+            move("next");
+          }}
+        >
+          <span aria-hidden="true">&rarr;</span>
+        </button>
       </div>
     </div>
   );

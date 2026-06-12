@@ -2632,6 +2632,10 @@ body.has-global-player .site-shell {
   opacity: 0.35;
 }
 
+.music-carousel-mobile-controls {
+  display: none;
+}
+
 .music-release-primary-cta,
 .music-release-secondary-cta {
   display: inline-flex;
@@ -2849,6 +2853,77 @@ body.has-global-player .site-shell {
   margin-bottom: clamp(1rem, 2.2vw, 1.45rem);
 }
 
+.homepage-press-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  gap: clamp(0.8rem, 1.8vw, 1.25rem);
+  align-items: stretch;
+}
+
+.homepage-press-feature {
+  display: grid;
+  align-content: start;
+  gap: clamp(0.64rem, 1.2vw, 0.9rem);
+  min-width: 0;
+  border-top: 1px solid rgba(240, 236, 225, 0.16);
+  padding-top: clamp(0.9rem, 1.7vw, 1.2rem);
+}
+
+.homepage-press-feature .press-mention-topic {
+  max-width: none;
+  text-align: left;
+}
+
+.homepage-press-quote {
+  max-width: 52rem;
+  margin: 0;
+  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.8vw, 4.8rem);
+  font-weight: 650;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.homepage-press-summary {
+  max-width: 42rem;
+  margin: 0;
+  color: rgba(240, 236, 225, 0.76);
+  font-size: clamp(0.95rem, 1.25vw, 1.08rem);
+  line-height: 1.58;
+}
+
+.homepage-press-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  margin-top: 0.15rem;
+}
+
+.press-mention-link-secondary {
+  color: var(--color-cyan);
+}
+
+.homepage-press-support {
+  display: grid;
+  align-content: start;
+  border-left: 1px solid rgba(240, 236, 225, 0.1);
+}
+
+.homepage-press-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  align-items: end;
+  border-bottom: 1px solid rgba(240, 236, 225, 0.1);
+  padding: clamp(0.82rem, 1.3vw, 1rem) 0 clamp(0.82rem, 1.3vw, 1rem) clamp(0.85rem, 1.6vw, 1.2rem);
+}
+
+.homepage-press-row:first-child {
+  border-top: 1px solid rgba(240, 236, 225, 0.1);
+}
+
 .press-mentions {
   scroll-margin-top: calc(var(--site-header-offset) + 1rem);
 }
@@ -3032,6 +3107,12 @@ body.has-global-player .site-shell {
   min-width: 0;
 }
 
+.press-ledger-main .press-mention-topic {
+  max-width: none;
+  margin-top: 0.24rem;
+  text-align: left;
+}
+
 .press-ledger-quote {
   margin-top: 0.48rem;
   font-size: clamp(1.02rem, 1.45vw, 1.22rem);
@@ -3148,6 +3229,58 @@ body.has-global-player .site-shell {
 .press-mention-link:hover {
   gap: 0.66rem;
   color: white;
+}
+
+.about-press-teaser-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
+  gap: clamp(0.78rem, 1.6vw, 1.1rem);
+  align-items: stretch;
+}
+
+.about-press-teaser-feature {
+  display: grid;
+  align-content: start;
+  gap: 0.58rem;
+  min-width: 0;
+  border-top: 1px solid rgba(240, 236, 225, 0.12);
+  padding-top: 0.9rem;
+}
+
+.about-press-teaser-feature .press-mention-link {
+  margin-top: 0.12rem;
+}
+
+.about-press-mini-list {
+  display: grid;
+  border-top: 1px solid rgba(240, 236, 225, 0.12);
+}
+
+.about-press-mini-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(240, 236, 225, 0.1);
+  padding: 0.82rem 0;
+}
+
+.about-press-mini-item .press-mention-topic {
+  max-width: 58%;
+}
+
+.press-page .press-archive-section {
+  margin-top: clamp(1rem, 2vw, 1.4rem);
+}
+
+.press-archive-list {
+  grid-template-columns: 1fr;
+}
+
+.press-archive-list .press-ledger-item:nth-child(odd),
+.press-archive-list .press-ledger-item:nth-child(even) {
+  border-left: 0;
+  padding-inline: 0;
 }
 
 .homepage-merch-grid {
@@ -6120,11 +6253,18 @@ a.about-pillar-card:hover {
     white-space: normal;
   }
 
+  .merch-store-panel {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    padding-inline: 0;
+  }
+
   .merch-mobile-browser {
     display: block;
-    width: calc(100% + 0.7rem);
-    margin-top: 0.45rem;
-    margin-inline: -0.35rem;
+    width: 100%;
+    margin-top: 0.55rem;
+    margin-inline: 0;
     overflow: visible;
   }
 
@@ -6133,19 +6273,26 @@ a.about-pillar-card:hover {
   }
 
   .merch-mobile-filter-row {
-    padding-inline: 0.35rem;
+    padding-inline: 0;
   }
 
   .merch-mobile-track {
-    padding-inline: 0.35rem;
-    scroll-padding-inline: 0.35rem;
+    width: calc(100% + 1rem);
+    margin-inline: -0.5rem;
+    padding: 0.12rem 0.5rem 1rem;
+    scroll-padding-inline: 0.5rem;
   }
 
   .merch-mobile-slide {
-    flex-basis: calc(100% - 0.7rem);
+    display: flex;
+    flex-basis: calc(100% - 1rem);
   }
 
   .merch-mobile-slide .merch-card {
+    width: 100%;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
+      rgba(8, 12, 17, 0.72);
     box-shadow:
       0 16px 38px rgba(0, 0, 0, 0.28),
       inset 0 1px 0 rgba(255, 255, 255, 0.045);
@@ -6361,6 +6508,8 @@ a.about-pillar-card:hover {
   .about-highlight-grid,
   .about-selected-grid,
   .about-final-cta,
+  .homepage-press-teaser,
+  .about-press-teaser-grid,
   .press-mentions-preview-grid,
   .press-mention-group-grid,
   .email-signup {
@@ -6390,6 +6539,35 @@ a.about-pillar-card:hover {
   .homepage-press-section,
   .email-signup {
     padding: 1rem;
+  }
+
+  .homepage-press-feature {
+    gap: 0.72rem;
+  }
+
+  .homepage-press-quote {
+    font-size: clamp(2rem, 13.5vw, 3.4rem);
+  }
+
+  .homepage-press-support {
+    border-left: 0;
+  }
+
+  .homepage-press-row {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding-left: 0;
+  }
+
+  .about-press-mini-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.28rem;
+  }
+
+  .about-press-mini-item .press-mention-topic {
+    max-width: 100%;
+    text-align: left;
   }
 
   .press-mention-card-head,
@@ -6564,8 +6742,9 @@ a.about-pillar-card:hover {
     justify-content: center;
     margin-top: 0;
     transform: none;
-    width: calc(100% + 1.8rem);
-    margin-inline: -0.9rem;
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
     overflow: visible;
   }
 
@@ -6579,11 +6758,11 @@ a.about-pillar-card:hover {
     min-height: auto;
     overflow-x: auto;
     overflow-y: visible;
-    scroll-padding-inline: 9vw;
+    scroll-padding-inline: 8vw;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
-    padding: 0.35rem 9vw 4.25rem;
+    padding: 0.86rem 8vw 1.08rem;
     perspective: none;
     touch-action: pan-x pan-y;
     contain: layout style;
@@ -6599,8 +6778,9 @@ a.about-pillar-card:hover {
     position: relative;
     top: auto;
     left: auto;
-    flex: 0 0 min(84vw, 22rem);
-    width: min(84vw, 22rem);
+    flex: 0 0 min(84vw, 22.5rem);
+    width: min(84vw, 22.5rem);
+    overflow: visible;
     opacity: 1;
     filter: none;
     transform: none;
@@ -6622,17 +6802,63 @@ a.about-pillar-card:hover {
     opacity: 0.28;
   }
 
-  .music-release-carousel-stage[data-native-scroll="true"] .music-carousel-index-cue {
-    left: 50%;
-    right: auto;
-    bottom: 1.02rem;
-    transform: translateX(-50%);
+  .music-release-carousel-stage[data-native-scroll="true"] > .music-carousel-index-cue,
+  .music-release-carousel-stage[data-native-scroll="true"] > .music-carousel-spin-cue {
+    display: none;
+  }
+
+  .music-carousel-mobile-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.72rem, 3.2vw, 1rem);
+    width: min(100%, 24rem);
+    margin: 0.08rem auto 0;
+    padding-inline: 1rem;
+  }
+
+  .music-carousel-mobile-status {
+    display: grid;
+    gap: 0.34rem;
+    justify-items: center;
+    min-width: 5.35rem;
+  }
+
+  .music-carousel-mobile-controls .music-carousel-control {
+    width: 2.45rem;
+    height: 2.45rem;
+    border-color: rgba(240, 236, 225, 0.24);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.024)),
+      rgba(6, 9, 13, 0.72);
+    color: rgba(240, 236, 225, 0.86);
+    box-shadow:
+      0 12px 28px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .music-carousel-mobile-controls .music-carousel-spin-cue,
+  .music-carousel-mobile-controls .music-carousel-index-cue {
+    position: static;
+    inset: auto;
+    transform: none;
+  }
+
+  .music-carousel-mobile-controls .music-carousel-spin-cue {
+    display: inline-flex;
+    opacity: 0.9;
+    filter:
+      drop-shadow(0 0 18px rgba(63, 177, 217, 0.24))
+      drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+  }
+
+  .music-carousel-mobile-controls .music-carousel-index-cue {
     border: 1px solid rgba(240, 236, 225, 0.18);
     border-radius: 999px;
     background:
       linear-gradient(90deg, rgba(63, 177, 217, 0.12), rgba(211, 169, 91, 0.11)),
       rgba(6, 9, 13, 0.78);
-    padding: 0.42rem 0.58rem;
+    padding: 0.38rem 0.56rem;
     color: rgba(240, 236, 225, 0.88);
     box-shadow:
       0 10px 28px rgba(0, 0, 0, 0.34),
@@ -6640,15 +6866,7 @@ a.about-pillar-card:hover {
     text-shadow: none;
   }
 
-  .music-release-carousel-stage[data-native-scroll="true"] .music-carousel-spin-cue {
-    bottom: 2.25rem;
-    opacity: 0.88;
-    filter:
-      drop-shadow(0 0 18px rgba(63, 177, 217, 0.24))
-      drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
-  }
-
-  .music-release-carousel-stage[data-native-scroll="true"] .music-carousel-spin-cue-track {
+  .music-carousel-mobile-controls .music-carousel-spin-cue-track {
     border-color: rgba(240, 236, 225, 0.28);
     background:
       linear-gradient(90deg, rgba(63, 177, 217, 0.18), rgba(211, 169, 91, 0.16)),
@@ -6690,8 +6908,9 @@ a.about-pillar-card:hover {
     position: relative;
     top: auto;
     left: auto;
-    flex: 0 0 min(84vw, 22rem);
-    width: min(84vw, 22rem);
+    flex: 0 0 min(84vw, 22.5rem);
+    width: min(84vw, 22.5rem);
+    overflow: visible;
     opacity: 1;
     filter: none;
     transform: none;

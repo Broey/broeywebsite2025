@@ -5,7 +5,7 @@ import { releases } from "@/content/releases";
 import { siteUrl } from "@/content/seo";
 import { isSitePrivate } from "@/lib/site-visibility";
 
-const staticRoutes = ["/", "/music", "/about", "/contact", "/merch"];
+const staticRoutes = ["/", "/music", "/about", "/contact", "/merch", "/press"];
 
 const canonicalUrl = (path: string) => new URL(path, siteUrl).toString();
 

@@ -284,7 +284,7 @@ export default function AboutPage() {
             </ol>
           </section>
 
-          <PressMentionsSection variant="full" />
+          <PressMentionsSection variant="about" />
 
           <section className="release-detail-section" aria-labelledby="about-find-title">
             <SectionHeader
