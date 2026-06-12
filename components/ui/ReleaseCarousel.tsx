@@ -71,6 +71,7 @@ const maxMomentumCards = 8;
 const autoplayDelay = 4800;
 const autoplayIdleDelay = 3600;
 const autoplayReleaseVelocity = 0.0036;
+const nativeScrollMediaQuery = "(max-width: 768px)";
 
 const defaultMetrics: CarouselMetrics = {
   activeWidth: 520,
@@ -136,6 +137,7 @@ export function ReleaseCarousel({
   const [isPointerInside, setIsPointerInside] = useState(false);
   const [isFocusWithin, setIsFocusWithin] = useState(false);
   const [isUserActive, setIsUserActive] = useState(false);
+  const [usesNativeScroll, setUsesNativeScroll] = useState(false);
   const [motionDirection, setMotionDirection] = useState<MotionDirection>(0);
   const [metrics, setMetrics] = useState<CarouselMetrics>(defaultMetrics);
   const [motionEnergy, setMotionEnergy] = useState(0);
@@ -246,14 +248,73 @@ export function ReleaseCarousel({
     [animateToPosition],
   );
 
+  const updateNativeActiveCard = useCallback(() => {
+    const track = trackRef.current;
+
+    if (!track) {
+      return;
+    }
+
+    const cards = Array.from(track.querySelectorAll<HTMLElement>("[data-carousel-card]"));
+
+    if (!cards.length) {
+      return;
+    }
+
+    const trackCenter = track.scrollLeft + track.clientWidth / 2;
+    let closestIndex = 0;
+    let closestDistance = Number.POSITIVE_INFINITY;
+
+    cards.forEach((card, index) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(trackCenter - cardCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    commitPosition(closestIndex, 0, true);
+    setMotionDirection(0);
+    setMotionEnergy(0);
+  }, [commitPosition]);
+
+  const scrollToNativeCard = useCallback(
+    (index: number, behavior: ScrollBehavior = "smooth") => {
+      const track = trackRef.current;
+
+      if (!track) {
+        return;
+      }
+
+      const cards = Array.from(track.querySelectorAll<HTMLElement>("[data-carousel-card]"));
+      const nextIndex = clamp(index, 0, cards.length - 1);
+
+      cards[nextIndex]?.scrollIntoView({
+        behavior,
+        block: "nearest",
+        inline: "center",
+      });
+
+      commitPosition(nextIndex, 0, true);
+    },
+    [commitPosition],
+  );
+
   const move = useCallback(
     (direction: "previous" | "next") => {
+      if (usesNativeScroll) {
+        scrollToNativeCard(activeIndex + (direction === "next" ? 1 : -1));
+        return;
+      }
+
       const targetPosition =
         Math.round(activePositionRef.current) + (direction === "next" ? 1 : -1);
 
       animateToPosition(targetPosition);
     },
-    [animateToPosition],
+    [activeIndex, animateToPosition, scrollToNativeCard, usesNativeScroll],
   );
 
   const selectIndex = useCallback(
@@ -263,13 +324,18 @@ export function ReleaseCarousel({
         return;
       }
 
+      if (usesNativeScroll) {
+        scrollToNativeCard(index);
+        return;
+      }
+
       const targetPosition =
         activePositionRef.current +
         wrappedOffset(index, activePositionRef.current, releaseCountRef.current);
 
       animateToPosition(targetPosition);
     },
-    [animateToPosition],
+    [animateToPosition, scrollToNativeCard, usesNativeScroll],
   );
 
   const suppressCardClick = useCallback(() => {
@@ -419,6 +485,33 @@ export function ReleaseCarousel({
   }, [releaseCount]);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(nativeScrollMediaQuery);
+    const updateNativeScrollMode = () => {
+      setUsesNativeScroll(mediaQuery.matches);
+    };
+
+    updateNativeScrollMode();
+    mediaQuery.addEventListener("change", updateNativeScrollMode);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateNativeScrollMode);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!usesNativeScroll) {
+      return;
+    }
+
+    stopAnimation();
+    setIsDragging(false);
+    requestAnimationFrame(() => {
+      scrollToNativeCard(wrapIndex(Math.round(activePositionRef.current), releaseCountRef.current), "auto");
+      updateNativeActiveCard();
+    });
+  }, [scrollToNativeCard, stopAnimation, updateNativeActiveCard, usesNativeScroll]);
+
+  useEffect(() => {
     const track = trackRef.current;
 
     if (!track) {
@@ -509,6 +602,7 @@ export function ReleaseCarousel({
 
     if (
       prefersReducedMotion.current ||
+      usesNativeScroll ||
       isDragging ||
       isGliding ||
       isPointerInside ||
@@ -538,6 +632,7 @@ export function ReleaseCarousel({
     isPointerInside,
     isUserActive,
     releaseCount,
+    usesNativeScroll,
   ]);
 
   useEffect(
@@ -575,6 +670,7 @@ export function ReleaseCarousel({
         tabIndex={0}
         data-dragging={isDragging ? "true" : "false"}
         data-motion={isInteracting ? "live" : "settled"}
+        data-native-scroll={usesNativeScroll ? "true" : "false"}
         data-user-active={isPaused ? "true" : "false"}
         className="music-release-carousel-stage focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-cyan)]"
         onKeyDown={(event) => {
@@ -590,20 +686,29 @@ export function ReleaseCarousel({
             move("previous");
           }
         }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerEnd}
-        onPointerCancel={handlePointerEnd}
-        onPointerEnter={() => {
-          setIsPointerInside(true);
-          markUserActive();
-        }}
-        onPointerLeave={() => {
-          setIsPointerInside(false);
-          if (!dragState.current) {
-            setPointer({ x: 0.5, y: 0.42 });
-          }
-        }}
+        onScroll={usesNativeScroll ? updateNativeActiveCard : undefined}
+        onPointerDown={usesNativeScroll ? undefined : handlePointerDown}
+        onPointerMove={usesNativeScroll ? undefined : handlePointerMove}
+        onPointerUp={usesNativeScroll ? undefined : handlePointerEnd}
+        onPointerCancel={usesNativeScroll ? undefined : handlePointerEnd}
+        onPointerEnter={
+          usesNativeScroll
+            ? undefined
+            : () => {
+                setIsPointerInside(true);
+                markUserActive();
+              }
+        }
+        onPointerLeave={
+          usesNativeScroll
+            ? undefined
+            : () => {
+                setIsPointerInside(false);
+                if (!dragState.current) {
+                  setPointer({ x: 0.5, y: 0.42 });
+                }
+              }
+        }
         onFocusCapture={() => {
           setIsFocusWithin(true);
           markUserActive();

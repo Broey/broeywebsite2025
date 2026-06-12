@@ -183,7 +183,7 @@ function CarouselArtwork({ release, children }: { release: ReleaseEntry; childre
 
   if (!release.coverImage) {
     return (
-      <div className="music-release-artwork relative aspect-square overflow-hidden rounded-md">
+      <div className="music-release-artwork release-artwork-frame relative aspect-square overflow-hidden">
         <PendingArtwork
           alt={alt}
           eyebrow={fallbackEyebrow}
@@ -196,7 +196,7 @@ function CarouselArtwork({ release, children }: { release: ReleaseEntry; childre
   }
 
   return (
-    <div className="music-release-artwork relative aspect-square overflow-hidden rounded-md border border-white/[0.08] bg-black/30 shadow-2xl shadow-black/25">
+    <div className="music-release-artwork release-artwork-frame relative aspect-square overflow-hidden">
       <Image
         src={release.coverImage}
         alt={alt}

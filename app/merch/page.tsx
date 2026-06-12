@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MerchMobileBrowser } from "@/components/sections/MerchMobileBrowser";
 import { MerchCard } from "@/components/ui/MerchCard";
 import { MerchArtwork } from "@/components/ui/MerchArtwork";
 import { PageIntro } from "@/components/ui/PageIntro";
@@ -83,6 +84,8 @@ export default async function MerchPage() {
             titleId="merch-store-title"
             meta={`${merch.length} items / ${categorySummary}`}
           />
+
+          <MerchMobileBrowser merch={merch} categories={categories} />
 
           <div className="merch-grid">
             {merch.map((item) => (

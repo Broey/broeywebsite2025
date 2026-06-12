@@ -61,19 +61,19 @@ export function ReleaseArtwork({ release, className = "aspect-square" }: Release
         alt={alt}
         eyebrow={fallbackEyebrow}
         label={release.title}
-        className={className}
+        className={`release-artwork-frame ${className}`}
       />
     );
   }
 
   return (
-    <div className={`relative overflow-hidden rounded-lg border border-white/10 bg-black/35 shadow-2xl shadow-black/35 ${className}`}>
+    <div className={`release-artwork-frame ${className}`}>
       <Image
         src={coverImage}
         alt={alt}
         fill
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        className="object-cover"
+        className="release-artwork-image"
       />
     </div>
   );

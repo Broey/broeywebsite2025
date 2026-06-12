@@ -35,6 +35,10 @@
   --radius-card: 0.72rem;
   --radius-card-compact: 0.55rem;
   --radius-image: 0.52rem;
+  --artwork-radius: var(--radius-image);
+  --artwork-border: 1px solid rgba(255, 255, 255, 0.1);
+  --artwork-background: rgba(0, 0, 0, 0.35);
+  --artwork-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
   --radius-control: 999px;
   --border-card: 1px solid rgba(240, 236, 225, 0.1);
   --border-card-strong: 1px solid rgba(238, 242, 248, 0.16);
@@ -573,6 +577,20 @@ section {
   line-height: 1.25;
   text-align: right;
   text-transform: uppercase;
+}
+
+.release-artwork-frame {
+  position: relative;
+  overflow: hidden;
+  border: var(--artwork-border);
+  border-radius: var(--artwork-radius);
+  background: var(--artwork-background);
+  box-shadow: var(--artwork-shadow);
+}
+
+.release-artwork-image {
+  object-fit: cover;
+  object-position: center;
 }
 
 body.has-global-player .site-shell {
@@ -1218,6 +1236,79 @@ body.has-global-player .site-shell {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.8rem;
   margin-top: 1.02rem;
+}
+
+.merch-mobile-browser {
+  display: none;
+}
+
+.merch-mobile-filter-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.merch-mobile-filter-row::-webkit-scrollbar {
+  display: none;
+}
+
+.merch-filter-chip {
+  display: inline-flex;
+  min-height: 2.18rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(238, 242, 248, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.026);
+  padding: 0.54rem 0.82rem;
+  color: rgba(238, 242, 248, 0.76);
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.merch-filter-chip:hover,
+.merch-filter-chip[data-active="true"] {
+  border-color: rgba(240, 182, 77, 0.72);
+  background: rgba(240, 182, 77, 0.12);
+  color: white;
+}
+
+.merch-mobile-track {
+  display: flex;
+  gap: 0.85rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 0.95rem;
+  padding-bottom: 0.3rem;
+  scroll-padding-inline: 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  touch-action: pan-x pan-y;
+}
+
+.merch-mobile-track::-webkit-scrollbar {
+  display: none;
+}
+
+.merch-mobile-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .merch-card {
@@ -2041,6 +2132,10 @@ body.has-global-player .site-shell {
   scroll-padding-inline: calc((100% - var(--music-carousel-active-card-width)) / 2);
   padding-inline: calc((100% - var(--music-carousel-active-card-width)) / 2);
   perspective: 1400px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-stop: always;
+  touch-action: pan-x pan-y;
   scrollbar-color: rgba(63, 177, 217, 0.52) rgba(255, 255, 255, 0.06);
   scrollbar-width: none;
 }
@@ -3418,17 +3513,15 @@ body.has-global-player .site-shell {
   width: min(100%, 30rem);
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 0.56rem;
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  background: rgba(0, 0, 0, 0.14);
-  box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.24),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.018);
+  border: var(--artwork-border);
+  border-radius: var(--artwork-radius);
+  background: var(--artwork-background);
+  box-shadow: var(--artwork-shadow);
 }
 
 .release-detail-artwork-image {
-  object-fit: contain;
-  padding: clamp(0.14rem, 0.35vw, 0.32rem);
+  object-fit: cover;
+  object-position: center;
 }
 
 .release-detail-info-panel {
@@ -6023,6 +6116,15 @@ a.about-pillar-card:hover {
     white-space: normal;
   }
 
+  .merch-mobile-browser {
+    display: block;
+    margin-top: 0.35rem;
+  }
+
+  .merch-grid {
+    display: none;
+  }
+
   .merch-artwork-image {
     padding: 0.72rem;
   }
@@ -6194,11 +6296,12 @@ a.about-pillar-card:hover {
   }
 
   .about-portrait-frame {
-    aspect-ratio: 16 / 13;
+    aspect-ratio: 4 / 5;
+    max-height: none;
   }
 
   .about-portrait-image {
-    object-position: center 34%;
+    object-position: center 18%;
   }
 
   .contact-hero {
@@ -6441,6 +6544,51 @@ a.about-pillar-card:hover {
     min-height: var(--music-carousel-stage-height);
   }
 
+  .music-release-carousel-stage[data-native-scroll="true"] {
+    display: flex;
+    gap: clamp(0.85rem, 3.5vw, 1.1rem);
+    min-height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-padding-inline: 9vw;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding: 0 9vw 2.75rem;
+    perspective: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .music-release-carousel-stage[data-native-scroll="true"]::-webkit-scrollbar {
+    display: none;
+    height: 0;
+  }
+
+  .music-release-carousel-stage[data-native-scroll="true"] .music-release-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex: 0 0 min(82vw, 22rem);
+    width: min(82vw, 22rem);
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transform-origin: center;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    pointer-events: auto;
+    will-change: auto;
+  }
+
+  .music-release-carousel-stage[data-native-scroll="true"] .music-release-card[data-active="false"] {
+    --carousel-inactive-opacity: 1;
+    --carousel-inactive-scale: 1;
+  }
+
+  .music-release-carousel-stage[data-native-scroll="true"] .music-release-card-glow {
+    display: none;
+  }
+
   .music-release-carousel-scroll {
     scroll-padding-inline: 9vw;
     padding-inline: 9vw;
@@ -6469,6 +6617,19 @@ a.about-pillar-card:hover {
   }
 
   .music-release-card[data-active="true"] {
+    pointer-events: auto;
+  }
+
+  .music-release-carousel-stage[data-native-scroll="true"] .music-release-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex: 0 0 min(82vw, 22rem);
+    width: min(82vw, 22rem);
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transform-origin: center;
     pointer-events: auto;
   }
 

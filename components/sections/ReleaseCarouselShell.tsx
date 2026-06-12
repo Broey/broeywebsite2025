@@ -13,7 +13,6 @@ export function ReleaseCarouselShell({
 }: ReleaseCarouselShellProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number>();
-  const dragStart = useRef<{ x: number; scrollLeft: number } | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateActiveCard = () => {
@@ -118,37 +117,6 @@ export function ReleaseCarouselShell({
           }
 
           frameRef.current = requestAnimationFrame(updateActiveCard);
-        }}
-        onPointerDown={(event) => {
-          const track = trackRef.current;
-
-          if (!track) {
-            return;
-          }
-
-          dragStart.current = {
-            x: event.clientX,
-            scrollLeft: track.scrollLeft,
-          };
-          track.setPointerCapture(event.pointerId);
-        }}
-        onPointerMove={(event) => {
-          const track = trackRef.current;
-          const start = dragStart.current;
-
-          if (!track || !start) {
-            return;
-          }
-
-          track.scrollLeft = start.scrollLeft - (event.clientX - start.x);
-        }}
-        onPointerUp={() => {
-          dragStart.current = null;
-          updateActiveCard();
-        }}
-        onPointerCancel={() => {
-          dragStart.current = null;
-          updateActiveCard();
         }}
       >
         {children}
