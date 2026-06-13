@@ -232,8 +232,6 @@ const releaseCreditRows = (release: ReleaseEntry): ReleaseCredit[] => {
 
   return [
     { role: "Artist", name: releaseArtistName(release) },
-    { role: "Release", name: "Broey." },
-    { role: "Label", name: "Independent" },
   ];
 };
 
@@ -361,7 +359,7 @@ function ReleaseDetailArtwork({ release }: { release: ReleaseEntry }) {
           alt={alt}
           eyebrow="Artwork"
           label={release.title}
-          className="release-detail-artwork-frame"
+          className="release-detail-artwork-fallback"
         />
       </div>
     );
@@ -378,16 +376,14 @@ function ReleaseDetailArtwork({ release }: { release: ReleaseEntry }) {
         className="release-detail-artwork-glow"
         priority
       />
-      <div className="release-detail-artwork-frame">
-        <Image
-          src={release.coverImage}
-          alt={alt}
-          fill
-          sizes="(min-width: 1024px) 36vw, 86vw"
-          className="release-detail-artwork-image"
-          priority
-        />
-      </div>
+      <Image
+        src={release.coverImage}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 36vw, 86vw"
+        className="release-detail-artwork-image"
+        priority
+      />
     </div>
   );
 }

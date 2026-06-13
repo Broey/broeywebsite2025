@@ -30,20 +30,35 @@ function formatDate(date?: string) {
   return dateFormatter.format(new Date(`${date}T00:00:00Z`));
 }
 
-function pressLinkAria(item: PressItem) {
-  return `${item.ctaLabel}: ${item.title} via ${item.outlet}`;
+const pressTypeLabel: Record<PressItem["type"], string> = {
+  feature: "Feature",
+  review: "Review",
+  interview: "Interview",
+  podcast: "Mention",
+  video: "Mention",
+};
+
+function pressLinkAria(item: PressItem, labelOverride?: string) {
+  const label = labelOverride ?? item.ctaLabel;
+  return `${label}: ${item.title} via ${item.outlet}`;
 }
 
-function PressExternalLink({ item }: { item: PressItem }) {
+function PressExternalLink({
+  item,
+  label,
+}: {
+  item: PressItem;
+  label?: string;
+}) {
   return (
     <a
       href={item.href}
       target="_blank"
       rel="noopener noreferrer"
       className="press-mention-link"
-      aria-label={pressLinkAria(item)}
+      aria-label={pressLinkAria(item, label)}
     >
-      {item.ctaLabel} <span aria-hidden="true">&rarr;</span>
+      {label ?? item.ctaLabel} <span aria-hidden="true">&rarr;</span>
     </a>
   );
 }
@@ -51,11 +66,14 @@ function PressExternalLink({ item }: { item: PressItem }) {
 function PressFeatured({
   item,
   label = "Featured coverage",
+  showTypeTag = false,
 }: {
   item: PressItem;
   label?: string;
+  showTypeTag?: boolean;
 }) {
   const formattedDate = formatDate(item.date);
+  const typeLabel = pressTypeLabel[item.type];
 
   return (
     <article className="press-mention-featured">
@@ -65,6 +83,7 @@ function PressFeatured({
           <p className="press-mention-topic">{item.releaseOrTopic}</p>
         </div>
         <p className="press-mention-featured-label">{label}</p>
+        {showTypeTag ? <p className="press-mention-type">{typeLabel}</p> : null}
       </div>
 
       <h3 className="press-mention-featured-title">{item.title}</h3>
@@ -92,11 +111,14 @@ function PressFeatured({
 function PressLedgerItem({
   item,
   quiet = false,
+  showTypeTag = false,
 }: {
   item: PressItem;
   quiet?: boolean;
+  showTypeTag?: boolean;
 }) {
   const formattedDate = formatDate(item.date);
+  const typeLabel = pressTypeLabel[item.type];
 
   return (
     <article className="press-ledger-item" data-quiet={quiet ? "true" : "false"}>
@@ -110,6 +132,7 @@ function PressLedgerItem({
       </div>
 
       <div className="press-ledger-aside">
+        {showTypeTag ? <p className="press-mention-type">{typeLabel}</p> : null}
         {formattedDate || item.author ? (
           <p className="press-mention-meta">
             {[item.author, formattedDate].filter(Boolean).join(" / ")}
@@ -142,7 +165,7 @@ function HomePressTeaser() {
         </div>
 
         <div className="homepage-press-callouts" aria-label="Selected press mentions">
-          {homePressItems.map((item) => (
+        {homePressItems.map((item) => (
             <article key={item.id} className="homepage-press-callout">
               <div className="homepage-press-callout-head">
                 <p className="press-mention-outlet">{item.outlet}</p>
@@ -161,13 +184,13 @@ function HomePressTeaser() {
                   &quot;{item.pullQuote}&quot;
                 </blockquote>
               ) : null}
-              <PressExternalLink item={item} />
+              <PressExternalLink item={item} label="READ COVERAGE" />
             </article>
           ))}
         </div>
 
         <div className="homepage-press-actions" aria-label="More press coverage">
-          <Link href={preview.ctaHref} className="press-mention-link press-mention-link-secondary">
+          <Link href={preview.ctaHref} className="release-detail-secondary-cta">
             {preview.ctaLabel} <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
@@ -198,32 +221,40 @@ function AboutPressTeaser() {
         title={about.heading}
         titleId="about-press-title"
         description={about.description}
-        action={
-          <Link href={about.ctaHref} className="release-detail-inline-link">
-            {about.ctaLabel}
-          </Link>
-        }
       />
       <div className="about-press-teaser-grid">
         <article className="about-press-teaser-feature">
           <p className="press-mention-outlet">{featuredItem.outlet}</p>
+          <p className="press-mention-topic">Release &mdash; {featuredItem.releaseOrTopic}</p>
           {featuredItem.pullQuote ? (
             <blockquote className="press-ledger-quote">
               &quot;{featuredItem.pullQuote}&quot;
             </blockquote>
           ) : null}
           <p className="press-ledger-summary">{featuredItem.summary}</p>
-          <PressExternalLink item={featuredItem} />
+          <PressExternalLink item={featuredItem} label="Read Coverage" />
         </article>
 
         <div className="about-press-mini-list">
           {supportingItems.map((item) => (
             <article key={item.id} className="about-press-mini-item">
-              <p className="press-mention-outlet">{item.outlet}</p>
-              <p className="press-mention-topic">{item.releaseOrTopic}</p>
+              <div>
+                <p className="press-mention-outlet">{item.outlet}</p>
+                <p className="press-mention-topic">Release &mdash; {item.releaseOrTopic}</p>
+              </div>
+              {item.pullQuote ? (
+                <blockquote className="press-mini-quote">
+                  &quot;{item.pullQuote}&quot;
+                </blockquote>
+              ) : null}
             </article>
           ))}
         </div>
+      </div>
+      <div className="about-press-teaser-footer">
+        <Link href={about.ctaHref} className="release-detail-secondary-cta">
+          {about.ctaLabel} <span aria-hidden="true">&rarr;</span>
+        </Link>
       </div>
     </section>
   );
@@ -252,6 +283,7 @@ function ArchiveGroup({ group }: { group: PressItemGroup }) {
             key={item.id}
             item={item}
             quiet={group === "origin-story"}
+            showTypeTag={group !== "media-appearance"}
           />
         ))}
       </div>
@@ -279,7 +311,9 @@ function PressArchive() {
         description={archive.description}
       />
       <div className="press-mentions-groups">
-        {featuredItem ? <PressFeatured item={featuredItem} label="Featured current-era coverage" /> : null}
+        {featuredItem ? (
+          <PressFeatured item={featuredItem} label="Featured current-era coverage" showTypeTag />
+        ) : null}
         {archiveGroups.map((group) => (
           <ArchiveGroup key={group} group={group} />
         ))}

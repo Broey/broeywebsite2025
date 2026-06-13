@@ -9,16 +9,35 @@ export type ExternalLinkKind =
   | "social"
   | "shop";
 
+export type ReleaseVerificationStatus =
+  | "verified"
+  | "source-backed"
+  | "manual-review"
+  | "unverified";
+
+export type ReleaseMetadataStatus =
+  | "verified"
+  | "source-backed"
+  | "manual-review"
+  | "draft"
+  | "unverified";
+
 export type ExternalLink = {
   label: string;
   platform: string;
   url: string;
   kind: ExternalLinkKind;
   primary?: boolean;
+  source?: string;
+  sourceUrl?: string;
+  confidence?: ReleaseVerificationStatus;
+  verificationNotes?: string;
+  resolvedFromSmartLink?: boolean;
 };
 
 export type ReleaseEmbedProvider = "disco" | "soundcloud" | "youtube" | "spotify";
 export type ReleaseVisibility = "draft" | "public";
+export type ReleaseIndexing = "index" | "noindex" | "internal";
 export type ReleaseCatalogStatus = "tidal" | "manual" | "pending-tidal" | "draft";
 export type ReleaseSuggestedTileType = "collectionTile" | "singleTile" | "trackTile";
 export type ReleaseListenActionKind = "external" | "disco-embed" | "local-audio";
@@ -92,6 +111,11 @@ export type ReleaseAudio = {
 export type ReleaseCredit = {
   role: string;
   name: string;
+  source?: string;
+  sourceUrl?: string;
+  confidence?: ReleaseVerificationStatus;
+  verificationNotes?: string;
+  publishApproved?: boolean;
 };
 
 export type ReleaseDetail = {
@@ -104,8 +128,17 @@ export type ReleaseEntry = {
   slug: string;
   type: ReleaseType;
   visibility?: ReleaseVisibility;
+  indexing?: ReleaseIndexing;
+  metadataStatus?: ReleaseMetadataStatus;
+  verificationStatus?: ReleaseVerificationStatus;
   year?: number;
   releaseDate?: string;
+  displayDate?: string;
+  originalReleaseDate?: string;
+  dspReleaseDate?: string;
+  dateSource?: string;
+  dateConfidence?: ReleaseVerificationStatus;
+  dateNotes?: string;
   artistName?: string;
   description: string;
   about?: string | string[];
@@ -150,8 +183,6 @@ export type ReleaseEntry = {
   showInSitemap?: boolean;
   isFocusTrack?: boolean;
 };
-
-const placeholderPlatforms = (_platforms: string[]): ExternalLink[] => [];
 
 const link = (
   platform: string,
@@ -245,10 +276,45 @@ export const releases: ReleaseEntry[] = (([
     coverAlt: "STEREO LUV cover art",
     audio: localAudio("STEREO LUV", "/audio/stereo-luv.mp3", "5:12"),
     links: [
-      link("Create Music", "https://createmusic.fm/stereoluv"),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube", "Bandcamp"]).map(
-        (entry) => ({ ...entry, primary: false }),
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/2XU1WGtc5BbePITaatGe9D",
+        "streaming",
+        false,
       ),
+      link("Create Music", "https://createmusic.fm/stereoluv"),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/stereo-luv-single/1837799560",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/playlist?list=OLAK5uy_lZCSeRIHh032U7XfC86Ih33UFgRZ4R-Mg",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/album/458541065", "streaming", false),
+      link(
+        "Bandcamp",
+        "https://broey.bandcamp.com/track/stereo-luv",
+        "streaming",
+        false,
+      ),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/stereo-luv-1",
+        "streaming",
+        false,
+      ),
+      link(
+        "Amazon Music",
+        "https://music.amazon.com/albums/B0FPTB7TQR",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/816347021", "streaming", false),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -312,6 +378,24 @@ export const releases: ReleaseEntry[] = (([
         "Disco",
         "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark",
         "disco",
+      ),
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt",
+        "streaming",
+        false,
+      ),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/free-single/1892157471",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/watch?v=3Ee5ewA2MiQ",
+        "streaming",
+        false,
       ),
     ],
     catalogStatus: "tidal",
@@ -432,11 +516,25 @@ export const releases: ReleaseEntry[] = (([
       ],
     },
     links: [
-      link("Spotify", "https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt"),
-      ...placeholderPlatforms(["Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link("Spotify", "https://open.spotify.com/album/1oZeVU9ghK6owsQFnYDPdY"),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/dancing-dumpster-fire/1820012666",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/playlist?list=OLAK5uy_m1ZFQYUjx7bDctJFqND7L75hIfmfYG-_w",
+        "streaming",
+        false,
+      ),
+      link(
+        "Bandcamp",
+        "https://broey.bandcamp.com/album/dancing-dumpster-fire",
+        "streaming",
+        false,
+      ),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -646,10 +744,43 @@ export const releases: ReleaseEntry[] = (([
         "Create Music",
         "https://createmusic.fm/icantwaitforlove?utm_source=newsletter&utm_medium=email&utm_term=2025-05-15&utm_campaign=Hey%20it%20s%20me%20Broey%20",
       ),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/2nqHG03NQFtKUm4grl9DAj",
+        "streaming",
+        false,
+      ),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/i-cant-wait-for-love-single/1805900957",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/playlist?list=OLAK5uy_kTPixthtQQRfkfKQKndRzlBGOCr-0cbKo",
+        "streaming",
+        false,
+      ),
+      link(
+        "TIDAL",
+        "https://tidal.com/browse/album/427566340",
+        "streaming",
+        false,
+      ),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/i-cant-wait-for-love",
+        "streaming",
+        false,
+      ),
+      link(
+        "Amazon Music",
+        "https://music.amazon.com/albums/B0F39J9X94",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/736193071", "streaming", false),
     ],
   },
   {
@@ -713,10 +844,32 @@ export const releases: ReleaseEntry[] = (([
     },
     links: [
       link("Create Music", "https://createmusic.fm/fragments"),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7",
+        "streaming",
+        false,
+      ),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/fragments-ep/1729476600",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/album/344095853", "streaming", false),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/sets/fragments-807582035",
+        "streaming",
+        false,
+      ),
+      link(
+        "Amazon Music",
+        "https://music.amazon.com/albums/B0CV4MNZJV",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/544619982", "streaming", false),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -865,10 +1018,38 @@ export const releases: ReleaseEntry[] = (([
     audio: localAudio("4u", "/audio/4u.mp3", "3:19", "Broey. & notminimal."),
     links: [
       link("Create Music", "https://createmusic.fm/4u"),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/0lvaKQqHglh6aHU78gB42M",
+        "streaming",
+        false,
+      ),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/4u-single/1752540493",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/watch?v=gG9b17Y-GEI",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/album/369907613", "streaming", false),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/4u",
+        "streaming",
+        false,
+      ),
+      link(
+        "Amazon Music",
+        "https://music.amazon.com/albums/B0D79Q4ZHS",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/602990992", "streaming", false),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -908,10 +1089,38 @@ export const releases: ReleaseEntry[] = (([
     audio: localAudio("Mean Something", "/audio/mean-something.mp3", "4:31"),
     links: [
       link("Create Music", "https://createmusic.fm/meansomething"),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/1IOco7DVpyPuePje8qZEnZ",
+        "streaming",
+        false,
+      ),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/mean-something-single/1772176805",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/playlist?list=OLAK5uy_lC7gQTFNkQwzWg71HTs0ImdvRNopbySEg",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/album/391217958", "streaming", false),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/mean-something-1",
+        "streaming",
+        false,
+      ),
+      link(
+        "Amazon Music",
+        "https://music.amazon.com/albums/B0DJG8W8WY",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/651735401", "streaming", false),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -999,11 +1208,33 @@ export const releases: ReleaseEntry[] = (([
       ],
     },
     links: [
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/0I3culeJDMjf1rIcl0guyB",
+        "streaming",
+        false,
+      ),
       link("Create Music", "https://createmusic.fm/fragments-remixes"),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/fragments-remixes/1742637606",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/playlist?list=OLAK5uy_lCBCvuruoKn5fK9Hwu3tkI_bns0oV6Z8g",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/album/359004950", "streaming", false),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/sets/fragments-remixes-2",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/576922861", "streaming", false),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -1261,11 +1492,45 @@ export const releases: ReleaseEntry[] = (([
       ],
     },
     links: [
+      link(
+        "Spotify",
+        "https://open.spotify.com/album/6nljucMAQ8fHgb0kBNzLta",
+        "streaming",
+        false,
+      ),
       link("Create Music", "https://createmusic.fm/blu"),
-      ...placeholderPlatforms(["Spotify", "Apple Music", "Audius", "SoundCloud", "YouTube"]).map((entry) => ({
-        ...entry,
-        primary: false,
-      })),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/blu-single/1869157131",
+        "streaming",
+        false,
+      ),
+      link(
+        "YouTube",
+        "https://www.youtube.com/playlist?list=OLAK5uy_nARjDMR_qJuNmpjAqTlePDqHUltOiX1yg",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/album/489787750", "streaming", false),
+      link(
+        "Bandcamp",
+        "https://broey.bandcamp.com/album/blu",
+        "streaming",
+        false,
+      ),
+      link(
+        "SoundCloud",
+        "https://soundcloud.com/broeybeats/sets/blu-860403193",
+        "streaming",
+        false,
+      ),
+      link(
+        "Amazon Music",
+        "https://music.amazon.com/albums/B0GGWLLFKY",
+        "streaming",
+        false,
+      ),
+      link("Deezer", "https://www.deezer.com/album/897704392", "streaming", false),
     ],
     catalogStatus: "tidal",
     catalogSource: {
@@ -1307,6 +1572,7 @@ export const releases: ReleaseEntry[] = (([
     links: [
       link("TIDAL", "https://tidal.com/browse/album/344685076"),
       link("Apple Music", "https://music.apple.com/us/album/like-that-single/1730121194?uo=4", "streaming", false),
+      link("YouTube", "https://www.youtube.com/watch?v=COOMXMksJ9E", "streaming", false),
     ],
     tracklist: ["Like That"],
     catalogStatus: "tidal",
@@ -1351,8 +1617,10 @@ export const releases: ReleaseEntry[] = (([
     coverAlt: "Hold On cover art",
     audio: localAudio("Hold On", "/audio/hold-on.mp3", "3:35"),
     links: [
+      link("Spotify", "https://open.spotify.com/album/7iZkuzxea9D0SHEIXv3bVA", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/291346877"),
       link("Apple Music", "https://music.apple.com/us/album/hold-on-single/1684637507?uo=4", "streaming", false),
+      link("Bandcamp", "https://broey.bandcamp.com/track/hold-on", "streaming", false),
     ],
     tracklist: ["Hold On"],
     catalogStatus: "tidal",
@@ -1398,8 +1666,10 @@ export const releases: ReleaseEntry[] = (([
     coverAlt: "Warning by Cryztal Grid and Broey. cover art",
     audio: localAudio("Warning", "/audio/warning.mp3", "3:16", "Cryztal Grid & Broey."),
     links: [
+      link("Spotify", "https://open.spotify.com/album/0m7quPpvC0EVQ21J86apaa", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/279433677"),
       link("Apple Music", "https://music.apple.com/us/album/warning-single/1673797798?uo=4", "streaming", false),
+      link("Deezer", "https://www.deezer.com/en/album/410679107", "streaming", false),
     ],
     tracklist: [
       {
@@ -1449,8 +1719,10 @@ export const releases: ReleaseEntry[] = (([
     coverAlt: "hysteria cover art",
     audio: localAudio("hysteria", "/audio/hysteria.mp3", "3:42"),
     links: [
+      link("Spotify", "https://open.spotify.com/track/12I7dRdt4uhBXMOKFSm7NV", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/210567515"),
       link("Apple Music", "https://music.apple.com/us/album/hysteria-single/1602310014?uo=4", "streaming", false),
+      link("YouTube", "https://www.youtube.com/watch?v=ffnbbnsniSs", "streaming", false),
     ],
     tracklist: ["hysteria"],
     catalogStatus: "tidal",
@@ -1495,8 +1767,10 @@ export const releases: ReleaseEntry[] = (([
     coverImage: "/assets/cover-art/after-you.jpg",
     coverAlt: "After You cover art",
     links: [
+      link("Spotify", "https://open.spotify.com/album/10KYFjdvz7plRKXRmSQqtb", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/340981922"),
       link("Apple Music", "https://music.apple.com/us/album/after-you-single/1726655763?uo=4", "streaming", false),
+      link("YouTube", "https://www.youtube.com/watch?v=TN90jROEvHw", "streaming", false),
     ],
     tracklist: [
       {
@@ -1544,8 +1818,11 @@ export const releases: ReleaseEntry[] = (([
       "Listen to Paradise by Broey., with verified Apple Music and TIDAL release links.",
     coverAlt: "Paradise artwork pending",
     links: [
+      link("Spotify", "https://open.spotify.com/album/2nkJjtXF1s41m8DscqlMK2", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/314502943"),
       link("Apple Music", "https://music.apple.com/us/album/paradise-single/1705775795?uo=4", "streaming", false),
+      link("YouTube", "https://www.youtube.com/watch?v=KjO1tX506ww", "streaming", false),
+      link("Bandcamp", "https://broey.bandcamp.com/track/paradise", "streaming", false),
     ],
     tracklist: ["Paradise"],
     catalogStatus: "tidal",

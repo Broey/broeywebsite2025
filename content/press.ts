@@ -31,16 +31,16 @@ export const pressMentionsCopy = {
     heading: "Press & Mentions",
     description:
       "Broey has been covered by outlets like We Rave You, Insight Music, and LOUDNESS.",
-    ctaLabel: "View all press",
+    ctaLabel: "VIEW PRESS ARCHIVE",
     ctaHref: "/press",
   },
   about: {
     id: "press-mentions",
     eyebrow: "Press & Mentions",
-    heading: "A few outside notes.",
+    heading: "Outside coverage and context",
     description:
-      "Selected coverage supporting the artist story, with the full archive kept on its own page.",
-    ctaLabel: "View all press",
+      "Broey's releases have been covered by outlets including We Rave You, Insight Music, and LOUDNESS, with writeups around dancing dumpster fire, Fragments, and the project's broader electronic evolution.",
+    ctaLabel: "View Press Archive",
     ctaHref: "/press",
   },
   archive: {

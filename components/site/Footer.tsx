@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EmailSignup } from "@/components/sections/EmailSignup";
 import { BrandMark } from "@/components/site/BrandMark";
 import { primaryNavItems } from "@/content/navigation";
 import { socials } from "@/content/socials";
@@ -36,10 +37,16 @@ export function Footer() {
           <p className="mt-2 max-w-md text-sm text-[var(--color-muted)]">
             Music, visuals, merch, and release notes from Broey.
           </p>
-          <p className="site-footer-copyright">
-            (c) {new Date().getFullYear()} Broey.
-          </p>
         </div>
+
+        <EmailSignup
+          id="site-footer-mailing-list"
+          className="site-footer-signup"
+          variant="footer"
+          heading="Stay close to the next Broey. era."
+          body="New releases, merch drops, release notes, and occasional updates."
+          hiddenFields={{ source: "site-footer" }}
+        />
 
         <div className="site-footer-link-columns">
           <section className="site-footer-link-group" aria-labelledby="footer-site">
@@ -84,6 +91,10 @@ export function Footer() {
             </section>
           ))}
         </div>
+
+        <p className="site-footer-copyright">
+          &copy; {new Date().getFullYear()} Broey.
+        </p>
       </div>
     </footer>
   );

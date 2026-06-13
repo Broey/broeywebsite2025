@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { EmailSignup } from "@/components/sections/EmailSignup";
 import { PressMentionsSection } from "@/components/sections/PressMentionsSection";
-import { PageIntro } from "@/components/ui/PageIntro";
-import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { releaseDetailHref } from "@/content/release-actions";
 import { siteUrl } from "@/content/seo";
-import { releases, type ReleaseEntry } from "@/content/releases";
 import { siteConfig } from "@/content/site";
 
 const aboutDescription =
-  "Learn the story of Broey., from early lofi foundations and independent artist growth to genre-fluid electronic music, selected press, reviews, interviews, and the current era.";
+  "Broey is the project of Joe Montaro, a Scranton-area producer and audio engineer building electronic music from lo-fi roots, club instincts, warm texture, and emotional movement.";
 const aboutPortraitImage = "/assets/brand/broey-headshot-2025.jpg";
 const aboutSocialImage = {
   url: aboutPortraitImage,
@@ -23,14 +19,14 @@ const aboutSocialImage = {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "About Broey. | Artist, Producer & Audio Engineer",
+    absolute: "About Broey. | Electronic Music from Scranton, PA",
   },
   description: aboutDescription,
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Broey. | Artist, Producer & Audio Engineer",
+    title: "About Broey. | Electronic Music from Scranton, PA",
     description: aboutDescription,
     url: "/about",
     siteName: siteConfig.name,
@@ -39,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Broey. | Artist, Producer & Audio Engineer",
+    title: "About Broey. | Electronic Music from Scranton, PA",
     description: aboutDescription,
     images: [aboutPortraitImage],
     site: siteConfig.seo.twitterHandle,
@@ -47,112 +43,64 @@ export const metadata: Metadata = {
   },
 };
 
-const findRelease = (slug: string) =>
-  releases.find((release) => release.slug === slug);
-
-const selectedReleases = [
-  "free",
-  "blu",
-  "stereo-luv",
-  "dancing-dumpster-fire",
-]
-  .map(findRelease)
-  .filter((release): release is ReleaseEntry => Boolean(release));
-
-const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
-  single: "Single",
-  ep: "EP",
-  remix: "Remix",
-  mix: "Mix",
-  set: "Set",
-};
-
-const releaseMeta = (release: ReleaseEntry) =>
-  [releaseTypeLabel[release.type], release.year].filter(Boolean).join(" / ");
-
-const aboutPillars = [
-  {
-    title: "Music",
-    copy: "Selected releases from the current Broey. era, with artwork, credits, listening links, and release notes.",
-    href: "/music",
-  },
-  {
-    title: "Watch",
-    copy: "Videos, interviews, podcasts, visual pieces, and other media from the Broey. world.",
-    href: "/watch",
-  },
-  {
-    title: "Merch",
-    copy: "Limited apparel and objects tied to releases, visuals, and the broader project.",
-    href: "/merch",
-  },
-  {
-    title: "Community",
-    copy: "Discord, direct sharing, updates, works in progress, and a grounded way to stay connected.",
-  },
+const bioParagraphs: ReactNode[] = [
+  "Broey started as a way to chase feeling through sound: dusty chords, clipped drums, warped samples, warm noise, and the kind of small imperfections that make electronic music feel human.",
+  "What began in the world of lo-fi, chillhop, and beat-driven production gradually opened into a wider electronic language: house, UK garage, bass music, ambient textures, and dance records that still carry the same emotional center.",
+  "Based in the Scranton area, Joe has spent more than 15 years producing, engineering, and shaping his own sound. The Broey catalog has moved through streaming releases, select label partnerships, physical moments, vinyl runs, and editorial support across major DSPs, while staying self-directed at its core. Rather than following one fixed lane, the project has grown by letting each era push into a new corner of the sound.",
+  <>
+    Early Broey releases leaned into the warmth and intimacy of lo-fi production: soft melodies, textured drums, and tracks that felt lived-in from the first loop. That foundation still runs through the music, even as the catalog has expanded. Releases like <em>Fragments</em>, <em>4u</em>, <em>Mean Something</em>, <em>dancing dumpster fire</em>, <em>STEREO LUV</em>, and <em>blu.</em> show a project moving between reflection and release: sometimes hazy and emotional, sometimes raw, bright, and built for motion.
+  </>,
+  "The current Broey era is less about fitting a genre and more about building a world around the catalog. The music pulls from dance floors, late-night headphones, internet scenes, and years of production instinct, but the throughline is the same: honest electronic music with texture, feeling, movement, and a little bit of dirt around the edges.",
+  "This site is the home base for that world: music, visuals, merch, release notes, press, and direct connection with the people following along.",
 ];
-
-const bioParagraphs = [
-  "Broey. is the genre-fluid electronic project of Joe Montaro, an artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, Pennsylvania. Built independently over years of releases, collaborations, experiments, and direct-to-fan work, Broey. has grown from a small lofi production project into a broader electronic artist world shaped by house, UK garage, jungle, drum and bass, sax-led texture, guitar, vocal fragments, and raw emotional production.",
-  "The project did not start there. Broey.'s earliest releases came from a lofi, chillhop, and instrumental hip-hop world: warm chords, soft guitars, jazz textures, vinyl haze, and wordless scenes built more around feeling than explanation. That music became the foundation, but not the final form.",
-  "Over time, Broey. began pushing those instincts into faster, heavier, and more physical spaces. The emotional core stayed intact, but the language changed. Lofi sketches gave way to club pressure. Dreamy loops became house, jungle, UKG, drum and bass, acid, glitches, sax lines, and unpredictable electronic structures.",
-  "Along the way, the project developed beyond releases alone. Broey. has built an independent catalog, collaborated with artists and producers across multiple releases, appeared in interviews, earned independent blog coverage, released merch, developed a direct community, and handled much of the creative operation end-to-end: production, mixing, mastering direction, release direction, artwork direction, content, and rollout strategy.",
-  "That evolution is the center of the current Broey. era. Releases like Fragments, dancing dumpster fire, STEREO LUV, blu., and FREE show an artist less interested in fitting one genre than in finding the right container for a feeling. Some tracks are polished. Some are raw. Some are built for motion. Some feel like memories breaking apart in real time.",
-  "Broey. is not trying to erase the early work. It is part of the story. But the project now points forward: emotionally direct, genre-fluid, producer-led electronic music with a human pulse.",
-];
-
-const artistStatement =
-  "The early music taught me how to build a feeling. The current music is me pushing that feeling through new pressure: faster drums, heavier movement, stranger textures, and less fear around what a Broey. track is supposed to be. I am not trying to erase where it started. I am just not interested in letting the first chapter define the whole project.";
 
 const artistHighlights = [
   {
-    title: "15+ years making music",
-    copy: "A self-taught multi-instrumentalist and producer background shaped by years of writing, recording, experimenting, and learning by doing.",
+    title: "15+ years behind the sound",
+    copy: "Producing, engineering, and developing a catalog across lo-fi, electronic, house, bass, and experimental spaces.",
   },
   {
-    title: "Independent since 2018",
-    copy: "Broey. has grown through singles, EPs, remixes, collaborations, merch, community, and direct-to-fan work across multiple eras of sound.",
+    title: "Lo-fi foundation, wider electronic future",
+    copy: "A sound rooted in warmth and texture, now expanding into club-focused and genre-fluid electronic releases.",
   },
   {
-    title: "Producer-led from end to end",
-    copy: "The project is built around hands-on creative control: production, mixing, mastering direction, sound design, visuals, release planning, content, and community.",
+    title: "Streaming, vinyl, and physical moments",
+    copy: "Broey's catalog has lived across digital platforms and physical runs, including vinyl releases from earlier lo-fi-era work.",
   },
   {
-    title: "Covered across the evolution",
-    copy: "From early interviews to recent reviews of Fragments and dancing dumpster fire, outside coverage has followed the project's shift into a broader electronic world.",
+    title: "Label history without a fixed lane",
+    copy: "Releases have moved through both independent paths and select label partnerships, without a long-term exclusive label deal defining the project.",
+  },
+  {
+    title: "Editorial and outside support",
+    copy: "Broey's music has received DSP/editorial support and outside coverage from outlets including We Rave You, Insight Music, and LOUDNESS.",
+  },
+  {
+    title: "Built across scenes",
+    copy: "From lo-fi and chillhop to house, garage, bass, and left-field electronic releases, the catalog keeps moving without losing its emotional center.",
   },
 ];
 
 const timelineItems = [
   {
-    year: "2018",
-    title: "First chapter",
-    copy: "Broey. begins releasing music publicly, building an early catalog rooted in lofi, chillhop, instrumental hip-hop, guitar, jazz texture, and wordless emotional production.",
+    year: "Early roots",
+    title: "Learning the language",
+    copy: "Years of production, engineering, sampling, and learning how to turn small textures into full records.",
   },
   {
-    year: "2019",
-    title: "Early recognition",
-    copy: "Early interviews with BuzzMusic and W. Wang's World Commentary document the foundation: Scranton roots, self-taught production, multi-instrumental background, and a feeling-first approach to music.",
+    year: "Lo-fi era",
+    title: "Warmth and intimacy",
+    copy: "Warm beats, intimate melodies, vinyl moments, playlist support, and the foundation of the Broey sound.",
   },
   {
-    year: "2020-2021",
-    title: "Collaboration and world-building",
-    copy: "Collaborative projects and label releases expand the Broey. world through concept-driven instrumentals, visual storytelling, field recordings, and wider producer-community connections.",
+    year: "Expansion",
+    title: "A wider frame",
+    copy: "Projects like Fragments opened the catalog into brighter, more rhythmic, and more emotionally direct electronic territory.",
   },
   {
-    year: "2022-2023",
-    title: "Transition",
-    copy: "The sound starts pushing away from lofi comfort zones into heavier drums, bass music, jungle, drum and bass, house, and more physical electronic structures.",
-  },
-  {
-    year: "2024",
-    title: "Fragments",
-    copy: "Fragments marks a clear bridge into the current Broey. era, drawing coverage from independent music outlets and reframing the project around dance, house, sax, processed vocals, and genre-fluid electronic movement.",
-  },
-  {
-    year: "2025-2026",
-    title: "Current era",
-    copy: "dancing dumpster fire, STEREO LUV, blu., FREE, and related releases push the project into a rawer, more direct electronic identity: emotional, physical, imperfect, and forward-facing.",
+    year: "Current era",
+    title: "Motion and raw electronic feeling",
+    copy: "dancing dumpster fire, STEREO LUV, blu., and the newer release world push Broey deeper into movement, club influence, and raw electronic feeling.",
   },
 ];
 
@@ -171,7 +119,7 @@ export default function AboutPage() {
             alternateName: "Broey.",
             url: absoluteAboutUrl,
             description: aboutDescription,
-            jobTitle: "Artist, producer, audio engineer, and self-taught multi-instrumentalist",
+            jobTitle: "Producer and audio engineer",
             image: new URL(aboutPortraitImage, siteUrl).toString(),
             homeLocation: {
               "@type": "Place",
@@ -181,24 +129,20 @@ export default function AboutPage() {
         }}
       />
       <section className="about-page release-detail-shell inner-page" aria-labelledby="about-page-title">
-        <PageIntro
-          eyebrow="/ about"
-          title="About"
-          titleId="about-page-title"
-          description="The story of Broey., from early lofi foundations to the current genre-fluid electronic era."
-        />
-
-        <section className="hero-panel about-hero" aria-labelledby="about-artist-title">
+        <section className="hero-panel about-hero" aria-labelledby="about-page-title">
           <div className="about-hero-copy">
-            <p className="release-detail-eyebrow">Artist identity</p>
-            <h2 id="about-artist-title" className="about-hero-title">
-              BROEY.
-            </h2>
+            <p className="release-detail-eyebrow">About Broey.</p>
+            <h1 id="about-page-title" className="about-hero-title">
+              A Real Sound Guy.
+            </h1>
             <p className="about-hero-positioning">
-              Genre-fluid electronic music with a human pulse.
+              Lo-fi roots. Club instincts. Electronic music from Scranton, Pennsylvania.
             </p>
             <p className="about-hero-summary">
-              Broey. is the genre-fluid electronic project of Joe Montaro, an artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, Pennsylvania.
+              Broey is the project of Joe Montaro, a Scranton-area producer and audio engineer building a catalog around warm texture, emotional movement, and left-field electronic production.
+            </p>
+            <p className="about-hero-note">
+              Sound in the technical sense, and sound in the human one.
             </p>
             <div className="release-detail-cta-row">
               <Link href="/music" className="release-detail-primary-cta">
@@ -233,23 +177,21 @@ export default function AboutPage() {
           <section className="release-detail-section about-bio-section" aria-labelledby="about-bio-title">
             <SectionHeader
               eyebrow="Bio"
-              title="Current identity, full journey"
+              title="About Broey."
               titleId="about-bio-title"
             />
             <div className="about-bio-copy">
-              {bioParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+              {bioParagraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
               ))}
-              <p>{artistStatement}</p>
             </div>
           </section>
 
           <section className="release-detail-section about-highlights-section" aria-labelledby="about-highlights-title">
             <SectionHeader
-              eyebrow="Artist Highlights"
-              title="Built from the ground up."
+              eyebrow="Highlights"
+              title="Behind the sound"
               titleId="about-highlights-title"
-              description="Broey. is more than a release name. It is an independent artist project built across production, engineering, collaborations, community, merch, content, and direct-to-fan growth."
             />
             <div className="about-highlight-grid">
               {artistHighlights.map((highlight, index) => (
@@ -266,10 +208,9 @@ export default function AboutPage() {
 
           <section className="release-detail-section about-timeline-section" aria-labelledby="about-timeline-title">
             <SectionHeader
-              eyebrow="The Path Here"
-              title="From first sketches to the current era."
+              eyebrow="The Arc"
+              title="From early roots to the current era"
               titleId="about-timeline-title"
-              description="A compressed timeline of the Broey. project, from early foundations to the current electronic sound."
             />
             <ol className="about-timeline-list">
               {timelineItems.map((item) => (
@@ -286,67 +227,26 @@ export default function AboutPage() {
 
           <PressMentionsSection variant="about" />
 
-          <section className="release-detail-section" aria-labelledby="about-find-title">
-            <SectionHeader
-              eyebrow="What you'll find here"
-              title="Music, watch, merch, and community"
-              titleId="about-find-title"
-            />
-            <div className="about-pillar-grid">
-              {aboutPillars.map((pillar, index) => {
-                const cardContent = (
-                  <>
-                    <span className="about-pillar-number" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3>{pillar.title}</h3>
-                    <p>{pillar.copy}</p>
-                  </>
-                );
-
-                return pillar.href ? (
-                  <Link key={pillar.title} href={pillar.href} className="about-pillar-card">
-                    {cardContent}
-                  </Link>
-                ) : (
-                  <article key={pillar.title} className="about-pillar-card">
-                    {cardContent}
-                  </article>
-                );
-              })}
+          <section className="release-detail-section about-final-cta" aria-labelledby="about-closing-title">
+            <div>
+              <p className="release-detail-section-kicker">Start here</p>
+              <h2 id="about-closing-title">Follow the next era.</h2>
+              <p className="about-final-bridge">
+                Explore the catalog, watch the visuals, browse merch, read the press, or join the community.
+              </p>
+              <p>
+                Start with the music, read the release notes, or follow along as the next era takes shape.
+              </p>
             </div>
-          </section>
-
-          <section className="release-detail-section" aria-labelledby="about-selected-title">
-            <SectionHeader
-              eyebrow="Start here"
-              title="Selected Releases"
-              titleId="about-selected-title"
-              action={
-              <Link href="/music" className="release-detail-inline-link">
-                Selected Releases
+            <div className="release-detail-cta-row">
+              <Link href="/music" className="release-detail-primary-cta">
+                Explore Selected Releases
               </Link>
-              }
-            />
-            <div className="about-selected-grid">
-              {selectedReleases.map((release) => (
-                <Link
-                  key={release.slug}
-                  href={releaseDetailHref(release)}
-                  className="release-detail-more-card"
-                >
-                  <ReleaseArtwork release={release} className="release-detail-more-artwork" />
-                  <div className="min-w-0">
-                    <p>{releaseMeta(release)}</p>
-                    <h3>{release.title}</h3>
-                    <span>{release.mood ?? release.description}</span>
-                  </div>
-                </Link>
-              ))}
+              <Link href="/press" className="release-detail-secondary-cta">
+                View Press Archive
+              </Link>
             </div>
           </section>
-
-          <EmailSignup id="about-mailing-list" variant="panel" />
         </div>
       </section>
     </>
