@@ -396,7 +396,6 @@ export function ReleaseCarousel({
       velocity: 0,
       intent: "pending",
     };
-    trackRef.current?.setPointerCapture(event.pointerId);
   };
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
@@ -430,6 +429,7 @@ export function ReleaseCarousel({
 
       drag.intent = "horizontal";
       setIsDragging(true);
+      trackRef.current?.setPointerCapture(event.pointerId);
     }
 
     if (drag.intent !== "horizontal") {
@@ -655,9 +655,6 @@ export function ReleaseCarousel({
   const isInteracting = isDragging || isGliding;
   const isPaused = isPointerInside || isFocusWithin || isUserActive;
   const displayPosition = shapeHandoffPosition(activePosition, motionDirection);
-  const activeCountLabel = String(wrapIndex(activeIndex, releaseCountRef.current) + 1).padStart(2, "0");
-  const totalCountLabel = String(releaseCountRef.current).padStart(2, "0");
-
   return (
     <div className="music-release-carousel-shell">
       <p className="sr-only" aria-live="polite">
@@ -720,11 +717,6 @@ export function ReleaseCarousel({
           }
         }}
       >
-        <div className="music-carousel-index-cue" aria-hidden="true">
-          <span>{activeCountLabel}</span>
-          <span>/</span>
-          <span>{totalCountLabel}</span>
-        </div>
         <div className="music-carousel-spin-cue" aria-hidden="true">
           <span className="music-carousel-spin-cue-chevron music-carousel-spin-cue-chevron-left" />
           <span className="music-carousel-spin-cue-track">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
 import { ReleasePlayButton } from "@/components/audio/ReleasePlayButton";
 import {
   releaseAudioQueue,
@@ -18,6 +19,10 @@ import {
   releasePlatformLinks,
 } from "@/content/release-actions";
 import { sortedArchiveReleases } from "@/content/release-filters";
+import {
+  trackRegistryByReleaseSlug,
+  type GeneratedTrackRegistry,
+} from "@/content/musicRegistry.generated";
 import { createPageMetadata, siteUrl } from "@/content/seo";
 import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } from "@/content/releases";
 
@@ -26,6 +31,8 @@ type PageProps = {
     slug: string;
   };
 };
+
+type ReleaseCtaAccentStyle = CSSProperties & Partial<Record<"--release-cta-accent", string>>;
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
   single: "Single",
@@ -93,14 +100,32 @@ const releaseHeroAudioQueue = (release: ReleaseEntry, parentRelease?: ReleaseEnt
   };
 };
 
-const projectTrackLinksFor = (release: ReleaseEntry) =>
-  releases
-    .filter((entry) => entry.parentReleaseSlug === release.slug)
+const projectTrackLinksFor = (release: ReleaseEntry) => {
+  const trackTitles = (release.tracklist ?? [])
+    .map((track) => (typeof track === "string" ? track : track.title))
+    .filter(Boolean);
+  const trackLinks = releases.filter((entry) => {
+    if (entry.parentReleaseSlug === release.slug) {
+      return true;
+    }
+
+    return (
+      !entry.isProjectTrack &&
+      entry.slug !== release.slug &&
+      trackTitles.some((title) => trackTitlesMatch(entry.title, title))
+    );
+  });
+
+  return trackLinks
+    .filter((entry, index, list) =>
+      list.findIndex((candidate) => candidate.slug === entry.slug) === index,
+    )
     .map((entry) => ({
       title: entry.title,
       slug: entry.slug,
       href: releaseDetailHref(entry),
     }));
+};
 
 const releaseAudioTrackCount = (release: ReleaseEntry) => release.audio?.tracks.length ?? 0;
 
@@ -119,10 +144,26 @@ const formatReleaseDate = (releaseDate?: string) => {
     return undefined;
   }
 
-  const placeholderDate = /^\d{4}-00-00$/.test(releaseDate);
+  const yearOnlyDate = releaseDate.match(/^(\d{4})-00-00$/);
 
-  if (placeholderDate) {
-    return "Release date TBA";
+  if (yearOnlyDate) {
+    return yearOnlyDate[1];
+  }
+
+  const monthOnlyDate = releaseDate.match(/^(\d{4})-(\d{2})-00$/);
+
+  if (monthOnlyDate) {
+    const [, year, month] = monthOnlyDate;
+    const date = new Date(`${year}-${month}-01T00:00:00`);
+
+    if (!Number.isNaN(date.getTime())) {
+      return new Intl.DateTimeFormat("en", {
+        month: "long",
+        year: "numeric",
+      }).format(date);
+    }
+
+    return year;
   }
 
   const date = new Date(`${releaseDate}T00:00:00`);
@@ -144,8 +185,46 @@ const releaseArtistName = (release: ReleaseEntry) =>
 const releaseHeroDate = (release: ReleaseEntry) =>
   release.year ? String(release.year) : formatReleaseDate(release.releaseDate);
 
+const releaseTypeDisplay = (release: ReleaseEntry) =>
+  release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
+
+const releaseEyebrow = (release: ReleaseEntry) =>
+  release.isProjectTrack ? "Track" : releaseTypeDisplay(release);
+
 const releaseHeroMeta = (release: ReleaseEntry) =>
-  [releaseTypeLabel[release.type], releaseHeroDate(release)].filter(Boolean).join(" / ");
+  [releaseTypeDisplay(release), releaseHeroDate(release)].filter(Boolean).join(" / ");
+
+const detailLabelKey = (label: string) => label.toLowerCase().replace(/\s+/g, " ").trim();
+
+const catalogDetailLabels = new Set([
+  "catalogue number",
+  "catalog number",
+  "upc",
+  "p line",
+  "c line",
+  "isrc",
+]);
+
+const catalogDetailLabel = (label: string) => {
+  switch (detailLabelKey(label)) {
+    case "catalog number":
+    case "catalogue number":
+      return "Catalogue Number";
+    case "upc":
+      return "UPC";
+    case "p line":
+      return "P Line";
+    case "c line":
+      return "C Line";
+    case "isrc":
+      return "ISRC";
+    default:
+      return label;
+  }
+};
+
+const releaseLabelName = (release: ReleaseEntry, labelDetail?: ReleaseDetail) =>
+  labelDetail?.value ?? release.registry?.label ?? "Broey.";
 
 const releaseTags = (release: ReleaseEntry) =>
   (release.tags?.length ? release.tags : [releaseTypeLabel[release.type], "Broey.", "Electronic"])
@@ -165,6 +244,10 @@ const lowerLead = (value: string) => value.charAt(0).toLowerCase() + value.slice
 const withoutSentenceEnd = (value: string) => value.replace(/[.!?]+$/, "");
 
 const releaseAboutParagraphs = (release: ReleaseEntry) => {
+  if (release.isProjectTrack && release.type === "remix") {
+    return [];
+  }
+
   const authoredCopy = normalizeAboutCopy(release.about);
 
   if (authoredCopy.length) {
@@ -210,19 +293,69 @@ const releaseDetailRows = (release: ReleaseEntry): ReleaseDetail[] => {
   const releaseDate = formatReleaseDate(release.releaseDate);
   const showTrackCount = trackCount && trackCount > 1 && release.type !== "single";
   const showVersionsCount = trackCount && trackCount > 1 && release.type === "single";
+  const sourceDetails = release.details ?? [];
+  const labelDetail = sourceDetails.find((detail) => detailLabelKey(detail.label) === "label");
+  const focusTrack = sourceDetails.find((detail) => detailLabelKey(detail.label) === "focus track");
+  const publicDetails = sourceDetails.filter((detail) => {
+    const key = detailLabelKey(detail.label);
+
+    return key !== "label" && key !== "focus track" && !catalogDetailLabels.has(key);
+  });
   const baseDetails: ReleaseDetail[] = [
     { label: "Artist", value: releaseArtistName(release) },
-    { label: "Release type", value: releaseTypeLabel[release.type] },
+    { label: "Release Type", value: releaseTypeDisplay(release) },
     releaseDate
-      ? { label: "Release date", value: releaseDate }
+      ? { label: "Release Date", value: releaseDate }
       : release.year
         ? { label: "Year", value: String(release.year) }
         : undefined,
+    { label: "Label", value: releaseLabelName(release, labelDetail) },
     showTrackCount ? { label: "Tracks", value: String(trackCount) } : undefined,
     showVersionsCount ? { label: "Versions", value: String(trackCount) } : undefined,
+    focusTrack && shouldShowFocusTrack(release, focusTrack.value)
+      ? { label: "Focus Track", value: focusTrack.value }
+      : undefined,
   ].filter((row): row is ReleaseDetail => Boolean(row));
 
-  return [...baseDetails, ...(release.details ?? [])];
+  return [...baseDetails, ...publicDetails];
+};
+
+const shouldShowFocusTrack = (release: ReleaseEntry, focusTrack?: string) => {
+  if (!focusTrack || releaseTypeDisplay(release).toLowerCase() === "single") {
+    return false;
+  }
+
+  return !trackTitlesMatch(release.title, focusTrack);
+};
+
+const generatedTracksForRelease = (release: ReleaseEntry): readonly GeneratedTrackRegistry[] =>
+  (trackRegistryByReleaseSlug as Record<string, readonly GeneratedTrackRegistry[] | undefined>)[release.slug] ?? [];
+
+const releaseCatalogRows = (release: ReleaseEntry): ReleaseDetail[] => {
+  const catalogRows = (release.details ?? [])
+    .filter((detail) => catalogDetailLabels.has(detailLabelKey(detail.label)))
+    .map((detail) => ({
+      label: catalogDetailLabel(detail.label),
+      value: detail.value,
+    }))
+    .filter((row, index, list) =>
+      list.findIndex((candidate) => detailLabelKey(candidate.label) === detailLabelKey(row.label)) === index,
+    );
+  const existingKeys = new Set(catalogRows.map((row) => detailLabelKey(row.label)));
+  const trackIsrcRows = generatedTracksForRelease(release)
+    .filter((track) => track.isrc)
+    .map((track) => ({
+      label: track.title ? `ISRC - ${track.title}` : "ISRC",
+      value: track.isrc,
+    }))
+    .filter((row, index, list) =>
+      list.findIndex((candidate) => candidate.label === row.label && candidate.value === row.value) === index,
+    );
+
+  return [
+    ...catalogRows,
+    ...trackIsrcRows.filter((row) => !existingKeys.has(detailLabelKey(row.label))),
+  ];
 };
 
 const releaseCreditRows = (release: ReleaseEntry): ReleaseCredit[] => {
@@ -495,13 +628,23 @@ function FindYourPlatformSection({ release }: { release: ReleaseEntry }) {
           ) : null}
         </div>
       </div>
-      <PlatformLinkList links={platformLinks} hidePending showActionLabel={false} />
+      <PlatformLinkList
+        links={platformLinks}
+        hidePending
+        showActionLabel={false}
+        wrapperClassName="platform-links"
+        buttonsClassName="platform-buttons"
+      />
     </section>
   );
 }
 
 function ReleaseAboutSection({ release }: { release: ReleaseEntry }) {
   const paragraphs = releaseAboutParagraphs(release);
+
+  if (!paragraphs.length) {
+    return null;
+  }
 
   return (
     <section className="release-detail-section" aria-labelledby="release-about-title">
@@ -522,40 +665,57 @@ function ReleaseAboutSection({ release }: { release: ReleaseEntry }) {
 function ReleaseFactsSection({ release }: { release: ReleaseEntry }) {
   const details = releaseDetailRows(release);
   const credits = releaseCreditRows(release);
+  const catalogInfo = releaseCatalogRows(release);
 
   return (
-    <div className="release-detail-facts-grid">
-      <section className="release-detail-section" aria-labelledby="release-details-title">
-        <div className="release-detail-section-header">
-          <h2 id="release-details-title" className="release-detail-section-kicker">
-            release details
-          </h2>
-        </div>
-        <dl className="release-detail-definition-list">
-          {details.map((detail) => (
-            <div key={`${detail.label}-${detail.value}`}>
-              <dt>{detail.label}</dt>
-              <dd>{detail.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+    <div className="release-detail-facts-stack">
+      <div className="release-detail-facts-grid">
+        <section className="release-detail-section" aria-labelledby="release-details-title">
+          <div className="release-detail-section-header">
+            <h2 id="release-details-title" className="release-detail-section-kicker">
+              release details
+            </h2>
+          </div>
+          <dl className="release-detail-definition-list">
+            {details.map((detail) => (
+              <div key={`${detail.label}-${detail.value}`}>
+                <dt>{detail.label}</dt>
+                <dd>{detail.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
-      <section className="release-detail-section" aria-labelledby="release-credits-title">
-        <div className="release-detail-section-header">
-          <h2 id="release-credits-title" className="release-detail-section-kicker">
-            credits
-          </h2>
-        </div>
-        <dl className="release-detail-definition-list">
-          {credits.map((credit) => (
-            <div key={`${credit.role}-${credit.name}`}>
-              <dt>{credit.role}</dt>
-              <dd>{credit.name}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+        <section className="release-detail-section" aria-labelledby="release-credits-title">
+          <div className="release-detail-section-header">
+            <h2 id="release-credits-title" className="release-detail-section-kicker">
+              credits
+            </h2>
+          </div>
+          <dl className="release-detail-definition-list">
+            {credits.map((credit) => (
+              <div key={`${credit.role}-${credit.name}`}>
+                <dt>{credit.role}</dt>
+                <dd>{credit.name}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </div>
+
+      {catalogInfo.length ? (
+        <details className="release-detail-catalog-info">
+          <summary>Catalog Info</summary>
+          <dl className="release-detail-definition-list release-detail-catalog-list">
+            {catalogInfo.map((detail) => (
+              <div key={`${detail.label}-${detail.value}`}>
+                <dt>{detail.label}</dt>
+                <dd>{detail.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </details>
+      ) : null}
     </div>
   );
 }
@@ -667,6 +827,9 @@ export default function ReleaseDetailPage({ params }: PageProps) {
     ? `${release.title} from ${parentRelease.title}`
     : release.title;
   const projectTrackLinks = projectTrackLinksFor(release);
+  const releaseCtaAccentStyle: ReleaseCtaAccentStyle | undefined = release.playerAccent
+    ? { "--release-cta-accent": release.playerAccent }
+    : undefined;
 
   return (
     <>
@@ -693,13 +856,13 @@ export default function ReleaseDetailPage({ params }: PageProps) {
 
           <article className="release-detail-info-panel">
             <div>
-              <p className="release-detail-eyebrow">Broey. release</p>
+              <p className="release-detail-eyebrow">{releaseEyebrow(release)}</p>
               <h1 className="release-detail-title">{release.title}</h1>
               <p className="release-detail-artist">{artistName}</p>
               {heroMeta ? <p className="release-detail-hero-meta">{heroMeta}</p> : null}
             </div>
 
-            {release.mood || release.description ? (
+            {(release.mood || release.description) && !(release.isProjectTrack && release.type === "remix") ? (
               <p className="release-detail-description">
                 {release.mood ?? release.description}
               </p>
@@ -717,7 +880,7 @@ export default function ReleaseDetailPage({ params }: PageProps) {
 
             <ParentProjectContext parentRelease={parentRelease} />
 
-            <div className="release-detail-cta-row">
+            <div className="release-detail-cta-row" style={releaseCtaAccentStyle}>
               {audioQueue ? (
                 <ReleasePlayButton
                   queue={audioQueue}
@@ -733,7 +896,7 @@ export default function ReleaseDetailPage({ params }: PageProps) {
                 className={audioQueue ? "release-detail-secondary-cta" : "release-detail-primary-cta"}
               />
               <Link href="/music" className="release-detail-secondary-cta">
-                Back to Selected Releases
+                All Music
               </Link>
             </div>
           </article>

@@ -24,9 +24,9 @@ const tiktok = socialByPlatform("TikTok");
 const instagram = socialByPlatform("Instagram");
 
 export const featuredVideo: FeaturedVideo = {
-  title: "Visuals are warming up",
+  title: "Video archive coming soon",
   description:
-    "The watch page is live as the home for Broey. videos, visualizers, clips, reels, and behind-the-scenes motion work. A featured embed will appear here once a verified YouTube video ID is selected.",
+    "Broey video links live here for now. Full visualizers, studio clips, and longer uploads will be added when they are ready.",
   watchUrl: youtube?.url,
 };
 
@@ -42,7 +42,7 @@ const videoLinkCandidates: Array<VideoLink | null> = [
     ? {
         label: "TikTok",
         href: tiktok.url,
-        description: "Short clips, experiments, edits, and day-to-day motion posts.",
+        description: "Short clips, experiments, edits, and quick studio scraps.",
       }
     : null,
   instagram

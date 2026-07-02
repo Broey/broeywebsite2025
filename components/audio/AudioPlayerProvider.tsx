@@ -50,6 +50,7 @@ const normalizeQueue = (queue: GlobalAudioQueue, activeIndex = queue.activeIndex
     ...track,
     artwork: track.artwork ?? queue.queueArtwork,
     releaseUrl: track.releaseUrl ?? queue.releaseUrl,
+    playerAccent: track.playerAccent ?? queue.playerAccent,
   })),
 });
 
@@ -181,6 +182,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       queueArtist: track.artist,
       queueArtwork: track.artwork,
       releaseUrl: track.releaseUrl,
+      playerAccent: track.playerAccent,
       playContext: "single",
       tracks: [track],
       activeIndex: 0,

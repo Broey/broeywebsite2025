@@ -1,3 +1,10 @@
+import {
+  musicRegistryBySiteSlug,
+  trackRegistryByReleaseSlug,
+  type GeneratedReleaseRegistry,
+  type GeneratedTrackRegistry,
+} from "@/content/musicRegistry.generated";
+
 export type ReleaseType = "single" | "ep" | "remix" | "mix" | "set";
 
 export type ExternalLinkKind =
@@ -98,6 +105,7 @@ export type ReleaseAudioTrack = {
   artist?: string;
   duration?: string;
   src: string;
+  playerAccent?: string;
 };
 
 export type ReleaseAudio = {
@@ -122,6 +130,8 @@ export type ReleaseDetail = {
   label: string;
   value: string;
 };
+
+export type ReleaseRegistryMetadata = Omit<GeneratedReleaseRegistry, "privateListeningLink">;
 
 export type ReleaseEntry = {
   title: string;
@@ -160,6 +170,7 @@ export type ReleaseEntry = {
   seoDescription?: string;
   coverImage?: string;
   coverAlt?: string;
+  playerAccent?: string;
   audioPreview?: string;
   audio?: ReleaseAudio;
   links: ExternalLink[];
@@ -174,6 +185,7 @@ export type ReleaseEntry = {
   listenAction?: ReleaseListenAction;
   catalogSource?: ReleaseCatalogSource;
   catalogStatus?: ReleaseCatalogStatus;
+  registry?: ReleaseRegistryMetadata;
   carouselEnabled?: boolean;
   carouselPriority?: number;
   featured?: boolean;
@@ -188,7 +200,7 @@ const link = (
   platform: string,
   url: string,
   kind: ExternalLinkKind = "streaming",
-  primary = true,
+  primary = false,
 ): ExternalLink => ({
   label: platform,
   platform,
@@ -214,21 +226,306 @@ const localAudio = (
   ],
 });
 
-export const releases: ReleaseEntry[] = (([
+const generatedRegistryBySiteSlug = musicRegistryBySiteSlug as unknown as Record<
+  string,
+  GeneratedReleaseRegistry | undefined
+>;
+
+const generatedTracksByReleaseSlug = trackRegistryByReleaseSlug as unknown as Record<
+  string,
+  readonly GeneratedTrackRegistry[] | undefined
+>;
+
+const registryForRelease = (release: Pick<ReleaseEntry, "slug">) =>
+  generatedRegistryBySiteSlug[release.slug];
+
+const registryTracksForRelease = (release: Pick<ReleaseEntry, "slug">) =>
+  generatedTracksByReleaseSlug[release.slug] ?? [];
+
+const publicRegistryMetadata = (
+  registry?: GeneratedReleaseRegistry,
+): ReleaseRegistryMetadata | undefined => {
+  if (!registry) {
+    return undefined;
+  }
+
+  const { privateListeningLink: _privateListeningLink, ...publicRegistry } =
+    registry as GeneratedReleaseRegistry & { privateListeningLink?: string };
+
+  return publicRegistry;
+};
+
+const generatedVerificationStatus = (
+  registry: GeneratedReleaseRegistry,
+): ReleaseVerificationStatus =>
+  registry.verificationStatus.toLowerCase().includes("confirmed")
+    ? "source-backed"
+    : "manual-review";
+
+const generatedMetadataStatus = (
+  registry: GeneratedReleaseRegistry,
+): ReleaseMetadataStatus =>
+  registry.publishStatus.toLowerCase().includes("copy needed")
+    ? "manual-review"
+    : "source-backed";
+
+const shouldUseGeneratedDate = (releaseDate?: string) =>
+  !releaseDate || releaseDate.includes("-00-");
+
+const generatedDuration = (duration?: string) =>
+  duration?.replace(/^0(?=\d:)/, "");
+
+const comparableRegistryTitle = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .replace(/[.!]/g, "")
+    .trim();
+
+const registryTrackForTitle = (
+  title: string,
+  tracks: readonly GeneratedTrackRegistry[],
+) => {
+  const normalizedTitle = comparableRegistryTitle(title);
+
+  return tracks.find((track) => {
+    const normalizedTrackTitle = comparableRegistryTitle(track.title);
+
+    return (
+      normalizedTrackTitle === normalizedTitle ||
+      normalizedTrackTitle.startsWith(`${normalizedTitle} (`) ||
+      normalizedTitle.startsWith(`${normalizedTrackTitle} (`)
+    );
+  });
+};
+
+const registryTrackForEntry = (
+  track: NonNullable<ReleaseEntry["tracklist"]>[number],
+  tracks: readonly GeneratedTrackRegistry[],
+) => {
+  const title = typeof track === "string" ? track : track.title;
+  const slug = typeof track === "string" ? undefined : track.slug ?? track.audioKey;
+  const slugMatch = slug
+    ? tracks.find((entry) => comparableRegistryTitle(entry.trackSlug) === comparableRegistryTitle(slug))
+    : undefined;
+
+  return slugMatch ?? registryTrackForTitle(title, tracks);
+};
+
+const mergeGeneratedTracklist = (
+  release: ReleaseEntry,
+  tracks: readonly GeneratedTrackRegistry[],
+): ReleaseEntry["tracklist"] => {
+  if (!tracks.length) {
+    return release.tracklist;
+  }
+
+  if (release.tracklist?.length) {
+    return release.tracklist.map((track) => {
+      const registryTrack = registryTrackForEntry(track, tracks);
+
+      if (!registryTrack) {
+        return track;
+      }
+
+      const trackValue = typeof track === "string" ? { title: track } : track;
+
+      return {
+        ...trackValue,
+        artist: trackValue.artist ?? registryTrack.displayArtist,
+        duration: trackValue.duration ?? generatedDuration(registryTrack.duration),
+      };
+    });
+  }
+
+  return tracks
+    .slice()
+    .sort((left, right) => (left.trackNumber ?? 0) - (right.trackNumber ?? 0))
+    .map((track) => ({
+      title: track.title,
+      slug: track.trackSlug,
+      audioKey: track.trackSlug,
+      artist: track.displayArtist,
+      duration: generatedDuration(track.duration),
+    }));
+};
+
+const mergeGeneratedAudio = (
+  release: ReleaseEntry,
+  tracks: readonly GeneratedTrackRegistry[],
+): ReleaseEntry["audio"] => {
+  if (!release.audio || !tracks.length) {
+    return release.audio;
+  }
+
+  return {
+    ...release.audio,
+    artist: release.audio.artist ?? release.artistName,
+    tracks: release.audio.tracks.map((track) => {
+      const registryTrack =
+        (track.slug || track.audioKey)
+          ? tracks.find((entry) =>
+              comparableRegistryTitle(entry.trackSlug) === comparableRegistryTitle(track.slug ?? "") ||
+              comparableRegistryTitle(entry.trackSlug) === comparableRegistryTitle(track.audioKey ?? ""),
+            )
+          : undefined;
+      const titleMatch = registryTrack ?? registryTrackForTitle(track.title, tracks);
+
+      if (!titleMatch) {
+        return track;
+      }
+
+      return {
+        ...track,
+        artist: track.artist ?? titleMatch.displayArtist,
+        duration: track.duration ?? generatedDuration(titleMatch.duration),
+      };
+    }),
+  };
+};
+
+const generatedReleaseDetails = (registry: GeneratedReleaseRegistry): ReleaseDetail[] =>
+  [
+    registry.label ? { label: "Label", value: registry.label } : undefined,
+    registry.catalogNumber
+      ? { label: "Catalogue number", value: registry.catalogNumber }
+      : undefined,
+    registry.upc ? { label: "UPC", value: registry.upc } : undefined,
+    registry.focusTrack ? { label: "Focus track", value: registry.focusTrack } : undefined,
+    registry.pLine ? { label: "P line", value: registry.pLine } : undefined,
+    registry.cLine ? { label: "C line", value: registry.cLine } : undefined,
+  ].reduce<ReleaseDetail[]>((details, detail) => {
+    if (detail) {
+      details.push(detail);
+    }
+
+    return details;
+  }, []);
+
+const mergeGeneratedDetails = (
+  release: ReleaseEntry,
+  registry: GeneratedReleaseRegistry,
+) => {
+  const existingDetails = release.details ?? [];
+  const existingLabels = new Set(existingDetails.map((detail) => detail.label.toLowerCase()));
+  const details = generatedReleaseDetails(registry).filter(
+    (detail) => !existingLabels.has(detail.label.toLowerCase()),
+  );
+
+  return [...existingDetails, ...details];
+};
+
+const generatedSmartLinks = (registry: GeneratedReleaseRegistry): ExternalLink[] =>
+  registry.smartLinks.map((smartLink) => ({
+    label: smartLink.label,
+    platform: smartLink.platform,
+    url: smartLink.url,
+    kind: smartLink.kind as ExternalLinkKind,
+  }));
+
+const mergeGeneratedLinks = (
+  release: ReleaseEntry,
+  registry: GeneratedReleaseRegistry,
+) => {
+  const links = [...release.links];
+
+  for (const smartLink of generatedSmartLinks(registry)) {
+    if (!links.some((existing) => existing.url === smartLink.url)) {
+      links.push(smartLink);
+    }
+  }
+
+  return links;
+};
+
+const uniqueTags = (tags: string[]) =>
+  tags.filter((tag, index, list) => list.findIndex((item) => item.toLowerCase() === tag.toLowerCase()) === index);
+
+const mergeGeneratedRelease = (release: ReleaseEntry): ReleaseEntry => {
+  const registry = registryForRelease(release);
+
+  if (!registry) {
+    return release;
+  }
+
+  const registryTracks = registryTracksForRelease(release);
+  const mergedArtistName = registry.displayArtist || release.artistName;
+  const hasAuthoredPageCopy = Boolean(release.about);
+  const mergedTags = release.tags?.length
+    ? uniqueTags([...release.tags, ...registry.genres])
+    : uniqueTags([...registry.genres, ...registry.moods]).slice(0, 5);
+
+  return {
+    ...release,
+    title: registry.title || release.title,
+    year: registry.year ?? release.year,
+    releaseDate: shouldUseGeneratedDate(release.releaseDate)
+      ? registry.releaseDate ?? release.releaseDate
+      : release.releaseDate,
+    artistName: mergedArtistName,
+    metadataStatus: release.metadataStatus ?? generatedMetadataStatus(registry),
+    verificationStatus: release.verificationStatus ?? generatedVerificationStatus(registry),
+    description: hasAuthoredPageCopy ? release.description : registry.shortDescription ?? release.description,
+    about: release.about ?? registry.pageDescription,
+    tags: mergedTags.length ? mergedTags : release.tags,
+    seoTitle: release.seoTitle ?? registry.seoTitle,
+    seoDescription: hasAuthoredPageCopy && release.seoDescription
+      ? release.seoDescription
+      : registry.seoDescription ?? release.seoDescription,
+    tracklist: mergeGeneratedTracklist(release, registryTracks),
+    audio: mergeGeneratedAudio(
+      {
+        ...release,
+        artistName: mergedArtistName,
+      },
+      registryTracks,
+    ),
+    links: mergeGeneratedLinks(release, registry),
+    details: mergeGeneratedDetails(release, registry),
+    registry: publicRegistryMetadata(registry),
+  };
+};
+
+const applyParentPlayerAccents = (releaseList: ReleaseEntry[]) => {
+  const accentBySlug = new Map(
+    releaseList.map((release) => [release.slug, release.playerAccent]),
+  );
+
+  return releaseList.map((release) => {
+    if (release.playerAccent || !release.parentReleaseSlug) {
+      return release;
+    }
+
+    const parentAccent = accentBySlug.get(release.parentReleaseSlug);
+
+    return parentAccent ? { ...release, playerAccent: parentAccent } : release;
+  });
+};
+
+export const releases: ReleaseEntry[] = applyParentPlayerAccents(
+  (([
   {
     title: "LiNK",
     slug: "link",
     type: "single",
     year: 2025,
     description:
-      "Glossy electronic pressure with late-night momentum.",
-    mood: "Glossy electronic pressure with late-night momentum.",
-    tags: ["Electronic", "Late-night", "Disco preview"],
+      "Electronic single available here as a local radio edit while public platform links are verified.",
+    mood: "Electronic single available as a local radio edit.",
+    tags: ["Electronic", "Late-night", "Preview"],
     seoTitle: "LiNK by Broey.",
     seoDescription:
-      "Listen to LiNK by Broey., with official release details, artwork, and listening links.",
+      "Preview LiNK by Broey, with a local radio edit and pending public platform links.",
+    about: [
+      "LiNK is kept on the site as a preview/manual listen while public platform links are pending. The available version is a local radio edit.",
+      "Use the local player for now; DSP links will appear here once they are verified.",
+    ],
+    details: [
+      { label: "Public platform links", value: "Pending verification" },
+    ],
     coverImage: "/assets/cover-art/link.png",
     coverAlt: "LiNK by Broey. cover art",
+    playerAccent: "#4f8fc7",
     audio: localAudio("LiNK (Radio Edit)", "/audio/link-radio-edit.mp3", "5:07"),
     links: [
       link(
@@ -256,8 +553,8 @@ export const releases: ReleaseEntry[] = (([
     },
     catalogStatus: "pending-tidal",
     carouselEnabled: true,
-    carouselPriority: 1,
-    featured: true,
+    carouselPriority: 2,
+    featured: false,
   },
   {
     title: "STEREO LUV",
@@ -266,14 +563,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     releaseDate: "2025-00-00",
     description:
-      "A dance-focused single built around motion, feeling, and stereo-wide club energy.",
-    mood: "Motion, feeling, and stereo-wide club energy.",
-    tags: ["Electronic", "Dance", "Club energy"],
+      "A dusty deep-house single built from drum machines, bass sequencing, sampler grit, and a wide stereo field.",
+    mood: "Deep-house single with drum machines, bass sequencing, and a wide stereo field.",
+    tags: ["Electronic", "Dance", "Deep house"],
     seoTitle: "STEREO LUV by Broey.",
     seoDescription:
-      "Listen to STEREO LUV by Broey., a dance-focused single built around motion, feeling, and stereo-wide club energy.",
+      "Listen to STEREO LUV by Broey, a dusty deep-house single built from drum machines, bass sequencing, sampler grit, and a wide stereo field.",
+    about: [
+      "STEREO LUV came together after Broey treated and calibrated a new home-studio space. The track leans into a dusty 90s deep-house feel with drum machines, bass sequencing, samplers, and a noticeably wide stereo image.",
+      "It sits in the catalog as a cleaner club record without losing the warm, hands-on detail that runs through the older lo-fi work.",
+    ],
     coverImage: "/assets/cover-art/stereo-luv.png",
     coverAlt: "STEREO LUV cover art",
+    playerAccent: "#b8738f",
     audio: localAudio("STEREO LUV", "/audio/stereo-luv.mp3", "5:12"),
     links: [
       link(
@@ -364,14 +666,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2026,
     releaseDate: "2026-05-07",
     description:
-      "A direct, club-facing single from Broey.'s current electronic era: concise, emotional, and built for motion.",
-    mood: "Concise, emotional, and built for motion.",
+      "A house-leaning single with a stripped-down arrangement.",
+    mood: "House-leaning single with a stripped-down arrangement.",
     tags: ["Electronic", "House", "Club-facing"],
     seoTitle: "FREE by Broey.",
     seoDescription:
-      "Listen to FREE by Broey., a direct club-facing single from the current electronic era.",
+      "Listen to FREE by Broey, a house-leaning single with a stripped-down arrangement.",
+    about: [
+      "FREE is the current focus release: a concise, house-leaning single with a stripped-down arrangement.",
+      "It puts Broey's newer catalog right up front with a direct club track and minimal extra framing.",
+    ],
     coverImage: "/assets/cover-art/free.png",
     coverAlt: "FREE by Broey. cover art",
+    playerAccent: "#b68a45",
     audio: localAudio("FREE", "/audio/free.mp3", "3:51"),
     links: [
       link(
@@ -416,7 +723,7 @@ export const releases: ReleaseEntry[] = (([
       rawKind: "albums",
     },
     carouselEnabled: true,
-    carouselPriority: 2,
+    carouselPriority: 1,
     embed: {
       provider: "disco",
       title: "FREE by Broey.",
@@ -434,7 +741,7 @@ export const releases: ReleaseEntry[] = (([
         downloadsEnabled: false,
       },
     },
-    featured: false,
+    featured: true,
   },
   {
     title: "dancing dumpster fire",
@@ -443,14 +750,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     releaseDate: "2025-00-00",
     description:
-      "A raw, emotionally driven release built from older ideas Broey. chose to let exist instead of over-polish. The project captures the current era at its most honest: imperfect, energetic, melodic, and alive.",
-    mood: "Imperfect, energetic, melodic, and alive.",
+      "A seven-track EP with UKG, bassline, trance, and speed-house tracks.",
+    mood: "Seven-track EP with UKG, bassline, trance, and speed-house.",
     tags: ["EP", "Club", "Raw electronic"],
     seoTitle: "dancing dumpster fire by Broey.",
     seoDescription:
-      "Listen to dancing dumpster fire by Broey., a raw, emotionally driven release from the current era.",
+      "Listen to dancing dumpster fire by Broey, a seven-track EP with UKG, bassline, trance, and speed-house tracks.",
+    about: [
+      "dancing dumpster fire collects seven club tracks across UKG, bassline, trance, and speed-house.",
+      "It is intentionally direct: short tracks, fast ideas, and a title that says what the record is.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
+    playerAccent: "#8d5a9f",
     audio: {
       type: "project",
       title: "dancing dumpster fire",
@@ -599,11 +911,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2025,
     description:
-      "A dancing dumpster fire cut with bright motion, quick bounce, and restless club energy.",
-    mood: "Bright motion with quick bounce and restless club energy.",
+      "A short dancing dumpster fire track with clipped drums and club production.",
+    mood: "Short dancing dumpster fire track with clipped drums.",
     tags: ["dancing dumpster fire", "Club", "Electronic"],
     seoTitle: "shake! by Broey.",
-    seoDescription: "Listen to shake! by Broey.",
+    seoDescription:
+      "Listen to shake! by Broey, a short dancing dumpster fire track with clipped drums.",
+    about: [
+      "shake! keeps the EP's approach short and direct: clipped drums, club production, and little extra polish.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
     audio: localAudio("shake!", "/audio/shake.mp3", "3:51"),
@@ -619,11 +935,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2025,
     description:
-      "A dancing dumpster fire cut with crisp percussion, loose club swing, and bright synth movement.",
-    mood: "Loose club swing with bright synth movement.",
+      "A dancing dumpster fire track with crisp percussion and bright synths.",
+    mood: "Crisp percussion and bright synths.",
     tags: ["dancing dumpster fire", "Club", "Electronic"],
     seoTitle: "old fashion by Broey.",
-    seoDescription: "Listen to old fashion by Broey.",
+    seoDescription:
+      "Listen to old fashion by Broey, a dancing dumpster fire track with crisp percussion and bright synths.",
+    about: [
+      "old fashion sits on the lighter side of dancing dumpster fire: crisp percussion, bright synths, and a short arrangement.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
     audio: localAudio("old fashion", "/audio/old-fashion.mp3", "3:03"),
@@ -639,11 +959,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2025,
     description:
-      "A compact dancing dumpster fire cut with playful melodic color and a quick electronic pulse.",
-    mood: "Playful melodic color with a quick electronic pulse.",
+      "A compact dancing dumpster fire track with playful melody and quick drums.",
+    mood: "Playful melody and quick drums.",
     tags: ["dancing dumpster fire", "Electronic", "Single"],
     seoTitle: "lil luv by Broey.",
-    seoDescription: "Listen to lil luv by Broey.",
+    seoDescription:
+      "Listen to lil luv by Broey, a compact dancing dumpster fire cut with playful melody and quick drums.",
+    about: [
+      "lil luv is one of the EP's shorter tracks: playful melody and quick drums in a compact arrangement.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
     audio: localAudio("lil luv", "/audio/lil-luv.mp3", "2:22"),
@@ -660,11 +984,15 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     artistName: "Broey. & Vivid Fever Dreams",
     description:
-      "A Broey. and Vivid Fever Dreams collaboration from dancing dumpster fire with restless, high-color motion.",
-    mood: "Restless high-color motion with collaborative edge.",
+      "A Broey and Vivid Fever Dreams collaboration from dancing dumpster fire with saturated synths.",
+    mood: "Broey and Vivid Fever Dreams collaboration with saturated synths.",
     tags: ["dancing dumpster fire", "Collaboration", "Club"],
     seoTitle: "brainrot by Broey. and Vivid Fever Dreams",
-    seoDescription: "Listen to brainrot by Broey. and Vivid Fever Dreams.",
+    seoDescription:
+      "Listen to brainrot by Broey and Vivid Fever Dreams, a saturated dancing dumpster fire collaboration.",
+    about: [
+      "brainrot brings Vivid Fever Dreams into the dancing dumpster fire tracklist with saturated synths and a collaborative production credit.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
     audio: localAudio("brainrot", "/audio/brainrot.mp3", "3:37", "Broey. & Vivid Fever Dreams"),
@@ -681,11 +1009,15 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     artistName: "Dreameater, Broken Blythe & Broey.",
     description:
-      "Broey.'s remix of i can do better, shaped into a compact dancing dumpster fire club cut.",
-    mood: "A compact remix with club pressure and bright movement.",
+      "Broey's compact remix of i can do better, pulled into the rough club language of dancing dumpster fire.",
+    mood: "Compact club remix from dancing dumpster fire.",
     tags: ["dancing dumpster fire", "Remix", "Club"],
     seoTitle: "i can do better (broey. remix)",
-    seoDescription: "Listen to i can do better (broey. remix).",
+    seoDescription:
+      "Listen to i can do better (broey. remix), a compact club-facing remix from dancing dumpster fire.",
+    about: [
+      "Broey's remix of i can do better folds Dreameater and Broken Blythe's source into the dancing dumpster fire tracklist as a compact club remix.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
     audio: localAudio(
@@ -707,11 +1039,15 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     artistName: "Broey. & notminimal.",
     description:
-      "A tighter VIP version of 4u from dancing dumpster fire, with sharpened bass movement and quick club pressure.",
-    mood: "Sharpened bass movement with quick club pressure.",
+      "A tighter VIP version of 4u with sharpened bass and a shorter arrangement.",
+    mood: "Tighter VIP version of 4u with sharpened bass.",
     tags: ["dancing dumpster fire", "VIP", "Club"],
     seoTitle: "4u vip by Broey. and notminimal.",
-    seoDescription: "Listen to 4u vip by Broey. and notminimal.",
+    seoDescription:
+      "Listen to 4u vip by Broey and notminimal., a tighter VIP version with sharpened bass.",
+    about: [
+      "4u vip tightens the Broey and notminimal. collaboration into a shorter club version, pushing the bass forward and cutting down the space around it.",
+    ],
     coverImage: "/assets/cover-art/dancing-dumpster-fire.jpg",
     coverAlt: "dancing dumpster fire cover art",
     audio: localAudio("4u vip", "/audio/4u-vip.mp3", "2:22", "Broey. & notminimal."),
@@ -724,13 +1060,17 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2024,
     description:
-      "A collaborative electronic single with Broken Blythe that connects Broey.'s emotive dance direction with vocal/song-driven energy.",
-    mood: "Emotive dance direction with vocal/song-driven energy.",
+      "A Broken Blythe collaboration that pulls Broey's dance production into a more vocal-led, song-shaped frame.",
+    mood: "Vocal-led dance production with a song-shaped frame.",
     artistName: "Broey. and Broken Blythe",
     tags: ["Melodic", "Dance", "Collaboration"],
     seoTitle: "I Can't Wait For Love by Broey. and Broken Blythe",
     seoDescription:
-      "Listen to I Can't Wait For Love by Broey. and Broken Blythe, a collaborative electronic single with vocal/song-driven energy.",
+      "Listen to I Can't Wait For Love by Broey. and Broken Blythe, a vocal-led electronic collaboration.",
+    about: [
+      "I Can't Wait For Love pairs Broey with Broken Blythe, moving the production into a more vocal-led space without losing the dance-floor pull around it.",
+      "The track works as a bridge between Broey's club-facing singles and a more direct songwriter frame: polished, melodic, and built around the push of the vocal.",
+    ],
     coverImage: "/assets/cover-art/i-cant-wait-for-love.png",
     coverAlt: "I Can't Wait For Love cover art",
     audio: localAudio(
@@ -790,14 +1130,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     releaseDate: "2024-00-00",
     description:
-      "A six-track statement that turns Broey.'s lofi instincts toward house, processed vocals, saxophone, breakbeats, bass movement, and textured dance music.",
-    mood: "House, processed vocals, saxophone, breakbeats, bass movement, and textured dance music.",
+      "A six-track EP with house, processed vocals, sax, breakbeats, and bass.",
+    mood: "House, processed vocals, sax, breakbeats, and bass.",
     tags: ["EP", "House", "Breakbeats"],
     seoTitle: "Fragments by Broey.",
     seoDescription:
-      "Listen to Fragments by Broey., a turning-point release of house, processed vocals, saxophone, breakbeats, bass movement, and textured dance music.",
+      "Listen to Fragments by Broey, a six-track EP with house, processed vocals, sax, breakbeats, and bass.",
+    about: [
+      "Fragments is one of the catalog's clear turning points. The six-track EP connects Broey's lo-fi roots with house, processed vocals, sax, breakbeats, and bass.",
+      "The record sits between the older headphone records and the later club-focused catalog.",
+    ],
     coverImage: "/assets/cover-art/fragments-ep.jpg",
     coverAlt: "Fragments cover art",
+    playerAccent: "#3f8f8c",
     audio: {
       type: "project",
       title: "Fragments",
@@ -908,11 +1253,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2024,
     description:
-      "A Fragments-era Broey. track with quick melodic motion and crisp electronic pressure.",
-    mood: "Quick melodic motion with crisp electronic pressure.",
+      "A Fragments track with quick melodic turns and crisp drums.",
+    mood: "Quick melodic turns and crisp drums.",
     tags: ["Fragments", "Electronic", "Single"],
     seoTitle: "Run For Cover by Broey.",
-    seoDescription: "Listen to Run For Cover by Broey.",
+    seoDescription:
+      "Listen to Run For Cover by Broey, a Fragments track with quick melodic turns and crisp drums.",
+    about: [
+      "Run For Cover keeps the Fragments palette short and direct: quick melodic turns and crisp drums.",
+    ],
     coverImage: "/assets/cover-art/fragments-ep.jpg",
     coverAlt: "Fragments cover art",
     audio: localAudio("Run For Cover", "/audio/run-for-cover.mp3", "2:34"),
@@ -928,11 +1277,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2024,
     description:
-      "A Fragments-era Broey. track with direct tension, clean percussion, and late-night melodic lift.",
-    mood: "Direct tension with clean percussion and melodic lift.",
+      "A Fragments track with clean percussion, direct tension, and a late-night melodic lift.",
+    mood: "Clean percussion, direct tension, and late-night melodic lift.",
     tags: ["Fragments", "Electronic", "Single"],
     seoTitle: "Wanted by Broey.",
-    seoDescription: "Listen to Wanted by Broey.",
+    seoDescription:
+      "Listen to Wanted by Broey, a Fragments track with clean percussion and late-night melodic lift.",
+    about: [
+      "Wanted sits in the darker pocket of Fragments, built around clean percussion, direct tension, and a late-night melodic lift.",
+    ],
     coverImage: "/assets/cover-art/fragments-ep.jpg",
     coverAlt: "Fragments cover art",
     audio: localAudio("Wanted", "/audio/wanted.mp3", "3:38"),
@@ -948,11 +1301,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2024,
     description:
-      "A Fragments-era Broey. track built from clean rhythmic movement and glowing synth detail.",
-    mood: "Clean rhythmic movement with glowing synth detail.",
+      "A Fragments track built from measured rhythm, glowing synth detail, and a steady electronic climb.",
+    mood: "Measured rhythm, glowing synth detail, and steady electronic climb.",
     tags: ["Fragments", "Electronic", "Single"],
     seoTitle: "Numbers by Broey.",
-    seoDescription: "Listen to Numbers by Broey.",
+    seoDescription:
+      "Listen to Numbers by Broey, a Fragments track with measured rhythm and glowing synth detail.",
+    about: [
+      "Numbers gives Fragments one of its steadier shapes, with measured rhythm, glowing synth detail, and a patient electronic climb.",
+    ],
     coverImage: "/assets/cover-art/fragments-ep.jpg",
     coverAlt: "Fragments cover art",
     audio: localAudio("Numbers", "/audio/numbers.mp3", "4:40"),
@@ -969,11 +1326,15 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     artistName: "Broey. & Vivid Fever Dreams",
     description:
-      "A Broey. and Vivid Fever Dreams collaboration with open melodic space and a slow-blooming pulse.",
-    mood: "Open melodic space with a slow-blooming pulse.",
+      "A Broey and Vivid Fever Dreams collaboration from Fragments.",
+    mood: "Broey and Vivid Fever Dreams collaboration from Fragments.",
     tags: ["Fragments", "Collaboration", "Electronic"],
     seoTitle: "Breathing Room by Broey. and Vivid Fever Dreams",
-    seoDescription: "Listen to Breathing Room by Broey. and Vivid Fever Dreams.",
+    seoDescription:
+      "Listen to Breathing Room by Broey and Vivid Fever Dreams, a Fragments collaboration with open melodic space.",
+    about: [
+      "Breathing Room is the Broey and Vivid Fever Dreams collaboration on Fragments.",
+    ],
     coverImage: "/assets/cover-art/fragments-ep.jpg",
     coverAlt: "Fragments cover art",
     audio: localAudio("Breathing Room", "/audio/breathing-room.mp3", "5:55", "Broey. & Vivid Fever Dreams"),
@@ -989,11 +1350,15 @@ export const releases: ReleaseEntry[] = (([
     type: "single",
     year: 2024,
     description:
-      "A Fragments-era Broey. track with bright vocal pressure and glossy late-night movement.",
-    mood: "Bright vocal pressure with glossy late-night movement.",
+      "A Fragments track with vocals, glossy synths, and a club lean.",
+    mood: "Vocals, glossy synths, and a club lean.",
     tags: ["Fragments", "Electronic", "Single"],
     seoTitle: "Eyes On Me by Broey.",
-    seoDescription: "Listen to Eyes On Me by Broey.",
+    seoDescription:
+      "Listen to Eyes On Me by Broey, a Fragments track with vocals and glossy synths.",
+    about: [
+      "Eyes On Me closes the Fragments run with vocals, glossy synths, and a firmer club lean than the softer moments around it.",
+    ],
     coverImage: "/assets/cover-art/fragments-ep.jpg",
     coverAlt: "Fragments cover art",
     audio: localAudio("Eyes On Me", "/audio/eyes-on-me.mp3", "4:30"),
@@ -1007,14 +1372,23 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     releaseDate: "2024-00-00",
     description:
-      "A collaboration with notminimal. that bridges Broey.'s emotional production style with a deeper, dance-focused pulse.",
-    mood: "Emotional production with a deeper, dance-focused pulse.",
+      "A Broey and notminimal. collaboration with heavy low-end and dance production.",
+    mood: "Broey and notminimal. collaboration with heavy low-end.",
     tags: ["Collaboration", "Bass", "Dance"],
+    credits: [
+      { role: "Artist", name: "Broey. & notminimal." },
+      { role: "Artwork", name: "Dreameater" },
+    ],
     seoTitle: "4u by Broey. and notminimal.",
     seoDescription:
-      "Listen to 4u by Broey. and notminimal., a collaboration with emotional production and a deeper dance-focused pulse.",
+      "Listen to 4u by Broey. and notminimal., a dance collaboration with heavy low-end.",
+    about: [
+      "4u brings Broey and notminimal. together on a dance-focused single with heavy low-end.",
+      "The Dreameater artwork gives the single its visual identity.",
+    ],
     coverImage: "/assets/cover-art/4u.jpg",
     coverAlt: "4u cover art",
+    playerAccent: "#a987c8",
     audio: localAudio("4u", "/audio/4u.mp3", "3:19", "Broey. & notminimal."),
     links: [
       link("Create Music", "https://createmusic.fm/4u"),
@@ -1078,14 +1452,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     releaseDate: "2025-00-00",
     description:
-      "A reflective electronic single centered on emotional weight, melody, and Broey.'s songwriter-producer identity.",
-    mood: "Emotional weight, melody, and songwriter-producer identity.",
-    tags: ["Melodic", "Emotional", "Electronic"],
+      "An electronic single built around melody, space, and a direct song structure.",
+    mood: "Melody, space, and a direct song structure.",
+    tags: ["Melodic", "Reflective", "Electronic"],
     seoTitle: "Mean Something by Broey.",
     seoDescription:
-      "Listen to Mean Something by Broey., a reflective electronic single centered on emotional weight and melody.",
+      "Listen to Mean Something by Broey, an electronic single built around melody and space.",
+    about: [
+      "Mean Something is one of the more reflective singles in the selected catalog. It keeps the production direct, letting melody and space carry most of the weight.",
+      "The track belongs near the newer club-facing work, but it is smaller and more song-focused.",
+    ],
     coverImage: "/assets/cover-art/mean-something.jpg",
     coverAlt: "Mean Something cover art",
+    playerAccent: "#9a7448",
     audio: localAudio("Mean Something", "/audio/mean-something.mp3", "4:31"),
     links: [
       link("Create Music", "https://createmusic.fm/meansomething"),
@@ -1149,14 +1528,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     releaseDate: "2024-00-00",
     description:
-      "A remix companion that opens the Fragments world to outside producers while keeping Broey.'s emotional dance DNA intact.",
-    mood: "Outside-producer remixes with Broey.'s emotional dance DNA intact.",
-    tags: ["Remixes", "Textural", "Electronic"],
+      "A seven-track remix companion that lets outside producers pull Fragments into tighter, softer, heavier, and more club-facing shapes.",
+    mood: "Outside-producer remixes across tighter, softer, heavier, and club-facing shapes.",
+    tags: ["Remixes", "Club", "Electronic"],
     seoTitle: "Fragments (Remixes) by Broey.",
     seoDescription:
-      "Listen to Fragments (Remixes) by Broey., a remix companion that opens the Fragments world to outside producers.",
+      "Listen to Fragments (Remixes) by Broey, a seven-track remix companion with outside-producer flips of the Fragments EP.",
+    about: [
+      "Fragments (Remixes) opens the EP to outside producers with shorter edits, late-night versions, bass remixes, and longer club-facing builds.",
+      "The companion release keeps the original EP's melodic DNA in view, but the point is range. Each remix treats Fragments as material to be bent, sharpened, stretched, or pushed further toward the floor.",
+    ],
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
+    playerAccent: "#717bb0",
     audio: {
       type: "project",
       title: "Fragments (Remixes)",
@@ -1274,11 +1658,12 @@ export const releases: ReleaseEntry[] = (([
     type: "remix",
     year: 2024,
     description:
-      "A tom_ecko remix from the Fragments remix companion, reshaping Numbers into a tighter rhythmic frame.",
-    mood: "A tighter rhythmic remix of Numbers.",
+      "A tom_ecko remix that tightens Numbers into a shorter, rhythm-first frame.",
+    mood: "Shorter, rhythm-first remix of Numbers.",
     tags: ["Fragments Remixes", "Remix", "Electronic"],
     seoTitle: "Numbers (tom_ecko Remix) by Broey.",
-    seoDescription: "Listen to Numbers (tom_ecko Remix) by Broey.",
+    seoDescription:
+      "Listen to Numbers (tom_ecko Remix), a tighter rhythm-first remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio("Numbers (tom_ecko Remix)", "/audio/numbers-tom-ecko-remix.mp3", "2:23"),
@@ -1294,11 +1679,12 @@ export const releases: ReleaseEntry[] = (([
     type: "remix",
     year: 2024,
     description:
-      "A dreamsuite remix from Fragments (Remixes), recasting Eyes On Me with a softer, late-night pulse.",
-    mood: "A softer late-night remix of Eyes On Me.",
+      "A dreamsuite remix that softens Eyes On Me into a late-night version.",
+    mood: "Softer late-night remix of Eyes On Me.",
     tags: ["Fragments Remixes", "Remix", "Electronic"],
     seoTitle: "Eyes On Me (dreamsuite Remix) by Broey.",
-    seoDescription: "Listen to Eyes On Me (dreamsuite Remix) by Broey.",
+    seoDescription:
+      "Listen to Eyes On Me (dreamsuite Remix), a softer late-night remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio("Eyes On Me (dreamsuite Remix)", "/audio/eyes-on-me-dreamsuite-remix.mp3", "2:39"),
@@ -1315,11 +1701,12 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     artistName: "Broey. & notminimal.",
     description:
-      "A notminimal. remix from Fragments (Remixes), pushing Like That into a sharper bass-focused space.",
-    mood: "A sharper bass-focused remix of Like That.",
+      "A notminimal. remix that pushes Like That into a sharper bass-focused lane.",
+    mood: "Sharper bass-focused remix of Like That.",
     tags: ["Fragments Remixes", "Remix", "Bass"],
     seoTitle: "Like That (notminimal. Remix) by Broey. and notminimal.",
-    seoDescription: "Listen to Like That (notminimal. Remix) by Broey. and notminimal.",
+    seoDescription:
+      "Listen to Like That (notminimal. Remix), a sharper bass-focused remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio("Like That (notminimal. Remix)", "/audio/like-that-notminimal-remix.mp3", "3:25", "Broey. & notminimal."),
@@ -1335,11 +1722,12 @@ export const releases: ReleaseEntry[] = (([
     type: "remix",
     year: 2024,
     description:
-      "An Almost Anyone remix from Fragments (Remixes), expanding Wanted with a longer, club-facing build.",
-    mood: "A longer club-facing remix of Wanted.",
+      "An Almost Anyone remix that stretches Wanted into a longer club-facing build.",
+    mood: "Longer club-facing remix of Wanted.",
     tags: ["Fragments Remixes", "Remix", "Club"],
     seoTitle: "Wanted (Almost Anyone Remix) by Broey.",
-    seoDescription: "Listen to Wanted (Almost Anyone Remix) by Broey.",
+    seoDescription:
+      "Listen to Wanted (Almost Anyone Remix), a longer club-facing remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio("Wanted (Almost Anyone Remix)", "/audio/wanted-almost-anyone-remix.mp3", "5:08"),
@@ -1356,11 +1744,12 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     artistName: "Broey. & Vivid Fever Dreams",
     description:
-      "A Vivid Fever Dreams remix from Fragments (Remixes), giving Eyes On Me a vivid collaborative lift.",
-    mood: "A vivid collaborative remix of Eyes On Me.",
+      "A Vivid Fever Dreams remix that gives Eyes On Me a brighter collaborative lift.",
+    mood: "Brighter collaborative remix of Eyes On Me.",
     tags: ["Fragments Remixes", "Remix", "Collaboration"],
     seoTitle: "Eyes On Me (Vivid Fever Dreams Remix)",
-    seoDescription: "Listen to Eyes On Me (Vivid Fever Dreams Remix).",
+    seoDescription:
+      "Listen to Eyes On Me (Vivid Fever Dreams Remix), a brighter collaborative remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio(
@@ -1381,11 +1770,12 @@ export const releases: ReleaseEntry[] = (([
     type: "remix",
     year: 2024,
     description:
-      "A Kaiyo remix from Fragments (Remixes), flipping Wanted into a compact electronic cut.",
-    mood: "A compact electronic remix of Wanted.",
+      "A Kaiyo remix that flips Wanted into a compact, direct electronic cut.",
+    mood: "Compact, direct electronic remix of Wanted.",
     tags: ["Fragments Remixes", "Remix", "Electronic"],
     seoTitle: "Wanted (Kaiyo Remix) by Broey.",
-    seoDescription: "Listen to Wanted (Kaiyo Remix) by Broey.",
+    seoDescription:
+      "Listen to Wanted (Kaiyo Remix), a compact electronic remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio("Wanted (Kaiyo Remix)", "/audio/wanted-kaiyo-remix.mp3", "3:04"),
@@ -1401,11 +1791,12 @@ export const releases: ReleaseEntry[] = (([
     type: "remix",
     year: 2024,
     description:
-      "An exmaxhina remix from Fragments (Remixes), stretching Eyes On Me into a wider electronic shape.",
-    mood: "A wider electronic remix of Eyes On Me.",
+      "An exmaxhina remix that stretches Eyes On Me into a wider electronic shape.",
+    mood: "Wider electronic remix of Eyes On Me.",
     tags: ["Fragments Remixes", "Remix", "Electronic"],
     seoTitle: "Eyes On Me (exmaxhina Remix) by Broey.",
-    seoDescription: "Listen to Eyes On Me (exmaxhina Remix) by Broey.",
+    seoDescription:
+      "Listen to Eyes On Me (exmaxhina Remix), a wider electronic remix from Fragments (Remixes).",
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
     audio: localAudio("Eyes On Me (exmaxhina Remix)", "/audio/eyes-on-me-exmaxhina-remix.mp3", "4:22"),
@@ -1420,12 +1811,15 @@ export const releases: ReleaseEntry[] = (([
     showInArchive: false,
     type: "ep",
     year: 2025,
-    description: "A compact release focused on warm synth textures and punchy percussion.",
-    mood: "Warm synth texture with compact, punchy percussion.",
+    description: "A compact GLFM catalog entry with warm synth color and punchy percussion.",
+    mood: "Warm synth color with punchy percussion.",
     tags: ["EP", "Warm synths", "Percussive"],
     seoTitle: "GLFM by Broey.",
     seoDescription:
-      "Listen to GLFM by Broey., a compact EP focused on warm synth textures and punchy percussion.",
+      "Listen to GLFM by Broey, a compact catalog entry with warm synth color and punchy percussion.",
+    about: [
+      "GLFM stays minimal for now because its exact public role still needs an artist call. The page keeps the useful facts visible: a compact Broey catalog entry tied to dancing dumpster fire, with warm synth color and punchy percussion.",
+    ],
     coverImage: "/assets/cover-art/glfm.png",
     coverAlt: "GLFM cover art",
     audio: localAudio("GLFM", "/audio/glfm.mp3", "3:30"),
@@ -1459,14 +1853,19 @@ export const releases: ReleaseEntry[] = (([
     year: 2025,
     releaseDate: "2025-00-00",
     description:
-      "A blue-tinted electronic release with a DJ-minded extended version, balancing emotional color with late-night movement.",
-    mood: "Emotional color balanced with late-night movement.",
+      "A two-version deep-house release with a concise radio edit and a longer extended mix.",
+    mood: "Deep-house shape in a tight radio edit and a longer club-facing mix.",
     tags: ["Electronic", "Club", "Late-night"],
     seoTitle: "blu. by Broey.",
     seoDescription:
-      "Listen to blu. by Broey., a blue-tinted electronic release with a DJ-minded extended version.",
+      "Listen to blu. by Broey, a two-version deep-house release with a radio edit and extended mix.",
+    about: [
+      "blu. is built as a two-version deep-house release: a concise radio edit for standard listening and an extended version with more room for the groove.",
+      "The release is framed by its format: one tighter version for quick listening and one longer mix with more space for the club-facing groove.",
+    ],
     coverImage: "/assets/cover-art/blu.png",
     coverAlt: "blu. cover art",
+    playerAccent: "#4d91bd",
     audio: {
       type: "project",
       title: "blu.",
@@ -1560,16 +1959,22 @@ export const releases: ReleaseEntry[] = (([
     year: 2024,
     releaseDate: "2024-03-15",
     description:
-      "A Broey. single with clipped rhythm, bright melodic movement, and a clean electronic snap.",
-    mood: "Bright melodic movement with clipped, kinetic rhythm.",
+      "A bright Fragments-era single with clipped rhythm, quick melodic turns, and a clean electronic snap.",
+    mood: "Clipped rhythm, quick melodic turns, and clean electronic snap.",
     tags: ["Electronic", "Single", "Fragments"],
     seoTitle: "Like That by Broey.",
     seoDescription:
-      "Listen to Like That by Broey., with verified Apple Music and TIDAL release links.",
+      "Listen to Like That by Broey, a bright Fragments-era single with clipped rhythm and clean electronic snap.",
+    about: [
+      "Like That is a compact Fragments-era single with clipped rhythm and quick melodic turns.",
+      "It works as a clean entry point into that 2024 pocket of the catalog, where Broey was pulling the older melodic instincts into sharper drums and more direct electronic shapes.",
+    ],
     coverImage: "/assets/cover-art/like-that.jpg",
     coverAlt: "Like That cover art",
+    playerAccent: "#5f9fad",
     audio: localAudio("Like That", "/audio/like-that.mp3", "2:32"),
     links: [
+      link("Spotify", "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/344685076"),
       link("Apple Music", "https://music.apple.com/us/album/like-that-single/1730121194?uo=4", "streaming", false),
       link("YouTube", "https://www.youtube.com/watch?v=COOMXMksJ9E", "streaming", false),
@@ -1600,6 +2005,218 @@ export const releases: ReleaseEntry[] = (([
     },
   },
   {
+    title: "Contrast",
+    slug: "contrast",
+    type: "ep",
+    visibility: "public",
+    year: 2023,
+    releaseDate: "2023-08-04",
+    description:
+      "A three-track 2023 project centered on Falling, drum and bass pressure, and Almost Anyone's longer remix versions.",
+    mood: "Falling, reshaped through drum and bass pressure and Almost Anyone's extended remixes.",
+    tags: ["EP", "Drum & Bass", "Jungle", "Remix"],
+    seoTitle: "Contrast by Broey.",
+    seoDescription:
+      "Listen to Contrast by Broey, a three-track 2023 project featuring Falling and Almost Anyone remixes.",
+    about: [
+      "Contrast is a 2023 Broey project built around Falling and two Almost Anyone remix versions. The release ties fast drum and bass, jungle pressure, and brighter club-facing remix work into a compact three-track run.",
+      "It sits in the discography as a bridge between the earlier DnB/electronic run and the later Fragments-era catalog.",
+    ],
+    coverImage: "/assets/cover-art/contrast.jpg",
+    coverAlt: "Contrast cover art",
+    audio: {
+      type: "project",
+      title: "Contrast",
+      artist: "Broey.",
+      artwork: "/assets/cover-art/contrast.jpg",
+      tracks: [
+        {
+          title: "Falling",
+          slug: "contrast-falling",
+          audioKey: "contrast-falling",
+          artist: "Broey.",
+          duration: "2:50",
+          src: "/audio/contrast-falling.mp3",
+        },
+        {
+          title: "Falling (Almost Anyone Remix)",
+          slug: "contrast-falling-almost-anyone-remix",
+          audioKey: "contrast-falling-almost-anyone-remix",
+          artist: "Broey. & Almost Anyone",
+          duration: "6:36",
+          src: "/audio/contrast-falling-almost-anyone-remix.mp3",
+        },
+        {
+          title: "Origins (Almost Anyone Remix)",
+          slug: "contrast-origins-almost-anyone-remix",
+          audioKey: "contrast-origins-almost-anyone-remix",
+          artist: "Broey. & Almost Anyone",
+          duration: "5:05",
+          src: "/audio/contrast-origins-almost-anyone-remix.mp3",
+        },
+      ],
+    },
+    links: [
+      link("Disco", "https://s.disco.ac/asdexfkgdpvx", "disco", true),
+      link("Spotify", "https://open.spotify.com/album/3o65TaH8pFQ5Ls0e3lO8ij"),
+      link(
+        "Apple Music",
+        "https://music.apple.com/us/album/contrast-single/1694344760?uo=4",
+        "streaming",
+        false,
+      ),
+      link("TIDAL", "https://tidal.com/browse/album/301898934", "streaming", false),
+      link("Deezer", "https://www.deezer.com/album/458008805", "streaming", false),
+      link("Amazon Music", "https://music.amazon.com/albums/B0C9F66L5B", "streaming", false),
+    ],
+    tracklist: [
+      {
+        title: "Falling",
+        slug: "contrast-falling",
+        audioKey: "contrast-falling",
+        artist: "Broey.",
+        duration: "2:50",
+      },
+      {
+        title: "Falling (Almost Anyone Remix)",
+        slug: "contrast-falling-almost-anyone-remix",
+        audioKey: "contrast-falling-almost-anyone-remix",
+        artist: "Broey. & Almost Anyone",
+        duration: "6:36",
+      },
+      {
+        title: "Origins (Almost Anyone Remix)",
+        slug: "contrast-origins-almost-anyone-remix",
+        audioKey: "contrast-origins-almost-anyone-remix",
+        artist: "Broey. & Almost Anyone",
+        duration: "5:05",
+      },
+    ],
+    disco: {
+      publicUrl: "https://s.disco.ac/asdexfkgdpvx",
+    },
+    details: [
+      { label: "Catalogue number", value: "CAT876424" },
+      { label: "UPC", value: "197773344582" },
+    ],
+    catalogStatus: "tidal",
+    catalogSource: {
+      provider: "tidal",
+      source: "tidal",
+      sourceUrl: "https://tidal.com/browse/album/301898934",
+      tidalId: "301898934",
+      externalIds: {
+        "itunes": "1694344760",
+        "tidal": "301898934",
+      },
+      artistName: "Broey.",
+      collectionName: "Contrast",
+      collectionType: "EP",
+      isCollection: true,
+      suggestedTileType: "collectionTile",
+      artworkUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c5/9b/1f/c59b1f73-0606-c7d5-1a07-30af9ba1c02f/197773344582_cover.jpg/1000x1000bb.jpg",
+      trackCount: 3,
+      rawKind: "albums",
+    },
+  },
+  {
+    title: "Falling",
+    slug: "contrast-falling",
+    parentReleaseSlug: "contrast",
+    isProjectTrack: true,
+    showInArchive: false,
+    type: "single",
+    visibility: "public",
+    year: 2023,
+    releaseDate: "2023-08-04",
+    description:
+      "The core Contrast track, built from fast drum and bass and electronic production.",
+    mood: "Fast drum and bass track from Contrast.",
+    tags: ["Contrast", "Drum & Bass", "Electronic"],
+    seoTitle: "Falling by Broey.",
+    seoDescription:
+      "Listen to Falling by Broey, the core track from Contrast.",
+    about: [
+      "Falling is the center of Contrast: a fast, compact DnB/electronic track from the catalog's shift into heavier production.",
+    ],
+    coverImage: "/assets/cover-art/contrast.jpg",
+    coverAlt: "Contrast cover art",
+    links: [
+      link("Disco", "https://s.disco.ac/asdexfkgdpvx", "disco", true),
+    ],
+    tracklist: ["Falling"],
+    catalogStatus: "manual",
+  },
+  {
+    title: "Falling (Almost Anyone Remix)",
+    slug: "contrast-falling-almost-anyone-remix",
+    parentReleaseSlug: "contrast",
+    isProjectTrack: true,
+    showInArchive: false,
+    type: "remix",
+    visibility: "public",
+    year: 2023,
+    releaseDate: "2023-08-04",
+    artistName: "Broey. & Almost Anyone",
+    description:
+      "Almost Anyone's extended remix of Falling, stretching the track into a brighter club-facing shape.",
+    mood: "Extended club-facing remix with bright melodic lift.",
+    tags: ["Contrast", "Remix", "Electronic"],
+    credits: [
+      { role: "Artist", name: "Broey. & Almost Anyone" },
+      { role: "Composer", name: "Joseph Montaro, Alex Reade" },
+    ],
+    seoTitle: "Falling (Almost Anyone Remix) by Broey.",
+    seoDescription:
+      "Listen to Falling (Almost Anyone Remix) by Broey and Almost Anyone from Contrast.",
+    about: [
+      "Almost Anyone's remix stretches Falling into a longer, brighter club-facing version.",
+    ],
+    coverImage: "/assets/cover-art/contrast.jpg",
+    coverAlt: "Contrast cover art",
+    links: [
+      link("Disco", "https://s.disco.ac/asdexfkgdpvx", "disco", true),
+    ],
+    tracklist: ["Falling (Almost Anyone Remix)"],
+    details: [
+      { label: "BPM", value: "129" },
+    ],
+    catalogStatus: "manual",
+  },
+  {
+    title: "Origins (Almost Anyone Remix)",
+    slug: "contrast-origins-almost-anyone-remix",
+    parentReleaseSlug: "contrast",
+    isProjectTrack: true,
+    showInArchive: false,
+    type: "remix",
+    visibility: "public",
+    year: 2023,
+    releaseDate: "2023-08-04",
+    artistName: "Broey. & Almost Anyone",
+    description:
+      "Almost Anyone's Origins remix closes Contrast with a longer electronic reshape and brighter melodic lift.",
+    mood: "Longer electronic remix with a brighter melodic lift.",
+    tags: ["Contrast", "Remix", "Electronic"],
+    credits: [
+      { role: "Artist", name: "Broey. & Almost Anyone" },
+      { role: "Composer", name: "Joseph Montaro, Alex Reade" },
+    ],
+    seoTitle: "Origins (Almost Anyone Remix) by Broey.",
+    seoDescription:
+      "Listen to Origins (Almost Anyone Remix) by Broey and Almost Anyone from Contrast.",
+    about: [
+      "Almost Anyone's Origins remix closes Contrast by pulling the project into a longer, melodic electronic version.",
+    ],
+    coverImage: "/assets/cover-art/contrast.jpg",
+    coverAlt: "Contrast cover art",
+    links: [
+      link("Disco", "https://s.disco.ac/asdexfkgdpvx", "disco", true),
+    ],
+    tracklist: ["Origins (Almost Anyone Remix)"],
+    catalogStatus: "manual",
+  },
+  {
     title: "Hold On",
     slug: "hold-on",
     type: "single",
@@ -1607,12 +2224,16 @@ export const releases: ReleaseEntry[] = (([
     year: 2023,
     releaseDate: "2023-05-08",
     description:
-      "A Broey. single built around patient melodic tension and steady emotional release.",
-    mood: "Patient melodic tension with a steady emotional lift.",
+      "A melodic electronic single built around steady tension and soft release.",
+    mood: "Melodic electronic single with steady tension.",
     tags: ["Electronic", "Melodic", "Single"],
     seoTitle: "Hold On by Broey.",
     seoDescription:
-      "Listen to Hold On by Broey., with verified Apple Music and TIDAL release links.",
+      "Listen to Hold On by Broey, a melodic electronic single with steady tension.",
+    about: [
+      "Hold On sits in the transition stretch before the newer club records took over the front of the catalog. The production is patient, melodic, and steady.",
+      "It is still connected to the broader electronic direction, but its center is restraint: a single built around tension and release.",
+    ],
     coverImage: "/assets/cover-art/hold-on.png",
     coverAlt: "Hold On cover art",
     audio: localAudio("Hold On", "/audio/hold-on.mp3", "3:35"),
@@ -1656,12 +2277,16 @@ export const releases: ReleaseEntry[] = (([
     releaseDate: "2023-03-10",
     artistName: "Cryztal Grid & Broey.",
     description:
-      "A Cryztal Grid and Broey. collaboration from the transition into sharper, heavier, more physical electronic production.",
-    mood: "Sharp collaborative pressure with heavier electronic motion.",
+      "A Cryztal Grid and Broey collaboration from the shift into heavier electronic production.",
+    mood: "Cryztal Grid and Broey collaboration with heavier electronic production.",
     tags: ["Collaboration", "Club", "Electronic"],
     seoTitle: "Warning by Cryztal Grid and Broey.",
     seoDescription:
-      "Listen to Warning by Cryztal Grid and Broey., a transition-era collaboration with sharper electronic pressure.",
+      "Listen to Warning by Cryztal Grid and Broey, a collaboration with heavier electronic production.",
+    about: [
+      "Warning catches Broey in collaboration with Cryztal Grid during the move away from softer lo-fi framing and toward heavier, more physical electronic production.",
+      "The track is useful context for the current catalog because it points toward the later club-facing work.",
+    ],
     coverImage: "/assets/cover-art/warning.jpg",
     coverAlt: "Warning by Cryztal Grid and Broey. cover art",
     audio: localAudio("Warning", "/audio/warning.mp3", "3:16", "Cryztal Grid & Broey."),
@@ -1709,12 +2334,16 @@ export const releases: ReleaseEntry[] = (([
     year: 2022,
     releaseDate: "2022-01-13",
     description:
-      "A high-energy DNB/electronic track from the early transition away from lofi and into heavier, more kinetic production.",
-    mood: "Heavier, kinetic production from the early transition era.",
+      "A DNB/electronic track from the early shift away from lo-fi and into faster production.",
+    mood: "Fast DNB/electronic track from the transition catalog.",
     tags: ["Electronic", "DNB", "Transition"],
     seoTitle: "hysteria by Broey.",
     seoDescription:
-      "Listen to hysteria by Broey., a high-energy DNB/electronic track from the early transition away from lofi.",
+      "Listen to hysteria by Broey, a DNB/electronic track from the early shift into faster production.",
+    about: [
+      "hysteria marks an earlier break from the softer lo-fi frame, pushing into faster DNB/electronic production.",
+      "It is not as polished or club-shaped as the newest records, but it matters as an early signal of the later catalog.",
+    ],
     coverImage: "/assets/cover-art/hysteria.jpg",
     coverAlt: "hysteria cover art",
     audio: localAudio("hysteria", "/audio/hysteria.mp3", "3:42"),
@@ -1758,12 +2387,16 @@ export const releases: ReleaseEntry[] = (([
     releaseDate: "2020-11-30",
     artistName: "Broey. & Mr. Hilroy",
     description:
-      "A Broey. and Mr. Hilroy single with soft-focus melody, reflective space, and gentle forward motion.",
-    mood: "Soft-focus melody with reflective forward motion.",
+      "A Broey and Mr. Hilroy single with soft-focus melody and a lighter electronic arrangement.",
+    mood: "Soft-focus melody and a lighter electronic arrangement.",
     tags: ["Collaboration", "Melodic", "Single"],
     seoTitle: "After You by Broey. and Mr. Hilroy",
     seoDescription:
-      "Listen to After You by Broey. and Mr. Hilroy, with verified Apple Music and TIDAL release links.",
+      "Listen to After You by Broey and Mr. Hilroy, a soft-focus melodic single with reflective space.",
+    about: [
+      "After You sits in the older archive as a softer collaboration with Mr. Hilroy, built around melody and a lighter arrangement.",
+      "It is not part of the current club-facing run, but it helps show the quieter side of the catalog that fed into the later production instincts.",
+    ],
     coverImage: "/assets/cover-art/after-you.jpg",
     coverAlt: "After You cover art",
     links: [
@@ -1810,12 +2443,16 @@ export const releases: ReleaseEntry[] = (([
     year: 2019,
     releaseDate: "2019-03-23",
     description:
-      "An early Broey. single with bright melodic color, open space, and a light electronic pulse.",
-    mood: "Bright melodic color with a light electronic pulse.",
+      "An early Broey single with bright melody and a light electronic arrangement.",
+    mood: "Bright melody and a light electronic arrangement.",
     tags: ["Electronic", "Early catalog", "Single"],
     seoTitle: "Paradise by Broey.",
     seoDescription:
-      "Listen to Paradise by Broey., with verified Apple Music and TIDAL release links.",
+      "Listen to Paradise by Broey, an early single with bright melody and a light electronic arrangement.",
+    about: [
+      "Paradise is an early catalog entry: bright, open, and lighter on its feet than the newer dance-focused records.",
+      "The page stays simple because the release has no verified local audio or local artwork in the current site files, but the streaming links keep it reachable as part of the archive.",
+    ],
     coverAlt: "Paradise artwork pending",
     links: [
       link("Spotify", "https://open.spotify.com/album/2nkJjtXF1s41m8DscqlMK2", "streaming", false),
@@ -1849,4 +2486,7 @@ export const releases: ReleaseEntry[] = (([
       },
     },
   },
-] satisfies ReleaseEntry[]) as ReleaseEntry[]).filter((release) => release.visibility !== "draft");
+  ] satisfies ReleaseEntry[]) as ReleaseEntry[])
+    .map(mergeGeneratedRelease)
+    .filter((release) => release.visibility !== "draft"),
+);

@@ -25,6 +25,11 @@ npm run sync:latest-release-media
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://broey.com
+SITE_VISIBILITY=public
+SITE_PASSCODE=
+SHOPIFY_STORE_DOMAIN=
+SHOPIFY_MERCH_COLLECTION_HANDLE=broey-site-merch
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=
 MAILERLITE_API_KEY=
 MAILERLITE_GROUP_ID=
 MAILERLITE_SENDER_NAME=Broey.
@@ -37,8 +42,16 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 ```
 
+`NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. Set it to the production domain before launch.
+
+`SITE_VISIBILITY=private` enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Set `SITE_PASSCODE` only for private previews. Use public visibility for launch.
+
+Shopify merch runtime uses `SHOPIFY_STORE_DOMAIN`, optional `SHOPIFY_MERCH_COLLECTION_HANDLE`, and optional `SHOPIFY_STOREFRONT_ACCESS_TOKEN`. If Shopify is unavailable or returns no products, the merch page falls back to curated local product links.
+
+Resend/contact delivery requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`; `RESEND_FROM_NAME` is optional. MailerLite/newsletter delivery requires `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID`; sender/reply-to values document the intended email identity. Turnstile uses `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for the widget and `TURNSTILE_SECRET_KEY` for server verification. Never commit real secret values.
+
 ### Example environment (copy to `.env.local`)
- 
+
 Create `.env.local` from `.env.local.example`:
 
 ```bash
@@ -67,6 +80,27 @@ For contact form spam protection, create a Cloudflare Turnstile widget and set `
 ## Asset Sync
 
 Use the sync scripts to populate media from local files into the website’s `public/assets` tree.
+
+## Release Registry Import
+
+The human-editable release metadata workbook lives at:
+
+```text
+data/source/broey_website_release_metadata_registry_updated.xlsx
+```
+
+After editing the workbook, regenerate the site registry:
+
+```bash
+npm run import:releases
+```
+
+The importer reads the workbook sheets, validates release/track counts and required fields, and writes `content/musicRegistry.generated.ts`. Review the generated file before committing, then run:
+
+```bash
+npm run lint
+npm run build
+```
 
 ### Asset Sync Usage Notes
 

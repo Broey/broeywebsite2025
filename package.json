@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "import:releases": "node scripts/import-release-registry.mjs",
     "sync:assets": "node scripts/asset-sync.mjs",
     "sync:assets:dry": "node scripts/asset-sync.mjs \"D:\\Broey\\Broey Website 2025\\Assets\" --dry-run",
     "sync:assets:go": "node scripts/asset-sync.mjs \"D:\\Broey\\Broey Website 2025\\Assets\" --write-content",
@@ -47,6 +48,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.30",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "xlsx": "^0.18.5"
   }
 }

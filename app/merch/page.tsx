@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = createPageMetadata({
   title: "Merch",
   description:
-    "Official Broey. merch with current wearables and physical pieces opening in the Broey Shopify store.",
+    "Official Broey merch with hoodies, crewnecks, hats, and wearable pieces.",
   path: "/merch",
 });
 
@@ -32,7 +32,7 @@ export default async function MerchPage() {
           eyebrow="/ merch"
           title="Merch"
           titleId="merch-page-title"
-          description="Broey wearables and physical pieces."
+          description="Hoodies, crewnecks, hats, and wearable pieces from the official store."
         />
 
         <header className="hero-panel merch-hero">
@@ -40,7 +40,7 @@ export default async function MerchPage() {
             <p className="merch-kicker">Featured piece</p>
             <h2 className="merch-store-title">{featured.title}</h2>
             <p className="merch-hero-copy">
-              The current Broey piece from the official store.
+              Washed, boxy, and worn-in from the official store.
             </p>
             <a
               href={featured.href}
@@ -79,7 +79,7 @@ export default async function MerchPage() {
 
         <section className="merch-store-panel" aria-labelledby="merch-store-title">
           <SectionHeader
-            eyebrow="Shopify store"
+            eyebrow="Official store"
             title="Available Pieces"
             titleId="merch-store-title"
             meta={`${merch.length} items / ${categorySummary}`}

@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Broey.",
     short_name: "Broey.",
-    description: "Genre-fluid electronic music, selected releases, merch, and community from Broey.",
+    description: "Electronic music, selected releases, merch, and community from Broey.",
     start_url: "/",
     display: "standalone",
     background_color: "#06090d",

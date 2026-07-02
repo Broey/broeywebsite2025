@@ -35,7 +35,7 @@ export function MusicArchivePreview() {
           href="/music"
           className="text-xs font-semibold uppercase text-[var(--color-muted)] transition hover:text-[var(--color-amber)]"
         >
-          Explore Selected Releases
+          Browse the catalog
         </Link>
       </div>
       <h2 id="music-preview-title" className="sr-only">
@@ -53,7 +53,7 @@ export function MusicArchivePreview() {
                 {release.title}
               </h3>
               <p className="mt-1 text-xs text-[var(--color-muted)]">
-                {releaseTypeLabel[release.type]}
+                {release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type]}
                 {release.year ? ` / ${release.year}` : ""}
               </p>
               <Link

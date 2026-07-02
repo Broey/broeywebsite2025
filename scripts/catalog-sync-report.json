@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-08T05:52:38.659Z",
-  "mode": "write",
+  "generatedAt": "2026-06-12T20:42:09.627Z",
+  "mode": "dry-run",
   "provider": "tidal",
   "source": "tidal",
   "artist": "Broey",
@@ -13,12 +13,12 @@
     "catalogCollectionCount": 31,
     "catalogTrackCount": 52,
     "catalogTileCandidateCount": 58,
-    "localReleaseCount": 17,
-    "matchedExistingReleaseCount": 17,
-    "possibleNewReleaseCount": 41,
-    "possibleNewTileCount": 41,
+    "localReleaseCount": 35,
+    "matchedExistingReleaseCount": 34,
+    "possibleNewReleaseCount": 24,
+    "possibleNewTileCount": 24,
     "ambiguousMatchCount": 0,
-    "localMissingFromDspCount": 1
+    "localMissingFromDspCount": 3
   },
   "tidalCatalogOverview": [
     {
@@ -35,7 +35,8 @@
         "title": "FREE",
         "slug": "free",
         "type": "single",
-        "year": 2025,
+        "year": 2026,
+        "releaseDate": "2026-05-07",
         "featured": false
       },
       "matchStatus": "matched",
@@ -96,6 +97,7 @@
         "slug": "stereo-luv",
         "type": "single",
         "year": 2025,
+        "releaseDate": "2025-00-00",
         "featured": false
       },
       "matchStatus": "matched",
@@ -125,10 +127,11 @@
       "tidalId": "489787750",
       "sourceUrl": "https://tidal.com/browse/album/489787750",
       "matchedLocalRelease": {
-        "title": "BLU",
+        "title": "blu.",
         "slug": "blu",
         "type": "single",
-        "year": 2023
+        "year": 2025,
+        "releaseDate": "2025-00-00"
       },
       "matchStatus": "matched",
       "possibleNewSiteTile": false,
@@ -171,7 +174,8 @@
         "title": "dancing dumpster fire",
         "slug": "dancing-dumpster-fire",
         "type": "ep",
-        "year": 2025
+        "year": 2025,
+        "releaseDate": "2025-00-00"
       },
       "matchStatus": "matched",
       "possibleNewSiteTile": false,
@@ -183,9 +187,14 @@
           "trackNumber": 1,
           "tidalId": "441546104",
           "sourceUrl": "https://tidal.com/browse/track/441546104",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "shake!",
+            "slug": "shake",
+            "type": "single",
+            "year": 2025
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "old fashion",
@@ -194,9 +203,14 @@
           "trackNumber": 2,
           "tidalId": "441546105",
           "sourceUrl": "https://tidal.com/browse/track/441546105",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "old fashion",
+            "slug": "old-fashion",
+            "type": "single",
+            "year": 2025
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "lil luv",
@@ -205,9 +219,14 @@
           "trackNumber": 3,
           "tidalId": "441546106",
           "sourceUrl": "https://tidal.com/browse/track/441546106",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "lil luv",
+            "slug": "lil-luv",
+            "type": "single",
+            "year": 2025
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "brainrot (feat. Vivid Fever Dreams)",
@@ -243,9 +262,14 @@
           "trackNumber": 6,
           "tidalId": "441546109",
           "sourceUrl": "https://tidal.com/browse/track/441546109",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "i can do better (broey. remix)",
+            "slug": "i-can-do-better-broey-remix",
+            "type": "remix",
+            "year": 2025
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "4u vip",
@@ -254,9 +278,14 @@
           "trackNumber": 7,
           "tidalId": "441546110",
           "sourceUrl": "https://tidal.com/browse/track/441546110",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "4u vip",
+            "slug": "4u-vip",
+            "type": "remix",
+            "year": 2025
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         }
       ]
     },
@@ -305,7 +334,9 @@
       "matchedLocalRelease": {
         "title": "Mean Something",
         "slug": "mean-something",
-        "type": "single"
+        "type": "single",
+        "year": 2025,
+        "releaseDate": "2025-00-00"
       },
       "matchStatus": "matched",
       "possibleNewSiteTile": false,
@@ -336,8 +367,9 @@
       "matchedLocalRelease": {
         "title": "4u",
         "slug": "4u",
-        "type": "remix",
-        "year": 2024
+        "type": "single",
+        "year": 2024,
+        "releaseDate": "2024-00-00"
       },
       "matchStatus": "matched",
       "possibleNewSiteTile": false,
@@ -368,7 +400,9 @@
       "matchedLocalRelease": {
         "title": "Fragments (Remixes)",
         "slug": "fragments-remixes",
-        "type": "remix"
+        "type": "remix",
+        "year": 2024,
+        "releaseDate": "2024-00-00"
       },
       "matchStatus": "matched",
       "possibleNewSiteTile": false,
@@ -380,9 +414,14 @@
           "trackNumber": 1,
           "tidalId": "359004951",
           "sourceUrl": "https://tidal.com/browse/track/359004951",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Numbers (tom_ecko Remix)",
+            "slug": "numbers-tom-ecko-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Eyes On Me (dreamsuite Remix)",
@@ -391,9 +430,14 @@
           "trackNumber": 2,
           "tidalId": "359004952",
           "sourceUrl": "https://tidal.com/browse/track/359004952",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Eyes On Me (dreamsuite Remix)",
+            "slug": "eyes-on-me-dreamsuite-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Like That (notminimal. Remix)",
@@ -402,9 +446,14 @@
           "trackNumber": 3,
           "tidalId": "359004953",
           "sourceUrl": "https://tidal.com/browse/track/359004953",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Like That (notminimal. Remix)",
+            "slug": "like-that-notminimal-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Wanted (Almost Anyone Remix)",
@@ -413,9 +462,14 @@
           "trackNumber": 4,
           "tidalId": "359004954",
           "sourceUrl": "https://tidal.com/browse/track/359004954",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Wanted (Almost Anyone Remix)",
+            "slug": "wanted-almost-anyone-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Eyes On Me (Vivid Fever Dreams Remix)",
@@ -424,9 +478,14 @@
           "trackNumber": 5,
           "tidalId": "359004956",
           "sourceUrl": "https://tidal.com/browse/track/359004956",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Eyes On Me (Vivid Fever Dreams Remix)",
+            "slug": "eyes-on-me-vivid-fever-dreams-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Wanted (Kaiyo Remix)",
@@ -435,9 +494,14 @@
           "trackNumber": 6,
           "tidalId": "359004957",
           "sourceUrl": "https://tidal.com/browse/track/359004957",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Wanted (Kaiyo Remix)",
+            "slug": "wanted-kaiyo-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Eyes On Me (exmaxhina Remix)",
@@ -446,9 +510,14 @@
           "trackNumber": 7,
           "tidalId": "359004958",
           "sourceUrl": "https://tidal.com/browse/track/359004958",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Eyes On Me (exmaxhina Remix)",
+            "slug": "eyes-on-me-exmaxhina-remix",
+            "type": "remix",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         }
       ]
     },
@@ -463,9 +532,11 @@
       "tidalId": "344095853",
       "sourceUrl": "https://tidal.com/browse/album/344095853",
       "matchedLocalRelease": {
-        "title": "Fragments EP",
+        "title": "Fragments",
         "slug": "fragments-ep",
-        "type": "ep"
+        "type": "ep",
+        "year": 2024,
+        "releaseDate": "2024-00-00"
       },
       "matchStatus": "matched",
       "possibleNewSiteTile": false,
@@ -494,9 +565,14 @@
           "trackNumber": 2,
           "tidalId": "344095855",
           "sourceUrl": "https://tidal.com/browse/track/344095855",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Run For Cover",
+            "slug": "run-for-cover",
+            "type": "single",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Wanted",
@@ -505,9 +581,14 @@
           "trackNumber": 3,
           "tidalId": "344095856",
           "sourceUrl": "https://tidal.com/browse/track/344095856",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Wanted",
+            "slug": "wanted",
+            "type": "single",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Numbers",
@@ -516,9 +597,14 @@
           "trackNumber": 4,
           "tidalId": "344095857",
           "sourceUrl": "https://tidal.com/browse/track/344095857",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Numbers",
+            "slug": "numbers",
+            "type": "single",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         },
         {
           "title": "Breathing Room (feat. Vivid Fever Dreams)",
@@ -538,9 +624,14 @@
           "trackNumber": 6,
           "tidalId": "344095859",
           "sourceUrl": "https://tidal.com/browse/track/344095859",
-          "matchedLocalRelease": null,
-          "matchStatus": "possible-new",
-          "possibleNewSiteTile": true
+          "matchedLocalRelease": {
+            "title": "Eyes On Me",
+            "slug": "eyes-on-me",
+            "type": "single",
+            "year": 2024
+          },
+          "matchStatus": "matched",
+          "possibleNewSiteTile": false
         }
       ]
     },
@@ -554,9 +645,14 @@
       "trackCount": 1,
       "tidalId": "344698087",
       "sourceUrl": "https://tidal.com/browse/album/344698087",
-      "matchedLocalRelease": null,
-      "matchStatus": "possible-new",
-      "possibleNewSiteTile": true,
+      "matchedLocalRelease": {
+        "title": "Numbers",
+        "slug": "numbers",
+        "type": "single",
+        "year": 2024
+      },
+      "matchStatus": "matched",
+      "possibleNewSiteTile": false,
       "tracks": [
         {
           "title": "Numbers",
@@ -1206,13 +1302,16 @@
         "title": "FREE",
         "slug": "free",
         "type": "single",
-        "year": 2025,
+        "year": 2026,
+        "releaseDate": "2026-05-07",
         "featured": false
       },
       "score": 100,
       "reasons": [
         "slug",
-        "title"
+        "title",
+        "date",
+        "year"
       ]
     },
     {
@@ -1240,6 +1339,7 @@
         "slug": "stereo-luv",
         "type": "single",
         "year": 2025,
+        "releaseDate": "2025-00-00",
         "featured": false
       },
       "score": 100,
@@ -1270,15 +1370,17 @@
         "sourceUrl": "https://tidal.com/browse/album/489787750"
       },
       "localRelease": {
-        "title": "BLU",
+        "title": "blu.",
         "slug": "blu",
         "type": "single",
-        "year": 2023
+        "year": 2025,
+        "releaseDate": "2025-00-00"
       },
       "score": 100,
       "reasons": [
         "slug",
-        "title"
+        "title",
+        "year"
       ]
     },
     {
@@ -1305,11 +1407,123 @@
         "title": "dancing dumpster fire",
         "slug": "dancing-dumpster-fire",
         "type": "ep",
-        "year": 2025
+        "year": 2025,
+        "releaseDate": "2025-00-00"
       },
       "score": 100,
       "reasons": [
         "slug",
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "shake!",
+        "slug": "dancing-dumpster-fire-shake",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2025,
+        "releaseDate": "2025-08-02",
+        "artistName": "Broey.",
+        "collectionName": "dancing dumpster fire",
+        "parentCollectionTitle": "dancing dumpster fire",
+        "parentCollectionSlug": "dancing-dumpster-fire",
+        "parentCollectionId": "441546103",
+        "parentCollectionType": "EP",
+        "trackNumber": 1,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "441546104",
+        "tidalId": "441546104",
+        "sourceUrl": "https://tidal.com/browse/track/441546104"
+      },
+      "localRelease": {
+        "title": "shake!",
+        "slug": "shake",
+        "type": "single",
+        "year": 2025
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "old fashion",
+        "slug": "dancing-dumpster-fire-old-fashion",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2025,
+        "releaseDate": "2025-08-02",
+        "artistName": "Broey.",
+        "collectionName": "dancing dumpster fire",
+        "parentCollectionTitle": "dancing dumpster fire",
+        "parentCollectionSlug": "dancing-dumpster-fire",
+        "parentCollectionId": "441546103",
+        "parentCollectionType": "EP",
+        "trackNumber": 2,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "441546105",
+        "tidalId": "441546105",
+        "sourceUrl": "https://tidal.com/browse/track/441546105"
+      },
+      "localRelease": {
+        "title": "old fashion",
+        "slug": "old-fashion",
+        "type": "single",
+        "year": 2025
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "lil luv",
+        "slug": "dancing-dumpster-fire-lil-luv",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2025,
+        "releaseDate": "2025-08-02",
+        "artistName": "Broey.",
+        "collectionName": "dancing dumpster fire",
+        "parentCollectionTitle": "dancing dumpster fire",
+        "parentCollectionSlug": "dancing-dumpster-fire",
+        "parentCollectionId": "441546103",
+        "parentCollectionType": "EP",
+        "trackNumber": 3,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "441546106",
+        "tidalId": "441546106",
+        "sourceUrl": "https://tidal.com/browse/track/441546106"
+      },
+      "localRelease": {
+        "title": "lil luv",
+        "slug": "lil-luv",
+        "type": "single",
+        "year": 2025
+      },
+      "score": 100,
+      "reasons": [
         "title",
         "year"
       ]
@@ -1343,6 +1557,80 @@
         "title": "GLFM",
         "slug": "glfm",
         "type": "ep",
+        "year": 2025
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "i can do better (broey. remix)",
+        "slug": "dancing-dumpster-fire-i-can-do-better-broey-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2025,
+        "releaseDate": "2025-08-02",
+        "artistName": "Broey. & DreamEater & Broken Blythe",
+        "collectionName": "dancing dumpster fire",
+        "parentCollectionTitle": "dancing dumpster fire",
+        "parentCollectionSlug": "dancing-dumpster-fire",
+        "parentCollectionId": "441546103",
+        "parentCollectionType": "EP",
+        "trackNumber": 6,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "441546109",
+        "tidalId": "441546109",
+        "sourceUrl": "https://tidal.com/browse/track/441546109"
+      },
+      "localRelease": {
+        "title": "i can do better (broey. remix)",
+        "slug": "i-can-do-better-broey-remix",
+        "type": "remix",
+        "year": 2025
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "4u vip",
+        "slug": "dancing-dumpster-fire-4u-vip",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2025,
+        "releaseDate": "2025-08-02",
+        "artistName": "Broey. & notminimal.",
+        "collectionName": "dancing dumpster fire",
+        "parentCollectionTitle": "dancing dumpster fire",
+        "parentCollectionSlug": "dancing-dumpster-fire",
+        "parentCollectionId": "441546103",
+        "parentCollectionType": "EP",
+        "trackNumber": 7,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "441546110",
+        "tidalId": "441546110",
+        "sourceUrl": "https://tidal.com/browse/track/441546110"
+      },
+      "localRelease": {
+        "title": "4u vip",
+        "slug": "4u-vip",
+        "type": "remix",
         "year": 2025
       },
       "score": 100,
@@ -1405,7 +1693,9 @@
       "localRelease": {
         "title": "Mean Something",
         "slug": "mean-something",
-        "type": "single"
+        "type": "single",
+        "year": 2025,
+        "releaseDate": "2025-00-00"
       },
       "score": 100,
       "reasons": [
@@ -1436,8 +1726,9 @@
       "localRelease": {
         "title": "4u",
         "slug": "4u",
-        "type": "remix",
-        "year": 2024
+        "type": "single",
+        "year": 2024,
+        "releaseDate": "2024-00-00"
       },
       "score": 100,
       "reasons": [
@@ -1469,12 +1760,274 @@
       "localRelease": {
         "title": "Fragments (Remixes)",
         "slug": "fragments-remixes",
-        "type": "remix"
+        "type": "remix",
+        "year": 2024,
+        "releaseDate": "2024-00-00"
       },
       "score": 100,
       "reasons": [
         "slug",
-        "title"
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Numbers (tom_ecko Remix)",
+        "slug": "fragments-remixes-numbers-tom-ecko-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 1,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004951",
+        "tidalId": "359004951",
+        "sourceUrl": "https://tidal.com/browse/track/359004951"
+      },
+      "localRelease": {
+        "title": "Numbers (tom_ecko Remix)",
+        "slug": "numbers-tom-ecko-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Eyes On Me (dreamsuite Remix)",
+        "slug": "fragments-remixes-eyes-on-me-dreamsuite-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 2,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004952",
+        "tidalId": "359004952",
+        "sourceUrl": "https://tidal.com/browse/track/359004952"
+      },
+      "localRelease": {
+        "title": "Eyes On Me (dreamsuite Remix)",
+        "slug": "eyes-on-me-dreamsuite-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Like That (notminimal. Remix)",
+        "slug": "fragments-remixes-like-that-notminimal-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 3,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004953",
+        "tidalId": "359004953",
+        "sourceUrl": "https://tidal.com/browse/track/359004953"
+      },
+      "localRelease": {
+        "title": "Like That (notminimal. Remix)",
+        "slug": "like-that-notminimal-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Wanted (Almost Anyone Remix)",
+        "slug": "fragments-remixes-wanted-almost-anyone-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 4,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004954",
+        "tidalId": "359004954",
+        "sourceUrl": "https://tidal.com/browse/track/359004954"
+      },
+      "localRelease": {
+        "title": "Wanted (Almost Anyone Remix)",
+        "slug": "wanted-almost-anyone-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Eyes On Me (Vivid Fever Dreams Remix)",
+        "slug": "fragments-remixes-eyes-on-me-vivid-fever-dreams-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 5,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004956",
+        "tidalId": "359004956",
+        "sourceUrl": "https://tidal.com/browse/track/359004956"
+      },
+      "localRelease": {
+        "title": "Eyes On Me (Vivid Fever Dreams Remix)",
+        "slug": "eyes-on-me-vivid-fever-dreams-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Wanted (Kaiyo Remix)",
+        "slug": "fragments-remixes-wanted-kaiyo-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 6,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004957",
+        "tidalId": "359004957",
+        "sourceUrl": "https://tidal.com/browse/track/359004957"
+      },
+      "localRelease": {
+        "title": "Wanted (Kaiyo Remix)",
+        "slug": "wanted-kaiyo-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Eyes On Me (exmaxhina Remix)",
+        "slug": "fragments-remixes-eyes-on-me-exmaxhina-remix",
+        "type": "remix",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-05-10",
+        "artistName": "Broey.",
+        "collectionName": "Fragments (Remixes)",
+        "parentCollectionTitle": "Fragments (Remixes)",
+        "parentCollectionSlug": "fragments-remixes",
+        "parentCollectionId": "359004950",
+        "parentCollectionType": "Remix",
+        "trackNumber": 7,
+        "trackCount": 7,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "359004958",
+        "tidalId": "359004958",
+        "sourceUrl": "https://tidal.com/browse/track/359004958"
+      },
+      "localRelease": {
+        "title": "Eyes On Me (exmaxhina Remix)",
+        "slug": "eyes-on-me-exmaxhina-remix",
+        "type": "remix",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
       ]
     },
     {
@@ -1498,13 +2051,16 @@
         "sourceUrl": "https://tidal.com/browse/album/344095853"
       },
       "localRelease": {
-        "title": "Fragments EP",
+        "title": "Fragments",
         "slug": "fragments-ep",
-        "type": "ep"
+        "type": "ep",
+        "year": 2024,
+        "releaseDate": "2024-00-00"
       },
       "score": 100,
       "reasons": [
-        "title"
+        "title",
+        "year"
       ]
     },
     {
@@ -1541,6 +2097,187 @@
       },
       "score": 100,
       "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Run For Cover",
+        "slug": "fragments-run-for-cover",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-03-29",
+        "artistName": "Broey.",
+        "collectionName": "Fragments",
+        "parentCollectionTitle": "Fragments",
+        "parentCollectionSlug": "fragments",
+        "parentCollectionId": "344095853",
+        "parentCollectionType": "EP",
+        "trackNumber": 2,
+        "trackCount": 6,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "344095855",
+        "tidalId": "344095855",
+        "sourceUrl": "https://tidal.com/browse/track/344095855"
+      },
+      "localRelease": {
+        "title": "Run For Cover",
+        "slug": "run-for-cover",
+        "type": "single",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Wanted",
+        "slug": "fragments-wanted",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-03-29",
+        "artistName": "Broey.",
+        "collectionName": "Fragments",
+        "parentCollectionTitle": "Fragments",
+        "parentCollectionSlug": "fragments",
+        "parentCollectionId": "344095853",
+        "parentCollectionType": "EP",
+        "trackNumber": 3,
+        "trackCount": 6,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "344095856",
+        "tidalId": "344095856",
+        "sourceUrl": "https://tidal.com/browse/track/344095856"
+      },
+      "localRelease": {
+        "title": "Wanted",
+        "slug": "wanted",
+        "type": "single",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Numbers",
+        "slug": "fragments-numbers",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-03-29",
+        "artistName": "Broey.",
+        "collectionName": "Fragments",
+        "parentCollectionTitle": "Fragments",
+        "parentCollectionSlug": "fragments",
+        "parentCollectionId": "344095853",
+        "parentCollectionType": "EP",
+        "trackNumber": 4,
+        "trackCount": 6,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "344095857",
+        "tidalId": "344095857",
+        "sourceUrl": "https://tidal.com/browse/track/344095857"
+      },
+      "localRelease": {
+        "title": "Numbers",
+        "slug": "numbers",
+        "type": "single",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Eyes On Me",
+        "slug": "fragments-eyes-on-me",
+        "type": "single",
+        "collectionType": "Track",
+        "isCollection": false,
+        "suggestedTileType": "trackTile",
+        "year": 2024,
+        "releaseDate": "2024-03-29",
+        "artistName": "Broey.",
+        "collectionName": "Fragments",
+        "parentCollectionTitle": "Fragments",
+        "parentCollectionSlug": "fragments",
+        "parentCollectionId": "344095853",
+        "parentCollectionType": "EP",
+        "trackNumber": 6,
+        "trackCount": 6,
+        "rawKind": "tracks",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "344095859",
+        "tidalId": "344095859",
+        "sourceUrl": "https://tidal.com/browse/track/344095859"
+      },
+      "localRelease": {
+        "title": "Eyes On Me",
+        "slug": "eyes-on-me",
+        "type": "single",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "title",
+        "year"
+      ]
+    },
+    {
+      "catalogRelease": {
+        "title": "Numbers",
+        "slug": "numbers",
+        "type": "single",
+        "collectionType": "Single",
+        "isCollection": true,
+        "suggestedTileType": "singleTile",
+        "year": 2024,
+        "releaseDate": "2024-03-22",
+        "artistName": "Broey.",
+        "collectionName": "Numbers",
+        "trackCount": 1,
+        "rawKind": "albums",
+        "source": "tidal",
+        "provider": "tidal",
+        "sourceId": "344698087",
+        "tidalId": "344698087",
+        "sourceUrl": "https://tidal.com/browse/album/344698087"
+      },
+      "localRelease": {
+        "title": "Numbers",
+        "slug": "numbers",
+        "type": "single",
+        "year": 2024
+      },
+      "score": 100,
+      "reasons": [
+        "slug",
         "title",
         "year"
       ]
@@ -1901,14 +2638,15 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
+          "title": "blu.",
           "slug": "blu",
           "type": "single",
-          "year": 2023
+          "year": 2025,
+          "releaseDate": "2025-00-00"
         },
-        "score": 25,
+        "score": 35,
         "reasons": [
-          "title-token-overlap"
+          "year"
         ]
       }
     },
@@ -1985,267 +2723,13 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
+          "title": "blu.",
           "slug": "blu",
           "type": "single",
-          "year": 2023
-        },
-        "score": 25,
-        "reasons": [
-          "title-token-overlap"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "shake!",
-        "slug": "dancing-dumpster-fire-shake",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "artistName": "Broey.",
-        "collectionName": "dancing dumpster fire",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "parentCollectionType": "EP",
-        "trackNumber": 1,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "441546104",
-        "tidalId": "441546104",
-        "sourceUrl": "https://tidal.com/browse/track/441546104"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "shake!",
-        "slug": "dancing-dumpster-fire-shake",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "trackNumber": 1,
-        "trackCount": 7,
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "description": "Catalog metadata draft for shake! by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/441546104",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "441546104",
-          "tidalId": "441546104",
-          "artistName": "Broey.",
-          "collectionName": "dancing dumpster fire",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "dancing dumpster fire",
-          "parentCollectionSlug": "dancing-dumpster-fire",
-          "parentCollectionId": "441546103",
-          "parentCollectionType": "EP",
-          "trackNumber": 1,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/441546104"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "LiNK",
-          "slug": "link",
-          "type": "single",
           "year": 2025,
-          "featured": true
+          "releaseDate": "2025-00-00"
         },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "old fashion",
-        "slug": "dancing-dumpster-fire-old-fashion",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "artistName": "Broey.",
-        "collectionName": "dancing dumpster fire",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "parentCollectionType": "EP",
-        "trackNumber": 2,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "441546105",
-        "tidalId": "441546105",
-        "sourceUrl": "https://tidal.com/browse/track/441546105"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "old fashion",
-        "slug": "dancing-dumpster-fire-old-fashion",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "trackNumber": 2,
-        "trackCount": 7,
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "description": "Catalog metadata draft for old fashion by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/441546105",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "441546105",
-          "tidalId": "441546105",
-          "artistName": "Broey.",
-          "collectionName": "dancing dumpster fire",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "dancing dumpster fire",
-          "parentCollectionSlug": "dancing-dumpster-fire",
-          "parentCollectionId": "441546103",
-          "parentCollectionType": "EP",
-          "trackNumber": 2,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/441546105"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "LiNK",
-          "slug": "link",
-          "type": "single",
-          "year": 2025,
-          "featured": true
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "lil luv",
-        "slug": "dancing-dumpster-fire-lil-luv",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "artistName": "Broey.",
-        "collectionName": "dancing dumpster fire",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "parentCollectionType": "EP",
-        "trackNumber": 3,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "441546106",
-        "tidalId": "441546106",
-        "sourceUrl": "https://tidal.com/browse/track/441546106"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "lil luv",
-        "slug": "dancing-dumpster-fire-lil-luv",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "trackNumber": 3,
-        "trackCount": 7,
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "description": "Catalog metadata draft for lil luv by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/441546106",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "441546106",
-          "tidalId": "441546106",
-          "artistName": "Broey.",
-          "collectionName": "dancing dumpster fire",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "dancing dumpster fire",
-          "parentCollectionSlug": "dancing-dumpster-fire",
-          "parentCollectionId": "441546103",
-          "parentCollectionType": "EP",
-          "trackNumber": 3,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/441546106"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "LiNK",
-          "slug": "link",
-          "type": "single",
-          "year": 2025,
-          "featured": true
-        },
-        "score": 10,
+        "score": 35,
         "reasons": [
           "year"
         ]
@@ -2324,1023 +2808,12 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "LiNK",
-          "slug": "link",
+          "title": "brainrot",
+          "slug": "brainrot",
           "type": "single",
-          "year": 2025,
-          "featured": true
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "i can do better (broey. remix)",
-        "slug": "dancing-dumpster-fire-i-can-do-better-broey-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "artistName": "Broey. & DreamEater & Broken Blythe",
-        "collectionName": "dancing dumpster fire",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "parentCollectionType": "EP",
-        "trackNumber": 6,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "441546109",
-        "tidalId": "441546109",
-        "sourceUrl": "https://tidal.com/browse/track/441546109"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "i can do better (broey. remix)",
-        "slug": "dancing-dumpster-fire-i-can-do-better-broey-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "trackNumber": 6,
-        "trackCount": 7,
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "description": "Catalog metadata draft for i can do better (broey. remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/441546109",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "441546109",
-          "tidalId": "441546109",
-          "artistName": "Broey. & DreamEater & Broken Blythe",
-          "collectionName": "dancing dumpster fire",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "dancing dumpster fire",
-          "parentCollectionSlug": "dancing-dumpster-fire",
-          "parentCollectionId": "441546103",
-          "parentCollectionType": "EP",
-          "trackNumber": 6,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/441546109"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "LiNK",
-          "slug": "link",
-          "type": "single",
-          "year": 2025,
-          "featured": true
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "4u vip",
-        "slug": "dancing-dumpster-fire-4u-vip",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "artistName": "Broey. & notminimal.",
-        "collectionName": "dancing dumpster fire",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "parentCollectionType": "EP",
-        "trackNumber": 7,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "441546110",
-        "tidalId": "441546110",
-        "sourceUrl": "https://tidal.com/browse/track/441546110"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "4u vip",
-        "slug": "dancing-dumpster-fire-4u-vip",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "dancing dumpster fire",
-        "parentCollectionSlug": "dancing-dumpster-fire",
-        "parentCollectionId": "441546103",
-        "trackNumber": 7,
-        "trackCount": 7,
-        "year": 2025,
-        "releaseDate": "2025-08-02",
-        "description": "Catalog metadata draft for 4u vip by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/441546110",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "441546110",
-          "tidalId": "441546110",
-          "artistName": "Broey. & notminimal.",
-          "collectionName": "dancing dumpster fire",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "dancing dumpster fire",
-          "parentCollectionSlug": "dancing-dumpster-fire",
-          "parentCollectionId": "441546103",
-          "parentCollectionType": "EP",
-          "trackNumber": 7,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/441546110"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "4u",
-          "slug": "4u",
-          "type": "remix",
-          "year": 2024
-        },
-        "score": 25,
-        "reasons": [
-          "title-token-overlap"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Numbers (tom_ecko Remix)",
-        "slug": "fragments-remixes-numbers-tom-ecko-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 1,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004951",
-        "tidalId": "359004951",
-        "sourceUrl": "https://tidal.com/browse/track/359004951"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Numbers (tom_ecko Remix)",
-        "slug": "fragments-remixes-numbers-tom-ecko-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 1,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Numbers (tom_ecko Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004951",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004951",
-          "tidalId": "359004951",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 1,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004951"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Eyes On Me (dreamsuite Remix)",
-        "slug": "fragments-remixes-eyes-on-me-dreamsuite-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 2,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004952",
-        "tidalId": "359004952",
-        "sourceUrl": "https://tidal.com/browse/track/359004952"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Eyes On Me (dreamsuite Remix)",
-        "slug": "fragments-remixes-eyes-on-me-dreamsuite-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 2,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Eyes On Me (dreamsuite Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004952",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004952",
-          "tidalId": "359004952",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 2,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004952"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Like That (notminimal. Remix)",
-        "slug": "fragments-remixes-like-that-notminimal-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 3,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004953",
-        "tidalId": "359004953",
-        "sourceUrl": "https://tidal.com/browse/track/359004953"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Like That (notminimal. Remix)",
-        "slug": "fragments-remixes-like-that-notminimal-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 3,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Like That (notminimal. Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004953",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004953",
-          "tidalId": "359004953",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 3,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004953"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "Like That",
-          "slug": "like-that",
-          "type": "single",
-          "year": 2024,
-          "releaseDate": "2024-03-15"
+          "year": 2025
         },
         "score": 35,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Wanted (Almost Anyone Remix)",
-        "slug": "fragments-remixes-wanted-almost-anyone-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 4,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004954",
-        "tidalId": "359004954",
-        "sourceUrl": "https://tidal.com/browse/track/359004954"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Wanted (Almost Anyone Remix)",
-        "slug": "fragments-remixes-wanted-almost-anyone-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 4,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Wanted (Almost Anyone Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004954",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004954",
-          "tidalId": "359004954",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 4,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004954"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Eyes On Me (Vivid Fever Dreams Remix)",
-        "slug": "fragments-remixes-eyes-on-me-vivid-fever-dreams-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 5,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004956",
-        "tidalId": "359004956",
-        "sourceUrl": "https://tidal.com/browse/track/359004956"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Eyes On Me (Vivid Fever Dreams Remix)",
-        "slug": "fragments-remixes-eyes-on-me-vivid-fever-dreams-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 5,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Eyes On Me (Vivid Fever Dreams Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004956",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004956",
-          "tidalId": "359004956",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 5,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004956"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Wanted (Kaiyo Remix)",
-        "slug": "fragments-remixes-wanted-kaiyo-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 6,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004957",
-        "tidalId": "359004957",
-        "sourceUrl": "https://tidal.com/browse/track/359004957"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Wanted (Kaiyo Remix)",
-        "slug": "fragments-remixes-wanted-kaiyo-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 6,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Wanted (Kaiyo Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004957",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004957",
-          "tidalId": "359004957",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 6,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004957"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Eyes On Me (exmaxhina Remix)",
-        "slug": "fragments-remixes-eyes-on-me-exmaxhina-remix",
-        "type": "remix",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "artistName": "Broey.",
-        "collectionName": "Fragments (Remixes)",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "parentCollectionType": "Remix",
-        "trackNumber": 7,
-        "trackCount": 7,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "359004958",
-        "tidalId": "359004958",
-        "sourceUrl": "https://tidal.com/browse/track/359004958"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Eyes On Me (exmaxhina Remix)",
-        "slug": "fragments-remixes-eyes-on-me-exmaxhina-remix",
-        "type": "remix",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments (Remixes)",
-        "parentCollectionSlug": "fragments-remixes",
-        "parentCollectionId": "359004950",
-        "trackNumber": 7,
-        "trackCount": 7,
-        "year": 2024,
-        "releaseDate": "2024-05-10",
-        "description": "Catalog metadata draft for Eyes On Me (exmaxhina Remix) by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/359004958",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "359004958",
-          "tidalId": "359004958",
-          "artistName": "Broey.",
-          "collectionName": "Fragments (Remixes)",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments (Remixes)",
-          "parentCollectionSlug": "fragments-remixes",
-          "parentCollectionId": "359004950",
-          "parentCollectionType": "Remix",
-          "trackNumber": 7,
-          "trackCount": 7,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/359004958"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Run For Cover",
-        "slug": "fragments-run-for-cover",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "artistName": "Broey.",
-        "collectionName": "Fragments",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "parentCollectionType": "EP",
-        "trackNumber": 2,
-        "trackCount": 6,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "344095855",
-        "tidalId": "344095855",
-        "sourceUrl": "https://tidal.com/browse/track/344095855"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Run For Cover",
-        "slug": "fragments-run-for-cover",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "trackNumber": 2,
-        "trackCount": 6,
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "description": "Catalog metadata draft for Run For Cover by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/344095855",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "344095855",
-          "tidalId": "344095855",
-          "artistName": "Broey.",
-          "collectionName": "Fragments",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments",
-          "parentCollectionSlug": "fragments",
-          "parentCollectionId": "344095853",
-          "parentCollectionType": "EP",
-          "trackNumber": 2,
-          "trackCount": 6,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/344095855"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Wanted",
-        "slug": "fragments-wanted",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "artistName": "Broey.",
-        "collectionName": "Fragments",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "parentCollectionType": "EP",
-        "trackNumber": 3,
-        "trackCount": 6,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "344095856",
-        "tidalId": "344095856",
-        "sourceUrl": "https://tidal.com/browse/track/344095856"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Wanted",
-        "slug": "fragments-wanted",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "trackNumber": 3,
-        "trackCount": 6,
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "description": "Catalog metadata draft for Wanted by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/344095856",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "344095856",
-          "tidalId": "344095856",
-          "artistName": "Broey.",
-          "collectionName": "Fragments",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments",
-          "parentCollectionSlug": "fragments",
-          "parentCollectionId": "344095853",
-          "parentCollectionType": "EP",
-          "trackNumber": 3,
-          "trackCount": 6,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/344095856"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Numbers",
-        "slug": "fragments-numbers",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "artistName": "Broey.",
-        "collectionName": "Fragments",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "parentCollectionType": "EP",
-        "trackNumber": 4,
-        "trackCount": 6,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "344095857",
-        "tidalId": "344095857",
-        "sourceUrl": "https://tidal.com/browse/track/344095857"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Numbers",
-        "slug": "fragments-numbers",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "trackNumber": 4,
-        "trackCount": 6,
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "description": "Catalog metadata draft for Numbers by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/344095857",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "344095857",
-          "tidalId": "344095857",
-          "artistName": "Broey.",
-          "collectionName": "Fragments",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments",
-          "parentCollectionSlug": "fragments",
-          "parentCollectionId": "344095853",
-          "parentCollectionType": "EP",
-          "trackNumber": 4,
-          "trackCount": 6,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/344095857"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
         "reasons": [
           "year"
         ]
@@ -3419,166 +2892,12 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
+          "title": "Breathing Room",
+          "slug": "breathing-room",
           "type": "single",
           "year": 2024
         },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Eyes On Me",
-        "slug": "fragments-eyes-on-me",
-        "type": "single",
-        "collectionType": "Track",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "artistName": "Broey.",
-        "collectionName": "Fragments",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "parentCollectionType": "EP",
-        "trackNumber": 6,
-        "trackCount": 6,
-        "rawKind": "tracks",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "344095859",
-        "tidalId": "344095859",
-        "sourceUrl": "https://tidal.com/browse/track/344095859"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Eyes On Me",
-        "slug": "fragments-eyes-on-me",
-        "type": "single",
-        "isCollection": false,
-        "suggestedTileType": "trackTile",
-        "parentCollectionTitle": "Fragments",
-        "parentCollectionSlug": "fragments",
-        "parentCollectionId": "344095853",
-        "trackNumber": 6,
-        "trackCount": 6,
-        "year": 2024,
-        "releaseDate": "2024-03-29",
-        "description": "Catalog metadata draft for Eyes On Me by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/track/344095859",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "344095859",
-          "tidalId": "344095859",
-          "artistName": "Broey.",
-          "collectionName": "Fragments",
-          "collectionType": "Track",
-          "isCollection": false,
-          "suggestedTileType": "trackTile",
-          "parentCollectionTitle": "Fragments",
-          "parentCollectionSlug": "fragments",
-          "parentCollectionId": "344095853",
-          "parentCollectionType": "EP",
-          "trackNumber": 6,
-          "trackCount": 6,
-          "rawKind": "tracks",
-          "sourceUrl": "https://tidal.com/browse/track/344095859"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
-        "reasons": [
-          "year"
-        ]
-      }
-    },
-    {
-      "catalogRelease": {
-        "title": "Numbers",
-        "slug": "numbers",
-        "type": "single",
-        "collectionType": "Single",
-        "isCollection": true,
-        "suggestedTileType": "singleTile",
-        "year": 2024,
-        "releaseDate": "2024-03-22",
-        "artistName": "Broey.",
-        "collectionName": "Numbers",
-        "trackCount": 1,
-        "rawKind": "albums",
-        "source": "tidal",
-        "provider": "tidal",
-        "sourceId": "344698087",
-        "tidalId": "344698087",
-        "sourceUrl": "https://tidal.com/browse/album/344698087"
-      },
-      "suggestedDraft": {
-        "reviewStatus": "pending",
-        "visibility": "draft",
-        "title": "Numbers",
-        "slug": "numbers",
-        "type": "single",
-        "isCollection": true,
-        "suggestedTileType": "singleTile",
-        "trackCount": 1,
-        "year": 2024,
-        "releaseDate": "2024-03-22",
-        "description": "Catalog metadata draft for Numbers by Broey. Review and replace with hand-written site copy before publishing.",
-        "mood": "Draft imported from public catalog metadata; replace with an intentional mood line.",
-        "links": [
-          {
-            "label": "TIDAL",
-            "platform": "TIDAL",
-            "url": "https://tidal.com/browse/album/344698087",
-            "kind": "streaming",
-            "primary": false
-          }
-        ],
-        "catalogSource": {
-          "provider": "tidal",
-          "source": "tidal",
-          "sourceId": "344698087",
-          "tidalId": "344698087",
-          "artistName": "Broey.",
-          "collectionName": "Numbers",
-          "collectionType": "Single",
-          "isCollection": true,
-          "suggestedTileType": "singleTile",
-          "trackCount": 1,
-          "rawKind": "albums",
-          "sourceUrl": "https://tidal.com/browse/album/344698087"
-        }
-      },
-      "bestLocalCandidate": {
-        "localRelease": {
-          "title": "I Can't Wait For Love",
-          "slug": "i-cant-wait-for-love",
-          "type": "single",
-          "year": 2024
-        },
-        "score": 10,
+        "score": 35,
         "reasons": [
           "year"
         ]
@@ -3643,10 +2962,11 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
-          "slug": "blu",
+          "title": "Hold On",
+          "slug": "hold-on",
           "type": "single",
-          "year": 2023
+          "year": 2023,
+          "releaseDate": "2023-05-08"
         },
         "score": 10,
         "reasons": [
@@ -3713,10 +3033,11 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
-          "slug": "blu",
+          "title": "Hold On",
+          "slug": "hold-on",
           "type": "single",
-          "year": 2023
+          "year": 2023,
+          "releaseDate": "2023-05-08"
         },
         "score": 10,
         "reasons": [
@@ -3797,10 +3118,11 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
-          "slug": "blu",
+          "title": "Hold On",
+          "slug": "hold-on",
           "type": "single",
-          "year": 2023
+          "year": 2023,
+          "releaseDate": "2023-05-08"
         },
         "score": 10,
         "reasons": [
@@ -3881,10 +3203,11 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
-          "slug": "blu",
+          "title": "Hold On",
+          "slug": "hold-on",
           "type": "single",
-          "year": 2023
+          "year": 2023,
+          "releaseDate": "2023-05-08"
         },
         "score": 10,
         "reasons": [
@@ -3965,10 +3288,11 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
-          "slug": "blu",
+          "title": "Hold On",
+          "slug": "hold-on",
           "type": "single",
-          "year": 2023
+          "year": 2023,
+          "releaseDate": "2023-05-08"
         },
         "score": 10,
         "reasons": [
@@ -4035,10 +3359,11 @@
       },
       "bestLocalCandidate": {
         "localRelease": {
-          "title": "BLU",
-          "slug": "blu",
+          "title": "Hold On",
+          "slug": "hold-on",
           "type": "single",
-          "year": 2023
+          "year": 2023,
+          "releaseDate": "2023-05-08"
         },
         "score": 10,
         "reasons": [
@@ -4983,6 +4308,24 @@
         "type": "single",
         "year": 2025,
         "featured": true
+      },
+      "note": "Local-only/manual release candidate. Keep this if it is unreleased, non-DSP, promotional, or intentionally managed by hand."
+    },
+    {
+      "localRelease": {
+        "title": "brainrot",
+        "slug": "brainrot",
+        "type": "single",
+        "year": 2025
+      },
+      "note": "Local-only/manual release candidate. Keep this if it is unreleased, non-DSP, promotional, or intentionally managed by hand."
+    },
+    {
+      "localRelease": {
+        "title": "Breathing Room",
+        "slug": "breathing-room",
+        "type": "single",
+        "year": 2024
       },
       "note": "Local-only/manual release candidate. Keep this if it is unreleased, non-DSP, promotional, or intentionally managed by hand."
     }

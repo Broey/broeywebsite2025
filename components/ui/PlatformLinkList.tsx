@@ -7,6 +7,8 @@ type PlatformLinkListProps = {
   limit?: number;
   hidePending?: boolean;
   showActionLabel?: boolean;
+  wrapperClassName?: string;
+  buttonsClassName?: string;
 };
 
 const groupLabels: Record<ExternalLinkKind, string> = {
@@ -25,6 +27,8 @@ export function PlatformLinkList({
   limit,
   hidePending = false,
   showActionLabel = true,
+  wrapperClassName,
+  buttonsClassName,
 }: PlatformLinkListProps) {
   const availableLinks = hidePending ? links.filter((link) => link.url && link.url !== "#") : links;
   const visibleLinks = typeof limit === "number" ? availableLinks.slice(0, limit) : availableLinks;
@@ -34,8 +38,8 @@ export function PlatformLinkList({
   }
 
   if (!groupByKind) {
-    return (
-      <div className="flex flex-wrap gap-2">
+    const buttons = (
+      <div className={["flex flex-wrap gap-2", buttonsClassName].filter(Boolean).join(" ")}>
         {visibleLinks.map((link) => (
           <ExternalServiceButton
             key={`${link.platform}-${link.kind}`}
@@ -45,6 +49,12 @@ export function PlatformLinkList({
         ))}
       </div>
     );
+
+    if (wrapperClassName) {
+      return <div className={wrapperClassName}>{buttons}</div>;
+    }
+
+    return buttons;
   }
 
   const groups = visibleLinks.reduce<Partial<Record<ExternalLinkKind, ExternalLink[]>>>(
@@ -55,14 +65,14 @@ export function PlatformLinkList({
     {},
   );
 
-  return (
-    <div className="space-y-3">
+  const listContent = (
+    <div className={wrapperClassName ?? "space-y-3"}>
       {Object.entries(groups).map(([kind, groupLinks]) => (
         <div key={kind}>
           <p className="mb-2 text-xs uppercase tracking-[0.16em] text-[var(--color-muted)]">
             {groupLabels[kind as ExternalLinkKind]}
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className={["flex flex-wrap gap-2", buttonsClassName].filter(Boolean).join(" ")}>
             {groupLinks.map((link) => (
               <ExternalServiceButton
                 key={`${link.platform}-${link.kind}`}
@@ -75,4 +85,6 @@ export function PlatformLinkList({
       ))}
     </div>
   );
+
+  return listContent;
 }

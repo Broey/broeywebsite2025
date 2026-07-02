@@ -33,6 +33,7 @@ export const releaseAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | und
   const queueArtist = release.audio?.artist ?? releaseArtistName(release);
   const queueArtwork = releaseQueueArtwork(release);
   const releaseUrl = releaseDetailHref(release);
+  const playerAccent = release.playerAccent;
 
   return {
     queueId: release.slug,
@@ -40,6 +41,7 @@ export const releaseAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | und
     queueArtist,
     queueArtwork,
     releaseUrl,
+    playerAccent,
     playContext: release.audio?.type === "project" ? "project" : "single",
     tracks: tracks.map((track) => ({
       title: track.title,
@@ -50,6 +52,7 @@ export const releaseAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | und
       duration: track.duration,
       artwork: queueArtwork,
       releaseUrl,
+      playerAccent: track.playerAccent ?? playerAccent,
     })),
     activeIndex: 0,
   };
@@ -126,6 +129,7 @@ const releaseCollectionAudioQueue = (
     queueArtist: "Broey.",
     queueArtwork: releaseQueueArtwork(release) ?? selectedQueue.queueArtwork,
     releaseUrl: releaseDetailHref(release),
+    playerAccent: release.playerAccent ?? selectedQueue.playerAccent,
     playContext,
     tracks: queuedReleases.flatMap((entry) => entry.queue.tracks),
     activeIndex,

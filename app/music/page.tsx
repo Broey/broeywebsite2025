@@ -14,9 +14,9 @@ import { releases, type ReleaseEntry } from "@/content/releases";
 import { createPageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Selected Releases",
+  title: "Selected Catalog",
   description:
-    "Explore selected Broey. releases from the current electronic era, including Fragments, dancing dumpster fire, STEREO LUV, blu., FREE, and more.",
+    "Explore selected Broey releases, including Fragments, dancing dumpster fire, STEREO LUV, blu., FREE, and more.",
   path: "/music",
   image: {
     url: "/assets/cover-art/latest-release.png",
@@ -43,11 +43,12 @@ const currentEraReleaseSlugs = [
   "i-cant-wait-for-love",
   "mean-something",
   "4u",
-  "fragments-ep",
   "fragments-remixes",
+  "fragments-ep",
 ];
 
 const transitionReleaseSlugs = [
+  "contrast",
   "warning",
   "hold-on",
   "hysteria",
@@ -65,7 +66,8 @@ export default function MusicPage() {
   const currentEraReleases = selectedReleases(currentEraReleaseSlugs);
   const transitionReleases = selectedReleases(transitionReleaseSlugs);
   const featured = findRelease("free") ?? currentEraReleases[0];
-  const featuredMeta = [releaseTypeLabel[featured.type], featured.year].filter(Boolean).join(" / ");
+  const featuredType = featured.registry?.releaseTypeDisplay ?? releaseTypeLabel[featured.type];
+  const featuredMeta = [featuredType, featured.year].filter(Boolean).join(" / ");
   const featuredQueue = releaseAudioQueueForContext(featured, releases, "archive");
   const featuredPlaySubject = featuredQueue && featuredQueue.queueTitle !== featured.title
     ? `${featured.title} from ${featuredQueue.queueTitle}`
@@ -75,9 +77,9 @@ export default function MusicPage() {
     <section className="inner-page" aria-labelledby="music-page-title">
       <PageIntro
         eyebrow="/ music"
-        title="Selected Releases"
+        title="Broey. Selects"
         titleId="music-page-title"
-        description="Broey.'s selected catalog focuses on the current era: emotionally driven electronic music shaped by house, UK garage, jungle, drum and bass, sax, guitar, vocal texture, and restless production instincts. Earlier lofi work remains part of the story, but this collection highlights the sound and direction that define Broey. now."
+        description="Selected Broey releases across house, UKG, breakbeats, drum and bass, remixes, and catalog notes."
       />
 
       <section className="hero-panel music-featured-release" aria-labelledby="music-featured-title">
@@ -116,11 +118,10 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <div className="mt-8">
+      <div className="mt-8 border-t border-white/10 pt-5">
         <SectionHeader
-          eyebrow="Selected catalog"
-          title="Current Era"
-          description="The newest Broey. releases push feeling-first production into house, bass, UKG, jungle, and raw electronic forms."
+          title="Selected Catalog"
+          description="Singles, EPs, remixes, and recent catalog highlights."
           meta={`${currentEraReleases.length} releases`}
         />
         <div className="mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -145,9 +146,9 @@ export default function MusicPage() {
       {transitionReleases.length ? (
         <div className="mt-12">
           <SectionHeader
-            eyebrow="Context"
-            title="Transition Works"
-            description="Before the current era fully arrived, Broey. began moving away from lofi roots and toward faster, more physical electronic music."
+            eyebrow="Bridge"
+            title="Out of lo-fi"
+            description="Tracks from the shift toward drum and bass, club production, and collaborations."
             meta={`${transitionReleases.length} releases`}
           />
           <div className="mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -178,7 +179,7 @@ export default function MusicPage() {
         />
         <div className="release-detail-copy">
           <p>
-            Broey.&apos;s earliest releases lived in a lofi, chillhop, and instrumental hip-hop world: warm guitars, vinyl haze, jazz textures, and wordless emotional scenes. That music is not the center of the current Broey. catalog, but it shaped the instincts behind it: mood first, texture always, and space for the listener to build their own world inside the track.
+            Broey&apos;s earliest releases lived in lo-fi, chillhop, and instrumental hip-hop: warm guitars, vinyl haze, jazz lines, dusty drums, and wordless scenes. That music is not the center of this catalog, but it shaped the production behind it.
           </p>
         </div>
       </section>

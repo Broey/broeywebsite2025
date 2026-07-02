@@ -269,14 +269,26 @@ export function ReleaseCarouselTile({
   const offset = circularOffset(index, displayPosition, safeReleaseCount);
   const distance = Math.abs(offset);
   const isActive = activeIndex === index;
-  const meta = [releaseTypeLabel[release.type], releaseDateLabel(release)].filter(Boolean).join(" / ");
+  const releaseTypeDisplay = release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
+  const meta = [releaseTypeDisplay, releaseDateLabel(release)].filter(Boolean).join(" / ");
   const detailHref = releaseDetailHref(release);
   const audioQueue = contextualAudioQueue ?? releaseAudioQueue(release);
   const side = distance < 0.001 ? "center" : offset < 0 ? "left" : "right";
   const isCurrent = Boolean(release.featured);
+  const currentReleaseBadge =
+    release.title.length <= 12 ? `${release.title} out now` : "Out now";
   const visualState = visualStateForOffset(offset, metrics, pointer, motionEnergy);
   const accentColor = isCurrent ? [211, 169, 91] : [63, 177, 217];
   const focusWeight = visualState.focusWeight;
+  const selectCard = () => {
+    if (isActive) {
+      router.push(detailHref);
+      return;
+    }
+
+    onSelect?.(index);
+  };
+
   const style: CarouselTileStyle = {
     "--carousel-x": `${visualState.x}px`,
     "--carousel-y": `${visualState.y}px`,
@@ -317,20 +329,15 @@ export function ReleaseCarouselTile({
     <article
       style={style}
       onClick={(event) => {
-        if ((event.target as HTMLElement).closest("a, button")) {
-          return;
-        }
-
         if (suppressCardClick?.()) {
           return;
         }
 
-        if (isActive) {
-          router.push(detailHref);
+        if ((event.target as HTMLElement).closest("a, button") && isActive) {
           return;
         }
 
-        onSelect?.(index);
+        selectCard();
       }}
       onDragStart={(event) => event.preventDefault()}
       data-carousel-card
@@ -360,7 +367,9 @@ export function ReleaseCarouselTile({
               {meta}
             </p>
             <div className="music-release-badge-stack">
-              {isCurrent ? <span className="music-release-status-badge">Current</span> : null}
+              {isCurrent ? (
+                <span className="music-release-status-badge">{currentReleaseBadge}</span>
+              ) : null}
             </div>
           </div>
           <h2 className="site-heading break-words text-3xl font-semibold leading-[0.98] text-white sm:text-4xl">
@@ -371,7 +380,16 @@ export function ReleaseCarouselTile({
               href={detailHref}
               aria-label={`View ${release.title} release page`}
               className="music-release-view-cta"
-              onClick={(event) => event.stopPropagation()}
+              tabIndex={isActive ? 0 : -1}
+              onClick={(event) => {
+                if (isActive) {
+                  event.stopPropagation();
+                  return;
+                }
+
+                event.preventDefault();
+                onSelect?.(index);
+              }}
             >
               Open <span aria-hidden="true">&rarr;</span>
             </Link>

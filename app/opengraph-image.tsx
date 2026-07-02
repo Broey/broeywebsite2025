@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { siteConfig } from "@/content/site";
 
 export const runtime = "edge";
-export const alt = "Broey. genre-fluid electronic artist and producer";
+export const alt = "Broey electronic artist and producer";
 export const size = {
   width: 1200,
   height: 630,
@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
               letterSpacing: -1,
             }}
           >
-            Genre-fluid electronic artist and producer.
+            Electronic artist, producer, and audio engineer.
           </div>
         </div>
       </div>

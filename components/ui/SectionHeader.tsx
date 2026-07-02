@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 type SectionHeaderProps = {
-  eyebrow: string;
-  title: string;
+  eyebrow?: string;
+  title?: string;
   titleId?: string;
   description?: string;
   meta?: ReactNode;
@@ -23,12 +23,16 @@ export function SectionHeader({
   return (
     <div className={`section-header ${className ?? ""}`}>
       <div className="section-header-copy">
-        <SectionLabel tone="section" className="section-header-eyebrow">
-          {eyebrow}
-        </SectionLabel>
-        <h2 id={titleId} className="section-header-title">
-          {title}
-        </h2>
+        {eyebrow ? (
+          <SectionLabel tone="section" className="section-header-eyebrow">
+            {eyebrow}
+          </SectionLabel>
+        ) : null}
+        {title ? (
+          <h2 id={titleId} className="section-header-title">
+            {title}
+          </h2>
+        ) : null}
         {description ? <p className="section-header-description">{description}</p> : null}
       </div>
       {meta || action ? (

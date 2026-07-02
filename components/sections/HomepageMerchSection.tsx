@@ -58,7 +58,7 @@ export function HomepageMerchSection() {
               Wear the signal.
             </h2>
             <p className="homepage-merch-copy">
-              Current Broey wearables fulfilled through the official Shopify store.
+              Current Broey wearables from the official store.
             </p>
           </div>
           <Link href="/merch" className="homepage-section-cta">

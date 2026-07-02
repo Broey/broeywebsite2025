@@ -4,9 +4,9 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { createPageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Press",
+  title: "Press & Coverage",
   description:
-    "Press and mentions for Broey., including independent reviews, features, interviews, and coverage of dancing dumpster fire, Fragments, and the project's evolution.",
+    "Press and coverage for Broey, including independent reviews, features, interviews, podcasts, video appearances, and coverage of dancing dumpster fire and Fragments.",
   path: "/press",
 });
 
@@ -15,9 +15,9 @@ export default function PressPage() {
     <section className="press-page release-detail-shell inner-page" aria-labelledby="press-page-title">
       <PageIntro
         eyebrow="/ press"
-        title="Press & Mentions"
+        title="Press & Coverage"
         titleId="press-page-title"
-        description="Independent coverage of Broey. releases, interviews, and the story around the current electronic era."
+        description="Coverage, reviews, interviews, and features documenting Broey's move from lo-fi roots into club-facing electronic releases."
       />
       <PressMentionsSection variant="archive" />
     </section>

@@ -8,7 +8,7 @@ import { siteConfig } from "@/content/site";
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact Broey. about music, collaborations, audio work, press, community, or project notes.",
+    "Contact Broey about music, collaborations, audio work, press, or direct notes.",
   path: "/contact",
 });
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
         eyebrow="/ contact"
         title="Contact"
         titleId="contact-page-title"
-        description="Reach out about music, collaborations, audio work, press, community, or project notes."
+        description="Reach out about music, collaborations, mixing or audio work, press, or direct notes."
       />
 
       <section className="contact-main-panel" aria-label="Contact options">
@@ -33,9 +33,9 @@ export default function ContactPage() {
         >
           <SectionHeader
             eyebrow="Message"
-            title="Send an Inquiry"
+            title="Send a Note"
             titleId="contact-form-title"
-            description="Use the form for music questions, collaborations, audio work, press, community notes, or anything connected to Broey."
+            description="Use the form for music questions, collaborations, mixing or audio work, press, or a specific note for Broey."
           />
           <ContactForm />
         </div>
@@ -51,10 +51,10 @@ export default function ContactPage() {
             <a href={`mailto:${contactEmail}`} className="contact-inline-link">
               {contactEmail}
             </a>
-            . Join the Broey Discord for community, updates, direct sharing, and a more casual way to stay connected.
+            . Join the Broey Discord for quick updates, feedback, and a more casual place to talk.
           </p>
           <p className="contact-discord-note">
-            Good for quick updates, direct sharing, and casual conversation.
+            Good for sharing tracks, catching drop notes, and keeping the conversation loose.
           </p>
           {discordLink?.url && discordLink.url !== "#" ? (
             <a

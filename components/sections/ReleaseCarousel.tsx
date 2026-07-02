@@ -91,7 +91,8 @@ export function ReleaseCarousel() {
 
       <ReleaseCarouselShell labelledBy={carouselTitleId}>
         {sortedReleases.map((release) => {
-          const meta = [releaseTypeLabel[release.type], release.year].filter(Boolean).join(" / ");
+          const releaseTypeDisplay = release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
+          const meta = [releaseTypeDisplay, release.year].filter(Boolean).join(" / ");
           const href = releaseHref(release);
           const hasExternalHref = isRealUrl(href);
           const hasAudioPreview = publicFileExists(release.audioPreview);

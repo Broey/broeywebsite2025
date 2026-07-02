@@ -2,17 +2,14 @@ import type { Metadata } from "next";
 
 export const gateCookieName = "broey_private_preview";
 
-const privateVisibility = "private";
 const publicVisibility = "public";
 
 export function siteVisibility() {
-  return process.env.SITE_VISIBILITY?.trim().toLowerCase() === privateVisibility
-    ? privateVisibility
-    : publicVisibility;
+  return publicVisibility;
 }
 
 export function isSitePrivate() {
-  return siteVisibility() === privateVisibility;
+  return false;
 }
 
 export function getSitePasscode() {

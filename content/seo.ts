@@ -8,7 +8,7 @@ export const defaultSocialImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "Broey. genre-fluid electronic artist and producer",
+  alt: "Broey electronic artist and producer",
 };
 
 export const twitterSocialImage = defaultSocialImage.url;

@@ -16,6 +16,7 @@ export const releasePlayerHref = (release: Pick<ReleaseEntry, "slug">) =>
   `${releaseDetailHref(release)}#player`;
 
 const platformOrder = [
+  "Disco",
   "Spotify",
   "Apple Music",
   "SoundCloud",
@@ -36,8 +37,7 @@ const findPlatformRank = (platform: string) =>
 
 const isVisiblePlatformLink = (link: ReleaseEntry["links"][number]) =>
   isRealUrl(link.url) &&
-  platformRanks.has(link.platform.toLowerCase()) &&
-  link.platform.toLowerCase() !== "disco";
+  platformRanks.has(link.platform.toLowerCase());
 
 const tidalCatalogLink = (release: ReleaseEntry): ReleaseEntry["links"][number] | undefined => {
   const source = release.catalogSource?.provider ?? release.catalogSource?.source;

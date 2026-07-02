@@ -121,3 +121,4 @@ None.
 - Dancing dumpster fire Spotify URL discrepancy remains unresolved; existing site URL was intentionally left unchanged.
 - CreateMusic smart links are not displayed in the release platform module because of existing platform filtering. This is acceptable for Phase 1A-QA and avoids presenting smart hubs as direct DSP links.
 - Mobile screenshot capture was unavailable due blank headless Chrome output in this environment.
+

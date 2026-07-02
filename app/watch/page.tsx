@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/content/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Watch",
   description:
-    "Broey videos, visualizers, clips, reels, and behind-the-scenes motion work.",
+    "Broey videos, visualizers, clips, reels, and studio notes.",
   path: "/watch",
 });
 

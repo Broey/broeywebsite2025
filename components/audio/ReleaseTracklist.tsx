@@ -71,9 +71,11 @@ export function ReleaseTracklist({ release, trackLinks = [] }: ReleaseTracklistP
           titlesMatch(audioTrack.title, title),
         ) ?? -1;
         const queueTrackIndex = keyMatchedIndex >= 0 ? keyMatchedIndex : titleMatchedIndex;
-        const trackLink = trackLinks.find((link) =>
-          keysMatch(link.slug, slug) || keysMatch(link.slug, audioKey) || titlesMatch(link.title, title),
-        );
+        const trackLink =
+          trackLinks.find((link) =>
+            keysMatch(link.slug, slug) || keysMatch(link.slug, audioKey),
+          ) ??
+          trackLinks.find((link) => titlesMatch(link.title, title));
         const audioTrack = queueTrackIndex >= 0 ? queue?.tracks[queueTrackIndex] : undefined;
         const detail = [trackArtist(track), trackDuration(track) ?? audioTrack?.duration]
           .filter(Boolean)

@@ -10,7 +10,7 @@ type ButtonProps = {
 };
 
 const styles: Record<Variant, string> = {
-  primary: "system-button system-button--primary",
+  primary: "system-button system-button--primary button-primary cta-primary",
   secondary: "system-button system-button--secondary",
   tertiary: "system-tertiary-link",
 };

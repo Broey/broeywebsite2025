@@ -43,8 +43,8 @@ export function Footer() {
           id="site-footer-mailing-list"
           className="site-footer-signup"
           variant="footer"
-          heading="Stay close to the next Broey. era."
-          body="New releases, merch drops, release notes, and occasional updates."
+          heading="Get drop notes."
+          body="New tracks, first links, merch drops, and occasional notes."
           hiddenFields={{ source: "site-footer" }}
         />
 

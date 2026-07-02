@@ -27,7 +27,8 @@ export const showReleaseInArchive = (release: ReleaseEntry) =>
   (release.showInArchive !== false && !release.isProjectTrack);
 
 export const showReleaseInSitemap = (release: ReleaseEntry) =>
-  release.showInSitemap !== false;
+  release.showInSitemap === true ||
+  (release.showInSitemap !== false && showReleaseInArchive(release));
 
 export const archiveReleases = <T extends ReleaseEntry>(releases: T[]) =>
   releases.filter(showReleaseInArchive);

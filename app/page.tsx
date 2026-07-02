@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/content/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Home",
   description:
-    "Broey. is a genre-fluid electronic artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, PA, blending house, UK garage, jungle, drum and bass, sax, guitar, and raw emotional production.",
+    "Broey is an electronic artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, PA, with releases across lo-fi, house, UK garage, jungle, drum and bass, sax, and guitar.",
   path: "/",
   image: {
     url: "/assets/cover-art/latest-release.png",

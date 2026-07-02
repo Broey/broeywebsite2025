@@ -11,6 +11,7 @@ export type GlobalAudioTrack = {
   artwork?: string;
   releaseUrl?: string;
   duration?: string;
+  playerAccent?: string;
 };
 
 export type GlobalAudioPlayContext = "highlighted" | "archive" | "project" | "single";
@@ -21,6 +22,7 @@ export type GlobalAudioQueue = {
   queueArtist: string;
   queueArtwork?: string;
   releaseUrl?: string;
+  playerAccent?: string;
   playContext?: GlobalAudioPlayContext;
   tracks: GlobalAudioTrack[];
   activeIndex: number;

@@ -37,8 +37,8 @@ const defaultCopy: Record<
 > = {
   panel: {
     eyebrow: "MAILING LIST",
-    heading: "Stay close to the music.",
-    body: "Get release notes, early links, merch drops, and occasional updates from Broey. No spam. Just the important stuff.",
+    heading: "Get drop notes.",
+    body: "New tracks, first links, merch drops, and occasional notes from Broey. No spam.",
     inputPlaceholder: "Email address",
     buttonLabel: "Join List",
     finePrint:
@@ -47,7 +47,7 @@ const defaultCopy: Record<
   footer: {
     eyebrow: "JOIN THE LIST",
     heading: "Join the list",
-    body: "Release notes, early links, merch drops, and occasional updates.",
+    body: "New tracks, first links, merch drops, and occasional notes.",
     inputPlaceholder: "Email address",
     buttonLabel: "Join",
     finePrint: "Unsubscribe anytime.",
@@ -118,7 +118,7 @@ export function EmailSignup({
       const message =
         payload?.message ??
         (response.ok
-          ? "You are on the list. Thanks for staying close to the music."
+          ? "You are on the list. Thanks for joining."
           : "Mailing list signup is not connected yet. Please try again soon.");
 
       setStatus({
@@ -187,7 +187,7 @@ export function EmailSignup({
             aria-describedby={`${finePrintId}${status ? ` ${statusId}` : ""}`}
             required
           />
-          <button className="email-signup-button" type="submit" disabled={isSubmitting}>
+          <button className="email-signup-button button-primary cta-primary" type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Joining..." : (buttonLabel ?? copy.buttonLabel)}
           </button>
         </div>

@@ -42,11 +42,6 @@ export function MusicCarouselHero() {
           Highlighted Releases
         </h1>
 
-        <div className="music-carousel-label-row" aria-hidden="true">
-          <p>/ Broey</p>
-          <span>/ Now out</span>
-        </div>
-
         <ReleaseCarousel
           labelledBy={carouselTitleId}
           initialIndex={initialIndex}

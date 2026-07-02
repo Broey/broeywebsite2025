@@ -144,10 +144,10 @@ export function ContactForm() {
         </div>
         <label className="contact-form-checkbox">
           <input name="updatesOptIn" type="checkbox" value="yes" />
-          <span>Send me occasional Broey updates, release notes, and merch drops.</span>
+          <span>Send me occasional Broey drop notes, first links, and merch updates.</span>
         </label>
-        <button type="submit" className="contact-form-button" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send Inquiry"}
+        <button type="submit" className="contact-form-button button-primary cta-primary" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send Note"}
         </button>
       </form>
       <p id="contact-form-note" className="contact-form-note">

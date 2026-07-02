@@ -31,9 +31,10 @@ export function ReleaseCard({
   audioQueue,
   playLabel,
 }: Props) {
+  const releaseTypeDisplay = release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
   const releaseMeta = release.year
-    ? `${releaseTypeLabel[release.type]} / ${release.year}`
-    : releaseTypeLabel[release.type];
+    ? `${releaseTypeDisplay} / ${release.year}`
+    : releaseTypeDisplay;
   const resolvedCtaHref = ctaHref ?? releaseDetailHref(release);
   const resolvedCtaLabel = ctaLabel ?? "View Release";
   const playSubject = audioQueue && audioQueue.queueTitle !== release.title

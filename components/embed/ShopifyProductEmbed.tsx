@@ -15,11 +15,11 @@ export function ShopifyProductEmbed({ product }: { product: MerchProduct }) {
       ) : (
         <div className="pending-artwork rounded-lg border border-white/10 p-4">
           <p className="text-xs font-semibold uppercase text-[var(--color-amber)]">
-            Official Shopify
+            Official store
           </p>
           <h3 className="mt-3 text-xl font-semibold text-white">{product.title}</h3>
           <p className="mt-2 text-sm text-[var(--color-muted)]">
-            This item opens in the official Broey Shopify store.
+            This item opens in the official Broey store.
           </p>
           <a
             href={product.href}

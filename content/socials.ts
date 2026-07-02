@@ -81,7 +81,7 @@ export const socials: SocialLinkEntry[] = [
   },
   {
     platform: "Mailing List",
-    label: "Sign up for Broey.'s Mailing List",
+    label: "Sign up for Broey's mailing list",
     url: "/#homepage-mailing-list",
     kind: "mailing-list",
   },

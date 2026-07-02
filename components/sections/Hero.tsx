@@ -33,7 +33,7 @@ export function Hero({ featured }: { featured: ReleaseEntry }) {
             Broey. / Independent electronic artist
           </p>
           <h1 id="hero-title" className="hero-title site-heading mt-4 font-bold">
-            Electronic music with feeling, motion, and clean low-end pressure.
+            Electronic music from Scranton, PA.
           </h1>
           <p className="mt-5 max-w-2xl text-base text-[var(--color-muted)] sm:text-lg">
             {siteConfig.shortBio}
@@ -45,7 +45,7 @@ export function Hero({ featured }: { featured: ReleaseEntry }) {
               variant="secondary"
               className="bg-transparent text-xs uppercase hover:text-[var(--color-amber)]"
             >
-              Explore Selected Releases
+              Browse the catalog
             </Button>
           </div>
 
