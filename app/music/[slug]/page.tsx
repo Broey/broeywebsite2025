@@ -23,6 +23,7 @@ import {
   trackRegistryByReleaseSlug,
   type GeneratedTrackRegistry,
 } from "@/content/musicRegistry.generated";
+import { normalizedGenres } from "@/content/genres";
 import {
   releaseDisplayArtist,
   releaseFactualDescription,
@@ -231,7 +232,7 @@ const releaseLabelName = (release: ReleaseEntry, labelDetail?: ReleaseDetail) =>
   labelDetail?.value ?? release.registry?.label ?? "Broey.";
 
 const releaseTags = (release: ReleaseEntry) =>
-  (release.tags ?? []).filter(Boolean).slice(0, 3);
+  normalizedGenres(release);
 
 const isMultiTrackProject = (release: ReleaseEntry) => {
   if (

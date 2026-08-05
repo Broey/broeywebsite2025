@@ -1476,6 +1476,24 @@ body.has-global-player .site-shell {
   line-height: 1.12;
 }
 
+.release-grid-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.36rem;
+  margin-top: 0.72rem;
+}
+
+.release-grid-card-tags span {
+  border: 1px solid rgba(240, 236, 225, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.024);
+  padding: 0.25rem 0.46rem;
+  color: var(--color-muted);
+  font-size: 0.68rem;
+  font-weight: 620;
+  line-height: 1;
+}
+
 .release-grid-card-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1679,6 +1697,84 @@ body.has-global-player .site-shell {
   border-color: rgba(240, 182, 77, 0.42);
   background: rgba(240, 182, 77, 0.08);
   color: white;
+}
+
+.music-catalog-filter {
+  margin-top: 1.5rem;
+}
+
+.music-filter-toolbar {
+  display: grid;
+  gap: 0.78rem;
+  border-top: 1px solid rgba(240, 236, 225, 0.1);
+  padding-top: 1rem;
+}
+
+.music-filter-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.music-filter-heading p {
+  margin: 0;
+}
+
+.music-filter-count {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+}
+
+.music-filter-controls {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 0.46rem;
+}
+
+.music-filter-button {
+  border: 1px solid rgba(240, 236, 225, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  padding: 0.48rem 0.7rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 680;
+  line-height: 1;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.music-filter-button:hover,
+.music-filter-button:focus-visible {
+  border-color: rgba(63, 177, 217, 0.56);
+  color: white;
+}
+
+.music-filter-button:focus-visible {
+  outline: 2px solid rgba(63, 177, 217, 0.48);
+  outline-offset: 2px;
+}
+
+.music-filter-button[data-selected="true"] {
+  border-color: rgba(211, 169, 91, 0.7);
+  background: rgba(211, 169, 91, 0.14);
+  color: var(--color-amber);
+}
+
+.music-filter-empty {
+  margin: 1.25rem 0 0;
+  border: 1px solid rgba(240, 236, 225, 0.1);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  color: var(--color-muted);
+  text-align: center;
 }
 
 .music-listen-everywhere {

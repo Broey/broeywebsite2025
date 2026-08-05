@@ -1,3 +1,4 @@
+import { normalizedGenres } from "@/content/genres";
 import type { ReleaseEntry } from "@/content/releases";
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
@@ -14,12 +15,14 @@ export const releaseDisplayArtist = (release: ReleaseEntry) =>
 export function releaseFactualDescription(release: ReleaseEntry) {
   const artist = releaseDisplayArtist(release);
   const releaseType = release.isProjectTrack ? "track" : releaseTypeLabel[release.type];
-  const article = releaseType === "EP" ? "an" : "a";
+  const primaryGenre = normalizedGenres(release)[0];
+  const factualType = [primaryGenre, releaseType].filter(Boolean).join(" ");
+  const article = /^[aeiou]/i.test(factualType) ? "an" : "a";
   const year = release.year ?? release.releaseDate?.match(/^\d{4}/)?.[0];
 
   if (!year) {
     return `Listen to ${release.title} by ${artist}.`;
   }
 
-  return `Listen to ${release.title} by ${artist}, ${article} ${releaseType} released in ${year}.`;
+  return `Listen to ${release.title} by ${artist}, ${article} ${factualType} released in ${year}.`;
 }
