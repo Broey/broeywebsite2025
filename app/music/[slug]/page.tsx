@@ -17,6 +17,7 @@ import { ShareReleaseButton } from "@/components/ui/ShareReleaseButton";
 import {
   releaseDetailHref,
   releasePlatformLinks,
+  shouldExposePublicDisco,
 } from "@/content/release-actions";
 import { sortedArchiveReleases } from "@/content/release-filters";
 import {
@@ -331,7 +332,11 @@ const releaseCreditRows = (release: ReleaseEntry): ReleaseCredit[] => {
 };
 
 const releaseDiscoEmbed = (release: ReleaseEntry) => {
-  if (release.embed?.provider === "disco" && (release.embed.src || release.embed.embedUrl)) {
+  if (
+    shouldExposePublicDisco(release) &&
+    release.embed?.provider === "disco" &&
+    (release.embed.src || release.embed.embedUrl)
+  ) {
     return release.embed;
   }
 

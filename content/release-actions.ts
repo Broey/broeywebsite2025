@@ -32,12 +32,50 @@ const platformRanks = new Map(
   platformOrder.map((platform, index) => [platform.toLowerCase(), index]),
 );
 
+const isDiscoPlatform = (platform?: string) =>
+  platform?.trim().toLowerCase() === "disco";
+
+const isDiscoLink = (link: ReleaseEntry["links"][number]) =>
+  link.kind === "disco" || isDiscoPlatform(link.platform);
+
 const findPlatformRank = (platform: string) =>
   platformRanks.get(platform.toLowerCase()) ?? Number.MAX_SAFE_INTEGER;
 
 const isVisiblePlatformLink = (link: ReleaseEntry["links"][number]) =>
   isRealUrl(link.url) &&
   platformRanks.has(link.platform.toLowerCase());
+
+export const hasApprovedPublicStreamingDestination = (release: ReleaseEntry) => {
+  const sourceLinks = release.platformLinks?.length ? release.platformLinks : release.links;
+  const hasVisibleStreamingLink = sourceLinks.some(
+    (link) =>
+      !isDiscoLink(link) &&
+      link.kind === "streaming" &&
+      isVisiblePlatformLink(link),
+  );
+  const catalogProvider = release.catalogSource?.provider ?? release.catalogSource?.source;
+  const hasPublicCatalogSource =
+    catalogProvider?.toLowerCase() === "tidal" &&
+    isRealUrl(release.catalogSource?.sourceUrl);
+
+  return Boolean(
+    hasVisibleStreamingLink ||
+      hasPublicCatalogSource ||
+      (release.isProjectTrack && release.parentReleaseSlug),
+  );
+};
+
+export const shouldExposePublicDisco = (release: ReleaseEntry) => {
+  if (release.disco?.publicUse) {
+    return true;
+  }
+
+  if (release.visibility === "draft" || release.catalogStatus === "draft") {
+    return true;
+  }
+
+  return !hasApprovedPublicStreamingDestination(release);
+};
 
 const tidalCatalogLink = (release: ReleaseEntry): ReleaseEntry["links"][number] | undefined => {
   const source = release.catalogSource?.provider ?? release.catalogSource?.source;
@@ -57,7 +95,10 @@ const tidalCatalogLink = (release: ReleaseEntry): ReleaseEntry["links"][number] 
 
 export const releasePlatformLinks = (release: ReleaseEntry) => {
   const sourceLinks = release.platformLinks?.length ? release.platformLinks : release.links;
-  const links = sourceLinks.filter(isVisiblePlatformLink);
+  const exposeDisco = shouldExposePublicDisco(release);
+  const links = sourceLinks.filter(
+    (link) => isVisiblePlatformLink(link) && (exposeDisco || !isDiscoLink(link)),
+  );
   const catalogLink = tidalCatalogLink(release);
 
   if (catalogLink && !links.some((link) => link.platform.toLowerCase() === "tidal")) {
@@ -74,8 +115,16 @@ export const releasePlatformLinks = (release: ReleaseEntry) => {
 
 const releaseListenAction = (
   action?: ReleaseListenAction,
+  exposeDisco = false,
 ): ReleaseActionLink | undefined => {
   if (!action) {
+    return undefined;
+  }
+
+  const isDiscoAction =
+    action.kind === "disco-embed" || isDiscoPlatform(action.provider);
+
+  if (isDiscoAction && !exposeDisco) {
     return undefined;
   }
 
@@ -114,37 +163,49 @@ const releaseListenAction = (
 };
 
 export const primaryListenAction = (release: ReleaseEntry): ReleaseActionLink => {
-  const modeledAction = releaseListenAction(release.listenAction);
+  const exposeDisco = shouldExposePublicDisco(release);
+  const modeledAction = releaseListenAction(release.listenAction, exposeDisco);
 
-  if (modeledAction) {
+  if (modeledAction && modeledAction.mode !== "disco-embed") {
     return modeledAction;
   }
 
-  const discoUrl = [
-    release.disco?.publicUrl,
-    release.disco?.promoUrl,
-    release.disco?.privateShareUrl,
-    release.embed?.externalUrl,
-    release.embed?.embedUrl,
-  ].find(isRealUrl);
-
-  if (discoUrl) {
-    return {
-      href: discoUrl,
-      external: true,
-      mode: "disco-embed",
-    };
-  }
-
+  const platformLinks = releasePlatformLinks(release);
   const directLink =
-    release.links.find((link) => link.primary && isRealUrl(link.url)) ??
-    release.links.find((link) => isRealUrl(link.url));
+    platformLinks.find(
+      (link) => link.primary && !isDiscoLink(link) && isRealUrl(link.url),
+    ) ??
+    platformLinks.find(
+      (link) => !isDiscoLink(link) && isRealUrl(link.url),
+    );
 
   if (directLink) {
     return {
       href: directLink.url,
       external: true,
       mode: "external",
+    };
+  }
+
+  if (modeledAction) {
+    return modeledAction;
+  }
+
+  const discoUrl = exposeDisco
+    ? [
+        release.disco?.publicUrl,
+        release.disco?.promoUrl,
+        release.disco?.privateShareUrl,
+        release.embed?.externalUrl,
+        release.embed?.embedUrl,
+      ].find(isRealUrl)
+    : undefined;
+
+  if (discoUrl) {
+    return {
+      href: discoUrl,
+      external: true,
+      mode: "disco-embed",
     };
   }
 

@@ -185,6 +185,7 @@ export type ReleaseEntry = {
     privateShareUrl?: string;
     promoUrl?: string;
     downloadUrl?: string;
+    publicUse?: "preview" | "press" | "industry";
   };
   embed?: ReleaseEmbed;
   listenAction?: ReleaseListenAction;
