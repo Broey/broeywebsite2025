@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/content/site";
 
-export const runtime = "edge";
 export const alt = "Broey electronic artist and producer";
 export const size = {
   width: 1200,

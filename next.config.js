@@ -1,18 +1,15 @@
-const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
-
-/** @type {(phase: string) => import('next').NextConfig} */
-module.exports = (phase) => ({
-  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-dev" : ".next",
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    outputFileTracingIgnores: ["**/public/**/*"],
-    outputFileTracingExcludes: {
-      "/": ["./public/**/*", "public/**/*", "**/public/**/*"],
-      "/about": ["./public/**/*", "public/**/*", "**/public/**/*"],
-      "/merch": ["./public/**/*", "public/**/*", "**/public/**/*"],
-      "/music": ["./public/**/*", "public/**/*", "**/public/**/*"],
-      "/music/[slug]": ["./public/**/*", "public/**/*", "**/public/**/*"],
-    },
+  turbopack: {
+    root: __dirname,
+  },
+  outputFileTracingExcludes: {
+    "/": ["./public/**/*", "public/**/*", "**/public/**/*"],
+    "/about": ["./public/**/*", "public/**/*", "**/public/**/*"],
+    "/merch": ["./public/**/*", "public/**/*", "**/public/**/*"],
+    "/music": ["./public/**/*", "public/**/*", "**/public/**/*"],
+    "/music/[slug]": ["./public/**/*", "public/**/*", "**/public/**/*"],
   },
   images: {
     remotePatterns: [
@@ -26,4 +23,6 @@ module.exports = (phase) => ({
       },
     ],
   },
-});
+};
+
+module.exports = nextConfig;
