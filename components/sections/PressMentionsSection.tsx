@@ -281,7 +281,7 @@ function AboutPressTeaser() {
   const featuredItem = aboutPressItems.find((item) => item.group === "featured-coverage");
   const supportingItems = aboutPressItems
     .filter((item) => item.id !== featuredItem?.id)
-    .slice(0, 2);
+    .slice(0, 3);
 
   if (!featuredItem) {
     return null;
@@ -300,35 +300,29 @@ function AboutPressTeaser() {
         description={about.description}
       />
       <div className="about-press-teaser-grid">
-        <article className="about-press-teaser-feature">
-          <p className="press-mention-outlet">{featuredItem.outlet}</p>
-          <p className="press-mention-topic">Release &mdash; {featuredItem.releaseOrTopic}</p>
-          {featuredItem.pullQuote ? (
-            <blockquote className="press-ledger-quote">
-              &quot;{featuredItem.pullQuote}&quot;
-            </blockquote>
-          ) : null}
-          <p className="press-ledger-summary">{featuredItem.summary}</p>
-          <PressExternalLink item={featuredItem} label="Read Coverage" />
-        </article>
+        <PressFeatured item={featuredItem} label="Featured coverage" />
 
-        <div className="about-press-mini-list">
+        <div className="about-press-mini-list" aria-label="Supporting press coverage">
           {supportingItems.map((item) => (
             <article key={item.id} className="about-press-mini-item">
               <div>
                 <p className="press-mention-outlet">{item.outlet}</p>
                 <p className="press-mention-topic">Release &mdash; {item.releaseOrTopic}</p>
               </div>
+              <h3 className="about-press-mini-title">{item.title}</h3>
               {item.pullQuote ? (
                 <blockquote className="press-mini-quote">
                   &quot;{item.pullQuote}&quot;
                 </blockquote>
               ) : null}
+              <p className="press-ledger-summary">{item.summary}</p>
+              <PressExternalLink item={item} label="Read coverage" />
             </article>
           ))}
         </div>
       </div>
       <div className="about-press-teaser-footer">
+        <p className="about-press-teaser-footer-label">Full Press page</p>
         <Link href={about.ctaHref} className="release-detail-secondary-cta">
           {about.ctaLabel} <span aria-hidden="true">&rarr;</span>
         </Link>

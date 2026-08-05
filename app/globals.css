@@ -3486,40 +3486,67 @@ body.has-global-player .site-shell {
   margin-top: 0;
 }
 
+.about-press-teaser {
+  overflow: hidden;
+  border: 1px solid rgba(240, 236, 225, 0.12);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(63, 177, 217, 0.08), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.008));
+  padding: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.about-press-teaser > .section-header {
+  border-bottom: 1px solid rgba(240, 236, 225, 0.1);
+  padding-bottom: clamp(1rem, 2vw, 1.3rem);
+}
+
 .about-press-teaser-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
-  gap: clamp(0.78rem, 1.6vw, 1.1rem);
-  align-items: stretch;
+  gap: clamp(0.9rem, 1.8vw, 1.2rem);
+  margin-top: clamp(1rem, 2vw, 1.3rem);
 }
 
-.about-press-teaser-feature {
-  display: grid;
-  align-content: start;
-  gap: 0.58rem;
-  min-width: 0;
-  border-top: 1px solid rgba(240, 236, 225, 0.12);
-  padding-top: 0.9rem;
+.about-press-teaser .press-mention-featured {
+  border-color: rgba(211, 169, 91, 0.24);
+  background:
+    linear-gradient(145deg, rgba(211, 169, 91, 0.065), rgba(63, 177, 217, 0.022)),
+    rgba(7, 9, 12, 0.34);
+  padding: clamp(1rem, 2.2vw, 1.45rem);
 }
 
-.about-press-teaser-feature .press-mention-link {
-  margin-top: 0.12rem;
+.about-press-teaser .press-mention-link {
+  min-height: 2.75rem;
 }
 
 .about-press-mini-list {
   display: grid;
-  border-top: 1px solid rgba(240, 236, 225, 0.12);
+  gap: clamp(0.72rem, 1.4vw, 0.95rem);
 }
 
 .about-press-mini-item {
-  display: grid;
-  gap: 0.48rem;
-  border-bottom: 1px solid rgba(240, 236, 225, 0.1);
-  padding: 0.82rem 0;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.62rem;
+  border: var(--border-card);
+  border-radius: var(--radius-card-compact);
+  background: rgba(255, 255, 255, 0.014);
+  padding: clamp(0.9rem, 1.5vw, 1.12rem);
 }
 
 .about-press-mini-item .press-mention-topic {
   margin-top: 0.26rem;
+}
+
+.about-press-mini-title {
+  margin: 0;
+  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.3vw, 1.16rem);
+  font-weight: 640;
+  line-height: 1.12;
+  letter-spacing: 0;
 }
 
 .press-mini-quote {
@@ -3531,12 +3558,38 @@ body.has-global-player .site-shell {
   line-height: 1.18;
 }
 
+.about-press-mini-item .press-ledger-summary {
+  margin-top: 0;
+}
+
+.about-press-mini-item .press-mention-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
 .about-press-teaser-footer {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: clamp(1.2rem, 3vw, 1.7rem);
   padding-top: 1rem;
   border-top: 1px solid rgba(240, 236, 225, 0.11);
+}
+
+.about-press-teaser-footer-label {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.68rem;
+  font-weight: 780;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1120px) {
+  .about-press-mini-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .press-page .press-archive-section {
