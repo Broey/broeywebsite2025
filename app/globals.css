@@ -1476,17 +1476,6 @@ body.has-global-player .site-shell {
   line-height: 1.12;
 }
 
-.release-grid-card-description {
-  display: -webkit-box;
-  overflow: hidden;
-  margin: 0.68rem 0 0;
-  color: var(--color-muted);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
 .release-grid-card-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1637,13 +1626,6 @@ body.has-global-player .site-shell {
   display: grid;
   gap: 0.52rem;
   max-width: 34rem;
-}
-
-.music-featured-summary p:not(.release-detail-section-kicker) {
-  margin: 0;
-  color: rgba(238, 242, 248, 0.78);
-  font-size: 0.98rem;
-  line-height: 1.62;
 }
 
 .music-featured-actions {
@@ -3954,14 +3936,6 @@ body.has-global-player .site-shell {
   font-weight: 520;
 }
 
-.release-detail-description {
-  max-width: 38rem;
-  margin: 0;
-  color: var(--color-muted);
-  font-size: 1.04rem;
-  line-height: 1.68;
-}
-
 .release-detail-tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -5115,8 +5089,7 @@ body.has-global-player .site-shell {
 }
 
 .release-detail-more-card p,
-.release-detail-more-card h3,
-.release-detail-more-card span {
+.release-detail-more-card h3 {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5138,16 +5111,6 @@ body.has-global-player .site-shell {
   font-weight: 680;
   line-height: 1.08;
   white-space: nowrap;
-}
-
-.release-detail-more-card span {
-  display: -webkit-box;
-  margin-top: 0.32rem;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  color: var(--color-muted);
-  font-size: 0.78rem;
-  line-height: 1.35;
 }
 
 .release-detail-back-row {
@@ -6844,11 +6807,6 @@ a.about-pillar-card:hover {
 
   .release-detail-artist {
     font-size: 1.22rem;
-  }
-
-  .release-detail-description {
-    font-size: 0.98rem;
-    line-height: 1.62;
   }
 
   .release-detail-cta-row {

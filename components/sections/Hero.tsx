@@ -79,7 +79,6 @@ export function Hero({ featured }: { featured: ReleaseEntry }) {
                 Latest release
               </p>
               <h2 className="site-heading mt-1 text-3xl font-semibold">{featured.title}</h2>
-              <p className="mt-2 text-sm text-[var(--color-muted)]">{featured.description}</p>
               {hasAudioPreview ? (
                 <div className="mt-4">
                   <AudioPreview

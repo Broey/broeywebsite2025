@@ -95,7 +95,6 @@ export default function MusicPage() {
               <h2 id="music-featured-title" className="music-featured-title">
                 {featured.title}
               </h2>
-              <p>{featured.mood ?? featured.description}</p>
             </div>
             <div className="music-featured-actions">
               {featuredQueue ? (

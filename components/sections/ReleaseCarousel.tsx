@@ -124,9 +124,6 @@ export function ReleaseCarousel() {
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-3 min-h-[3.9rem] text-sm text-[var(--color-muted)]">
-                  {release.mood ?? release.description}
-                </p>
                 <div className="mt-auto pt-4">
                   {hasAudioPreview ? (
                     <AudioPreview

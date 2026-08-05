@@ -49,7 +49,6 @@ export function ReleaseCard({
       <div className="release-grid-card-copy">
         <p className="release-grid-card-meta">{releaseMeta}</p>
         <h3 className="release-grid-card-title">{release.title}</h3>
-        <p className="release-grid-card-description">{release.description}</p>
         <div className="release-grid-card-actions">
           {audioQueue ? (
             <ReleasePlayButton

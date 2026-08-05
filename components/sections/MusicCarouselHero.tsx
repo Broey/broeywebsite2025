@@ -1,6 +1,9 @@
 import { releaseAudioQueueForContext } from "@/components/audio/releaseAudioQueue";
 import { ReleaseCarousel } from "@/components/ui/ReleaseCarousel";
-import { ReleaseCarouselTile } from "@/components/ui/ReleaseCarouselTile";
+import {
+  ReleaseCarouselTile,
+  type CarouselRelease,
+} from "@/components/ui/ReleaseCarouselTile";
 import { shouldUseFallbackArtwork } from "@/components/ui/ReleaseArtwork";
 import { releases, type ReleaseEntry } from "@/content/releases";
 
@@ -16,11 +19,18 @@ const buildCarouselOrder = (releaseList: ReleaseEntry[]) => {
   };
 };
 
-const prepareCarouselRelease = (release: ReleaseEntry): ReleaseEntry => ({
-  ...release,
+const prepareCarouselRelease = (release: ReleaseEntry): CarouselRelease => ({
+  title: release.title,
+  slug: release.slug,
+  type: release.type,
+  year: release.year,
+  releaseDate: release.releaseDate,
   coverImage: shouldUseFallbackArtwork(release.coverImage) ? undefined : release.coverImage,
-  description: "",
-  mood: undefined,
+  coverAlt: release.coverAlt,
+  featured: release.featured,
+  releaseTypeDisplay: release.registry?.releaseTypeDisplay,
+  tileKind:
+    release.catalogSource?.suggestedTileType === "collectionTile" ? "collection" : "single",
 });
 
 export function MusicCarouselHero() {
