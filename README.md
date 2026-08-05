@@ -74,6 +74,16 @@ Both Contact and newsletter submissions use the same Cloudflare Turnstile client
 
 Both form clients handle HTTP 429 responses and `Retry-After` guidance. Application-level counters, Redis, and a rate-limit datastore are intentionally not included. Distributed rate limiting remains an open requirement to configure with the eventual production host.
 
+## V1 Public Content Policy
+
+The V1 public surface intentionally excludes `/watch` and the draft LiNK and Paradise releases. Their source material remains in the repository, but the routes return 404 and the items are excluded from public collections, metadata, sitemaps, and audio queues.
+
+Release and track descriptions are retained as private draft data in the content sources but are not rendered, serialized to public components where avoidable, or used in public metadata. Release and track metadata instead uses neutral factual templates built from approved titles, artists, dates, types, and normalized genres.
+
+Genre display and filtering share the centralized taxonomy in `content/genres.ts`. The `/music` filters run entirely in the browser, default to `All`, preserve active audio, and do not create query parameters, genre routes, alternate canonical URLs, or sitemap entries. Review `docs/launch-readiness/V1_GENRE_INVENTORY.md` before changing taxonomy mappings; unresolved or missing factual genres should remain unlabeled until the owner approves them.
+
+The checked-in `.vercelignore` supports the current preview workflow, but application runtime behavior does not depend on a Vercel-only API. Permanent hosting, distributed rate limiting, production Turnstile restrictions, environment configuration, TLS, and the `www.broey.net` redirect remain launch tasks for the eventual host.
+
 ## Branding Assets
 
 - Canonical logo asset is now set to:
