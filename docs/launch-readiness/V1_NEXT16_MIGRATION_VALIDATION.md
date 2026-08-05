@@ -92,7 +92,8 @@ React Compiler, Cache Components, Partial Prefetching, and unrelated experimenta
 | `d331648ede0e5eb76610cd51151ea7442ffe92df` | Middleware-to-Proxy migration |
 | `fc1da2afc96a3e04171875f286462bc4ee57a496` | Next.js configuration and build migration |
 | `e41414d7f97bb5a5cacd53ba5251dd3351c651eb` | Required React 19 and lint regression fixes |
-| Commit containing this file | Final migration validation documentation |
+| `80e9b6baf0e33233b6c5353f82bac095039747ea` | Final migration validation documentation |
+| Commit containing this note | Normalize migration evidence formatting |
 
 No finalized Phase 1 commit was amended or rewritten.
 
@@ -213,7 +214,7 @@ The selected host must support Node 22.13, Next.js 16 server output, TLS, enviro
 
 ## Rollback
 
-Because the branch is unmerged, the safest rollback is to leave or delete `codex/next16-security-migration`; `main` remains at the finalized Phase 1 base. If these commits are later merged and must be undone, create normal revert commits in reverse order, beginning with the validation-documentation commit and then reverting:
+Because the branch is unmerged, the safest rollback is to leave or delete `codex/next16-security-migration`; `main` remains at the finalized Phase 1 base. If these commits are later merged and must be undone, create normal revert commits in reverse order, beginning with the final evidence-formatting commit, then `80e9b6baf0e33233b6c5353f82bac095039747ea`, and then reverting:
 
 1. `e41414d7f97bb5a5cacd53ba5251dd3351c651eb`
 2. `fc1da2afc96a3e04171875f286462bc4ee57a496`

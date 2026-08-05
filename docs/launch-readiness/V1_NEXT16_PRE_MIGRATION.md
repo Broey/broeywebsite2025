@@ -109,4 +109,3 @@ Official references reviewed:
 ## Rollback
 
 The mechanical rollback point is `fbcfa041304ccd6f4122b8130f659ada2833e1b3`, the local-main Phase 1 merge and this branch's starting commit. If the migration cannot pass the required validation, revert the ordered migration commits or abandon this unmerged branch; do not partially copy the new lockfile onto `main`.
-
