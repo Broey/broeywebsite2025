@@ -24,7 +24,7 @@ npm run sync:latest-release-media
 ## Environment
 
 ```text
-NEXT_PUBLIC_SITE_URL=https://broey.com
+NEXT_PUBLIC_SITE_URL=https://broey.net
 SITE_VISIBILITY=public
 SITE_PASSCODE=
 SHOPIFY_STORE_DOMAIN=
@@ -42,9 +42,11 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 ```
 
-`NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. Set it to the production domain before launch.
+`NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. The intended public origin is `https://broey.net`. Production and preview builds require an explicit HTTPS origin-only value; credentials, query strings, fragments, and non-root paths are rejected. A trailing slash is normalized away. Local development may omit the variable and use `http://localhost:3000`, or explicitly use HTTP with `localhost` or `127.0.0.1`.
 
-`SITE_VISIBILITY=private` enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Set `SITE_PASSCODE` only for private previews. Use public visibility for launch.
+`SITE_VISIBILITY` accepts only `public` or `private` outside local development. `public` allows normal indexing. `private` requires `SITE_PASSCODE` and enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Local development defaults to `public` when the variable is absent.
+
+The permanent production host has not been selected. Keep the app deployable with conventional `next build` and `next start` commands. The future `www.broey.net` to `broey.net` redirect belongs in the selected hosting or DNS configuration, not in application routing.
 
 Shopify merch runtime uses `SHOPIFY_STORE_DOMAIN`, optional `SHOPIFY_MERCH_COLLECTION_HANDLE`, and optional `SHOPIFY_STOREFRONT_ACCESS_TOKEN`. If Shopify is unavailable or returns no products, the merch page falls back to curated local product links.
 

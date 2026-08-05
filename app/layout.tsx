@@ -3,12 +3,9 @@ import "./globals.css";
 import { AudioPlayerProvider } from "@/components/audio/AudioPlayerProvider";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import {
-  defaultSocialImage,
-  siteUrl,
-  twitterSocialImage,
-} from "@/content/seo";
+import { defaultSocialImage, twitterSocialImage } from "@/content/seo";
 import { siteConfig } from "@/content/site";
+import { siteOrigin } from "@/lib/site-origin";
 import { privateRobotsMetadata } from "@/lib/site-visibility";
 
 export const metadata: Metadata = {
@@ -17,9 +14,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.seo.description,
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteOrigin),
   applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.name, url: siteUrl }],
+  authors: [{ name: siteConfig.name, url: siteOrigin }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
   manifest: "/manifest.webmanifest",

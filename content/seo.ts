@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/content/site";
 import { privateRobotsMetadata } from "@/lib/site-visibility";
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://broey.com";
-
 export const defaultSocialImage = {
   url: "/opengraph-image",
   width: 1200,

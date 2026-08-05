@@ -10,13 +10,13 @@ This milestone brings the Broey. Website into a launch-ready local state for pro
 - Cleaned the homepage into a focused artist landing experience centered on the current Broey release.
 - Reworked `/music` as a structured release catalog with newest-first ordering, consistent metadata, verified cover paths, and honest pending states.
 - Reworked `/merch` as a small branded storefront surface with consistent product cards, synced merch paths, Shopify/external checkout handling, and no fake product actions.
-- Added centralized SEO/OG metadata helpers and canonical `https://broey.com` URL handling.
+- Added centralized SEO/OG metadata helpers and canonical `https://broey.net` URL handling.
 - Added a generated default social preview image route.
 - Completed local launch QA for routes, links, assets, metadata, robots, sitemap, and generated OG image.
 
 ## Production QA Focus
 
-- Verify `https://broey.com` loads and redirects correctly.
+- Verify `https://broey.net` loads and configure the future `www.broey.net` to apex redirect with the selected hosting or DNS provider.
 - Confirm canonical URLs, robots, sitemap, OG/Twitter metadata, and social preview images on the live domain.
 - Confirm release art, merch art, logo, latest release artwork, and latest release audio load in production.
 - Check `/`, `/music`, `/merch`, `/about`, and `/contact` on desktop and mobile.

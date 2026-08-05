@@ -90,7 +90,7 @@ const formatFrom = (name: string, email: string) => {
 
 const buildEmailText = (payload: RequestPayload) =>
   [
-    "New contact form message from broey.com",
+    "New contact form message from the Broey website",
     "",
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
@@ -105,7 +105,7 @@ const buildEmailHtml = (payload: RequestPayload) => {
   const safeMessage = escapeHtml(payload.message).replace(/\n/g, "<br />");
 
   return [
-    "<h2>New contact form message from broey.com</h2>",
+    "<h2>New contact form message from the Broey website</h2>",
     "<dl>",
     `<dt>Name</dt><dd>${escapeHtml(payload.name)}</dd>`,
     `<dt>Email</dt><dd>${escapeHtml(payload.email)}</dd>`,

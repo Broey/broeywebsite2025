@@ -23,8 +23,9 @@ import {
   trackRegistryByReleaseSlug,
   type GeneratedTrackRegistry,
 } from "@/content/musicRegistry.generated";
-import { createPageMetadata, siteUrl } from "@/content/seo";
+import { createPageMetadata } from "@/content/seo";
 import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } from "@/content/releases";
+import { absoluteUrl } from "@/lib/site-origin";
 
 type PageProps = {
   params: {
@@ -386,10 +387,10 @@ const shouldAttachPlayerToHero = (release: ReleaseEntry) =>
   hasDiscoFallbackPlayer(release) && !isMultiTrackProject(release);
 
 const absoluteReleaseUrl = (release: ReleaseEntry) =>
-  new URL(releaseDetailHref(release), siteUrl).toString();
+  absoluteUrl(releaseDetailHref(release));
 
 const absoluteAssetUrl = (assetPath?: string) =>
-  assetPath ? new URL(assetPath, siteUrl).toString() : undefined;
+  assetPath ? absoluteUrl(assetPath) : undefined;
 
 const verifiedCoverImage = (release: ReleaseEntry) =>
   release.coverImage && !shouldUseFallbackArtwork(release.coverImage)
@@ -443,13 +444,13 @@ const releaseBreadcrumbJsonLd = (release: ReleaseEntry) => ({
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: new URL("/", siteUrl).toString(),
+      item: absoluteUrl("/"),
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Music",
-      item: new URL("/music", siteUrl).toString(),
+      item: absoluteUrl("/music"),
     },
     {
       "@type": "ListItem",
