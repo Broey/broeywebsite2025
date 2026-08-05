@@ -220,11 +220,31 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!name || name.length > maxNameLength) {
+  if (!firstName) {
     return jsonResponse(
       {
         ok: false,
-        message: "Add your name before sending.",
+        message: "Add your first name before sending.",
+      },
+      400,
+    );
+  }
+
+  if (!lastName) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: "Add your last name before sending.",
+      },
+      400,
+    );
+  }
+
+  if (name.length > maxNameLength) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: "Keep your full name under 120 characters.",
       },
       400,
     );

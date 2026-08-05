@@ -5861,6 +5861,13 @@ a.about-pillar-card:hover {
   padding-top: 0.86rem;
 }
 
+.contact-form-required-note {
+  margin: 0 0 0.72rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
 .contact-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

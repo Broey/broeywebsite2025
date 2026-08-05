@@ -37,14 +37,21 @@ export function ContactForm() {
     const formData = new FormData(form);
     const firstName = String(formData.get("firstName") ?? "").trim();
     const lastName = String(formData.get("lastName") ?? "").trim();
-    const name = [firstName, lastName].filter(Boolean).join(" ");
     const email = String(formData.get("email") ?? "").trim();
     const message = String(formData.get("message") ?? "").trim();
 
-    if (!name) {
+    if (!firstName) {
       setStatus({
         tone: "error",
-        message: "Add your name before sending.",
+        message: "Add your first name before sending.",
+      });
+      return;
+    }
+
+    if (!lastName) {
+      setStatus({
+        tone: "error",
+        message: "Add your last name before sending.",
       });
       return;
     }
@@ -122,7 +129,7 @@ export function ContactForm() {
         className="contact-form"
         action="/api/contact"
         method="post"
-        aria-describedby={`contact-form-note contact-form-privacy${status ? " contact-form-status" : ""}`}
+        aria-describedby={`contact-form-required-note contact-form-note contact-form-privacy${status ? " contact-form-status" : ""}`}
         onFocusCapture={() => setTurnstileActive(true)}
         onChange={() => setTurnstileActive(true)}
         onSubmit={handleSubmit}
@@ -135,22 +142,44 @@ export function ContactForm() {
           autoComplete="off"
           aria-hidden="true"
         />
+        <p id="contact-form-required-note" className="contact-form-required-note">
+          All fields are required.
+        </p>
         <div className="contact-form-grid">
           <label className="contact-form-label">
-            <span>First name</span>
-            <input name="firstName" type="text" autoComplete="given-name" required />
+            <span>First name (required)</span>
+            <input
+              name="firstName"
+              type="text"
+              autoComplete="given-name"
+              required
+              aria-required="true"
+            />
           </label>
           <label className="contact-form-label">
-            <span>Last name</span>
-            <input name="lastName" type="text" autoComplete="family-name" />
+            <span>Last name (required)</span>
+            <input
+              name="lastName"
+              type="text"
+              autoComplete="family-name"
+              required
+              aria-required="true"
+            />
           </label>
           <label className="contact-form-label contact-form-label-wide">
-            <span>Email</span>
-            <input name="email" type="email" inputMode="email" autoComplete="email" required />
+            <span>Email (required)</span>
+            <input
+              name="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              required
+              aria-required="true"
+            />
           </label>
           <label className="contact-form-label contact-form-label-wide">
-            <span>Message</span>
-            <textarea name="message" rows={7} required />
+            <span>Message (required)</span>
+            <textarea name="message" rows={7} required aria-required="true" />
           </label>
         </div>
         <p id="contact-form-privacy" className="contact-form-disclosure">
