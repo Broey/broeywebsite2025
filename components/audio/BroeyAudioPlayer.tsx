@@ -63,30 +63,38 @@ export function BroeyAudioPlayer({ release, className }: BroeyAudioPlayerProps) 
   const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
-    setCurrentTime(0);
-    setDuration(fallbackDuration);
-    setHasMetadata(false);
-    setHasEnded(false);
-    setHasError(false);
-    setIsLoading(false);
-    setIsPlaying(false);
+    const frame = requestAnimationFrame(() => {
+      setCurrentTime(0);
+      setDuration(fallbackDuration);
+      setHasMetadata(false);
+      setHasEnded(false);
+      setHasError(false);
+      setIsLoading(false);
+      setIsPlaying(false);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [fallbackDuration, track?.src]);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    const savedVolume = window.localStorage.getItem(VOLUME_STORAGE_KEY);
-    const parsedVolume = savedVolume === null ? DEFAULT_VOLUME : Number(savedVolume);
-    const nextVolume = Number.isFinite(parsedVolume) ? clampVolume(parsedVolume) : DEFAULT_VOLUME;
-    const nextMuted = nextVolume === 0;
+    const frame = requestAnimationFrame(() => {
+      const audio = audioRef.current;
+      const savedVolume = window.localStorage.getItem(VOLUME_STORAGE_KEY);
+      const parsedVolume = savedVolume === null ? DEFAULT_VOLUME : Number(savedVolume);
+      const nextVolume = Number.isFinite(parsedVolume) ? clampVolume(parsedVolume) : DEFAULT_VOLUME;
+      const nextMuted = nextVolume === 0;
 
-    previousVolumeRef.current = nextVolume > 0 ? nextVolume : DEFAULT_VOLUME;
-    setVolume(nextVolume);
-    setIsMuted(nextMuted);
+      previousVolumeRef.current = nextVolume > 0 ? nextVolume : DEFAULT_VOLUME;
+      setVolume(nextVolume);
+      setIsMuted(nextMuted);
 
-    if (audio) {
-      audio.volume = nextVolume;
-      audio.muted = nextMuted;
-    }
+      if (audio) {
+        audio.volume = nextVolume;
+        audio.muted = nextMuted;
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [track?.src]);
 
   if (!track) {

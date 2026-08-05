@@ -3,10 +3,10 @@ import { redirect } from "next/navigation";
 import { isSitePrivate, sanitizeGateNext } from "@/lib/site-visibility";
 
 type GatePageProps = {
-  searchParams?: {
+  searchParams?: Promise<{
     next?: string | string[];
     error?: string | string[];
-  };
+  }>;
 };
 
 export const metadata: Metadata = {
@@ -26,9 +26,10 @@ const errorMessages: Record<string, string> = {
 const firstValue = (value?: string | string[]) =>
   Array.isArray(value) ? value[0] : value;
 
-export default function GatePage({ searchParams }: GatePageProps) {
-  const nextPath = sanitizeGateNext(searchParams?.next);
-  const error = firstValue(searchParams?.error);
+export default async function GatePage({ searchParams }: GatePageProps) {
+  const resolvedSearchParams = await searchParams;
+  const nextPath = sanitizeGateNext(resolvedSearchParams?.next);
+  const error = firstValue(resolvedSearchParams?.error);
   const errorMessage = error ? errorMessages[error] : undefined;
 
   if (!isSitePrivate()) {

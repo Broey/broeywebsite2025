@@ -32,6 +32,22 @@ type CarouselChildProps = {
   suppressCardClick?: () => boolean;
 };
 
+function CarouselChildren({
+  children,
+  injectedProps,
+}: {
+  children: ReactNode;
+  injectedProps: CarouselChildProps;
+}) {
+  return Children.map(children, (child) => {
+    if (!isValidElement<CarouselChildProps>(child)) {
+      return child;
+    }
+
+    return cloneElement(child as ReactElement<CarouselChildProps>, injectedProps);
+  });
+}
+
 export type CarouselMetrics = {
   activeWidth: number;
   sideWidth: number;
@@ -503,12 +519,14 @@ export function ReleaseCarousel({
       return;
     }
 
-    stopAnimation();
-    setIsDragging(false);
-    requestAnimationFrame(() => {
+    const frame = requestAnimationFrame(() => {
+      stopAnimation();
+      setIsDragging(false);
       scrollToNativeCard(wrapIndex(Math.round(activePositionRef.current), releaseCountRef.current), "auto");
       updateNativeActiveCard();
     });
+
+    return () => cancelAnimationFrame(frame);
   }, [scrollToNativeCard, stopAnimation, updateNativeActiveCard, usesNativeScroll]);
 
   useEffect(() => {
@@ -580,7 +598,11 @@ export function ReleaseCarousel({
   }, []);
 
   useEffect(() => {
-    commitPosition(initialIndex, 0, true);
+    const frame = requestAnimationFrame(() => {
+      commitPosition(initialIndex, 0, true);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [commitPosition, initialIndex]);
 
   useEffect(() => {
@@ -724,12 +746,8 @@ export function ReleaseCarousel({
           </span>
           <span className="music-carousel-spin-cue-chevron music-carousel-spin-cue-chevron-right" />
         </div>
-        {Children.map(children, (child) => {
-          if (!isValidElement<CarouselChildProps>(child)) {
-            return child;
-          }
-
-          return cloneElement(child as ReactElement<CarouselChildProps>, {
+        <CarouselChildren
+          injectedProps={{
             activeIndex,
             activePosition,
             displayPosition,
@@ -739,8 +757,10 @@ export function ReleaseCarousel({
             pointer,
             onSelect: selectIndex,
             suppressCardClick,
-          });
-        })}
+          }}
+        >
+          {children}
+        </CarouselChildren>
       </div>
       <div className="music-carousel-mobile-controls" aria-hidden="true">
         <div className="music-carousel-mobile-status" aria-hidden="true">

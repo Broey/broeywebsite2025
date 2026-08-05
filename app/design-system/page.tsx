@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
@@ -149,15 +150,15 @@ export default function DesignSystemPage() {
         </div>
         <div className="system-card">
           <nav className="system-nav-preview" aria-label="Design-system navigation preview">
-            <a className="site-header-nav-link" href="/">
+            <Link className="site-header-nav-link" href="/">
               Home
-            </a>
-            <a className="site-header-nav-link" href="/music" data-active="true">
+            </Link>
+            <Link className="site-header-nav-link" href="/music" data-active="true">
               Music
-            </a>
-            <a className="site-header-nav-link" href="/merch">
+            </Link>
+            <Link className="site-header-nav-link" href="/merch">
               Merch
-            </a>
+            </Link>
           </nav>
         </div>
       </section>

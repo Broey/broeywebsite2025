@@ -8,7 +8,7 @@ import {
 
 const gatePath = "/gate";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   if (!isSitePrivate()) {
     return NextResponse.next();
   }

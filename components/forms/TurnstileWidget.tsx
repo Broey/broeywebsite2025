@@ -90,7 +90,7 @@ export const TurnstileWidget = forwardRef<TurnstileWidgetHandle, TurnstileWidget
   function TurnstileWidget({ active, siteKey, onTokenChange }, forwardedRef) {
     const instanceId = useId().replace(/:/g, "");
     const containerRef = useRef<HTMLDivElement>(null);
-    const widgetIdRef = useRef<string>();
+    const widgetIdRef = useRef<string | undefined>(undefined);
     const tokenChangeRef = useRef(onTokenChange);
     const [status, setStatus] = useState("Loading verification...");
     const [hasError, setHasError] = useState(false);
