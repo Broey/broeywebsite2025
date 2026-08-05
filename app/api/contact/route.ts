@@ -51,9 +51,6 @@ async function readPayload(request: Request): Promise<RequestPayload> {
   return payload;
 }
 
-const normalizeOptIn = (value: string) =>
-  ["1", "true", "yes", "on"].includes(value.toLowerCase()) ? "yes" : "no";
-
 const getResendApiKey = () => process.env.RESEND_API_KEY?.trim() ?? "";
 
 const getContactFromEmail = () => process.env.RESEND_FROM_EMAIL?.trim() ?? "";
@@ -94,7 +91,6 @@ const buildEmailText = (payload: RequestPayload) =>
     "",
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
-    `Updates opt-in: ${payload.updatesOptIn}`,
     `Source: ${payload.source}`,
     "",
     "Message:",
@@ -109,7 +105,6 @@ const buildEmailHtml = (payload: RequestPayload) => {
     "<dl>",
     `<dt>Name</dt><dd>${escapeHtml(payload.name)}</dd>`,
     `<dt>Email</dt><dd>${escapeHtml(payload.email)}</dd>`,
-    `<dt>Updates opt-in</dt><dd>${escapeHtml(payload.updatesOptIn)}</dd>`,
     `<dt>Source</dt><dd>${escapeHtml(payload.source)}</dd>`,
     "</dl>",
     "<h3>Message</h3>",
@@ -257,7 +252,6 @@ export async function POST(request: Request) {
   );
   const email = trimValue(payload.email).toLowerCase();
   const message = trimValue(payload.message);
-  const updatesOptIn = normalizeOptIn(trimValue(payload.updatesOptIn));
   const source = trimValue(payload.source || "website-contact");
   const website = trimValue(payload.website);
 
@@ -334,7 +328,6 @@ export async function POST(request: Request) {
     subject,
     email,
     message,
-    updatesOptIn,
     source,
   });
 }

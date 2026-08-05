@@ -5820,69 +5820,21 @@ a.about-pillar-card:hover {
   color: rgba(165, 169, 174, 0.68);
 }
 
-.contact-form-checkbox {
-  display: flex;
+.contact-form-disclosure {
   max-width: 42rem;
-  gap: 0.72rem;
-  align-items: flex-start;
   margin-top: 0.95rem;
   color: var(--color-muted);
-  font-size: 0.9rem;
-  line-height: 1.45;
+  font-size: 0.78rem;
+  line-height: 1.58;
 }
 
-.contact-form-checkbox input {
-  -webkit-appearance: none;
-  appearance: none;
-  position: relative;
-  flex: 0 0 auto;
-  width: 1.08rem;
-  height: 1.08rem;
-  margin-top: 0.08rem;
-  border: 1px solid rgba(240, 236, 225, 0.2);
-  border-radius: 0.24rem;
-  background: rgba(0, 0, 0, 0.22);
-  cursor: pointer;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease;
-}
-
-.contact-form-checkbox input::after {
-  content: "";
-  position: absolute;
-  left: 0.27rem;
-  top: 0.18rem;
-  width: 0.38rem;
-  height: 0.58rem;
-  border: solid rgba(11, 13, 16, 0.96);
-  border-width: 0 0.12rem 0.12rem 0;
-  opacity: 0;
-  transform: rotate(42deg) scale(0.7);
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease;
-}
-
-.contact-form-checkbox input:checked {
-  border-color: rgba(211, 169, 91, 0.82);
-  background: var(--color-amber);
-  box-shadow: 0 0 0 3px rgba(211, 169, 91, 0.12);
-}
-
-.contact-form-checkbox input:checked::after {
-  opacity: 1;
-  transform: rotate(42deg) scale(1);
-}
-
-.contact-form-checkbox input:focus-visible {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(211, 169, 91, 0.18);
-}
-
-.contact-form-checkbox span {
-  min-width: 0;
+.contact-form-disclosure a,
+.email-signup-fine-print a,
+.privacy-contact a {
+  color: var(--color-amber);
+  text-decoration: underline;
+  text-decoration-color: rgba(211, 169, 91, 0.38);
+  text-underline-offset: 0.16em;
 }
 
 .contact-form-button {
@@ -7741,6 +7693,34 @@ a.about-pillar-card:hover {
   .merch-card--compact {
     grid-template-columns: 6.2rem minmax(0, 1fr);
   }
+}
+
+.privacy-sections {
+  display: grid;
+  gap: 1rem;
+}
+
+.privacy-section {
+  border: var(--border-card);
+  border-radius: var(--radius-card);
+  background: var(--surface-card);
+  padding: var(--space-card-padding);
+}
+
+.privacy-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.72rem 1.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(240, 236, 225, 0.12);
+  padding-top: 1rem;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+.privacy-contact p {
+  margin: 0;
 }
 
 @media (max-width: 360px) {

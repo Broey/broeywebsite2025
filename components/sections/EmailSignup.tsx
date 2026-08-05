@@ -42,7 +42,7 @@ const defaultCopy: Record<
     inputPlaceholder: "Email address",
     buttonLabel: "Join List",
     finePrint:
-      "By signing up, you agree to receive occasional emails from Broey. Unsubscribe anytime.",
+      "By subscribing, you agree to receive Broey updates. You can unsubscribe at any time.",
   },
   footer: {
     eyebrow: "JOIN THE LIST",
@@ -50,7 +50,7 @@ const defaultCopy: Record<
     body: "New tracks, first links, merch drops, and occasional notes.",
     inputPlaceholder: "Email address",
     buttonLabel: "Join",
-    finePrint: "Unsubscribe anytime.",
+    finePrint: "By subscribing, you agree to receive Broey updates. You can unsubscribe at any time.",
   },
 };
 
@@ -192,7 +192,7 @@ export function EmailSignup({
           </button>
         </div>
         <p id={finePrintId} className="email-signup-fine-print">
-          {finePrint ?? copy.finePrint}
+          {finePrint ?? copy.finePrint} See the <Link href="/privacy">Privacy Notice</Link>.
         </p>
         {status ? (
           <p

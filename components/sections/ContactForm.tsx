@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Script from "next/script";
 import { type FormEvent, useState } from "react";
 import { siteConfig } from "@/content/site";
@@ -100,7 +101,7 @@ export function ContactForm() {
         className="contact-form"
         action="/api/contact"
         method="post"
-        aria-describedby={`contact-form-note${status ? " contact-form-status" : ""}`}
+        aria-describedby={`contact-form-note contact-form-privacy${status ? " contact-form-status" : ""}`}
         onSubmit={handleSubmit}
       >
         <input
@@ -142,10 +143,10 @@ export function ContactForm() {
             <textarea name="message" rows={7} required />
           </label>
         </div>
-        <label className="contact-form-checkbox">
-          <input name="updatesOptIn" type="checkbox" value="yes" />
-          <span>Send me occasional Broey drop notes, first links, and merch updates.</span>
-        </label>
+        <p id="contact-form-privacy" className="contact-form-disclosure">
+          Messages are processed to respond to your inquiry. See the{" "}
+          <Link href="/privacy">Privacy Notice</Link>.
+        </p>
         <button type="submit" className="contact-form-button button-primary cta-primary" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Note"}
         </button>

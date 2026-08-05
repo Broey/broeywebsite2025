@@ -5,7 +5,7 @@ import { releases } from "@/content/releases";
 import { absoluteUrl } from "@/lib/site-origin";
 import { isSitePrivate } from "@/lib/site-visibility";
 
-const staticRoutes = ["/", "/music", "/about", "/contact", "/merch", "/press"];
+const staticRoutes = ["/", "/music", "/about", "/contact", "/merch", "/press", "/privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (isSitePrivate()) {
