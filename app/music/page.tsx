@@ -38,7 +38,6 @@ const currentEraReleaseSlugs = [
   "free",
   "blu",
   "stereo-luv",
-  "link",
   "dancing-dumpster-fire",
   "i-cant-wait-for-love",
   "mean-something",

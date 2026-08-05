@@ -98,7 +98,7 @@ const timelineItems = [
   {
     year: "Now",
     title: "Loose club records",
-    copy: "dancing dumpster fire, STEREO LUV, blu., FREE, and LiNK sit at the front of the current catalog.",
+    copy: "dancing dumpster fire, STEREO LUV, blu., and FREE sit at the front of the current catalog.",
   },
 ];
 

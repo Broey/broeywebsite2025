@@ -508,6 +508,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     title: "LiNK",
     slug: "link",
     type: "single",
+    visibility: "draft",
     year: 2025,
     description:
       "Electronic single available here as a local radio edit while public platform links are verified.",
@@ -2439,7 +2440,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     title: "Paradise",
     slug: "paradise",
     type: "single",
-    visibility: "public",
+    visibility: "draft",
     year: 2019,
     releaseDate: "2019-03-23",
     description:
