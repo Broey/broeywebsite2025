@@ -71,8 +71,6 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
   const activeIndex = currentQueue?.activeIndex ?? 0;
   const currentTrack = currentQueue?.tracks[activeIndex];
-  const currentTrackSrc = currentTrack?.src;
-  const hasCurrentTrack = Boolean(currentTrack);
   const queueLength = currentQueue?.tracks.length ?? 0;
   const canGoPrevious = queueLength > 1 && activeIndex > 0;
   const canGoNext = queueLength > 1 && activeIndex < queueLength - 1;
@@ -107,20 +105,6 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   }, [currentQueue]);
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      setCurrentTime(0);
-      setDuration(fallbackDuration);
-      setHasEnded(false);
-      setHasError(false);
-      setHasMetadata(false);
-      setIsLoading(hasCurrentTrack);
-      setIsPlaying(false);
-    });
-
-    return () => cancelAnimationFrame(frame);
-  }, [currentTrackSrc, fallbackDuration, hasCurrentTrack]);
-
-  useEffect(() => {
     const audio = audioRef.current;
 
     if (!audio) {
@@ -130,6 +114,24 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     audio.volume = volume;
     audio.muted = isMuted;
   }, [isMuted, volume]);
+
+  const requestPlayback = useCallback((audio: HTMLAudioElement) => {
+    setIsLoading(audio.readyState < HTMLMediaElement.HAVE_FUTURE_DATA);
+
+    return audio.play().then(() => {
+      if (audio.paused || audio.ended) {
+        setIsPlaying(false);
+        return;
+      }
+
+      setIsPlaying(true);
+      setIsLoading(false);
+      setHasEnded(false);
+    }).catch(() => {
+      setIsPlaying(false);
+      setIsLoading(false);
+    });
+  }, []);
 
   const playPendingTrack = useCallback(() => {
     const audio = audioRef.current;
@@ -145,15 +147,11 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
     audio.volume = volume;
     audio.muted = isMuted;
-    setIsLoading(false);
 
-    audio.play().catch(() => {
-      setIsPlaying(false);
-      setIsLoading(false);
-    }).finally(() => {
+    requestPlayback(audio).finally(() => {
       setPendingPlay(false);
     });
-  }, [currentTrack, isMuted, pendingPlay, volume]);
+  }, [currentTrack, isMuted, pendingPlay, requestPlayback, volume]);
 
   useEffect(() => {
     playPendingTrack();
@@ -243,8 +241,10 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    if (isPlaying) {
+    if (!audio.paused && !audio.ended) {
       audio.pause();
+      setIsPlaying(false);
+      setIsLoading(false);
       return;
     }
 
@@ -256,13 +256,9 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
     audio.volume = volume;
     audio.muted = isMuted;
-    setIsLoading(audio.readyState < HTMLMediaElement.HAVE_FUTURE_DATA);
 
-    audio.play().catch(() => {
-      setIsPlaying(false);
-      setIsLoading(false);
-    });
-  }, [currentTrack, hasEnded, hasError, isMuted, isPlaying, volume]);
+    void requestPlayback(audio);
+  }, [currentTrack, hasEnded, hasError, isMuted, requestPlayback, volume]);
 
   const seekTo = useCallback((time: number) => {
     const audio = audioRef.current;
@@ -366,8 +362,13 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
         preload={pendingPlay ? "auto" : "metadata"}
         data-broey-global-audio
         onLoadStart={() => {
+          setCurrentTime(0);
+          setDuration(fallbackDuration);
+          setHasEnded(false);
           setHasError(false);
+          setHasMetadata(false);
           setIsLoading(Boolean(currentTrack));
+          setIsPlaying(false);
         }}
         onLoadedMetadata={(event) => {
           const mediaDuration = event.currentTarget.duration;
@@ -390,7 +391,10 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
           setIsLoading(false);
           setHasEnded(false);
         }}
-        onPause={() => setIsPlaying(false)}
+        onPause={() => {
+          setIsPlaying(false);
+          setIsLoading(false);
+        }}
         onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
         onEnded={() => {
           setIsPlaying(false);
