@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "import:releases": "node scripts/import-release-registry.mjs",
     "sync:assets": "node scripts/asset-sync.mjs",
     "sync:assets:dry": "node scripts/asset-sync.mjs \"D:\\Broey\\Broey Website 2025\\Assets\" --dry-run",
