@@ -50,7 +50,7 @@ The permanent production host has not been selected. Keep the app deployable wit
 
 Shopify merch runtime uses `SHOPIFY_STORE_DOMAIN`, optional `SHOPIFY_MERCH_COLLECTION_HANDLE`, and optional `SHOPIFY_STOREFRONT_ACCESS_TOKEN`. If Shopify is unavailable or returns no products, the merch page falls back to curated local product links.
 
-Resend/contact delivery requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`; `RESEND_FROM_NAME` is optional. MailerLite/newsletter delivery requires `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID`; sender/reply-to values document the intended email identity. Turnstile uses `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for the widget and `TURNSTILE_SECRET_KEY` for server verification. Never commit real secret values.
+Resend/contact delivery requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`; `RESEND_FROM_NAME` is optional. MailerLite/newsletter delivery requires `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID`; sender/reply-to values document the intended email identity. Turnstile uses `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for the widget and the server-only `TURNSTILE_SECRET_KEY` for verification. Never commit real secret values.
 
 ### Example environment (copy to `.env.local`)
 
@@ -70,7 +70,9 @@ To enable newsletter signups in production, generate a MailerLite API token, cre
 
 To enable contact form email notifications in production, create a Resend API key and verify the sending domain/address, then set `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. The contact API sends notifications to `broey@broey.net` and uses the visitor email as `reply_to`, not as the sender address. If either required Resend env var is missing, contact submissions return a friendly fallback pointing visitors to the public contact email instead of failing silently.
 
-For contact form spam protection, create a Cloudflare Turnstile widget and set `NEXT_PUBLIC_TURNSTILE_SITE_KEY` plus `TURNSTILE_SECRET_KEY`. Server-side verification runs only when `TURNSTILE_SECRET_KEY` is present.
+Both Contact and newsletter submissions use the same Cloudflare Turnstile client and server verifier while preserving their honeypots. Local development may omit both Turnstile keys and use the documented development-only bypass. If only one key is present, verification fails closed. Preview and production builds never bypass verification: configure both keys, using Cloudflare's published test credentials for safe preview validation or real restricted credentials for production. Tokens are single-use and reset after every server attempt.
+
+Both form clients handle HTTP 429 responses and `Retry-After` guidance. Application-level counters, Redis, and a rate-limit datastore are intentionally not included. Distributed rate limiting remains an open requirement to configure with the eventual production host.
 
 ## Branding Assets
 

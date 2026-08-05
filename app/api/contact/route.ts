@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/content/site";
+import {
+  clientIpFromRequest,
+  verifyTurnstileToken,
+  type TurnstileVerificationResult,
+} from "@/lib/turnstile";
 
 type ApiResponse = {
   ok: boolean;
@@ -7,17 +12,11 @@ type ApiResponse = {
 };
 
 type RequestPayload = Record<string, string>;
-type TurnstileSiteverifyResponse = {
-  success?: boolean;
-  "error-codes"?: string[];
-};
-
 const emailPattern =
   /^[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i;
 const maxNameLength = 120;
 const maxSubjectLength = 160;
 const maxMessageLength = 5000;
-const turnstileVerifyUrl = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const resendApiBaseUrl =
   process.env.RESEND_API_BASE_URL?.trim().replace(/\/+$/, "") ?? "https://api.resend.com";
 const contactEmail = siteConfig.contact.email;
@@ -56,8 +55,6 @@ const getResendApiKey = () => process.env.RESEND_API_KEY?.trim() ?? "";
 const getContactFromEmail = () => process.env.RESEND_FROM_EMAIL?.trim() ?? "";
 
 const getContactFromName = () => process.env.RESEND_FROM_NAME?.trim() || "Broey Website";
-
-const hasContactEmailConfig = () => Boolean(getResendApiKey() && getContactFromEmail());
 
 const isValidEmail = (email: string) =>
   email.length <= 254 &&
@@ -112,67 +109,25 @@ const buildEmailHtml = (payload: RequestPayload) => {
   ].join("");
 };
 
-async function verifyTurnstile(payload: RequestPayload, request: Request) {
-  const secretKey = process.env.TURNSTILE_SECRET_KEY?.trim();
-
-  if (!secretKey) {
-    return null;
-  }
-
-  const token = trimValue(payload["cf-turnstile-response"] || payload.turnstileToken);
-
-  if (!token) {
+function turnstileErrorResponse(result: Exclude<TurnstileVerificationResult, { ok: true }>) {
+  if (result.code === "configuration") {
     return jsonResponse(
-      {
-        ok: false,
-        message: "Please complete the spam check before sending your message.",
-      },
-      400,
+      { ok: false, message: "This form is temporarily unavailable. Please try again later." },
+      result.status,
     );
   }
 
-  const verificationBody = new URLSearchParams({
-    secret: secretKey,
-    response: token,
-  });
-  const remoteIp =
-    request.headers.get("cf-connecting-ip") ??
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-
-  if (remoteIp) {
-    verificationBody.set("remoteip", remoteIp);
-  }
-
-  try {
-    const response = await fetch(turnstileVerifyUrl, {
-      method: "POST",
-      body: verificationBody,
-      cache: "no-store",
-    });
-    const result = (await response.json().catch(() => null)) as
-      | TurnstileSiteverifyResponse
-      | null;
-
-    if (!response.ok || result?.success !== true) {
-      return jsonResponse(
-        {
-          ok: false,
-          message: "The spam check did not pass. Please refresh and try again.",
-        },
-        400,
-      );
-    }
-  } catch {
+  if (result.code === "unavailable") {
     return jsonResponse(
-      {
-        ok: false,
-        message: "The spam check could not be reached. Please try again in a bit.",
-      },
-      502,
+      { ok: false, message: "Verification is temporarily unavailable. Please try again later." },
+      result.status,
     );
   }
 
-  return null;
+  return jsonResponse(
+    { ok: false, message: "Verification did not complete. Please try again." },
+    result.status,
+  );
 }
 
 async function forwardToProvider(payload: RequestPayload) {
@@ -305,20 +260,13 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!hasContactEmailConfig()) {
-    return jsonResponse(
-      {
-        ok: false,
-        message: contactProviderMissingMessage,
-      },
-      503,
-    );
-  }
+  const turnstileResult = await verifyTurnstileToken(
+    trimValue(payload.turnstileToken || payload["cf-turnstile-response"]),
+    clientIpFromRequest(request),
+  );
 
-  const turnstileError = await verifyTurnstile(payload, request);
-
-  if (turnstileError) {
-    return turnstileError;
+  if (!turnstileResult.ok) {
+    return turnstileErrorResponse(turnstileResult);
   }
 
   return forwardToProvider({

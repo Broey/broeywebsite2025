@@ -5765,10 +5765,6 @@ a.about-pillar-card:hover {
   padding-top: 0.86rem;
 }
 
-.contact-form-turnstile {
-  margin: 0 0 0.9rem;
-}
-
 .contact-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5835,6 +5831,25 @@ a.about-pillar-card:hover {
   text-decoration: underline;
   text-decoration-color: rgba(211, 169, 91, 0.38);
   text-underline-offset: 0.16em;
+}
+
+.turnstile-widget {
+  display: grid;
+  width: fit-content;
+  max-width: 100%;
+  gap: 0.34rem;
+  margin-top: 0.85rem;
+}
+
+.turnstile-widget-status {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.turnstile-widget[data-error="true"] .turnstile-widget-status {
+  color: #f1a3a3;
 }
 
 .contact-form-button {

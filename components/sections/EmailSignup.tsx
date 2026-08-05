@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { type FormEvent, useId, useState } from "react";
+import { type FormEvent, useId, useRef, useState } from "react";
+import {
+  TurnstileWidget,
+  type TurnstileWidgetHandle,
+} from "@/components/forms/TurnstileWidget";
+import { rateLimitMessage } from "@/lib/form-client";
 
 type EmailSignupStatus = {
   tone: "notice" | "success" | "error";
@@ -53,6 +58,7 @@ const defaultCopy: Record<
     finePrint: "By subscribing, you agree to receive Broey updates. You can unsubscribe at any time.",
   },
 };
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
 
 export function EmailSignup({
   id,
@@ -78,11 +84,15 @@ export function EmailSignup({
   const endpoint = (action ?? "/api/newsletter").trim();
   const [status, setStatus] = useState<EmailSignupStatus | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileActive, setTurnstileActive] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const email = String(formData.get(emailFieldName) ?? "").trim();
 
     if (!email) {
@@ -93,12 +103,25 @@ export function EmailSignup({
       return;
     }
 
+    if (turnstileSiteKey && !turnstileToken) {
+      setTurnstileActive(true);
+      setStatus({
+        tone: "error",
+        message: "Complete the verification before joining the list.",
+      });
+      return;
+    }
+
     if (emailFieldName !== "email") {
       formData.set("email", email);
     }
 
     if (!formData.get("source")) {
       formData.set("source", signupId);
+    }
+
+    if (turnstileToken) {
+      formData.set("turnstileToken", turnstileToken);
     }
 
     setIsSubmitting(true);
@@ -115,11 +138,12 @@ export function EmailSignup({
       const payload = (await response.json().catch(() => null)) as
         | EmailSignupStatus & { ok?: boolean }
         | null;
-      const message =
-        payload?.message ??
-        (response.ok
-          ? "You are on the list. Thanks for joining."
-          : "Mailing list signup is not connected yet. Please try again soon.");
+      const message = response.status === 429
+        ? rateLimitMessage(response.headers.get("Retry-After"))
+        : payload?.message ??
+          (response.ok
+            ? "You are on the list. Thanks for joining."
+            : "Mailing list signup is not connected yet. Please try again soon.");
 
       setStatus({
         tone: response.ok && payload?.ok !== false ? "success" : response.status === 503 ? "notice" : "error",
@@ -127,7 +151,7 @@ export function EmailSignup({
       });
 
       if (response.ok && payload?.ok !== false) {
-        event.currentTarget.reset();
+        form.reset();
       }
     } catch {
       setStatus({
@@ -135,6 +159,7 @@ export function EmailSignup({
         message: "Mailing list signup could not be reached. Please try again in a bit.",
       });
     } finally {
+      turnstileRef.current?.reset();
       setIsSubmitting(false);
     }
   };
@@ -159,6 +184,8 @@ export function EmailSignup({
         className="email-signup-form"
         action={endpoint}
         method="post"
+        onFocusCapture={() => setTurnstileActive(true)}
+        onChange={() => setTurnstileActive(true)}
         onSubmit={handleSubmit}
       >
         {Object.entries(hiddenFields).map(([name, value]) => (
@@ -194,6 +221,12 @@ export function EmailSignup({
         <p id={finePrintId} className="email-signup-fine-print">
           {finePrint ?? copy.finePrint} See the <Link href="/privacy">Privacy Notice</Link>.
         </p>
+        <TurnstileWidget
+          ref={turnstileRef}
+          active={turnstileActive}
+          siteKey={turnstileSiteKey}
+          onTokenChange={setTurnstileToken}
+        />
         {status ? (
           <p
             id={statusId}

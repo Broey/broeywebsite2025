@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useRef, useState } from "react";
+import {
+  TurnstileWidget,
+  type TurnstileWidgetHandle,
+} from "@/components/forms/TurnstileWidget";
 import { siteConfig } from "@/content/site";
+import { rateLimitMessage } from "@/lib/form-client";
 
 type ContactFormStatus = {
   tone: "notice" | "success" | "error";
@@ -22,6 +26,9 @@ const providerFallbackMessage = `Message sending is not connected yet. Please em
 export function ContactForm() {
   const [status, setStatus] = useState<ContactFormStatus | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileActive, setTurnstileActive] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -58,7 +65,19 @@ export function ContactForm() {
       return;
     }
 
+    if (turnstileSiteKey && !turnstileToken) {
+      setTurnstileActive(true);
+      setStatus({
+        tone: "error",
+        message: "Complete the verification before sending your message.",
+      });
+      return;
+    }
+
     formData.set("source", "contact-page");
+    if (turnstileToken) {
+      formData.set("turnstileToken", turnstileToken);
+    }
     setIsSubmitting(true);
     setStatus({
       tone: "notice",
@@ -71,11 +90,12 @@ export function ContactForm() {
         body: formData,
       });
       const payload = (await response.json().catch(() => null)) as ContactApiResponse | null;
-      const messageText =
-        payload?.message ??
-        (response.ok
-          ? "Message sent. Thanks for reaching out."
-          : providerFallbackMessage);
+      const messageText = response.status === 429
+        ? rateLimitMessage(response.headers.get("Retry-After"))
+        : payload?.message ??
+          (response.ok
+            ? "Message sent. Thanks for reaching out."
+            : providerFallbackMessage);
 
       setStatus({
         tone: response.ok && payload?.ok !== false ? "success" : response.status === 503 ? "notice" : "error",
@@ -91,6 +111,7 @@ export function ContactForm() {
         message: `Message sending could not be reached. Please email ${siteConfig.contact.email} or try again in a bit.`,
       });
     } finally {
+      turnstileRef.current?.reset();
       setIsSubmitting(false);
     }
   };
@@ -102,6 +123,8 @@ export function ContactForm() {
         action="/api/contact"
         method="post"
         aria-describedby={`contact-form-note contact-form-privacy${status ? " contact-form-status" : ""}`}
+        onFocusCapture={() => setTurnstileActive(true)}
+        onChange={() => setTurnstileActive(true)}
         onSubmit={handleSubmit}
       >
         <input
@@ -112,19 +135,6 @@ export function ContactForm() {
           autoComplete="off"
           aria-hidden="true"
         />
-        {turnstileSiteKey ? (
-          <>
-            <Script
-              src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-              strategy="afterInteractive"
-            />
-            <div
-              className="contact-form-turnstile cf-turnstile"
-              data-sitekey={turnstileSiteKey}
-              data-theme="dark"
-            />
-          </>
-        ) : null}
         <div className="contact-form-grid">
           <label className="contact-form-label">
             <span>First name</span>
@@ -147,6 +157,12 @@ export function ContactForm() {
           Messages are processed to respond to your inquiry. See the{" "}
           <Link href="/privacy">Privacy Notice</Link>.
         </p>
+        <TurnstileWidget
+          ref={turnstileRef}
+          active={turnstileActive}
+          siteKey={turnstileSiteKey}
+          onTokenChange={setTurnstileToken}
+        />
         <button type="submit" className="contact-form-button button-primary cta-primary" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Note"}
         </button>
