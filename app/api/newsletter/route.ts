@@ -1,4 +1,9 @@
 import { NextResponse } from "next/server";
+import {
+  clientIpFromRequest,
+  verifyTurnstileToken,
+  type TurnstileVerificationResult,
+} from "@/lib/turnstile";
 
 type ApiResponse = {
   ok: boolean;
@@ -29,6 +34,27 @@ const isValidEmail = (email: string) =>
     .at(-1)
     ?.split(".")
     .every((part) => part.length <= 63) === true;
+
+function turnstileErrorResponse(result: Exclude<TurnstileVerificationResult, { ok: true }>) {
+  if (result.code === "configuration") {
+    return jsonResponse(
+      { ok: false, message: "This form is temporarily unavailable. Please try again later." },
+      result.status,
+    );
+  }
+
+  if (result.code === "unavailable") {
+    return jsonResponse(
+      { ok: false, message: "Verification is temporarily unavailable. Please try again later." },
+      result.status,
+    );
+  }
+
+  return jsonResponse(
+    { ok: false, message: "Verification did not complete. Please try again." },
+    result.status,
+  );
+}
 
 async function readPayload(request: Request): Promise<RequestPayload> {
   const contentType = request.headers.get("content-type") ?? "";
@@ -148,6 +174,15 @@ export async function POST(request: Request) {
       },
       400,
     );
+  }
+
+  const turnstileResult = await verifyTurnstileToken(
+    trimValue(payload.turnstileToken || payload["cf-turnstile-response"]),
+    clientIpFromRequest(request),
+  );
+
+  if (!turnstileResult.ok) {
+    return turnstileErrorResponse(turnstileResult);
   }
 
   return forwardToProvider({

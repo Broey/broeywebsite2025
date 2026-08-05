@@ -2,14 +2,38 @@ import type { Metadata } from "next";
 
 export const gateCookieName = "broey_private_preview";
 
-const publicVisibility = "public";
+export type SiteVisibility = "public" | "private";
 
-export function siteVisibility() {
-  return publicVisibility;
+const supportedVisibilities = new Set<SiteVisibility>(["public", "private"]);
+
+export function siteVisibility(): SiteVisibility {
+  const configuredVisibility = process.env.SITE_VISIBILITY?.trim().toLowerCase();
+
+  if (!configuredVisibility) {
+    if (process.env.NODE_ENV === "development") {
+      return "public";
+    }
+
+    throw new Error(
+      "SITE_VISIBILITY must be set to either \"public\" or \"private\" outside local development.",
+    );
+  }
+
+  if (!supportedVisibilities.has(configuredVisibility as SiteVisibility)) {
+    throw new Error(
+      `Invalid SITE_VISIBILITY value \"${configuredVisibility}\". Use \"public\" or \"private\".`,
+    );
+  }
+
+  if (configuredVisibility === "private" && !getSitePasscode()) {
+    throw new Error("SITE_PASSCODE is required when SITE_VISIBILITY is private.");
+  }
+
+  return configuredVisibility as SiteVisibility;
 }
 
 export function isSitePrivate() {
-  return false;
+  return siteVisibility() === "private";
 }
 
 export function getSitePasscode() {

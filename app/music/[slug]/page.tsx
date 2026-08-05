@@ -17,14 +17,21 @@ import { ShareReleaseButton } from "@/components/ui/ShareReleaseButton";
 import {
   releaseDetailHref,
   releasePlatformLinks,
+  shouldExposePublicDisco,
 } from "@/content/release-actions";
 import { sortedArchiveReleases } from "@/content/release-filters";
 import {
   trackRegistryByReleaseSlug,
   type GeneratedTrackRegistry,
 } from "@/content/musicRegistry.generated";
-import { createPageMetadata, siteUrl } from "@/content/seo";
+import { normalizedGenres } from "@/content/genres";
+import {
+  releaseDisplayArtist,
+  releaseFactualDescription,
+} from "@/content/release-metadata";
+import { createPageMetadata } from "@/content/seo";
 import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } from "@/content/releases";
+import { absoluteUrl } from "@/lib/site-origin";
 
 type PageProps = {
   params: {
@@ -179,8 +186,7 @@ const formatReleaseDate = (releaseDate?: string) => {
   }).format(date);
 };
 
-const releaseArtistName = (release: ReleaseEntry) =>
-  release.artistName ?? release.catalogSource?.artistName ?? "Broey.";
+const releaseArtistName = releaseDisplayArtist;
 
 const releaseHeroDate = (release: ReleaseEntry) =>
   release.year ? String(release.year) : formatReleaseDate(release.releaseDate);
@@ -227,50 +233,7 @@ const releaseLabelName = (release: ReleaseEntry, labelDetail?: ReleaseDetail) =>
   labelDetail?.value ?? release.registry?.label ?? "Broey.";
 
 const releaseTags = (release: ReleaseEntry) =>
-  (release.tags?.length ? release.tags : [releaseTypeLabel[release.type], "Broey.", "Electronic"])
-    .filter(Boolean)
-    .slice(0, 3);
-
-const normalizeAboutCopy = (about?: string | string[]) => {
-  if (!about) {
-    return [];
-  }
-
-  return Array.isArray(about) ? about.filter(Boolean) : [about];
-};
-
-const lowerLead = (value: string) => value.charAt(0).toLowerCase() + value.slice(1);
-
-const withoutSentenceEnd = (value: string) => value.replace(/[.!?]+$/, "");
-
-const releaseAboutParagraphs = (release: ReleaseEntry) => {
-  if (release.isProjectTrack && release.type === "remix") {
-    return [];
-  }
-
-  const authoredCopy = normalizeAboutCopy(release.about);
-
-  if (authoredCopy.length) {
-    return authoredCopy;
-  }
-
-  const releaseTexture = withoutSentenceEnd(lowerLead(release.mood ?? release.description)).replace(
-    /\s+with\s+/,
-    " and ",
-  );
-  const releaseMotion =
-    release.type === "ep" || release.type === "mix" || release.type === "set"
-      ? "moves through"
-      : "moves with";
-  const releaseContext = release.year
-    ? `Released in ${release.year}, it sits in the selected Broey. catalog.`
-    : "It sits in the selected Broey. catalog.";
-
-  return [
-    `${release.title} ${releaseMotion} ${releaseTexture}.`,
-    releaseContext,
-  ];
-};
+  normalizedGenres(release);
 
 const isMultiTrackProject = (release: ReleaseEntry) => {
   if (
@@ -369,7 +332,11 @@ const releaseCreditRows = (release: ReleaseEntry): ReleaseCredit[] => {
 };
 
 const releaseDiscoEmbed = (release: ReleaseEntry) => {
-  if (release.embed?.provider === "disco" && (release.embed.src || release.embed.embedUrl)) {
+  if (
+    shouldExposePublicDisco(release) &&
+    release.embed?.provider === "disco" &&
+    (release.embed.src || release.embed.embedUrl)
+  ) {
     return release.embed;
   }
 
@@ -386,10 +353,10 @@ const shouldAttachPlayerToHero = (release: ReleaseEntry) =>
   hasDiscoFallbackPlayer(release) && !isMultiTrackProject(release);
 
 const absoluteReleaseUrl = (release: ReleaseEntry) =>
-  new URL(releaseDetailHref(release), siteUrl).toString();
+  absoluteUrl(releaseDetailHref(release));
 
 const absoluteAssetUrl = (assetPath?: string) =>
-  assetPath ? new URL(assetPath, siteUrl).toString() : undefined;
+  assetPath ? absoluteUrl(assetPath) : undefined;
 
 const verifiedCoverImage = (release: ReleaseEntry) =>
   release.coverImage && !shouldUseFallbackArtwork(release.coverImage)
@@ -428,7 +395,7 @@ const releaseJsonLd = (release: ReleaseEntry) => {
       : release.year
         ? String(release.year)
       : undefined,
-    description: release.seoDescription ?? release.description,
+    description: releaseFactualDescription(release),
     genre: releaseTags(release),
     image: absoluteAssetUrl(coverImage),
     url: absoluteReleaseUrl(release),
@@ -443,13 +410,13 @@ const releaseBreadcrumbJsonLd = (release: ReleaseEntry) => ({
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: new URL("/", siteUrl).toString(),
+      item: absoluteUrl("/"),
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Music",
-      item: new URL("/music", siteUrl).toString(),
+      item: absoluteUrl("/music"),
     },
     {
       "@type": "ListItem",
@@ -639,29 +606,6 @@ function FindYourPlatformSection({ release }: { release: ReleaseEntry }) {
   );
 }
 
-function ReleaseAboutSection({ release }: { release: ReleaseEntry }) {
-  const paragraphs = releaseAboutParagraphs(release);
-
-  if (!paragraphs.length) {
-    return null;
-  }
-
-  return (
-    <section className="release-detail-section" aria-labelledby="release-about-title">
-      <div className="release-detail-section-header">
-        <h2 id="release-about-title" className="release-detail-section-kicker">
-          about this release
-        </h2>
-      </div>
-      <div className="release-detail-copy">
-        {paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function ReleaseFactsSection({ release }: { release: ReleaseEntry }) {
   const details = releaseDetailRows(release);
   const credits = releaseCreditRows(release);
@@ -767,7 +711,6 @@ function MoreMusicSection({ release }: { release: ReleaseEntry }) {
             <div className="min-w-0">
               <p>{releaseHeroMeta(entry)}</p>
               <h3>{entry.title}</h3>
-              <span>{entry.mood ?? entry.description}</span>
             </div>
           </Link>
         ))}
@@ -794,8 +737,8 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   return createPageMetadata({
-    title: release.seoTitle ?? release.title,
-    description: release.seoDescription ?? release.description,
+    title: `${release.title} by ${releaseArtistName(release)}`,
+    description: releaseFactualDescription(release),
     path: releaseDetailHref(release),
     image: releaseMetadataImage(release),
   });
@@ -862,12 +805,6 @@ export default function ReleaseDetailPage({ params }: PageProps) {
               {heroMeta ? <p className="release-detail-hero-meta">{heroMeta}</p> : null}
             </div>
 
-            {(release.mood || release.description) && !(release.isProjectTrack && release.type === "remix") ? (
-              <p className="release-detail-description">
-                {release.mood ?? release.description}
-              </p>
-            ) : null}
-
             {tags.length ? (
               <div className="release-detail-tag-row" aria-label="Release tags">
                 {tags.map((tag) => (
@@ -911,8 +848,6 @@ export default function ReleaseDetailPage({ params }: PageProps) {
 
           <FindYourPlatformSection release={release} />
 
-          <ReleaseAboutSection release={release} />
-
           <ReleaseFactsSection release={release} />
 
           {hasTracklist ? (
@@ -922,7 +857,11 @@ export default function ReleaseDetailPage({ params }: PageProps) {
                   {tracklistHeading}
                 </h2>
               </div>
-              <ReleaseTracklist release={release} trackLinks={projectTrackLinks} />
+              <ReleaseTracklist
+                tracks={release.tracklist ?? release.audio?.tracks ?? []}
+                queue={releaseAudioQueue(release)}
+                trackLinks={projectTrackLinks}
+              />
             </section>
           ) : null}
 

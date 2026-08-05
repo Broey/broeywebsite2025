@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/content/site";
+import {
+  clientIpFromRequest,
+  verifyTurnstileToken,
+  type TurnstileVerificationResult,
+} from "@/lib/turnstile";
 
 type ApiResponse = {
   ok: boolean;
@@ -7,17 +12,11 @@ type ApiResponse = {
 };
 
 type RequestPayload = Record<string, string>;
-type TurnstileSiteverifyResponse = {
-  success?: boolean;
-  "error-codes"?: string[];
-};
-
 const emailPattern =
   /^[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i;
 const maxNameLength = 120;
 const maxSubjectLength = 160;
 const maxMessageLength = 5000;
-const turnstileVerifyUrl = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const resendApiBaseUrl =
   process.env.RESEND_API_BASE_URL?.trim().replace(/\/+$/, "") ?? "https://api.resend.com";
 const contactEmail = siteConfig.contact.email;
@@ -51,16 +50,11 @@ async function readPayload(request: Request): Promise<RequestPayload> {
   return payload;
 }
 
-const normalizeOptIn = (value: string) =>
-  ["1", "true", "yes", "on"].includes(value.toLowerCase()) ? "yes" : "no";
-
 const getResendApiKey = () => process.env.RESEND_API_KEY?.trim() ?? "";
 
 const getContactFromEmail = () => process.env.RESEND_FROM_EMAIL?.trim() ?? "";
 
 const getContactFromName = () => process.env.RESEND_FROM_NAME?.trim() || "Broey Website";
-
-const hasContactEmailConfig = () => Boolean(getResendApiKey() && getContactFromEmail());
 
 const isValidEmail = (email: string) =>
   email.length <= 254 &&
@@ -90,11 +84,10 @@ const formatFrom = (name: string, email: string) => {
 
 const buildEmailText = (payload: RequestPayload) =>
   [
-    "New contact form message from broey.com",
+    "New contact form message from the Broey website",
     "",
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
-    `Updates opt-in: ${payload.updatesOptIn}`,
     `Source: ${payload.source}`,
     "",
     "Message:",
@@ -105,11 +98,10 @@ const buildEmailHtml = (payload: RequestPayload) => {
   const safeMessage = escapeHtml(payload.message).replace(/\n/g, "<br />");
 
   return [
-    "<h2>New contact form message from broey.com</h2>",
+    "<h2>New contact form message from the Broey website</h2>",
     "<dl>",
     `<dt>Name</dt><dd>${escapeHtml(payload.name)}</dd>`,
     `<dt>Email</dt><dd>${escapeHtml(payload.email)}</dd>`,
-    `<dt>Updates opt-in</dt><dd>${escapeHtml(payload.updatesOptIn)}</dd>`,
     `<dt>Source</dt><dd>${escapeHtml(payload.source)}</dd>`,
     "</dl>",
     "<h3>Message</h3>",
@@ -117,67 +109,25 @@ const buildEmailHtml = (payload: RequestPayload) => {
   ].join("");
 };
 
-async function verifyTurnstile(payload: RequestPayload, request: Request) {
-  const secretKey = process.env.TURNSTILE_SECRET_KEY?.trim();
-
-  if (!secretKey) {
-    return null;
-  }
-
-  const token = trimValue(payload["cf-turnstile-response"] || payload.turnstileToken);
-
-  if (!token) {
+function turnstileErrorResponse(result: Exclude<TurnstileVerificationResult, { ok: true }>) {
+  if (result.code === "configuration") {
     return jsonResponse(
-      {
-        ok: false,
-        message: "Please complete the spam check before sending your message.",
-      },
-      400,
+      { ok: false, message: "This form is temporarily unavailable. Please try again later." },
+      result.status,
     );
   }
 
-  const verificationBody = new URLSearchParams({
-    secret: secretKey,
-    response: token,
-  });
-  const remoteIp =
-    request.headers.get("cf-connecting-ip") ??
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-
-  if (remoteIp) {
-    verificationBody.set("remoteip", remoteIp);
-  }
-
-  try {
-    const response = await fetch(turnstileVerifyUrl, {
-      method: "POST",
-      body: verificationBody,
-      cache: "no-store",
-    });
-    const result = (await response.json().catch(() => null)) as
-      | TurnstileSiteverifyResponse
-      | null;
-
-    if (!response.ok || result?.success !== true) {
-      return jsonResponse(
-        {
-          ok: false,
-          message: "The spam check did not pass. Please refresh and try again.",
-        },
-        400,
-      );
-    }
-  } catch {
+  if (result.code === "unavailable") {
     return jsonResponse(
-      {
-        ok: false,
-        message: "The spam check could not be reached. Please try again in a bit.",
-      },
-      502,
+      { ok: false, message: "Verification is temporarily unavailable. Please try again later." },
+      result.status,
     );
   }
 
-  return null;
+  return jsonResponse(
+    { ok: false, message: "Verification did not complete. Please try again." },
+    result.status,
+  );
 }
 
 async function forwardToProvider(payload: RequestPayload) {
@@ -257,7 +207,6 @@ export async function POST(request: Request) {
   );
   const email = trimValue(payload.email).toLowerCase();
   const message = trimValue(payload.message);
-  const updatesOptIn = normalizeOptIn(trimValue(payload.updatesOptIn));
   const source = trimValue(payload.source || "website-contact");
   const website = trimValue(payload.website);
 
@@ -271,11 +220,31 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!name || name.length > maxNameLength) {
+  if (!firstName) {
     return jsonResponse(
       {
         ok: false,
-        message: "Add your name before sending.",
+        message: "Add your first name before sending.",
+      },
+      400,
+    );
+  }
+
+  if (!lastName) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: "Add your last name before sending.",
+      },
+      400,
+    );
+  }
+
+  if (name.length > maxNameLength) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: "Keep your full name under 120 characters.",
       },
       400,
     );
@@ -311,20 +280,13 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!hasContactEmailConfig()) {
-    return jsonResponse(
-      {
-        ok: false,
-        message: contactProviderMissingMessage,
-      },
-      503,
-    );
-  }
+  const turnstileResult = await verifyTurnstileToken(
+    trimValue(payload.turnstileToken || payload["cf-turnstile-response"]),
+    clientIpFromRequest(request),
+  );
 
-  const turnstileError = await verifyTurnstile(payload, request);
-
-  if (turnstileError) {
-    return turnstileError;
+  if (!turnstileResult.ok) {
+    return turnstileErrorResponse(turnstileResult);
   }
 
   return forwardToProvider({
@@ -334,7 +296,6 @@ export async function POST(request: Request) {
     subject,
     email,
     message,
-    updatesOptIn,
     source,
   });
 }

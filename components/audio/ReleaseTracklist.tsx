@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { releaseAudioQueue } from "@/components/audio/releaseAudioQueue";
-import { useAudioPlayer } from "@/components/audio/useAudioPlayer";
+import { useAudioPlayer, type GlobalAudioQueue } from "@/components/audio/useAudioPlayer";
 import type { ReleaseEntry } from "@/content/releases";
 
 type ReleaseTracklistProps = {
-  release: ReleaseEntry;
+  tracks: NonNullable<ReleaseEntry["tracklist"]>;
+  queue?: GlobalAudioQueue;
   trackLinks?: Array<{
     title: string;
     slug?: string;
@@ -50,10 +50,8 @@ const titlesMatch = (left: string, right: string) => {
 const keysMatch = (left?: string, right?: string) =>
   Boolean(left && right && comparableTitle(left) === comparableTitle(right));
 
-export function ReleaseTracklist({ release, trackLinks = [] }: ReleaseTracklistProps) {
-  const queue = releaseAudioQueue(release);
+export function ReleaseTracklist({ tracks, queue, trackLinks = [] }: ReleaseTracklistProps) {
   const { activeIndex, currentQueue, hasEnded, isPlaying, playQueue } = useAudioPlayer();
-  const tracks = release.tracklist ?? release.audio?.tracks ?? [];
 
   return (
     <ol className="release-detail-tracklist">

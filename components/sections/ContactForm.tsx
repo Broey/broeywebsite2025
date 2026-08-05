@@ -1,8 +1,13 @@
 "use client";
 
-import Script from "next/script";
-import { type FormEvent, useState } from "react";
+import Link from "next/link";
+import { type FormEvent, useRef, useState } from "react";
+import {
+  TurnstileWidget,
+  type TurnstileWidgetHandle,
+} from "@/components/forms/TurnstileWidget";
 import { siteConfig } from "@/content/site";
+import { rateLimitMessage } from "@/lib/form-client";
 
 type ContactFormStatus = {
   tone: "notice" | "success" | "error";
@@ -21,6 +26,9 @@ const providerFallbackMessage = `Message sending is not connected yet. Please em
 export function ContactForm() {
   const [status, setStatus] = useState<ContactFormStatus | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileActive, setTurnstileActive] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,14 +37,21 @@ export function ContactForm() {
     const formData = new FormData(form);
     const firstName = String(formData.get("firstName") ?? "").trim();
     const lastName = String(formData.get("lastName") ?? "").trim();
-    const name = [firstName, lastName].filter(Boolean).join(" ");
     const email = String(formData.get("email") ?? "").trim();
     const message = String(formData.get("message") ?? "").trim();
 
-    if (!name) {
+    if (!firstName) {
       setStatus({
         tone: "error",
-        message: "Add your name before sending.",
+        message: "Add your first name before sending.",
+      });
+      return;
+    }
+
+    if (!lastName) {
+      setStatus({
+        tone: "error",
+        message: "Add your last name before sending.",
       });
       return;
     }
@@ -57,7 +72,19 @@ export function ContactForm() {
       return;
     }
 
+    if (turnstileSiteKey && !turnstileToken) {
+      setTurnstileActive(true);
+      setStatus({
+        tone: "error",
+        message: "Complete the verification before sending your message.",
+      });
+      return;
+    }
+
     formData.set("source", "contact-page");
+    if (turnstileToken) {
+      formData.set("turnstileToken", turnstileToken);
+    }
     setIsSubmitting(true);
     setStatus({
       tone: "notice",
@@ -70,11 +97,12 @@ export function ContactForm() {
         body: formData,
       });
       const payload = (await response.json().catch(() => null)) as ContactApiResponse | null;
-      const messageText =
-        payload?.message ??
-        (response.ok
-          ? "Message sent. Thanks for reaching out."
-          : providerFallbackMessage);
+      const messageText = response.status === 429
+        ? rateLimitMessage(response.headers.get("Retry-After"))
+        : payload?.message ??
+          (response.ok
+            ? "Message sent. Thanks for reaching out."
+            : providerFallbackMessage);
 
       setStatus({
         tone: response.ok && payload?.ok !== false ? "success" : response.status === 503 ? "notice" : "error",
@@ -90,6 +118,7 @@ export function ContactForm() {
         message: `Message sending could not be reached. Please email ${siteConfig.contact.email} or try again in a bit.`,
       });
     } finally {
+      turnstileRef.current?.reset();
       setIsSubmitting(false);
     }
   };
@@ -100,7 +129,9 @@ export function ContactForm() {
         className="contact-form"
         action="/api/contact"
         method="post"
-        aria-describedby={`contact-form-note${status ? " contact-form-status" : ""}`}
+        aria-describedby={`contact-form-required-note contact-form-note contact-form-privacy${status ? " contact-form-status" : ""}`}
+        onFocusCapture={() => setTurnstileActive(true)}
+        onChange={() => setTurnstileActive(true)}
         onSubmit={handleSubmit}
       >
         <input
@@ -111,41 +142,56 @@ export function ContactForm() {
           autoComplete="off"
           aria-hidden="true"
         />
-        {turnstileSiteKey ? (
-          <>
-            <Script
-              src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-              strategy="afterInteractive"
-            />
-            <div
-              className="contact-form-turnstile cf-turnstile"
-              data-sitekey={turnstileSiteKey}
-              data-theme="dark"
-            />
-          </>
-        ) : null}
+        <p id="contact-form-required-note" className="contact-form-required-note">
+          All fields are required.
+        </p>
         <div className="contact-form-grid">
           <label className="contact-form-label">
-            <span>First name</span>
-            <input name="firstName" type="text" autoComplete="given-name" required />
+            <span>First name (required)</span>
+            <input
+              name="firstName"
+              type="text"
+              autoComplete="given-name"
+              required
+              aria-required="true"
+            />
           </label>
           <label className="contact-form-label">
-            <span>Last name</span>
-            <input name="lastName" type="text" autoComplete="family-name" />
+            <span>Last name (required)</span>
+            <input
+              name="lastName"
+              type="text"
+              autoComplete="family-name"
+              required
+              aria-required="true"
+            />
           </label>
           <label className="contact-form-label contact-form-label-wide">
-            <span>Email</span>
-            <input name="email" type="email" inputMode="email" autoComplete="email" required />
+            <span>Email (required)</span>
+            <input
+              name="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              required
+              aria-required="true"
+            />
           </label>
           <label className="contact-form-label contact-form-label-wide">
-            <span>Message</span>
-            <textarea name="message" rows={7} required />
+            <span>Message (required)</span>
+            <textarea name="message" rows={7} required aria-required="true" />
           </label>
         </div>
-        <label className="contact-form-checkbox">
-          <input name="updatesOptIn" type="checkbox" value="yes" />
-          <span>Send me occasional Broey drop notes, first links, and merch updates.</span>
-        </label>
+        <p id="contact-form-privacy" className="contact-form-disclosure">
+          Messages are processed to respond to your inquiry. See the{" "}
+          <Link href="/privacy">Privacy Notice</Link>.
+        </p>
+        <TurnstileWidget
+          ref={turnstileRef}
+          active={turnstileActive}
+          siteKey={turnstileSiteKey}
+          onTokenChange={setTurnstileToken}
+        />
         <button type="submit" className="contact-form-button button-primary cta-primary" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Note"}
         </button>

@@ -2,12 +2,10 @@ import type { MetadataRoute } from "next";
 import { releaseDetailHref } from "@/content/release-actions";
 import { showReleaseInSitemap } from "@/content/release-filters";
 import { releases } from "@/content/releases";
-import { siteUrl } from "@/content/seo";
+import { absoluteUrl } from "@/lib/site-origin";
 import { isSitePrivate } from "@/lib/site-visibility";
 
-const staticRoutes = ["/", "/music", "/about", "/contact", "/merch", "/press"];
-
-const canonicalUrl = (path: string) => new URL(path, siteUrl).toString();
+const staticRoutes = ["/", "/music", "/about", "/contact", "/merch", "/press", "/privacy"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (isSitePrivate()) {
@@ -20,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((release) => releaseDetailHref(release));
 
   return [...staticRoutes, ...releaseRoutes].map((route) => ({
-    url: canonicalUrl(route),
+    url: absoluteUrl(route),
     lastModified,
   }));
 }

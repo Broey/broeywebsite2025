@@ -5,6 +5,7 @@ import { ReleaseCarouselShell } from "@/components/sections/ReleaseCarouselShell
 import { AudioPreview } from "@/components/ui/AudioPreview";
 import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { releasePlatformLinks } from "@/content/release-actions";
 import { archiveReleases } from "@/content/release-filters";
 import { releases } from "@/content/releases";
 import type { ReleaseEntry } from "@/content/releases";
@@ -35,23 +36,25 @@ const releaseSortValue = (release: ReleaseEntry) => {
 };
 
 const releaseHref = (release: ReleaseEntry) => {
+  const publicLinks = releasePlatformLinks(release);
   const primaryLink =
-    release.links.find((link) => link.primary && isRealUrl(link.url)) ??
-    release.links.find((link) => isRealUrl(link.url));
+    publicLinks.find((link) => link.primary && isRealUrl(link.url)) ??
+    publicLinks.find((link) => isRealUrl(link.url));
 
-  return primaryLink?.url ?? release.disco?.publicUrl ?? "/music";
+  return primaryLink?.url ?? "/music";
 };
 
 const releaseCtaLabel = (release: ReleaseEntry) => {
+  const publicLinks = releasePlatformLinks(release);
   const primaryLink =
-    release.links.find((link) => link.primary && isRealUrl(link.url)) ??
-    release.links.find((link) => isRealUrl(link.url));
+    publicLinks.find((link) => link.primary && isRealUrl(link.url)) ??
+    publicLinks.find((link) => isRealUrl(link.url));
 
   if (primaryLink) {
     return `Open in ${primaryLink.platform}`;
   }
 
-  return release.embed?.provider === "disco" || release.disco ? "Open in Disco" : "View selected releases";
+  return "View selected releases";
 };
 
 export function ReleaseCarousel() {
@@ -124,9 +127,6 @@ export function ReleaseCarousel() {
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-3 min-h-[3.9rem] text-sm text-[var(--color-muted)]">
-                  {release.mood ?? release.description}
-                </p>
                 <div className="mt-auto pt-4">
                   {hasAudioPreview ? (
                     <AudioPreview

@@ -24,7 +24,7 @@ npm run sync:latest-release-media
 ## Environment
 
 ```text
-NEXT_PUBLIC_SITE_URL=https://broey.com
+NEXT_PUBLIC_SITE_URL=https://broey.net
 SITE_VISIBILITY=public
 SITE_PASSCODE=
 SHOPIFY_STORE_DOMAIN=
@@ -42,13 +42,15 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 ```
 
-`NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. Set it to the production domain before launch.
+`NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. The intended public origin is `https://broey.net`. Production and preview builds require an explicit HTTPS origin-only value; credentials, query strings, fragments, and non-root paths are rejected. A trailing slash is normalized away. Local development may omit the variable and use `http://localhost:3000`, or explicitly use HTTP with `localhost` or `127.0.0.1`.
 
-`SITE_VISIBILITY=private` enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Set `SITE_PASSCODE` only for private previews. Use public visibility for launch.
+`SITE_VISIBILITY` accepts only `public` or `private` outside local development. `public` allows normal indexing. `private` requires `SITE_PASSCODE` and enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Local development defaults to `public` when the variable is absent.
+
+The permanent production host has not been selected. Keep the app deployable with conventional `next build` and `next start` commands. The future `www.broey.net` to `broey.net` redirect belongs in the selected hosting or DNS configuration, not in application routing.
 
 Shopify merch runtime uses `SHOPIFY_STORE_DOMAIN`, optional `SHOPIFY_MERCH_COLLECTION_HANDLE`, and optional `SHOPIFY_STOREFRONT_ACCESS_TOKEN`. If Shopify is unavailable or returns no products, the merch page falls back to curated local product links.
 
-Resend/contact delivery requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`; `RESEND_FROM_NAME` is optional. MailerLite/newsletter delivery requires `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID`; sender/reply-to values document the intended email identity. Turnstile uses `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for the widget and `TURNSTILE_SECRET_KEY` for server verification. Never commit real secret values.
+Resend/contact delivery requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`; `RESEND_FROM_NAME` is optional. MailerLite/newsletter delivery requires `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID`; sender/reply-to values document the intended email identity. Turnstile uses `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for the widget and the server-only `TURNSTILE_SECRET_KEY` for verification. Never commit real secret values.
 
 ### Example environment (copy to `.env.local`)
 
@@ -68,7 +70,19 @@ To enable newsletter signups in production, generate a MailerLite API token, cre
 
 To enable contact form email notifications in production, create a Resend API key and verify the sending domain/address, then set `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. The contact API sends notifications to `broey@broey.net` and uses the visitor email as `reply_to`, not as the sender address. If either required Resend env var is missing, contact submissions return a friendly fallback pointing visitors to the public contact email instead of failing silently.
 
-For contact form spam protection, create a Cloudflare Turnstile widget and set `NEXT_PUBLIC_TURNSTILE_SITE_KEY` plus `TURNSTILE_SECRET_KEY`. Server-side verification runs only when `TURNSTILE_SECRET_KEY` is present.
+Both Contact and newsletter submissions use the same Cloudflare Turnstile client and server verifier while preserving their honeypots. Local development may omit both Turnstile keys and use the documented development-only bypass. If only one key is present, verification fails closed. Preview and production builds never bypass verification: configure both keys, using Cloudflare's published test credentials for safe preview validation or real restricted credentials for production. Tokens are single-use and reset after every server attempt.
+
+Both form clients handle HTTP 429 responses and `Retry-After` guidance. Application-level counters, Redis, and a rate-limit datastore are intentionally not included. Distributed rate limiting remains an open requirement to configure with the eventual production host.
+
+## V1 Public Content Policy
+
+The V1 public surface intentionally excludes `/watch` and the draft LiNK and Paradise releases. Their source material remains in the repository, but the routes return 404 and the items are excluded from public collections, metadata, sitemaps, and audio queues.
+
+Release and track descriptions are retained as private draft data in the content sources but are not rendered, serialized to public components where avoidable, or used in public metadata. Release and track metadata instead uses neutral factual templates built from approved titles, artists, dates, types, and normalized genres.
+
+Genre display and filtering share the centralized taxonomy in `content/genres.ts`. The `/music` filters run entirely in the browser, default to `All`, preserve active audio, and do not create query parameters, genre routes, alternate canonical URLs, or sitemap entries. Review `docs/launch-readiness/V1_GENRE_INVENTORY.md` before changing taxonomy mappings; unresolved or missing factual genres should remain unlabeled until the owner approves them.
+
+The checked-in `.vercelignore` supports the current preview workflow, but application runtime behavior does not depend on a Vercel-only API. Permanent hosting, distributed rate limiting, production Turnstile restrictions, environment configuration, TLS, and the `www.broey.net` redirect remain launch tasks for the eventual host.
 
 ## Branding Assets
 

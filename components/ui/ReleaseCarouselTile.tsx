@@ -3,16 +3,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { releaseAudioQueue } from "@/components/audio/releaseAudioQueue";
 import { useAudioPlayer, type GlobalAudioQueue } from "@/components/audio/useAudioPlayer";
 import { PendingArtwork } from "@/components/ui/PendingArtwork";
 import { releaseDetailHref } from "@/content/release-actions";
-import type { ReleaseEntry } from "@/content/releases";
+import type { ReleaseEntry, ReleaseType } from "@/content/releases";
 import type { CSSProperties, ReactNode } from "react";
 import type { CarouselMetrics, CarouselPointer } from "@/components/ui/ReleaseCarousel";
 
+export type CarouselRelease = Pick<
+  ReleaseEntry,
+  | "title"
+  | "slug"
+  | "type"
+  | "year"
+  | "releaseDate"
+  | "coverImage"
+  | "coverAlt"
+  | "artworkPresentation"
+  | "featured"
+> & {
+  releaseTypeDisplay?: string;
+  tileKind: "collection" | "single";
+};
+
 type ReleaseCarouselTileProps = {
-  release: ReleaseEntry;
+  release: CarouselRelease;
   index: number;
   audioQueue?: GlobalAudioQueue;
   activeIndex?: number;
@@ -47,7 +62,7 @@ type VisualState = {
   focusWeight: number;
 };
 
-const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
+const releaseTypeLabel: Record<ReleaseType, string> = {
   single: "Single",
   ep: "EP",
   remix: "Remix",
@@ -55,10 +70,7 @@ const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
   set: "Set",
 };
 
-const tileKind = (release: ReleaseEntry) =>
-  release.catalogSource?.suggestedTileType === "collectionTile" ? "collection" : "single";
-
-const releaseDateLabel = (release: ReleaseEntry) => {
+const releaseDateLabel = (release: CarouselRelease) => {
   if (release.year) return String(release.year);
   if (release.releaseDate) return release.releaseDate.slice(0, 4);
 
@@ -172,14 +184,9 @@ const visualStateForOffset = (
   };
 };
 
-function CarouselArtwork({ release, children }: { release: ReleaseEntry; children?: ReactNode }) {
+function CarouselArtwork({ release, children }: { release: CarouselRelease; children?: ReactNode }) {
   const alt = release.coverAlt ?? `${release.title} cover art`;
-  const fallbackEyebrow =
-    release.catalogStatus === "pending-tidal"
-      ? "Broey."
-      : release.catalogStatus === "draft"
-        ? "Draft tile"
-        : "Artwork pending";
+  const fallbackEyebrow = "Artwork pending";
 
   if (!release.coverImage) {
     return (
@@ -203,7 +210,11 @@ function CarouselArtwork({ release, children }: { release: ReleaseEntry; childre
         fill
         draggable={false}
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 82vw"
-        className="pointer-events-none select-none object-cover object-center"
+        className="pointer-events-none select-none"
+        style={{
+          objectFit: release.artworkPresentation?.fit ?? "cover",
+          objectPosition: release.artworkPresentation?.position ?? "center",
+        }}
       />
       <div className="music-release-artwork-shade" aria-hidden="true" />
       {children}
@@ -269,10 +280,10 @@ export function ReleaseCarouselTile({
   const offset = circularOffset(index, displayPosition, safeReleaseCount);
   const distance = Math.abs(offset);
   const isActive = activeIndex === index;
-  const releaseTypeDisplay = release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
+  const releaseTypeDisplay = release.releaseTypeDisplay ?? releaseTypeLabel[release.type];
   const meta = [releaseTypeDisplay, releaseDateLabel(release)].filter(Boolean).join(" / ");
   const detailHref = releaseDetailHref(release);
-  const audioQueue = contextualAudioQueue ?? releaseAudioQueue(release);
+  const audioQueue = contextualAudioQueue;
   const side = distance < 0.001 ? "center" : offset < 0 ? "left" : "right";
   const isCurrent = Boolean(release.featured);
   const currentReleaseBadge =
@@ -343,7 +354,7 @@ export function ReleaseCarouselTile({
       data-carousel-card
       data-active={isActive ? "true" : "false"}
       data-current={isCurrent ? "true" : "false"}
-      data-tile-kind={tileKind(release)}
+      data-tile-kind={release.tileKind}
       data-side={side}
       data-distance={distanceBucket(distance)}
       data-release-title={release.title}

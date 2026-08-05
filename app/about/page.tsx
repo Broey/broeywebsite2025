@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { PressMentionsSection } from "@/components/sections/PressMentionsSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { siteUrl } from "@/content/seo";
 import { siteConfig } from "@/content/site";
+import { absoluteUrl } from "@/lib/site-origin";
 
 const aboutDescription =
   "Broey is the project of Joe Montaro, a Scranton-area producer and audio engineer making electronic music from lo-fi roots, house, UKG, drum and bass, and club records.";
@@ -98,11 +98,11 @@ const timelineItems = [
   {
     year: "Now",
     title: "Loose club records",
-    copy: "dancing dumpster fire, STEREO LUV, blu., FREE, and LiNK sit at the front of the current catalog.",
+    copy: "dancing dumpster fire, STEREO LUV, blu., and FREE sit at the front of the current catalog.",
   },
 ];
 
-const absoluteAboutUrl = new URL("/about", siteUrl).toString();
+const absoluteAboutUrl = absoluteUrl("/about");
 
 export default function AboutPage() {
   return (
@@ -118,7 +118,7 @@ export default function AboutPage() {
             url: absoluteAboutUrl,
             description: aboutDescription,
             jobTitle: "Producer and audio engineer",
-            image: new URL(aboutPortraitImage, siteUrl).toString(),
+            image: absoluteUrl(aboutPortraitImage),
             homeLocation: {
               "@type": "Place",
               name: "Scranton, Pennsylvania",

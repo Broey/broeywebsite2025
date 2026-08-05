@@ -48,6 +48,10 @@ export type ReleaseIndexing = "index" | "noindex" | "internal";
 export type ReleaseCatalogStatus = "tidal" | "manual" | "pending-tidal" | "draft";
 export type ReleaseSuggestedTileType = "collectionTile" | "singleTile" | "trackTile";
 export type ReleaseListenActionKind = "external" | "disco-embed" | "local-audio";
+export type ReleaseArtworkPresentation = {
+  fit?: "cover" | "contain";
+  position?: "center" | "center top" | "center bottom";
+};
 
 export type ReleaseCatalogSource = {
   provider?: string;
@@ -170,6 +174,7 @@ export type ReleaseEntry = {
   seoDescription?: string;
   coverImage?: string;
   coverAlt?: string;
+  artworkPresentation?: ReleaseArtworkPresentation;
   playerAccent?: string;
   audioPreview?: string;
   audio?: ReleaseAudio;
@@ -180,6 +185,7 @@ export type ReleaseEntry = {
     privateShareUrl?: string;
     promoUrl?: string;
     downloadUrl?: string;
+    publicUse?: "preview" | "press" | "industry";
   };
   embed?: ReleaseEmbed;
   listenAction?: ReleaseListenAction;
@@ -508,6 +514,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     title: "LiNK",
     slug: "link",
     type: "single",
+    visibility: "draft",
     year: 2025,
     description:
       "Electronic single available here as a local radio edit while public platform links are verified.",
@@ -1540,6 +1547,10 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
+    artworkPresentation: {
+      fit: "cover",
+      position: "center bottom",
+    },
     playerAccent: "#717bb0",
     audio: {
       type: "project",
@@ -2226,7 +2237,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     description:
       "A melodic electronic single built around steady tension and soft release.",
     mood: "Melodic electronic single with steady tension.",
-    tags: ["Electronic", "Melodic", "Single"],
+    tags: ["Electronic", "Melodic", "Single", "Drum & Bass", "Jungle"],
     seoTitle: "Hold On by Broey.",
     seoDescription:
       "Listen to Hold On by Broey, a melodic electronic single with steady tension.",
@@ -2279,7 +2290,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     description:
       "A Cryztal Grid and Broey collaboration from the shift into heavier electronic production.",
     mood: "Cryztal Grid and Broey collaboration with heavier electronic production.",
-    tags: ["Collaboration", "Club", "Electronic"],
+    tags: ["Collaboration", "Club", "Electronic", "Dubstep"],
     seoTitle: "Warning by Cryztal Grid and Broey.",
     seoDescription:
       "Listen to Warning by Cryztal Grid and Broey, a collaboration with heavier electronic production.",
@@ -2439,7 +2450,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     title: "Paradise",
     slug: "paradise",
     type: "single",
-    visibility: "public",
+    visibility: "draft",
     year: 2019,
     releaseDate: "2019-03-23",
     description:

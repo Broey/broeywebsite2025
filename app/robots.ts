@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/site-origin";
 import { isSitePrivate } from "@/lib/site-visibility";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://broey.com";
 
 export default function robots(): MetadataRoute.Robots {
   if (isSitePrivate()) {
@@ -18,6 +17,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

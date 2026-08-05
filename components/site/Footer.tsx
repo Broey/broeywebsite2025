@@ -6,6 +6,10 @@ import { socials } from "@/content/socials";
 
 const listenPlatforms = ["Spotify", "Apple Music", "SoundCloud"] as const;
 const followCommunityPlatforms = ["Instagram", "YouTube", "TikTok", "Discord"] as const;
+const footerSiteItems = [
+  ...primaryNavItems,
+  { href: "/privacy", label: "Privacy" },
+];
 
 const visibleSocials = new Map<string, (typeof socials)[number]>();
 
@@ -54,7 +58,7 @@ export function Footer() {
               Site
             </h2>
             <nav aria-label="Footer navigation" className="site-footer-link-list">
-              {primaryNavItems.map((item) => (
+              {footerSiteItems.map((item) => (
                 <Link key={item.href} href={item.href} className="site-footer-link">
                   {item.label}
                 </Link>

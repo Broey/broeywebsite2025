@@ -57,7 +57,7 @@ export const pressMentionsCopy = {
     heading: "Coverage and context",
     description:
       "Writeups, interviews, podcasts, and outside features around dancing dumpster fire, Fragments, early lo-fi roots, and the production work behind the catalog.",
-    ctaLabel: "View Press & Coverage",
+    ctaLabel: "View all press & coverage",
     ctaHref: "/press",
   },
   archive: {
