@@ -45,6 +45,47 @@ const genreTaxonomy: Record<string, readonly string[]> = {
   wave: ["Wave"],
 };
 
+export const curatedGenreFilters = [
+  "House",
+  "Drum & Bass",
+  "Jungle",
+  "Dubstep",
+  "Garage",
+  "Breakbeat",
+  "Electronic",
+] as const;
+
+export type CuratedGenreFilter = (typeof curatedGenreFilters)[number];
+
+export const curatedGenreTaxonomy: Readonly<
+  Record<CuratedGenreFilter, readonly string[]>
+> = {
+  House: [
+    "House",
+    "Deep House",
+    "Bass House",
+    "Tech House",
+    "Old School House",
+    "Speed House",
+  ],
+  "Drum & Bass": ["Drum & Bass"],
+  Jungle: ["Jungle"],
+  Dubstep: ["Dubstep"],
+  Garage: ["Garage", "UK Garage", "Bassline"],
+  Breakbeat: ["Breakbeat"],
+  Electronic: [
+    "Electronic",
+    "Alternative Electronic",
+    "Electro Pop",
+    "Chillout",
+    "Club",
+    "Dance",
+    "Bass",
+    "Trance",
+    "Trap",
+  ],
+};
+
 const genreKey = (value: string) =>
   value
     .normalize("NFKC")
@@ -100,6 +141,20 @@ export function normalizedGenres(release: ReleaseEntry) {
   return normalizeGenreValues(
     sourceValues.filter((genre): genre is string => typeof genre === "string"),
   );
+}
+
+export function curatedGenreFiltersForGenres(detailedGenres: readonly string[]) {
+  const normalizedDetailedGenres = new Set(detailedGenres.map(genreKey));
+
+  return curatedGenreFilters.filter((filter) =>
+    curatedGenreTaxonomy[filter].some((genre) =>
+      normalizedDetailedGenres.has(genreKey(genre)),
+    ),
+  );
+}
+
+export function curatedGenreFiltersForRelease(release: ReleaseEntry) {
+  return curatedGenreFiltersForGenres(normalizedGenres(release));
 }
 
 export function availableGenresForReleases(releaseList: readonly ReleaseEntry[]) {

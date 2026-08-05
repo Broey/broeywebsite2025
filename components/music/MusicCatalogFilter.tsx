@@ -4,7 +4,7 @@ import { type ReactNode, useMemo, useState } from "react";
 
 export type MusicCatalogRelease = {
   id: string;
-  genres: string[];
+  filterGroups: readonly string[];
   card: ReactNode;
 };
 
@@ -17,29 +17,29 @@ export type MusicCatalogSection = {
 };
 
 type MusicCatalogFilterProps = {
-  genres: string[];
+  filters: readonly string[];
   sections: MusicCatalogSection[];
 };
 
 export function MusicCatalogFilter({
-  genres,
+  filters,
   sections,
 }: MusicCatalogFilterProps) {
-  const [selectedGenre, setSelectedGenre] = useState("All");
+  const [selectedFilter, setSelectedFilter] = useState("All");
   const filteredSections = useMemo(
     () =>
       sections
         .map((section) => ({
           ...section,
           releases:
-            selectedGenre === "All"
+            selectedFilter === "All"
               ? section.releases
               : section.releases.filter((release) =>
-                  release.genres.includes(selectedGenre),
+                  release.filterGroups.includes(selectedFilter),
                 ),
         }))
         .filter((section) => section.releases.length > 0),
-    [sections, selectedGenre],
+    [sections, selectedFilter],
   );
   const matchingCount = filteredSections.reduce(
     (count, section) => count + section.releases.length,
@@ -56,17 +56,17 @@ export function MusicCatalogFilter({
           </p>
         </div>
         <div className="music-filter-controls" role="group" aria-label="Filter releases by genre">
-          {["All", ...genres].map((genre) => (
+          {["All", ...filters].map((filter) => (
             <button
-              key={genre}
+              key={filter}
               type="button"
               className="music-filter-button"
-              data-selected={selectedGenre === genre ? "true" : "false"}
-              aria-pressed={selectedGenre === genre}
+              data-selected={selectedFilter === filter ? "true" : "false"}
+              aria-pressed={selectedFilter === filter}
               aria-controls="music-release-catalog"
-              onClick={() => setSelectedGenre(genre)}
+              onClick={() => setSelectedFilter(filter)}
             >
-              {genre}
+              {filter}
             </button>
           ))}
         </div>

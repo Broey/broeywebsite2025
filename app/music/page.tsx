@@ -13,7 +13,11 @@ import { ReleaseCard } from "@/components/ui/ReleaseCard";
 import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { availableGenresForReleases, normalizedGenres } from "@/content/genres";
+import {
+  curatedGenreFilters,
+  curatedGenreFiltersForRelease,
+  normalizedGenres,
+} from "@/content/genres";
 import { releaseDetailHref } from "@/content/release-actions";
 import { releases, type ReleaseEntry } from "@/content/releases";
 import { createPageMetadata } from "@/content/seo";
@@ -80,8 +84,6 @@ export default function MusicPage() {
     ? `${featured.title} from ${featuredQueue.queueTitle}`
     : featured.title;
   const featuredGenres = normalizedGenres(featured);
-  const catalogReleases = [...currentEraReleases, ...transitionReleases];
-  const availableGenres = availableGenresForReleases(catalogReleases);
   const catalogSections: MusicCatalogSection[] = [
     {
       id: "selected-catalog",
@@ -98,7 +100,7 @@ export default function MusicPage() {
 
         return {
           id: release.slug,
-          genres: normalizedGenres(release),
+          filterGroups: curatedGenreFiltersForRelease(release),
           card: (
             <ReleaseCard
               release={release}
@@ -128,7 +130,7 @@ export default function MusicPage() {
 
         return {
           id: release.slug,
-          genres: normalizedGenres(release),
+          filterGroups: curatedGenreFiltersForRelease(release),
           card: (
             <ReleaseCard
               release={release}
@@ -197,7 +199,7 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <MusicCatalogFilter genres={availableGenres} sections={catalogSections} />
+      <MusicCatalogFilter filters={curatedGenreFilters} sections={catalogSections} />
 
       <section className="release-detail-section mt-12" aria-labelledby="music-foundations-title">
         <SectionHeader
