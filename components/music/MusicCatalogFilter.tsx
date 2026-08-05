@@ -1,53 +1,50 @@
 "use client";
 
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
+
+export type MusicCatalogRelease = {
+  id: string;
+  genres: string[];
+  card: ReactNode;
+};
+
+export type MusicCatalogSection = {
+  id: string;
+  className: string;
+  header: ReactNode;
+  gridClassName: string;
+  releases: MusicCatalogRelease[];
+};
 
 type MusicCatalogFilterProps = {
   genres: string[];
-  releaseCount: number;
-  children: ReactNode;
+  sections: MusicCatalogSection[];
 };
 
 export function MusicCatalogFilter({
   genres,
-  releaseCount,
-  children,
+  sections,
 }: MusicCatalogFilterProps) {
   const [selectedGenre, setSelectedGenre] = useState("All");
-  const [matchingCount, setMatchingCount] = useState(releaseCount);
-  const catalogRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const catalog = catalogRef.current;
-
-    if (!catalog) {
-      return;
-    }
-
-    const releaseCards = Array.from(
-      catalog.querySelectorAll<HTMLElement>("[data-release-genres]"),
-    );
-    let nextMatchingCount = 0;
-
-    releaseCards.forEach((card) => {
-      const cardGenres = (card.dataset.releaseGenres ?? "").split("|").filter(Boolean);
-      const isMatch = selectedGenre === "All" || cardGenres.includes(selectedGenre);
-
-      card.hidden = !isMatch;
-      if (isMatch) {
-        nextMatchingCount += 1;
-      }
-    });
-
-    catalog.querySelectorAll<HTMLElement>("[data-release-section]").forEach((section) => {
-      const sectionCards = Array.from(
-        section.querySelectorAll<HTMLElement>("[data-release-genres]"),
-      );
-      section.hidden = sectionCards.every((card) => card.hidden);
-    });
-
-    setMatchingCount(nextMatchingCount);
-  }, [releaseCount, selectedGenre]);
+  const filteredSections = useMemo(
+    () =>
+      sections
+        .map((section) => ({
+          ...section,
+          releases:
+            selectedGenre === "All"
+              ? section.releases
+              : section.releases.filter((release) =>
+                  release.genres.includes(selectedGenre),
+                ),
+        }))
+        .filter((section) => section.releases.length > 0),
+    [sections, selectedGenre],
+  );
+  const matchingCount = filteredSections.reduce(
+    (count, section) => count + section.releases.length,
+    0,
+  );
 
   return (
     <div className="music-catalog-filter">
@@ -75,13 +72,24 @@ export function MusicCatalogFilter({
         </div>
       </div>
 
-      <div id="music-release-catalog" ref={catalogRef}>
-        {children}
+      <div id="music-release-catalog">
+        {filteredSections.map((section) => (
+          <div key={section.id} className={section.className}>
+            {section.header}
+            <div className={section.gridClassName}>
+              {section.releases.map((release) => (
+                <div key={release.id}>{release.card}</div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
-      <p className="music-filter-empty" role="status" hidden={matchingCount !== 0}>
-        No approved releases match this genre.
-      </p>
+      {matchingCount === 0 ? (
+        <p className="music-filter-empty" role="status">
+          No approved releases match this genre.
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -5,7 +5,10 @@ import {
   releaseAudioQueueForContext,
   releasePlayLabel,
 } from "@/components/audio/releaseAudioQueue";
-import { MusicCatalogFilter } from "@/components/music/MusicCatalogFilter";
+import {
+  MusicCatalogFilter,
+  type MusicCatalogSection,
+} from "@/components/music/MusicCatalogFilter";
 import { ReleaseCard } from "@/components/ui/ReleaseCard";
 import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
 import { PageIntro } from "@/components/ui/PageIntro";
@@ -61,7 +64,10 @@ const findRelease = (slug: string) =>
 const selectedReleases = (slugs: string[]) =>
   slugs
     .map(findRelease)
-    .filter((release): release is ReleaseEntry => Boolean(release));
+    .filter(
+      (release): release is ReleaseEntry =>
+        Boolean(release) && release?.visibility !== "draft",
+    );
 
 export default function MusicPage() {
   const currentEraReleases = selectedReleases(currentEraReleaseSlugs);
@@ -76,6 +82,67 @@ export default function MusicPage() {
   const featuredGenres = normalizedGenres(featured);
   const catalogReleases = [...currentEraReleases, ...transitionReleases];
   const availableGenres = availableGenresForReleases(catalogReleases);
+  const catalogSections: MusicCatalogSection[] = [
+    {
+      id: "selected-catalog",
+      className: "mt-8 border-t border-white/10 pt-5",
+      header: (
+        <SectionHeader
+          title="Selected Catalog"
+          description="Singles, EPs, remixes, and recent catalog highlights."
+        />
+      ),
+      gridClassName: "mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3",
+      releases: currentEraReleases.map((release) => {
+        const audioQueue = releaseAudioQueueForContext(release, releases, "archive");
+
+        return {
+          id: release.slug,
+          genres: normalizedGenres(release),
+          card: (
+            <ReleaseCard
+              release={release}
+              hidePendingLinks
+              ctaHref={releaseDetailHref(release)}
+              ctaLabel="View Release"
+              audioQueue={audioQueue}
+              playLabel={releasePlayLabel(release)}
+            />
+          ),
+        };
+      }),
+    },
+    {
+      id: "out-of-lo-fi",
+      className: "mt-12",
+      header: (
+        <SectionHeader
+          eyebrow="Bridge"
+          title="Out of lo-fi"
+          description="Tracks from the shift toward drum and bass, club production, and collaborations."
+        />
+      ),
+      gridClassName: "mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3",
+      releases: transitionReleases.map((release) => {
+        const audioQueue = releaseAudioQueueForContext(release, releases, "archive");
+
+        return {
+          id: release.slug,
+          genres: normalizedGenres(release),
+          card: (
+            <ReleaseCard
+              release={release}
+              hidePendingLinks
+              ctaHref={releaseDetailHref(release)}
+              ctaLabel="View Release"
+              audioQueue={audioQueue}
+              playLabel={releasePlayLabel(release)}
+            />
+          ),
+        };
+      }),
+    },
+  ];
 
   return (
     <section className="inner-page" aria-labelledby="music-page-title">
@@ -130,60 +197,7 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <MusicCatalogFilter genres={availableGenres} releaseCount={catalogReleases.length}>
-        <div className="mt-8 border-t border-white/10 pt-5" data-release-section>
-          <SectionHeader
-            title="Selected Catalog"
-            description="Singles, EPs, remixes, and recent catalog highlights."
-          />
-          <div className="mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {currentEraReleases.map((release) => {
-              const audioQueue = releaseAudioQueueForContext(release, releases, "archive");
-
-              return (
-                <div key={release.slug} data-release-genres={normalizedGenres(release).join("|")}>
-                  <ReleaseCard
-                    release={release}
-                    hidePendingLinks
-                    ctaHref={releaseDetailHref(release)}
-                    ctaLabel="View Release"
-                    audioQueue={audioQueue}
-                    playLabel={releasePlayLabel(release)}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {transitionReleases.length ? (
-          <div className="mt-12" data-release-section>
-            <SectionHeader
-              eyebrow="Bridge"
-              title="Out of lo-fi"
-              description="Tracks from the shift toward drum and bass, club production, and collaborations."
-            />
-            <div className="mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-              {transitionReleases.map((release) => {
-                const audioQueue = releaseAudioQueueForContext(release, releases, "archive");
-
-                return (
-                  <div key={release.slug} data-release-genres={normalizedGenres(release).join("|")}>
-                    <ReleaseCard
-                      release={release}
-                      hidePendingLinks
-                      ctaHref={releaseDetailHref(release)}
-                      ctaLabel="View Release"
-                      audioQueue={audioQueue}
-                      playLabel={releasePlayLabel(release)}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
-      </MusicCatalogFilter>
+      <MusicCatalogFilter genres={availableGenres} sections={catalogSections} />
 
       <section className="release-detail-section mt-12" aria-labelledby="music-foundations-title">
         <SectionHeader

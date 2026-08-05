@@ -2227,7 +2227,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     description:
       "A melodic electronic single built around steady tension and soft release.",
     mood: "Melodic electronic single with steady tension.",
-    tags: ["Electronic", "Melodic", "Single"],
+    tags: ["Electronic", "Melodic", "Single", "Drum & Bass", "Jungle"],
     seoTitle: "Hold On by Broey.",
     seoDescription:
       "Listen to Hold On by Broey, a melodic electronic single with steady tension.",
@@ -2280,7 +2280,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     description:
       "A Cryztal Grid and Broey collaboration from the shift into heavier electronic production.",
     mood: "Cryztal Grid and Broey collaboration with heavier electronic production.",
-    tags: ["Collaboration", "Club", "Electronic"],
+    tags: ["Collaboration", "Club", "Electronic", "Dubstep"],
     seoTitle: "Warning by Cryztal Grid and Broey.",
     seoDescription:
       "Listen to Warning by Cryztal Grid and Broey, a collaboration with heavier electronic production.",
