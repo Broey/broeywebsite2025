@@ -48,6 +48,10 @@ export type ReleaseIndexing = "index" | "noindex" | "internal";
 export type ReleaseCatalogStatus = "tidal" | "manual" | "pending-tidal" | "draft";
 export type ReleaseSuggestedTileType = "collectionTile" | "singleTile" | "trackTile";
 export type ReleaseListenActionKind = "external" | "disco-embed" | "local-audio";
+export type ReleaseArtworkPresentation = {
+  fit?: "cover" | "contain";
+  position?: "center" | "center top" | "center bottom";
+};
 
 export type ReleaseCatalogSource = {
   provider?: string;
@@ -170,6 +174,7 @@ export type ReleaseEntry = {
   seoDescription?: string;
   coverImage?: string;
   coverAlt?: string;
+  artworkPresentation?: ReleaseArtworkPresentation;
   playerAccent?: string;
   audioPreview?: string;
   audio?: ReleaseAudio;
@@ -1541,6 +1546,10 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/fragments-remixes.jpg",
     coverAlt: "Fragments (Remixes) cover art",
+    artworkPresentation: {
+      fit: "cover",
+      position: "center bottom",
+    },
     playerAccent: "#717bb0",
     audio: {
       type: "project",

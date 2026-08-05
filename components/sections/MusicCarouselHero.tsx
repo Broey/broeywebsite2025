@@ -27,6 +27,7 @@ const prepareCarouselRelease = (release: ReleaseEntry): CarouselRelease => ({
   releaseDate: release.releaseDate,
   coverImage: shouldUseFallbackArtwork(release.coverImage) ? undefined : release.coverImage,
   coverAlt: release.coverAlt,
+  artworkPresentation: release.artworkPresentation,
   featured: release.featured,
   releaseTypeDisplay: release.registry?.releaseTypeDisplay,
   tileKind:

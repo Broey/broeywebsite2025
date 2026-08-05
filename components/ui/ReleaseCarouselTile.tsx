@@ -12,7 +12,15 @@ import type { CarouselMetrics, CarouselPointer } from "@/components/ui/ReleaseCa
 
 export type CarouselRelease = Pick<
   ReleaseEntry,
-  "title" | "slug" | "type" | "year" | "releaseDate" | "coverImage" | "coverAlt" | "featured"
+  | "title"
+  | "slug"
+  | "type"
+  | "year"
+  | "releaseDate"
+  | "coverImage"
+  | "coverAlt"
+  | "artworkPresentation"
+  | "featured"
 > & {
   releaseTypeDisplay?: string;
   tileKind: "collection" | "single";
@@ -202,7 +210,11 @@ function CarouselArtwork({ release, children }: { release: CarouselRelease; chil
         fill
         draggable={false}
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 82vw"
-        className="pointer-events-none select-none object-cover object-center"
+        className="pointer-events-none select-none"
+        style={{
+          objectFit: release.artworkPresentation?.fit ?? "cover",
+          objectPosition: release.artworkPresentation?.position ?? "center",
+        }}
       />
       <div className="music-release-artwork-shade" aria-hidden="true" />
       {children}

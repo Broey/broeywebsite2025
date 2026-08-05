@@ -48,6 +48,7 @@ export const shouldUseFallbackArtwork = (assetPath?: string) => {
 export function ReleaseArtwork({ release, className = "aspect-square" }: ReleaseArtworkProps) {
   const alt = release.coverAlt ?? `${release.title} cover art`;
   const coverImage = release.coverImage;
+  const artworkPresentation = release.artworkPresentation;
   const fallbackEyebrow =
     release.catalogStatus === "pending-tidal"
       ? "Manual release"
@@ -74,6 +75,10 @@ export function ReleaseArtwork({ release, className = "aspect-square" }: Release
         fill
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         className="release-artwork-image"
+        style={{
+          objectFit: artworkPresentation?.fit ?? "cover",
+          objectPosition: artworkPresentation?.position ?? "center",
+        }}
       />
     </div>
   );
