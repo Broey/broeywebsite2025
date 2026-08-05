@@ -34,9 +34,9 @@ import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } f
 import { absoluteUrl } from "@/lib/site-origin";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 type ReleaseCtaAccentStyle = CSSProperties & Partial<Record<"--release-cta-accent", string>>;
@@ -725,14 +725,15 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const release = releaseBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const release = releaseBySlug(slug);
 
   if (!release) {
     return createPageMetadata({
       title: "Release Not Found",
       description: "The requested Broey. release could not be found.",
-      path: `/music/${params.slug}`,
+      path: `/music/${slug}`,
     });
   }
 
@@ -744,8 +745,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   });
 }
 
-export default function ReleaseDetailPage({ params }: PageProps) {
-  const release = releaseBySlug(params.slug);
+export default async function ReleaseDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const release = releaseBySlug(slug);
 
   if (!release) {
     notFound();
