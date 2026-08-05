@@ -79,19 +79,23 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const fallbackDuration = useMemo(() => parseDuration(currentTrack?.duration), [currentTrack?.duration]);
 
   useEffect(() => {
-    const savedVolume = window.localStorage.getItem(VOLUME_STORAGE_KEY);
-    const parsedVolume = savedVolume === null ? DEFAULT_VOLUME : Number(savedVolume);
-    const nextVolume = Number.isFinite(parsedVolume) ? clampVolume(parsedVolume) : DEFAULT_VOLUME;
-    const nextMuted = nextVolume === 0;
+    const frame = requestAnimationFrame(() => {
+      const savedVolume = window.localStorage.getItem(VOLUME_STORAGE_KEY);
+      const parsedVolume = savedVolume === null ? DEFAULT_VOLUME : Number(savedVolume);
+      const nextVolume = Number.isFinite(parsedVolume) ? clampVolume(parsedVolume) : DEFAULT_VOLUME;
+      const nextMuted = nextVolume === 0;
 
-    previousVolumeRef.current = nextVolume > 0 ? nextVolume : DEFAULT_VOLUME;
-    setVolume(nextVolume);
-    setIsMuted(nextMuted);
+      previousVolumeRef.current = nextVolume > 0 ? nextVolume : DEFAULT_VOLUME;
+      setVolume(nextVolume);
+      setIsMuted(nextMuted);
 
-    if (audioRef.current) {
-      audioRef.current.volume = nextVolume;
-      audioRef.current.muted = nextMuted;
-    }
+      if (audioRef.current) {
+        audioRef.current.volume = nextVolume;
+        audioRef.current.muted = nextMuted;
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -103,13 +107,17 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   }, [currentQueue]);
 
   useEffect(() => {
-    setCurrentTime(0);
-    setDuration(fallbackDuration);
-    setHasEnded(false);
-    setHasError(false);
-    setHasMetadata(false);
-    setIsLoading(hasCurrentTrack);
-    setIsPlaying(false);
+    const frame = requestAnimationFrame(() => {
+      setCurrentTime(0);
+      setDuration(fallbackDuration);
+      setHasEnded(false);
+      setHasError(false);
+      setHasMetadata(false);
+      setIsLoading(hasCurrentTrack);
+      setIsPlaying(false);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [currentTrackSrc, fallbackDuration, hasCurrentTrack]);
 
   useEffect(() => {

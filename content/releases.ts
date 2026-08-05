@@ -255,8 +255,11 @@ const publicRegistryMetadata = (
     return undefined;
   }
 
-  const { privateListeningLink: _privateListeningLink, ...publicRegistry } =
-    registry as GeneratedReleaseRegistry & { privateListeningLink?: string };
+  const publicRegistry = {
+    ...registry,
+  } as GeneratedReleaseRegistry & { privateListeningLink?: string };
+
+  delete publicRegistry.privateListeningLink;
 
   return publicRegistry;
 };

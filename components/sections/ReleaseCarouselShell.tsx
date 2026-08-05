@@ -12,7 +12,7 @@ export function ReleaseCarouselShell({
   children,
 }: ReleaseCarouselShellProps) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number | undefined>(undefined);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateActiveCard = () => {
