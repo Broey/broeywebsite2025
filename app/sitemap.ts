@@ -4,6 +4,7 @@ import { showReleaseInSitemap } from "@/content/release-filters";
 import { releases } from "@/content/releases";
 import { absoluteUrl } from "@/lib/site-origin";
 import { isSitePrivate } from "@/lib/site-visibility";
+import { createPublicSitemap } from "@/lib/crawl-indexing";
 
 const staticRoutes = ["/", "/music", "/about", "/contact", "/merch", "/press", "/privacy"];
 
@@ -12,13 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [];
   }
 
-  const lastModified = new Date();
   const releaseRoutes = releases
     .filter(showReleaseInSitemap)
-    .map((release) => releaseDetailHref(release));
+    .map((release) => ({
+      path: releaseDetailHref(release),
+      releaseDate: release.releaseDate,
+    }));
 
-  return [...staticRoutes, ...releaseRoutes].map((route) => ({
-    url: absoluteUrl(route),
-    lastModified,
-  }));
+  return createPublicSitemap(staticRoutes, releaseRoutes, absoluteUrl);
 }

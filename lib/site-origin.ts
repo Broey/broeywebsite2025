@@ -1,11 +1,15 @@
 const developmentFallbackOrigin = "http://localhost:3000";
+export const productionSiteOrigin = "https://broey.net";
 
 function invalidOrigin(message: string): never {
   throw new Error(`Invalid NEXT_PUBLIC_SITE_URL: ${message}`);
 }
 
-function parseSiteOrigin(value: string | undefined) {
-  const isDevelopment = process.env.NODE_ENV === "development";
+export function parseSiteOrigin(
+  value: string | undefined,
+  nodeEnv = process.env.NODE_ENV,
+) {
+  const isDevelopment = nodeEnv === "development";
   const configuredValue = value?.trim();
 
   if (!configuredValue) {
@@ -52,17 +56,33 @@ function parseSiteOrigin(value: string | undefined) {
     );
   }
 
+  if (!isDevelopment) {
+    return productionSiteOrigin;
+  }
+
   return parsed.origin;
 }
 
 export const siteOrigin = parseSiteOrigin(process.env.NEXT_PUBLIC_SITE_URL);
 
-export function absoluteUrl(path = "/") {
+export function canonicalPath(path = "/") {
   const normalizedPath = path.trim();
 
   if (!normalizedPath.startsWith("/") || normalizedPath.startsWith("//")) {
     throw new Error(`Invalid application path: ${path}`);
   }
+
+  const url = new URL(normalizedPath, "https://broey.local");
+
+  if (url.origin !== "https://broey.local" || url.search || url.hash) {
+    throw new Error(`Canonical paths cannot contain an origin, query, or fragment: ${path}`);
+  }
+
+  return url.pathname;
+}
+
+export function absoluteUrl(path = "/") {
+  const normalizedPath = canonicalPath(path);
 
   const url = new URL(normalizedPath, `${siteOrigin}/`);
 

@@ -44,7 +44,7 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 ```
 
-`NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. The intended public origin is `https://broey.net`. Production and preview builds require an explicit HTTPS origin-only value; credentials, query strings, fragments, and non-root paths are rejected. A trailing slash is normalized away. Local development may omit the variable and use `http://localhost:3000`, or explicitly use HTTP with `localhost` or `127.0.0.1`.
+`NEXT_PUBLIC_SITE_URL` supplies the deployment origin configuration used by metadata, sitemap URLs, JSON-LD, and share links. Production and preview builds require an explicit valid HTTPS origin, then normalize generated public URLs to the canonical `https://broey.net`; this prevents Vercel preview domains from leaking into indexable URLs. Credentials, query strings, fragments, and non-root paths are rejected. A trailing slash is normalized away. Local development may omit the variable and use `http://localhost:3000`, or explicitly use HTTP with `localhost` or `127.0.0.1`.
 
 `SITE_VISIBILITY` accepts only `public` or `private` outside local development. `public` allows normal indexing. `private` requires `SITE_PASSCODE` and enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Local development defaults to `public` when the variable is absent.
 
@@ -52,7 +52,7 @@ Umami analytics is optional and requires both `NEXT_PUBLIC_UMAMI_SCRIPT_URL` and
 
 Do not add manual pageview calls. Umami automatically records initial page loads and client-side App Router navigation. Standard UTM parameters remain in normal URLs and are reported by Umami without application redirects or rewriting.
 
-The permanent production host has not been selected. Keep the app deployable with conventional `next build` and `next start` commands. The future `www.broey.net` to `broey.net` redirect belongs in the selected hosting or DNS configuration, not in application routing.
+The canonical production host is `https://broey.net`. The `www.broey.net` to `broey.net` redirect belongs in Vercel and DNS configuration, not in application routing.
 
 Shopify merch runtime uses `SHOPIFY_STORE_DOMAIN`, optional `SHOPIFY_MERCH_COLLECTION_HANDLE`, and optional `SHOPIFY_STOREFRONT_ACCESS_TOKEN`. If Shopify is unavailable or returns no products, the merch page falls back to curated local product links.
 
