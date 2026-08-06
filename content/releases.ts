@@ -200,6 +200,9 @@ export type ReleaseEntry = {
   showInArchive?: boolean;
   showInSitemap?: boolean;
   isFocusTrack?: boolean;
+  recommendationPriority?: number;
+  recommendedSlugs?: string[];
+  excludeFromRecommendations?: boolean;
 };
 
 const link = (
