@@ -30,6 +30,10 @@ import {
   releaseFactualDescription,
 } from "@/content/release-metadata";
 import { createPageMetadata } from "@/content/seo";
+import {
+  isPublishedRelease,
+  showReleaseInSitemap,
+} from "@/content/release-filters";
 import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } from "@/content/releases";
 import { shouldUseFallbackArtwork } from "@/lib/release-artwork";
 import { absoluteUrl } from "@/lib/site-origin";
@@ -55,7 +59,7 @@ const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
 };
 
 const releaseBySlug = (slug: string) =>
-  releases.find((release) => release.slug === slug);
+  releases.find((release) => release.slug === slug && isPublishedRelease(release));
 
 const parentReleaseFor = (release: ReleaseEntry) =>
   release.parentReleaseSlug ? releaseBySlug(release.parentReleaseSlug) : undefined;
@@ -735,7 +739,7 @@ function KeepListeningSection({
 }
 
 export function generateStaticParams() {
-  return releases.map((release) => ({
+  return releases.filter(isPublishedRelease).map((release) => ({
     slug: release.slug,
   }));
 }
@@ -757,6 +761,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: releaseFactualDescription(release),
     path: releaseDetailHref(release),
     image: releaseMetadataImage(release),
+    indexable: showReleaseInSitemap(release),
   });
 }
 

@@ -21,14 +21,27 @@ export const releaseSortValue = (release: ReleaseEntry) => {
 export const sortReleasesNewestFirst = <T extends ReleaseEntry>(releaseList: T[]) =>
   [...releaseList].sort((a, b) => releaseSortValue(b) - releaseSortValue(a));
 
+export const isPublishedRelease = (release: ReleaseEntry) =>
+  Boolean(
+    release.slug.trim() &&
+      release.visibility !== "draft" &&
+      release.catalogStatus !== "draft" &&
+      release.indexing !== "noindex" &&
+      release.indexing !== "internal",
+  );
+
 export const showReleaseInArchive = (release: ReleaseEntry) =>
-  release.showInArchive === true ||
-  Boolean(release.isFocusTrack) ||
-  (release.showInArchive !== false && !release.isProjectTrack);
+  isPublishedRelease(release) &&
+  (release.showInArchive === true ||
+    Boolean(release.isFocusTrack) ||
+    (release.showInArchive !== false && !release.isProjectTrack));
 
 export const showReleaseInSitemap = (release: ReleaseEntry) =>
-  release.showInSitemap === true ||
-  (release.showInSitemap !== false && showReleaseInArchive(release));
+  isPublishedRelease(release) &&
+  (release.showInSitemap === true ||
+    (release.showInSitemap !== false && showReleaseInArchive(release)));
+
+export const isPublicIndexableRelease = showReleaseInSitemap;
 
 export const archiveReleases = <T extends ReleaseEntry>(releases: T[]) =>
   releases.filter(showReleaseInArchive);

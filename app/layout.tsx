@@ -41,13 +41,9 @@ export const metadata: Metadata = {
     ],
     shortcut: ["/favicon.ico"],
   },
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.description,
-    url: "/",
     siteName: siteConfig.name,
     images: [defaultSocialImage],
     type: "website",

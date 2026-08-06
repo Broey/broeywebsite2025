@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/content/site";
+import { absoluteUrl, canonicalPath } from "@/lib/site-origin";
 import { privateRobotsMetadata } from "@/lib/site-visibility";
 
 export const defaultSocialImage = {
@@ -21,6 +22,7 @@ type PageMetadataOptions = {
     height: number;
     alt: string;
   };
+  indexable?: boolean;
 };
 
 export function createPageMetadata({
@@ -28,21 +30,25 @@ export function createPageMetadata({
   description,
   path,
   image,
+  indexable = true,
 }: PageMetadataOptions): Metadata {
-  const canonicalPath = path.startsWith("/") ? path : `/${path}`;
+  const resolvedCanonicalPath = canonicalPath(path.startsWith("/") ? path : `/${path}`);
+  const canonicalUrl = absoluteUrl(resolvedCanonicalPath);
   const socialImage = image ?? defaultSocialImage;
 
   return {
     title: title === "Home" ? { absolute: siteConfig.seo.defaultTitle } : title,
     description,
-    robots: privateRobotsMetadata(),
+    robots: indexable
+      ? privateRobotsMetadata()
+      : { index: false, follow: false },
     alternates: {
-      canonical: canonicalPath,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: title === "Home" ? siteConfig.seo.defaultTitle : `${title} | ${siteConfig.name}`,
       description,
-      url: canonicalPath,
+      url: canonicalUrl,
       siteName: siteConfig.name,
       images: [socialImage],
       type: "website",
