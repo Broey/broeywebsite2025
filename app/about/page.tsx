@@ -55,27 +55,27 @@ const bioParagraphs: ReactNode[] = [
 const artistHighlights = [
   {
     title: "15+ years behind the sound",
-    copy: "Producing, engineering, mixing, and building a catalog across lo-fi, house, bass, and left-field electronic spaces.",
+    copy: "Producing, engineering, mixing, and building a catalog across lo-fi, house, garage, jungle, drum and bass, and left-field electronic music.",
   },
   {
     title: "Hands-on production",
-    copy: "Broey builds releases through production, engineering, guitar, sax, sampling, and detailed sound work.",
+    copy: "Broey builds records through live instrumentation, sampling, synthesis, sequencing, engineering, and detailed production.",
   },
   {
-    title: "Streaming, vinyl, and physical moments",
-    copy: "Broey's catalog has lived across digital platforms and physical runs, including vinyl releases from earlier lo-fi-era work.",
+    title: "Digital releases and physical records",
+    copy: "The catalog spans streaming platforms, independent releases, and physical editions, including vinyl from Broey's earlier lo-fi work.",
   },
   {
-    title: "Label history without a fixed lane",
-    copy: "Releases have moved through independent paths and select label partnerships without one fixed lane defining the project.",
+    title: "Independent by design",
+    copy: "Releases have moved between self-released projects and selective label partnerships without locking Broey into one sound or scene.",
   },
   {
-    title: "Editorial and outside support",
-    copy: "Broey's music has received DSP/editorial support and outside coverage from outlets including We Rave You, Insight Music, and LOUDNESS.",
+    title: "Press and editorial recognition",
+    copy: "Broey's music has received editorial support and coverage from outlets including We Rave You, Insight Music, and LOUDNESS.",
   },
   {
     title: "Self-directed production",
-    copy: "Joe produces, engineers, and mixes Broey releases, keeping the project self-directed.",
+    copy: "Broey remains self-directed from production and engineering through mixing, release planning, and presentation.",
   },
 ];
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
               Lo-fi roots. Club instincts. Electronic music from Scranton, Pennsylvania.
             </p>
             <p className="about-hero-summary">
-              Broey is the electronic project of Joe Montaro, a Scranton, Pennsylvania artist, producer, and audio engineer shaping records through hands-on production, guitar, sax, and sampling.
+              Broey is the electronic project of Joe Montaro, a Scranton, Pennsylvania artist, producer, audio engineer, and self-taught multi-instrumentalist. His work moves between live instrumentation, sampling, synthesis, sequencing, and hands-on production.
             </p>
             <p className="about-hero-note">
               Sound in the technical sense, and sound in the human one.
