@@ -176,6 +176,7 @@ export default function MusicPage() {
               ctaLabel="View Release"
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(release)}
+              sourceSurface="music_catalog"
             />
           ),
         };

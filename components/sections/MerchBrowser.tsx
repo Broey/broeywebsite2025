@@ -40,7 +40,9 @@ export function MerchBrowser({ categories, items }: MerchBrowserProps) {
       return;
     }
 
-    const productLink = event.target.closest("a[href]");
+    const productLink = event.target.closest<HTMLAnchorElement>(
+      'a.merch-card-action[href][target="_blank"]',
+    );
     const productContainer = event.target.closest<HTMLElement>("[data-merch-slug]");
 
     if (!productLink || !productContainer?.dataset.merchSlug) {
