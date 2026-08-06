@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "indexnow": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/submit-indexnow.mjs",
     "import:releases": "node scripts/import-release-registry.mjs",
     "sync:assets": "node scripts/asset-sync.mjs",
     "sync:assets:dry": "node scripts/asset-sync.mjs \"D:\\Broey\\Broey Website 2025\\Assets\" --dry-run",

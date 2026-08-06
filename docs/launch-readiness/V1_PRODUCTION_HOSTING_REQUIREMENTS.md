@@ -15,6 +15,7 @@ The host must provide all of the following:
 - Environment-variable and secret support at both build and runtime. Variables prefixed with `NEXT_PUBLIC_` are embedded into browser assets and must never contain secrets. Server-only variables must not be exposed to the client or build logs.
 - Next.js static, SSG, and dynamic route support. This includes the dynamic `/merch` route, `/gate`, `POST /api/gate`, `POST /api/contact`, `POST /api/newsletter`, and application Proxy behavior.
 - Outbound HTTPS from the server runtime to Cloudflare Turnstile Siteverify, Resend, MailerLite, Shopify, and approved Shopify image origins. Egress failures and timeouts must be observable without logging secrets or submitted form content.
+- Outbound HTTPS from an authorized operator/CI environment to `https://api.indexnow.org/indexnow` for explicit changed-URL notifications. IndexNow submission is never a build or startup task.
 - Next.js image optimization or a verified compatible alternative for the configured Shopify image origins.
 - HTTPS and custom-domain support for both the apex and `www` hostnames. The non-canonical hostname must permanently redirect to the canonical HTTPS origin while preserving the path and query string. Redirect behavior must be configured explicitly and verified after DNS is attached.
 - CDN/static-file delivery that preserves file names, MIME types, cache validators, and immutable build assets. Purge or deployment versioning must prevent stale HTML and JavaScript from crossing releases.
@@ -45,6 +46,7 @@ The table lists names and classifications only; no values belong in this documen
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Required in every non-development build | Client-visible; build-time canonical origin used by metadata, structured data, sitemap, and share URLs |
 | `SITE_VISIBILITY` | Required in every non-development environment | Server-only; required during build and runtime to select the public or private policy |
+| `INDEXNOW_KEY` | Required at runtime to serve IndexNow verification and when an operator submits changed URLs | Server-only secret; 8-128 letters, numbers, or hyphens; never use a `NEXT_PUBLIC_` prefix |
 | `NEXT_PUBLIC_UMAMI_SCRIPT_URL` | Optional; required with the website ID to enable production analytics | Client-visible build-time tracker URL; approved value is `https://cloud.umami.is/script.js` |
 | `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Optional; required with the script URL to enable production analytics | Client-visible build-time public website identifier; not a secret |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Required for working production forms | Client-visible; build-time widget configuration; must match the server secret and allowed hostnames |

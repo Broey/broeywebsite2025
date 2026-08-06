@@ -15,6 +15,9 @@ Broey. Website is the branded presentation layer and SEO/content hub for Broey.
 npm run dev
 npm run build
 npm run lint
+npm run typecheck
+npm test
+npm run indexnow -- --dry-run /music/new-release
 npm run sync:assets:dry
 npm run sync:assets:go
 npm run sync:latest-release-media:dry
@@ -27,6 +30,7 @@ npm run sync:latest-release-media
 NEXT_PUBLIC_SITE_URL=https://broey.net
 SITE_VISIBILITY=public
 SITE_PASSCODE=
+INDEXNOW_KEY=
 NEXT_PUBLIC_UMAMI_SCRIPT_URL=
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=
 SHOPIFY_STORE_DOMAIN=
@@ -47,6 +51,19 @@ TURNSTILE_SECRET_KEY=
 `NEXT_PUBLIC_SITE_URL` supplies the deployment origin configuration used by metadata, sitemap URLs, JSON-LD, and share links. Production and preview builds require an explicit valid HTTPS origin, then normalize generated public URLs to the canonical `https://broey.net`; this prevents Vercel preview domains from leaking into indexable URLs. Credentials, query strings, fragments, and non-root paths are rejected. A trailing slash is normalized away. Local development may omit the variable and use `http://localhost:3000`, or explicitly use HTTP with `localhost` or `127.0.0.1`.
 
 `SITE_VISIBILITY` accepts only `public` or `private` outside local development. `public` allows normal indexing. `private` requires `SITE_PASSCODE` and enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Local development defaults to `public` when the variable is absent.
+
+### IndexNow operations
+
+`INDEXNOW_KEY` is a server-only runtime value used for the public `/{key}.txt` ownership response and controlled operator submissions. It must be 8-128 letters, numbers, or hyphens. Store the production value in DigitalOcean App Platform, never in Git and never in a `NEXT_PUBLIC_` variable.
+
+Review and submit only URLs changed by a release:
+
+```bash
+npm run indexnow -- --dry-run /music/new-release
+npm run indexnow -- --yes /music/new-release /music
+```
+
+The command accepts only canonical `https://broey.net` URLs or application paths, deduplicates them, and requires `--yes` to send. It does not read the sitemap or run during builds/startup. HTTP 200 means the request was received, not that indexing is guaranteed. See `reports/post-launch-phase-2-indexnow-implementation.md` for deployment and response handling.
 
 Umami analytics is optional and requires both `NEXT_PUBLIC_UMAMI_SCRIPT_URL` and `NEXT_PUBLIC_UMAMI_WEBSITE_ID`. The root layout loads the tracker once, after hydration, only for a public production build. Development, private preview builds, and builds missing either value do not load analytics. The tracker is restricted to `broey.net`; custom events safely become no-ops if the script is absent or blocked. These two `NEXT_PUBLIC_` values are intentionally browser-visible configuration, not secrets. The approved production values are documented in `docs/launch-readiness/V1_UMAMI_ANALYTICS_VALIDATION.md`.
 
