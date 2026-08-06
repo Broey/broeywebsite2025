@@ -120,8 +120,8 @@ export default function MusicPage() {
       header: (
         <SectionHeader
           eyebrow="Bridge"
-          title="Out of lo-fi"
-          description="Tracks from the shift toward drum and bass, club production, and collaborations."
+          title="2022–2023: Faster forms"
+          description="Four releases spanning drum and bass, heavier collaboration, melodic electronic work, and remixes."
         />
       ),
       gridClassName: "mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3",
@@ -152,7 +152,7 @@ export default function MusicPage() {
         eyebrow="/ music"
         title="Broey. Selects"
         titleId="music-page-title"
-        description="Selected Broey releases across house, UKG, breakbeats, drum and bass, remixes, and catalog notes."
+        description="Selected releases with genre filters, playback, credits, and platform links."
       />
 
       <section className="hero-panel music-featured-release" aria-labelledby="music-featured-title">
@@ -204,12 +204,12 @@ export default function MusicPage() {
       <section className="release-detail-section mt-12" aria-labelledby="music-foundations-title">
         <SectionHeader
           eyebrow="Foundations"
-          title="Where the instincts started"
+          title="Earlier releases"
           titleId="music-foundations-title"
         />
         <div className="release-detail-copy">
           <p>
-            Broey&apos;s earliest releases lived in lo-fi, chillhop, and instrumental hip-hop: warm guitars, vinyl haze, jazz lines, dusty drums, and wordless scenes. That music is not the center of this catalog, but it shaped the production behind it.
+            Instrumental, collaborative, and beat-driven work from the earlier Broey discography.
           </p>
         </div>
       </section>

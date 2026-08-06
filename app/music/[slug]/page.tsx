@@ -322,12 +322,15 @@ const releaseCatalogRows = (release: ReleaseEntry): ReleaseDetail[] => {
 };
 
 const releaseCreditRows = (release: ReleaseEntry): ReleaseCredit[] => {
-  if (release.credits?.length) {
-    return release.credits;
+  const credits = release.credits ?? [];
+
+  if (credits.some((credit) => detailLabelKey(credit.role) === "artist")) {
+    return credits;
   }
 
   return [
     { role: "Artist", name: releaseArtistName(release) },
+    ...credits,
   ];
 };
 

@@ -40,7 +40,7 @@ export default async function MerchPage() {
             <p className="merch-kicker">Featured piece</p>
             <h2 className="merch-store-title">{featured.title}</h2>
             <p className="merch-hero-copy">
-              Washed, boxy, and worn-in from the official store.
+              {featured.description}
             </p>
             <a
               href={featured.href}

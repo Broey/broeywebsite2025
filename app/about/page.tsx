@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 const bioParagraphs: ReactNode[] = [
   "Broey started with dusty chords, clipped drums, warped samples, warm noise, and self-produced records.",
-  "The early records lived in lo-fi, chillhop, and beat-driven production. Over time, the catalog moved into house, UK garage, bass music, breakbeats, sax, guitar, and club records.",
+  "The early records centered on lo-fi, chillhop, and beat-driven production.",
   <>
     Based in the Scranton area, Joe has spent more than 15 years producing, engineering, and shaping his own sound. The catalog has moved through streaming releases, select label partnerships, vinyl runs, physical moments, and editorial support while staying self-directed at the center.
   </>,
@@ -58,8 +58,8 @@ const artistHighlights = [
     copy: "Producing, engineering, mixing, and building a catalog across lo-fi, house, bass, and left-field electronic spaces.",
   },
   {
-    title: "Lo-fi roots, club instincts",
-    copy: "Early lo-fi and chillhop production now connected to house, UKG, bass, and breakbeats.",
+    title: "Hands-on production",
+    copy: "Broey builds releases through production, engineering, guitar, sax, sampling, and detailed sound work.",
   },
   {
     title: "Streaming, vinyl, and physical moments",
@@ -74,8 +74,8 @@ const artistHighlights = [
     copy: "Broey's music has received DSP/editorial support and outside coverage from outlets including We Rave You, Insight Music, and LOUDNESS.",
   },
   {
-    title: "Built across scenes",
-    copy: "From lo-fi and chillhop to house, garage, bass, and left-field electronic releases, the throughline is still producer-led.",
+    title: "Self-directed production",
+    copy: "Joe produces, engineers, and mixes Broey releases, keeping the project self-directed.",
   },
 ];
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
               Lo-fi roots. Club instincts. Electronic music from Scranton, Pennsylvania.
             </p>
             <p className="about-hero-summary">
-              Broey is the project of Joe Montaro, a Scranton-area producer and audio engineer building records from lo-fi residue, club drums, warm low-end, and hands-on sound work.
+              Broey is the electronic project of Joe Montaro, a Scranton, Pennsylvania artist, producer, and audio engineer shaping records through hands-on production, guitar, sax, and sampling.
             </p>
             <p className="about-hero-note">
               Sound in the technical sense, and sound in the human one.
@@ -207,7 +207,7 @@ export default function AboutPage() {
           <section className="release-detail-section about-timeline-section" aria-labelledby="about-timeline-title">
             <SectionHeader
               eyebrow="Timeline"
-              title="From lo-fi roots to club records"
+              title="Selected points in the discography"
               titleId="about-timeline-title"
             />
             <ol className="about-timeline-list">
@@ -229,9 +229,6 @@ export default function AboutPage() {
             <div>
               <p className="release-detail-section-kicker">Start here</p>
               <h2 id="about-closing-title">Start with the music.</h2>
-              <p className="about-final-bridge">
-                Browse the catalog, read the press, grab merch, or join the Discord.
-              </p>
               <p>
                 The records are the center. The rest is here when you want the notes around them.
               </p>

@@ -47,7 +47,7 @@ export const pressMentionsCopy = {
     eyebrow: "Selected Press",
     heading: "Selected Press",
     description:
-      "Coverage, reviews, and writeups tracing Broey's move from lo-fi roots into club-facing electronic releases.",
+      "Reviews and features on dancing dumpster fire and Fragments, plus interviews on Broey’s production process.",
     ctaLabel: "View Press & Coverage",
     ctaHref: "/press",
   },
@@ -79,7 +79,7 @@ export const pressGroups: Record<
   "featured-coverage": {
     label: "Featured Coverage",
     description:
-      "High-signal coverage around current Broey releases and the move into club-facing electronic work.",
+      "A highlighted feature on dancing dumpster fire.",
   },
   "written-coverage": {
     label: "Written Coverage",

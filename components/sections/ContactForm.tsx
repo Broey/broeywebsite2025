@@ -129,7 +129,7 @@ export function ContactForm() {
         className="contact-form"
         action="/api/contact"
         method="post"
-        aria-describedby={`contact-form-required-note contact-form-note contact-form-privacy${status ? " contact-form-status" : ""}`}
+        aria-describedby={`contact-form-required-note contact-form-privacy${status ? " contact-form-status" : ""}`}
         onFocusCapture={() => setTurnstileActive(true)}
         onChange={() => setTurnstileActive(true)}
         onSubmit={handleSubmit}
@@ -196,9 +196,6 @@ export function ContactForm() {
           {isSubmitting ? "Sending..." : "Send Note"}
         </button>
       </form>
-      <p id="contact-form-note" className="contact-form-note">
-        Direct, human, and specific is best.
-      </p>
       {status ? (
         <p
           id="contact-form-status"

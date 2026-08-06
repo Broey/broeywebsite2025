@@ -22,7 +22,7 @@ export default function ContactPage() {
         eyebrow="/ contact"
         title="Contact"
         titleId="contact-page-title"
-        description="Reach out about music, collaborations, mixing or audio work, press, or direct notes."
+        description="Reach out about music, collaborations, mixing or audio work, press, or direct inquiries."
       />
 
       <section className="contact-main-panel" aria-label="Contact options">
@@ -35,7 +35,6 @@ export default function ContactPage() {
             eyebrow="Message"
             title="Send a Note"
             titleId="contact-form-title"
-            description="Use the form for music questions, collaborations, mixing or audio work, press, or a specific note for Broey."
           />
           <ContactForm />
         </div>
@@ -51,10 +50,7 @@ export default function ContactPage() {
             <a href={`mailto:${contactEmail}`} className="contact-inline-link">
               {contactEmail}
             </a>
-            . Join the Broey Discord for quick updates, feedback, and a more casual place to talk.
-          </p>
-          <p className="contact-discord-note">
-            Good for sharing tracks, catching drop notes, and keeping the conversation loose.
+            . Join the Broey Discord to share tracks, catch release notes, and talk casually.
           </p>
           {discordLink?.url && discordLink.url !== "#" ? (
             <a

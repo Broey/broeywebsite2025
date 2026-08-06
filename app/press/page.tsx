@@ -17,7 +17,7 @@ export default function PressPage() {
         eyebrow="/ press"
         title="Press & Coverage"
         titleId="press-page-title"
-        description="Coverage, reviews, interviews, and features documenting Broey's move from lo-fi roots into club-facing electronic releases."
+        description="Reviews, features, interviews, podcasts, and video coverage from across the Broey catalog."
       />
       <PressMentionsSection variant="archive" />
     </section>

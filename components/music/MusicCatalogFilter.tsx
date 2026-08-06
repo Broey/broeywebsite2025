@@ -87,7 +87,7 @@ export function MusicCatalogFilter({
 
       {matchingCount === 0 ? (
         <p className="music-filter-empty" role="status">
-          No approved releases match this genre.
+          No releases match this genre.
         </p>
       ) : null}
     </div>

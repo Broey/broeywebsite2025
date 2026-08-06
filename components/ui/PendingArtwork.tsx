@@ -40,7 +40,7 @@ export function PendingArtwork({
             {label}
           </p>
           <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-amber)]">
-            Catalog tile
+            Artwork coming soon
           </p>
         </div>
       </div>
