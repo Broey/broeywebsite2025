@@ -2530,6 +2530,13 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/after-you.jpg",
     coverAlt: "After You cover art",
+    playerAccent: "#4f9ca2",
+    audio: localAudio(
+      "After You",
+      "/audio/after-you.mp3",
+      "2:57",
+      "Broey. & Mr. Hilroy",
+    ),
     links: [
       link("Spotify", "https://open.spotify.com/album/10KYFjdvz7plRKXRmSQqtb", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/340981922"),

@@ -62,6 +62,10 @@ const transitionReleaseSlugs = [
   "hysteria",
 ];
 
+const foundationReleaseSlugs = [
+  "after-you",
+];
+
 const findRelease = (slug: string) =>
   releases.find((release) => release.slug === slug);
 
@@ -76,6 +80,7 @@ const selectedReleases = (slugs: string[]) =>
 export default function MusicPage() {
   const currentEraReleases = selectedReleases(currentEraReleaseSlugs);
   const transitionReleases = selectedReleases(transitionReleaseSlugs);
+  const foundationReleases = selectedReleases(foundationReleaseSlugs);
   const featured = findRelease("free") ?? currentEraReleases[0];
   const featuredType = featured.registry?.releaseTypeDisplay ?? releaseTypeLabel[featured.type];
   const featuredMeta = [featuredType, featured.year].filter(Boolean).join(" / ");
@@ -126,6 +131,36 @@ export default function MusicPage() {
       ),
       gridClassName: "mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3",
       releases: transitionReleases.map((release) => {
+        const audioQueue = releaseAudioQueueForContext(release, releases, "archive");
+
+        return {
+          id: release.slug,
+          filterGroups: curatedGenreFiltersForRelease(release),
+          card: (
+            <ReleaseCard
+              release={release}
+              hidePendingLinks
+              ctaHref={releaseDetailHref(release)}
+              ctaLabel="View Release"
+              audioQueue={audioQueue}
+              playLabel={releasePlayLabel(release)}
+            />
+          ),
+        };
+      }),
+    },
+    {
+      id: "foundations",
+      className: "mt-12",
+      header: (
+        <SectionHeader
+          eyebrow="Foundations"
+          title="Earlier releases"
+          description="Instrumental, collaborative, and beat-driven work from the earlier Broey discography."
+        />
+      ),
+      gridClassName: "mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3",
+      releases: foundationReleases.map((release) => {
         const audioQueue = releaseAudioQueueForContext(release, releases, "archive");
 
         return {
@@ -200,19 +235,6 @@ export default function MusicPage() {
       </section>
 
       <MusicCatalogFilter filters={curatedGenreFilters} sections={catalogSections} />
-
-      <section className="release-detail-section mt-12" aria-labelledby="music-foundations-title">
-        <SectionHeader
-          eyebrow="Foundations"
-          title="Earlier releases"
-          titleId="music-foundations-title"
-        />
-        <div className="release-detail-copy">
-          <p>
-            Instrumental, collaborative, and beat-driven work from the earlier Broey discography.
-          </p>
-        </div>
-      </section>
     </section>
   );
 }
