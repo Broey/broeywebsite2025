@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { AudioPlayerProvider } from "@/components/audio/AudioPlayerProvider";
 import { Header } from "@/components/site/Header";
@@ -6,7 +7,14 @@ import { Footer } from "@/components/site/Footer";
 import { defaultSocialImage, twitterSocialImage } from "@/content/seo";
 import { siteConfig } from "@/content/site";
 import { siteOrigin } from "@/lib/site-origin";
-import { privateRobotsMetadata } from "@/lib/site-visibility";
+import { isSitePrivate, privateRobotsMetadata } from "@/lib/site-visibility";
+
+const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL?.trim();
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID?.trim();
+const shouldLoadUmami =
+  process.env.NODE_ENV === "production" &&
+  !isSitePrivate() &&
+  Boolean(umamiScriptUrl && umamiWebsiteId);
 
 export const metadata: Metadata = {
   title: {
@@ -69,6 +77,15 @@ export default function RootLayout({
             <Footer />
           </div>
         </AudioPlayerProvider>
+        {shouldLoadUmami ? (
+          <Script
+            id="umami-analytics"
+            src={umamiScriptUrl}
+            data-website-id={umamiWebsiteId}
+            data-domains="broey.net"
+            strategy="afterInteractive"
+          />
+        ) : null}
       </body>
     </html>
   );
