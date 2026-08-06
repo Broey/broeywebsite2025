@@ -1264,26 +1264,21 @@ body.has-global-player .site-shell {
   margin-top: 1.02rem;
 }
 
-.merch-mobile-browser {
-  display: none;
+.merch-browser {
+  width: 100%;
+  margin-top: 0.55rem;
 }
 
-.merch-mobile-filter-row {
+.merch-filter-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.1rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.merch-mobile-filter-row::-webkit-scrollbar {
-  display: none;
+  padding: 0 0.38rem 0.1rem;
 }
 
 .merch-filter-chip {
   display: inline-flex;
-  min-height: 2.18rem;
+  min-height: 2.75rem;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -1311,30 +1306,28 @@ body.has-global-player .site-shell {
   color: white;
 }
 
-.merch-mobile-track {
-  display: flex;
-  gap: 0.85rem;
-  overflow-x: auto;
-  overflow-y: visible;
-  margin-top: 0.95rem;
-  padding: 0.08rem 0 0.72rem;
-  scroll-padding-inline: 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-  touch-action: pan-x pan-y;
+.merch-results-status {
+  margin: 0.65rem 0.38rem 0;
+  color: rgba(238, 242, 248, 0.66);
+  font-size: 0.76rem;
+  line-height: 1.4;
 }
 
-.merch-mobile-track::-webkit-scrollbar {
-  display: none;
-}
-
-.merch-mobile-slide {
-  flex: 0 0 100%;
+.merch-grid-item {
   min-width: 0;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
+}
+
+.merch-grid-item > .merch-card {
+  height: 100%;
+}
+
+.merch-empty-state {
+  margin: 1.02rem 0 0;
+  border: 1px dashed rgba(238, 242, 248, 0.16);
+  border-radius: var(--radius-card-compact);
+  padding: 1.4rem;
+  color: var(--color-muted);
+  text-align: center;
 }
 
 .merch-card {
@@ -1403,6 +1396,7 @@ body.has-global-player .site-shell {
 }
 
 .merch-card-action {
+  min-height: 2.75rem;
   margin-top: auto;
   padding-top: 1.05rem;
   font-size: var(--type-button);
@@ -6808,73 +6802,12 @@ a.about-pillar-card:hover {
     padding-inline: 0;
   }
 
-  .merch-mobile-browser {
-    display: block;
-    width: 100%;
-    margin-top: 0.55rem;
-    margin-inline: 0;
-    overflow: visible;
-  }
-
-  .merch-grid {
-    display: none;
-  }
-
-  .merch-mobile-filter-row {
+  .merch-filter-row {
     padding-inline: 0;
   }
 
-  .merch-mobile-track {
-    width: calc(100% + 1rem);
-    align-items: stretch;
-    margin-inline: -0.5rem;
-    padding: 0.12rem 0.5rem 1rem;
-    scroll-padding-inline: 0.5rem;
-  }
-
-  .merch-mobile-slide {
-    display: flex;
-    flex-basis: calc(100% - 1rem);
-  }
-
-  .merch-mobile-slide .merch-card {
-    width: 100%;
-    height: clamp(32.25rem, 136vw, 34rem);
-    min-height: clamp(32.25rem, 136vw, 34rem);
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
-      rgba(8, 12, 17, 0.72);
-    box-shadow:
-      0 16px 38px rgba(0, 0, 0, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.045);
-  }
-
-  .merch-mobile-slide .merch-card-artwork {
-    flex: 0 0 auto;
-    height: clamp(17.75rem, 80vw, 20.25rem);
-    aspect-ratio: auto;
-  }
-
-  .merch-mobile-slide .merch-card-copy {
-    min-height: 0;
-    padding-top: 0.78rem;
-  }
-
-  .merch-mobile-slide .merch-card-title {
-    display: -webkit-box;
-    min-height: 2.72rem;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .merch-mobile-slide .merch-card-description {
-    min-height: 3.92rem;
-    -webkit-line-clamp: 2;
-  }
-
-  .merch-mobile-slide .merch-card-action {
-    padding-top: 0.78rem;
+  .merch-results-status {
+    margin-inline: 0;
   }
 
   .merch-artwork-image {
@@ -7830,9 +7763,12 @@ a.about-pillar-card:hover {
     width: min(18.5rem, calc(100vw - 5.5rem));
   }
 
-  .site-footer-link-columns,
-  .merch-grid {
+  .site-footer-link-columns {
     grid-template-columns: 1fr;
+  }
+
+  .merch-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .merch-store-panel {
@@ -7841,6 +7777,20 @@ a.about-pillar-card:hover {
 
   .merch-card {
     padding: 0.55rem;
+  }
+
+  .merch-card-copy {
+    padding-top: 0.78rem;
+  }
+
+  .merch-card-title {
+    font-size: clamp(0.98rem, 4vw, 1.12rem);
+  }
+
+  .merch-card-description {
+    font-size: 0.8rem;
+    line-height: 1.42;
+    -webkit-line-clamp: 2;
   }
 
   .merch-card--compact {

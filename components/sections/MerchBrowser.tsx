@@ -1,0 +1,74 @@
+"use client";
+
+import { type ReactNode, useMemo, useState } from "react";
+
+type MerchBrowserItem = {
+  card: ReactNode;
+  category: string;
+  slug: string;
+};
+
+type MerchBrowserProps = {
+  categories: string[];
+  items: MerchBrowserItem[];
+};
+
+const categoryLabel = (category: string) => {
+  const normalized = category.trim();
+
+  if (/hoodie/i.test(normalized)) return "Hoodies";
+  if (/crewneck/i.test(normalized)) return "Crewnecks";
+  if (/hat/i.test(normalized)) return "Hats";
+
+  return normalized;
+};
+
+export function MerchBrowser({ categories, items }: MerchBrowserProps) {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const filters = useMemo(() => ["All", ...categories], [categories]);
+  const visibleItems =
+    activeCategory === "All"
+      ? items
+      : items.filter((item) => item.category === activeCategory);
+  const activeCategoryLabel =
+    activeCategory === "All" ? "all categories" : categoryLabel(activeCategory);
+
+  return (
+    <div className="merch-browser" aria-label="Merch browser">
+      <div className="merch-filter-row" aria-label="Filter merch by category">
+        {filters.map((category) => (
+          <button
+            key={category}
+            type="button"
+            className="merch-filter-chip"
+            data-active={activeCategory === category ? "true" : "false"}
+            aria-pressed={activeCategory === category}
+            aria-controls="merch-product-grid"
+            onClick={() => setActiveCategory(category)}
+          >
+            {category === "All" ? "All" : categoryLabel(category)}
+          </button>
+        ))}
+      </div>
+
+      <p className="merch-results-status" role="status" aria-live="polite">
+        Showing {visibleItems.length} {visibleItems.length === 1 ? "item" : "items"} in{" "}
+        {activeCategoryLabel}.
+      </p>
+
+      {visibleItems.length ? (
+        <div id="merch-product-grid" className="merch-grid">
+          {visibleItems.map((item) => (
+            <div key={item.slug} className="merch-grid-item">
+              {item.card}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p id="merch-product-grid" className="merch-empty-state">
+          No merch items are available in this category.
+        </p>
+      )}
+    </div>
+  );
+}

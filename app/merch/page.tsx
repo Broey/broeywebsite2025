@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MerchMobileBrowser } from "@/components/sections/MerchMobileBrowser";
+import { MerchBrowser } from "@/components/sections/MerchBrowser";
 import { MerchCard } from "@/components/ui/MerchCard";
 import { MerchArtwork } from "@/components/ui/MerchArtwork";
 import { PageIntro } from "@/components/ui/PageIntro";
@@ -85,13 +85,14 @@ export default async function MerchPage() {
             meta={`${merch.length} items / ${categorySummary}`}
           />
 
-          <MerchMobileBrowser merch={merch} categories={categories} />
-
-          <div className="merch-grid">
-            {merch.map((item) => (
-              <MerchCard key={item.slug} item={item} />
-            ))}
-          </div>
+          <MerchBrowser
+            categories={categories}
+            items={merch.map((item) => ({
+              slug: item.slug,
+              category: item.category,
+              card: <MerchCard item={item} />,
+            }))}
+          />
         </section>
       </div>
     </section>
