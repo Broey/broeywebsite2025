@@ -1,4 +1,5 @@
 import { releaseDetailHref } from "@/content/release-actions";
+import { normalizedGenres } from "@/content/genres";
 import { archiveReleases, sortReleasesNewestFirst } from "@/content/release-filters";
 import type { ReleaseEntry } from "@/content/releases";
 import type {
@@ -34,6 +35,7 @@ export const releaseAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | und
   const queueArtwork = releaseQueueArtwork(release);
   const releaseUrl = releaseDetailHref(release);
   const playerAccent = release.playerAccent;
+  const genre = normalizedGenres(release)[0];
 
   return {
     queueId: release.slug,
@@ -53,6 +55,15 @@ export const releaseAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | und
       artwork: queueArtwork,
       releaseUrl,
       playerAccent: track.playerAccent ?? playerAccent,
+      analytics: {
+        release_slug: release.slug,
+        track_slug: track.slug ?? track.audioKey,
+        track_title: track.title,
+        project_slug: release.audio?.type === "project"
+          ? release.slug
+          : release.parentReleaseSlug,
+        genre,
+      },
     })),
     activeIndex: 0,
   };

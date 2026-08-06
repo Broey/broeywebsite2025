@@ -9,6 +9,7 @@ import { releaseDetailHref } from "@/content/release-actions";
 import type { ReleaseEntry, ReleaseType } from "@/content/releases";
 import type { CSSProperties, ReactNode } from "react";
 import type { CarouselMetrics, CarouselPointer } from "@/components/ui/ReleaseCarousel";
+import { trackEvent } from "@/lib/analytics";
 
 export type CarouselRelease = Pick<
   ReleaseEntry,
@@ -293,6 +294,10 @@ export function ReleaseCarouselTile({
   const focusWeight = visualState.focusWeight;
   const selectCard = () => {
     if (isActive) {
+      trackEvent("release_open", {
+        release_slug: release.slug,
+        source_surface: "home",
+      });
       router.push(detailHref);
       return;
     }
@@ -395,6 +400,10 @@ export function ReleaseCarouselTile({
               onClick={(event) => {
                 if (isActive) {
                   event.stopPropagation();
+                  trackEvent("release_open", {
+                    release_slug: release.slug,
+                    source_surface: "home",
+                  });
                   return;
                 }
 

@@ -1,4 +1,7 @@
+"use client";
+
 import type { ExternalLinkKind } from "@/content/releases";
+import { trackEvent, type AnalyticsSourceSurface } from "@/lib/analytics";
 
 type ExternalServiceButtonProps = {
   label: string;
@@ -8,6 +11,11 @@ type ExternalServiceButtonProps = {
   primary?: boolean;
   className?: string;
   showActionLabel?: boolean;
+  analytics?: {
+    releaseSlug?: string;
+    trackSlug?: string;
+    sourceSurface: AnalyticsSourceSurface;
+  };
 };
 
 const kindLabel: Record<ExternalLinkKind, string> = {
@@ -28,6 +36,7 @@ export function ExternalServiceButton({
   primary = false,
   className = "",
   showActionLabel = true,
+  analytics,
 }: ExternalServiceButtonProps) {
   const isPending = !url || url === "#";
   const base =
@@ -53,6 +62,19 @@ export function ExternalServiceButton({
       target="_blank"
       rel="noopener noreferrer"
       className={`${base} ${active} ${className}`}
+      onClick={() => {
+        if (!analytics) {
+          return;
+        }
+
+        trackEvent("streaming_click", {
+          release_slug: analytics.releaseSlug,
+          track_slug: analytics.trackSlug,
+          platform,
+          destination_type: kind,
+          source_surface: analytics.sourceSurface,
+        });
+      }}
     >
       {text}
     </a>

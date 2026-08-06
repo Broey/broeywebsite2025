@@ -21,7 +21,7 @@ export function MerchPreview() {
         </h2>
         <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {merch.slice(0, 4).map((item) => (
-            <MerchCard key={item.slug} item={item} compact />
+            <MerchCard key={item.slug} item={item} compact sourceSurface="home" />
           ))}
         </div>
       </div>

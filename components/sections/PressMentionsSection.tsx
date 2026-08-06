@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedPressLink } from "@/components/analytics/TrackedLinks";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   aboutPressItems,
@@ -10,6 +11,7 @@ import {
   type PressItem,
   type PressItemGroup,
 } from "@/content/press";
+import type { AnalyticsSourceSurface } from "@/lib/analytics";
 
 type PressMentionsSectionProps = {
   variant: "preview" | "about" | "archive";
@@ -47,20 +49,24 @@ function pressLinkAria(item: PressItem, labelOverride?: string) {
 function PressExternalLink({
   item,
   label,
+  sourceSurface = "press",
 }: {
   item: PressItem;
   label?: string;
+  sourceSurface?: AnalyticsSourceSurface;
 }) {
   return (
-    <a
+    <TrackedPressLink
       href={item.href}
+      publication={item.outlet}
+      sourceSurface={sourceSurface}
       target="_blank"
       rel="noopener noreferrer"
       className="press-mention-link"
       aria-label={pressLinkAria(item, label)}
     >
       {label ?? item.ctaLabel} <span aria-hidden="true">&rarr;</span>
-    </a>
+    </TrackedPressLink>
   );
 }
 
@@ -78,10 +84,12 @@ function PressFeatured({
   item,
   label = "Featured coverage",
   showTypeTag = false,
+  sourceSurface = "press",
 }: {
   item: PressItem;
   label?: string;
   showTypeTag?: boolean;
+  sourceSurface?: AnalyticsSourceSurface;
 }) {
   const formattedDate = formatDate(item.date);
   const typeLabel = pressTypeLabel[item.type];
@@ -113,7 +121,7 @@ function PressFeatured({
             {[item.author, formattedDate].filter(Boolean).join(" / ")}
           </p>
         ) : null}
-        <PressExternalLink item={item} />
+        <PressExternalLink item={item} sourceSurface={sourceSurface} />
       </div>
     </article>
   );
@@ -261,7 +269,7 @@ function HomePressTeaser() {
                   &quot;{item.pullQuote}&quot;
                 </blockquote>
               ) : null}
-              <PressExternalLink item={item} label="Read coverage" />
+              <PressExternalLink item={item} label="Read coverage" sourceSurface="home" />
             </article>
           ))}
         </div>
@@ -300,7 +308,7 @@ function AboutPressTeaser() {
         description={about.description}
       />
       <div className="about-press-teaser-grid">
-        <PressFeatured item={featuredItem} label="Featured coverage" />
+        <PressFeatured item={featuredItem} label="Featured coverage" sourceSurface="about" />
 
         <div className="about-press-mini-list" aria-label="Supporting press coverage">
           {supportingItems.map((item) => (
@@ -316,7 +324,7 @@ function AboutPressTeaser() {
                 </blockquote>
               ) : null}
               <p className="press-ledger-summary">{item.summary}</p>
-              <PressExternalLink item={item} label="Read coverage" />
+              <PressExternalLink item={item} label="Read coverage" sourceSurface="about" />
             </article>
           ))}
         </div>

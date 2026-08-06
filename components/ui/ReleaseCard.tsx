@@ -1,10 +1,11 @@
-import Link from "next/link";
+import { TrackedReleaseLink } from "@/components/analytics/TrackedLinks";
 import { ReleasePlayButton } from "@/components/audio/ReleasePlayButton";
 import type { GlobalAudioQueue } from "@/components/audio/useAudioPlayer";
 import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
 import { normalizedGenres } from "@/content/genres";
 import { releaseDetailHref } from "@/content/release-actions";
 import type { ReleaseEntry } from "@/content/releases";
+import type { AnalyticsSourceSurface } from "@/lib/analytics";
 
 type Props = {
   release: ReleaseEntry;
@@ -14,6 +15,7 @@ type Props = {
   ctaHref?: string;
   audioQueue?: GlobalAudioQueue;
   playLabel?: string;
+  sourceSurface: AnalyticsSourceSurface;
 };
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
@@ -31,6 +33,7 @@ export function ReleaseCard({
   ctaHref,
   audioQueue,
   playLabel,
+  sourceSurface,
 }: Props) {
   const releaseTypeDisplay = release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
   const releaseMeta = release.year
@@ -67,13 +70,15 @@ export function ReleaseCard({
               className="release-detail-track-play"
             />
           ) : null}
-          <Link
+          <TrackedReleaseLink
             href={resolvedCtaHref}
+            releaseSlug={release.slug}
+            sourceSurface={sourceSurface}
             className="release-grid-card-action"
           >
             <span>{resolvedCtaLabel}</span>
             <span aria-hidden="true">&rarr;</span>
-          </Link>
+          </TrackedReleaseLink>
         </div>
       </div>
     </article>

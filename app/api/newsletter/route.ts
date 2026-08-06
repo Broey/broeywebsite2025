@@ -8,6 +8,7 @@ import {
 type ApiResponse = {
   ok: boolean;
   message: string;
+  analyticsEligible?: boolean;
 };
 
 type RequestPayload = Record<string, string>;
@@ -115,6 +116,7 @@ async function forwardToProvider(payload: RequestPayload) {
       return jsonResponse(
         {
           ok: true,
+          analyticsEligible: true,
           message: "You are on the list. Thanks for staying close to the music.",
         },
         200,

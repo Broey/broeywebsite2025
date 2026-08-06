@@ -17,7 +17,7 @@ export function FeaturedRelease({ release, showEmbed = false }: FeaturedReleaseP
       </h2>
       <div className="grid gap-5 md:grid-cols-[2fr_1fr] md:items-end">
         <div>
-          <ReleaseCard release={release} featured />
+          <ReleaseCard release={release} featured sourceSurface="home" />
         </div>
         <div className="flex items-end">
           <p className="max-w-sm text-sm text-[var(--color-muted)]">

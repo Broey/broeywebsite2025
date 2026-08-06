@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TrackedMerchLink } from "@/components/analytics/TrackedLinks";
 import { MerchBrowser } from "@/components/sections/MerchBrowser";
 import { MerchCard } from "@/components/ui/MerchCard";
 import { MerchArtwork } from "@/components/ui/MerchArtwork";
@@ -42,19 +43,25 @@ export default async function MerchPage() {
             <p className="merch-hero-copy">
               {featured.description}
             </p>
-            <a
+            <TrackedMerchLink
               href={featured.href}
+              productTitle={featured.title}
+              category={featured.category}
+              sourceSurface="merch_page"
               target="_blank"
               rel="noopener noreferrer"
               className="merch-text-link merch-hero-action"
             >
               <span>Shop featured piece</span>
               <span aria-hidden="true">&rarr;</span>
-            </a>
+            </TrackedMerchLink>
           </div>
 
-          <a
+          <TrackedMerchLink
             href={featured.href}
+            productTitle={featured.title}
+            category={featured.category}
+            sourceSurface="merch_page"
             target="_blank"
             rel="noopener noreferrer"
             className="merch-featured-card"
@@ -74,7 +81,7 @@ export default async function MerchPage() {
                 </span>
               </div>
             </div>
-          </a>
+          </TrackedMerchLink>
         </header>
 
         <section className="merch-store-panel" aria-labelledby="merch-store-title">
@@ -90,6 +97,7 @@ export default async function MerchPage() {
             items={merch.map((item) => ({
               slug: item.slug,
               category: item.category,
+              title: item.title,
               card: <MerchCard item={item} />,
             }))}
           />

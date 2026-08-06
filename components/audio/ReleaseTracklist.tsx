@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { TrackedReleaseLink } from "@/components/analytics/TrackedLinks";
 import { useAudioPlayer, type GlobalAudioQueue } from "@/components/audio/useAudioPlayer";
 import type { ReleaseEntry } from "@/content/releases";
 
@@ -109,9 +109,14 @@ export function ReleaseTracklist({ tracks, queue, trackLinks = [] }: ReleaseTrac
               </button>
             ) : null}
             {trackLink ? (
-              <Link href={trackLink.href} className="release-detail-track-link">
+              <TrackedReleaseLink
+                href={trackLink.href}
+                releaseSlug={trackLink.slug ?? audioTrack?.analytics?.track_slug ?? title}
+                sourceSurface="project_tracklist"
+                className="release-detail-track-link"
+              >
                 View Track
-              </Link>
+              </TrackedReleaseLink>
             ) : null}
           </li>
         );

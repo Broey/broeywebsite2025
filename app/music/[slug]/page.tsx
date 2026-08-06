@@ -601,6 +601,10 @@ function FindYourPlatformSection({ release }: { release: ReleaseEntry }) {
         showActionLabel={false}
         wrapperClassName="platform-links"
         buttonsClassName="platform-buttons"
+        analytics={{
+          releaseSlug: release.slug,
+          sourceSurface: "release_page",
+        }}
       />
     </section>
   );
@@ -721,6 +725,7 @@ function KeepListeningSection({
               ctaLabel="View Release"
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(entry)}
+              sourceSurface="recommendations"
             />
           );
         })}

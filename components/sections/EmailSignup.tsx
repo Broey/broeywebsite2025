@@ -7,6 +7,11 @@ import {
   type TurnstileWidgetHandle,
 } from "@/components/forms/TurnstileWidget";
 import { rateLimitMessage } from "@/lib/form-client";
+import {
+  isAnalyticsConversionSuccess,
+  trackEvent,
+  type AnalyticsSourceSurface,
+} from "@/lib/analytics";
 
 type EmailSignupStatus = {
   tone: "notice" | "success" | "error";
@@ -34,6 +39,7 @@ type EmailSignupProps = {
   action?: string;
   emailFieldName?: string;
   hiddenFields?: Record<string, string>;
+  sourceSurface?: AnalyticsSourceSurface;
 };
 
 const defaultCopy: Record<
@@ -74,6 +80,7 @@ export function EmailSignup({
   action,
   emailFieldName = "email",
   hiddenFields = {},
+  sourceSurface = variant === "footer" ? "footer" : "home",
 }: EmailSignupProps) {
   const copy = defaultCopy[variant];
   const reactId = useId().replace(/:/g, "");
@@ -136,7 +143,7 @@ export function EmailSignup({
         body: formData,
       });
       const payload = (await response.json().catch(() => null)) as
-        | EmailSignupStatus & { ok?: boolean }
+        | EmailSignupStatus & { ok?: boolean; analyticsEligible?: boolean }
         | null;
       const message = response.status === 429
         ? rateLimitMessage(response.headers.get("Retry-After"))
@@ -149,6 +156,13 @@ export function EmailSignup({
         tone: response.ok && payload?.ok !== false ? "success" : response.status === 503 ? "notice" : "error",
         message,
       });
+
+      if (isAnalyticsConversionSuccess(response.ok, payload)) {
+        trackEvent("newsletter_signup", {
+          source_surface: sourceSurface,
+          page_path: window.location.pathname,
+        });
+      }
 
       if (response.ok && payload?.ok !== false) {
         form.reset();

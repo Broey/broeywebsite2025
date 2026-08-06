@@ -12,6 +12,13 @@ export type GlobalAudioTrack = {
   releaseUrl?: string;
   duration?: string;
   playerAccent?: string;
+  analytics?: {
+    release_slug?: string;
+    track_slug?: string;
+    track_title?: string;
+    project_slug?: string;
+    genre?: string;
+  };
 };
 
 export type GlobalAudioPlayContext = "highlighted" | "archive" | "project" | "single";

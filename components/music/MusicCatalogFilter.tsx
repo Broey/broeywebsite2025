@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode, useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export type MusicCatalogRelease = {
   id: string;
@@ -45,6 +46,24 @@ export function MusicCatalogFilter({
     (count, section) => count + section.releases.length,
     0,
   );
+  const selectFilter = (filter: string) => {
+    if (filter === selectedFilter) {
+      return;
+    }
+
+    const resultCount = sections.reduce(
+      (count, section) => count + section.releases.filter((release) =>
+        filter === "All" || release.filterGroups.includes(filter),
+      ).length,
+      0,
+    );
+
+    setSelectedFilter(filter);
+    trackEvent("genre_filter", {
+      genre: filter,
+      result_count: resultCount,
+    });
+  };
 
   return (
     <div className="music-catalog-filter">
@@ -64,7 +83,7 @@ export function MusicCatalogFilter({
               data-selected={selectedFilter === filter ? "true" : "false"}
               aria-pressed={selectedFilter === filter}
               aria-controls="music-release-catalog"
-              onClick={() => setSelectedFilter(filter)}
+              onClick={() => selectFilter(filter)}
             >
               {filter}
             </button>

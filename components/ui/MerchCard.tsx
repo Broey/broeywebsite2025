@@ -1,27 +1,68 @@
 import { MerchArtwork } from "@/components/ui/MerchArtwork";
+import { TrackedMerchLink } from "@/components/analytics/TrackedLinks";
 import { hasLiveShopAction, type MerchProduct } from "@/content/merch";
+import type { AnalyticsSourceSurface } from "@/lib/analytics";
 
-function MerchAction({ item, compact = false }: { item: MerchProduct; compact?: boolean }) {
+function MerchAction({
+  item,
+  compact = false,
+  sourceSurface,
+}: {
+  item: MerchProduct;
+  compact?: boolean;
+  sourceSurface?: AnalyticsSourceSurface;
+}) {
   if (!hasLiveShopAction(item)) {
     return null;
   }
 
-  return (
-    <a
-      href={item.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={["merch-card-action", compact ? "merch-card-action--compact" : ""]
-        .filter(Boolean)
-        .join(" ")}
-    >
+  const className = ["merch-card-action", compact ? "merch-card-action--compact" : ""]
+    .filter(Boolean)
+    .join(" ");
+  const content = (
+    <>
       <span>View item</span>
       <span aria-hidden="true">&rarr;</span>
-    </a>
+    </>
+  );
+
+  if (!sourceSurface) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <TrackedMerchLink
+      href={item.href}
+      productTitle={item.title}
+      category={item.category}
+      sourceSurface={sourceSurface}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
+      {content}
+    </TrackedMerchLink>
   );
 }
 
-export function MerchCard({ item, compact = false }: { item: MerchProduct; compact?: boolean }) {
+export function MerchCard({
+  item,
+  compact = false,
+  sourceSurface,
+}: {
+  item: MerchProduct;
+  compact?: boolean;
+  sourceSurface?: AnalyticsSourceSurface;
+}) {
   if (compact) {
     return (
       <article className="merch-card merch-card--compact">
@@ -34,7 +75,7 @@ export function MerchCard({ item, compact = false }: { item: MerchProduct; compa
           <h3 className="merch-card-compact-title">{item.title}</h3>
           <p className="merch-card-compact-category">{item.category}</p>
           <p className="merch-card-compact-price">{item.price}</p>
-          <MerchAction item={item} compact />
+          <MerchAction item={item} compact sourceSurface={sourceSurface} />
         </div>
       </article>
     );
@@ -52,7 +93,7 @@ export function MerchCard({ item, compact = false }: { item: MerchProduct; compa
         <h3 className="merch-card-title">{item.title}</h3>
         <p className="merch-card-price">{item.price}</p>
         <p className="merch-card-description">{item.description}</p>
-        <MerchAction item={item} />
+        <MerchAction item={item} sourceSurface={sourceSurface} />
       </div>
     </article>
   );

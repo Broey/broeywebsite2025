@@ -16,10 +16,11 @@ import {
   type GlobalAudioQueue,
   type GlobalAudioTrack,
 } from "@/components/audio/useAudioPlayer";
+import { trackEvent } from "@/lib/analytics";
+import { AudioAnalyticsSession, type AudioAnalyticsEventName } from "@/lib/audio-analytics";
 
 const DEFAULT_VOLUME = 0.7;
 const VOLUME_STORAGE_KEY = "broey-audio-volume";
-
 const clampVolume = (value: number) => Math.min(Math.max(value, 0), 1);
 
 const parseDuration = (duration?: string) => {
@@ -61,6 +62,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const continuePlaybackRef = useRef(false);
   const previousPathnameRef = useRef(pathname);
   const previousVolumeRef = useRef(DEFAULT_VOLUME);
+  const [audioAnalyticsSession] = useState(() => new AudioAnalyticsSession());
   const [currentQueue, setCurrentQueue] = useState<GlobalAudioQueue>();
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -79,6 +81,17 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const canGoPrevious = queueLength > 1 && activeIndex > 0;
   const canGoNext = queueLength > 1 && activeIndex < queueLength - 1;
   const fallbackDuration = useMemo(() => parseDuration(currentTrack?.duration), [currentTrack?.duration]);
+  const currentTrackKey = currentTrack
+    ? `${currentQueue?.queueId ?? "single"}:${currentTrack.src}`
+    : "";
+
+  const trackAudioEvent = useCallback((eventName: AudioAnalyticsEventName) => {
+    if (!currentTrack?.analytics) {
+      return;
+    }
+
+    trackEvent(eventName, currentTrack.analytics);
+  }, [currentTrack]);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
@@ -431,15 +444,32 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
           setIsPlaying(true);
           setIsLoading(false);
           setHasEnded(false);
+          audioAnalyticsSession
+            .start(currentTrackKey)
+            .forEach(trackAudioEvent);
         }}
         onPause={() => {
           setIsPlaying(false);
           setIsLoading(false);
         }}
-        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+        onTimeUpdate={(event) => {
+          const audio = event.currentTarget;
+          setCurrentTime(audio.currentTime);
+
+          if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+            return;
+          }
+
+          audioAnalyticsSession
+            .progress(currentTrackKey, audio.currentTime, audio.duration)
+            .forEach(trackAudioEvent);
+        }}
         onEnded={() => {
           setIsPlaying(false);
           setIsLoading(false);
+          audioAnalyticsSession
+            .complete(currentTrackKey)
+            .forEach(trackAudioEvent);
 
           if (canGoNext) {
             setActiveQueueIndex(activeIndex + 1);

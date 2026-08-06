@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { TrackedReleaseLink } from "@/components/analytics/TrackedLinks";
 import { ReleasePlayButton } from "@/components/audio/ReleasePlayButton";
 import {
   releaseAudioQueueForContext,
@@ -114,6 +114,7 @@ export default function MusicPage() {
               ctaLabel="View Release"
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(release)}
+              sourceSurface="music_catalog"
             />
           ),
         };
@@ -144,6 +145,7 @@ export default function MusicPage() {
               ctaLabel="View Release"
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(release)}
+              sourceSurface="music_catalog"
             />
           ),
         };
@@ -223,12 +225,14 @@ export default function MusicPage() {
                   className="release-detail-primary-cta"
                 />
               ) : null}
-              <Link
+              <TrackedReleaseLink
                 href={releaseDetailHref(featured)}
+                releaseSlug={featured.slug}
+                sourceSurface="music_catalog"
                 className={featuredQueue ? "release-detail-secondary-cta" : "release-detail-primary-cta"}
               >
                 View Release
-              </Link>
+              </TrackedReleaseLink>
             </div>
           </div>
         </div>

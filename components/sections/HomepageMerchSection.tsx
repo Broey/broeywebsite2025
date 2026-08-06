@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedMerchLink } from "@/components/analytics/TrackedLinks";
 import { MerchArtwork } from "@/components/ui/MerchArtwork";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { hasLiveShopAction, merch, type MerchProduct } from "@/content/merch";
@@ -23,14 +24,17 @@ function HomepageMerchCard({ item }: { item: MerchProduct }) {
         </p>
         <div className="homepage-merch-card-action-row">
           {hasShopLink ? (
-            <a
+            <TrackedMerchLink
               href={item.href}
+              productTitle={item.title}
+              category={item.category}
+              sourceSurface="home"
               target="_blank"
               rel="noopener noreferrer"
               className="homepage-merch-card-cta"
             >
               View item
-            </a>
+            </TrackedMerchLink>
           ) : (
             <Link href="/merch" className="homepage-merch-card-cta">
               View details

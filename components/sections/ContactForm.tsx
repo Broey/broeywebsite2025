@@ -8,6 +8,7 @@ import {
 } from "@/components/forms/TurnstileWidget";
 import { siteConfig } from "@/content/site";
 import { rateLimitMessage } from "@/lib/form-client";
+import { isAnalyticsConversionSuccess, trackEvent } from "@/lib/analytics";
 
 type ContactFormStatus = {
   tone: "notice" | "success" | "error";
@@ -17,6 +18,7 @@ type ContactFormStatus = {
 type ContactApiResponse = {
   ok: boolean;
   message: string;
+  analyticsEligible?: boolean;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -108,6 +110,13 @@ export function ContactForm() {
         tone: response.ok && payload?.ok !== false ? "success" : response.status === 503 ? "notice" : "error",
         message: messageText,
       });
+
+      if (isAnalyticsConversionSuccess(response.ok, payload)) {
+        trackEvent("contact_submit", {
+          source_surface: "contact_page",
+          page_path: window.location.pathname,
+        });
+      }
 
       if (response.ok && payload?.ok !== false) {
         form.reset();

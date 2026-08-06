@@ -1,11 +1,13 @@
 "use client";
 
-import { type ReactNode, useMemo, useState } from "react";
+import { type MouseEvent, type ReactNode, useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type MerchBrowserItem = {
   card: ReactNode;
   category: string;
   slug: string;
+  title: string;
 };
 
 type MerchBrowserProps = {
@@ -33,6 +35,31 @@ export function MerchBrowser({ categories, items }: MerchBrowserProps) {
   const activeCategoryLabel =
     activeCategory === "All" ? "all categories" : categoryLabel(activeCategory);
 
+  const handleProductClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    const productLink = event.target.closest("a[href]");
+    const productContainer = event.target.closest<HTMLElement>("[data-merch-slug]");
+
+    if (!productLink || !productContainer?.dataset.merchSlug) {
+      return;
+    }
+
+    const item = items.find(({ slug }) => slug === productContainer.dataset.merchSlug);
+
+    if (!item) {
+      return;
+    }
+
+    trackEvent("merch_click", {
+      product_title: item.title,
+      category: item.category,
+      source_surface: "merch_page",
+    });
+  };
+
   return (
     <div className="merch-browser" aria-label="Merch browser">
       <div className="merch-filter-row" aria-label="Filter merch by category">
@@ -57,9 +84,9 @@ export function MerchBrowser({ categories, items }: MerchBrowserProps) {
       </p>
 
       {visibleItems.length ? (
-        <div id="merch-product-grid" className="merch-grid">
+        <div id="merch-product-grid" className="merch-grid" onClick={handleProductClick}>
           {visibleItems.map((item) => (
-            <div key={item.slug} className="merch-grid-item">
+            <div key={item.slug} className="merch-grid-item" data-merch-slug={item.slug}>
               {item.card}
             </div>
           ))}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedReleaseLink } from "@/components/analytics/TrackedLinks";
 import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { archiveReleases } from "@/content/release-filters";
@@ -56,12 +57,14 @@ export function MusicArchivePreview() {
                 {release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type]}
                 {release.year ? ` / ${release.year}` : ""}
               </p>
-              <Link
+              <TrackedReleaseLink
                 href={releaseDetailHref(release)}
+                releaseSlug={release.slug}
+                sourceSurface="home"
                 className="mt-3 text-xs font-semibold uppercase text-[var(--color-amber)] transition hover:text-white"
               >
                 View Release
-              </Link>
+              </TrackedReleaseLink>
             </div>
           </article>
         ))}

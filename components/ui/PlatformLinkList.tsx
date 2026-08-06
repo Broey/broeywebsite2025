@@ -1,5 +1,6 @@
 import type { ExternalLink, ExternalLinkKind } from "@/content/releases";
 import { ExternalServiceButton } from "@/components/ui/ExternalServiceButton";
+import type { AnalyticsSourceSurface } from "@/lib/analytics";
 
 type PlatformLinkListProps = {
   links: ExternalLink[];
@@ -9,6 +10,11 @@ type PlatformLinkListProps = {
   showActionLabel?: boolean;
   wrapperClassName?: string;
   buttonsClassName?: string;
+  analytics?: {
+    releaseSlug?: string;
+    trackSlug?: string;
+    sourceSurface: AnalyticsSourceSurface;
+  };
 };
 
 const groupLabels: Record<ExternalLinkKind, string> = {
@@ -29,6 +35,7 @@ export function PlatformLinkList({
   showActionLabel = true,
   wrapperClassName,
   buttonsClassName,
+  analytics,
 }: PlatformLinkListProps) {
   const availableLinks = hidePending ? links.filter((link) => link.url && link.url !== "#") : links;
   const visibleLinks = typeof limit === "number" ? availableLinks.slice(0, limit) : availableLinks;
@@ -45,6 +52,7 @@ export function PlatformLinkList({
             key={`${link.platform}-${link.kind}`}
             {...link}
             showActionLabel={showActionLabel}
+            analytics={analytics}
           />
         ))}
       </div>
@@ -78,6 +86,7 @@ export function PlatformLinkList({
                 key={`${link.platform}-${link.kind}`}
                 {...link}
                 showActionLabel={showActionLabel}
+                analytics={analytics}
               />
             ))}
           </div>
