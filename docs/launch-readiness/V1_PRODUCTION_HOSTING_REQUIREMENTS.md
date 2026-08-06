@@ -45,6 +45,8 @@ The table lists names and classifications only; no values belong in this documen
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Required in every non-development build | Client-visible; build-time canonical origin used by metadata, structured data, sitemap, and share URLs |
 | `SITE_VISIBILITY` | Required in every non-development environment | Server-only; required during build and runtime to select the public or private policy |
+| `NEXT_PUBLIC_UMAMI_SCRIPT_URL` | Optional; required with the website ID to enable production analytics | Client-visible build-time tracker URL; approved value is `https://cloud.umami.is/script.js` |
+| `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Optional; required with the script URL to enable production analytics | Client-visible build-time public website identifier; not a secret |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Required for working production forms | Client-visible; build-time widget configuration; must match the server secret and allowed hostnames |
 | `TURNSTILE_SECRET_KEY` | Required for working production forms | Server-only secret; runtime Siteverify credential |
 | `RESEND_API_KEY` | Required for Contact delivery | Server-only secret; runtime provider credential |
@@ -99,6 +101,7 @@ Complete these checks only after a host is selected and the owner authorizes pro
 - [ ] Run browser/device smoke tests on current desktop and mobile Safari, Chrome, Firefox, and Edge coverage appropriate to the audience. Recheck navigation, filtering, persistent audio, forms, merch, privacy, and the preview gate.
 - [ ] Run production Lighthouse against the deployed canonical URL and retain the report with the release evidence.
 - [ ] Verify request/function logs, secret and personal-data redaction, alerts, retention, deployment health, and the documented rollback point.
+- [ ] When analytics is enabled, confirm one Umami script on `broey.net`, ordinary and client-side-navigation pageviews, approved custom events, UTM reporting, and no analytics on the private preview.
 - [ ] Perform and record a rollback drill before declaring the production deployment complete.
 
 ## Hosting-readiness determination

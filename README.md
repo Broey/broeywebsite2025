@@ -27,6 +27,8 @@ npm run sync:latest-release-media
 NEXT_PUBLIC_SITE_URL=https://broey.net
 SITE_VISIBILITY=public
 SITE_PASSCODE=
+NEXT_PUBLIC_UMAMI_SCRIPT_URL=
+NEXT_PUBLIC_UMAMI_WEBSITE_ID=
 SHOPIFY_STORE_DOMAIN=
 SHOPIFY_MERCH_COLLECTION_HANDLE=broey-site-merch
 SHOPIFY_STOREFRONT_ACCESS_TOKEN=
@@ -45,6 +47,10 @@ TURNSTILE_SECRET_KEY=
 `NEXT_PUBLIC_SITE_URL` is the canonical public origin used for metadata, sitemap URLs, JSON-LD, and share links. The intended public origin is `https://broey.net`. Production and preview builds require an explicit HTTPS origin-only value; credentials, query strings, fragments, and non-root paths are rejected. A trailing slash is normalized away. Local development may omit the variable and use `http://localhost:3000`, or explicitly use HTTP with `localhost` or `127.0.0.1`.
 
 `SITE_VISIBILITY` accepts only `public` or `private` outside local development. `public` allows normal indexing. `private` requires `SITE_PASSCODE` and enables the preview gate, noindex metadata, robots disallow, and an empty sitemap. Local development defaults to `public` when the variable is absent.
+
+Umami analytics is optional and requires both `NEXT_PUBLIC_UMAMI_SCRIPT_URL` and `NEXT_PUBLIC_UMAMI_WEBSITE_ID`. The root layout loads the tracker once, after hydration, only for a public production build. Development, private preview builds, and builds missing either value do not load analytics. The tracker is restricted to `broey.net`; custom events safely become no-ops if the script is absent or blocked. These two `NEXT_PUBLIC_` values are intentionally browser-visible configuration, not secrets. The approved production values are documented in `docs/launch-readiness/V1_UMAMI_ANALYTICS_VALIDATION.md`.
+
+Do not add manual pageview calls. Umami automatically records initial page loads and client-side App Router navigation. Standard UTM parameters remain in normal URLs and are reported by Umami without application redirects or rewriting.
 
 The permanent production host has not been selected. Keep the app deployable with conventional `next build` and `next start` commands. The future `www.broey.net` to `broey.net` redirect belongs in the selected hosting or DNS configuration, not in application routing.
 

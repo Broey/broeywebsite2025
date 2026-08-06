@@ -1,9 +1,17 @@
 export const privacyNotice = {
-  effectiveDate: "August 5, 2026",
+  effectiveDate: "August 6, 2026",
   contactEmail: "broey@broey.net",
   introduction:
-    "This notice explains what information the Broey website may process when you send a message or intentionally join the mailing list.",
+    "This notice explains the limited information the Broey website may process for aggregate analytics, when you send a message, or when you intentionally join the mailing list.",
   sections: [
+    {
+      title: "Privacy-focused analytics",
+      paragraphs: [
+        "The website uses Umami Cloud to understand aggregate traffic and engagement. It may measure pages viewed, general referral sources, standard campaign parameters, browser and device categories, approximate geographic region where Umami provides it, and anonymous events such as music playback, streaming-link clicks, release and genre activity, merchandise and press clicks, and successful newsletter or Contact submissions.",
+        "Names, email addresses, Contact subjects, message contents, newsletter form contents, subscriber identifiers, and provider responses are not sent to Umami. The current analytics implementation does not use advertising or behavioral-tracking cookies, persistent visitor identifiers, cross-site tracking, fingerprinting, or Umami identify features.",
+        "Analytics may be unavailable when blocked by a browser or network tool; the rest of the website continues to work normally.",
+      ],
+    },
     {
       title: "Contact messages",
       paragraphs: [
