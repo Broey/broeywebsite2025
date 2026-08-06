@@ -12,14 +12,14 @@ import {
 import { ReleaseTracklist } from "@/components/audio/ReleaseTracklist";
 import { PlatformLinkList } from "@/components/ui/PlatformLinkList";
 import { PendingArtwork } from "@/components/ui/PendingArtwork";
-import { ReleaseArtwork, shouldUseFallbackArtwork } from "@/components/ui/ReleaseArtwork";
+import { ReleaseCard } from "@/components/ui/ReleaseCard";
 import { ShareReleaseButton } from "@/components/ui/ShareReleaseButton";
 import {
   releaseDetailHref,
   releasePlatformLinks,
   shouldExposePublicDisco,
 } from "@/content/release-actions";
-import { sortedArchiveReleases } from "@/content/release-filters";
+import { recommendReleases, type ReleaseRecommendation } from "@/content/release-recommendations";
 import {
   trackRegistryByReleaseSlug,
   type GeneratedTrackRegistry,
@@ -31,6 +31,7 @@ import {
 } from "@/content/release-metadata";
 import { createPageMetadata } from "@/content/seo";
 import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } from "@/content/releases";
+import { shouldUseFallbackArtwork } from "@/lib/release-artwork";
 import { absoluteUrl } from "@/lib/site-origin";
 
 type PageProps = {
@@ -40,6 +41,10 @@ type PageProps = {
 };
 
 type ReleaseCtaAccentStyle = CSSProperties & Partial<Record<"--release-cta-accent", string>>;
+
+// Preserve static generation while allowing the UTC-date discovery seed to
+// advance on a cache-safe interval after deployment.
+export const revalidate = 86_400;
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
   single: "Single",
@@ -137,14 +142,6 @@ const projectTrackLinksFor = (release: ReleaseEntry) => {
 const releaseAudioTrackCount = (release: ReleaseEntry) => release.audio?.tracks.length ?? 0;
 
 const hasMultipleAudioTracks = (release: ReleaseEntry) => releaseAudioTrackCount(release) > 1;
-
-const sortedReleases = () =>
-  sortedArchiveReleases(releases);
-
-const moreMusicReleases = (release: ReleaseEntry) =>
-  sortedReleases()
-    .filter((entry) => entry.slug !== release.slug)
-    .slice(0, 3);
 
 const formatReleaseDate = (releaseDate?: string) => {
   if (!releaseDate) {
@@ -686,8 +683,12 @@ function ParentProjectContext({
   );
 }
 
-function MoreMusicSection({ release }: { release: ReleaseEntry }) {
-  const moreReleases = moreMusicReleases(release);
+function KeepListeningSection({
+  recommendations,
+}: {
+  recommendations: ReleaseRecommendation[];
+}) {
+  const moreReleases = recommendations.map((recommendation) => recommendation.release);
 
   if (!moreReleases.length) {
     return null;
@@ -696,27 +697,33 @@ function MoreMusicSection({ release }: { release: ReleaseEntry }) {
   return (
     <section className="release-detail-section" aria-labelledby="release-more-title">
       <div className="release-detail-section-header">
-        <h2 id="release-more-title" className="release-detail-section-kicker">
-          more from broey
-        </h2>
+        <div>
+          <h2 id="release-more-title" className="release-detail-section-kicker">
+            Keep listening
+          </h2>
+          <p className="release-detail-recommendation-copy">
+            More from across the Broey catalog.
+          </p>
+        </div>
         <Link href="/music" className="release-detail-inline-link">
           Selected Releases
         </Link>
       </div>
-      <div className="release-detail-more-grid">
-        {moreReleases.map((entry) => (
-          <Link
-            key={entry.slug}
-            href={releaseDetailHref(entry)}
-            className="release-detail-more-card"
-          >
-            <ReleaseArtwork release={entry} className="release-detail-more-artwork" />
-            <div className="min-w-0">
-              <p>{releaseHeroMeta(entry)}</p>
-              <h3>{entry.title}</h3>
-            </div>
-          </Link>
-        ))}
+      <div className="release-detail-recommendation-grid">
+        {moreReleases.map((entry) => {
+          const audioQueue = releaseAudioQueueForContext(entry, releases, "archive");
+
+          return (
+            <ReleaseCard
+              key={entry.slug}
+              release={entry}
+              ctaHref={releaseDetailHref(entry)}
+              ctaLabel="View Release"
+              audioQueue={audioQueue}
+              playLabel={releasePlayLabel(entry)}
+            />
+          );
+        })}
       </div>
     </section>
   );
@@ -775,6 +782,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
     ? `${release.title} from ${parentRelease.title}`
     : release.title;
   const projectTrackLinks = projectTrackLinksFor(release);
+  const recommendationSet = recommendReleases(release, releases);
   const releaseCtaAccentStyle: ReleaseCtaAccentStyle | undefined = release.playerAccent
     ? { "--release-cta-accent": release.playerAccent }
     : undefined;
@@ -870,7 +878,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
             </section>
           ) : null}
 
-          <MoreMusicSection release={release} />
+          <KeepListeningSection recommendations={recommendationSet.recommendations} />
 
           <div className="release-detail-back-row">
             <Link href="/music" className="release-detail-nav-center">

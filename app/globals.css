@@ -5224,69 +5224,25 @@ body.has-global-player .site-shell {
   color: white;
 }
 
-.release-detail-more-grid {
+.release-detail-recommendation-copy {
+  margin: 0.42rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.release-detail-recommendation-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-  padding-top: 0.86rem;
+  gap: 1.25rem;
+  padding-top: 1rem;
 }
 
-.release-detail-more-card {
-  display: grid;
-  min-width: 0;
-  min-height: 7.1rem;
-  grid-template-columns: 6rem minmax(0, 1fr);
-  gap: 0.86rem;
-  align-items: center;
-  border-radius: 0.52rem;
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  background: rgba(255, 255, 255, 0.018);
-  padding: 0.66rem;
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-.release-detail-more-card:hover {
-  transform: translateY(-0.08rem);
-  border-color: rgba(63, 177, 217, 0.32);
-  background: rgba(255, 255, 255, 0.034);
-}
-
-.release-detail-more-artwork {
-  position: relative;
-  aspect-ratio: 1;
-  min-height: 0;
-  overflow: hidden;
-  border-radius: 0.42rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.28);
-}
-
-.release-detail-more-card p,
-.release-detail-more-card h3 {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.release-detail-more-card p {
-  margin: 0;
-  color: rgba(63, 177, 217, 0.86);
-  font-size: 0.66rem;
-  font-weight: 680;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.release-detail-more-card h3 {
-  margin: 0.28rem 0 0;
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 680;
-  line-height: 1.08;
-  white-space: nowrap;
+.release-detail-recommendation-grid .release-grid-card-action:focus-visible,
+.release-detail-recommendation-grid .release-detail-track-play:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 0.28rem;
 }
 
 .release-detail-back-row {
@@ -6606,6 +6562,10 @@ a.about-pillar-card:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .release-detail-recommendation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .global-audio-player {
     width: calc(100vw - 28px);
     min-height: 78px;
@@ -7118,7 +7078,7 @@ a.about-pillar-card:hover {
   }
 
   .release-detail-facts-grid,
-  .release-detail-more-grid {
+  .release-detail-recommendation-grid {
     grid-template-columns: 1fr;
   }
 
@@ -7129,11 +7089,6 @@ a.about-pillar-card:hover {
 
   .release-detail-definition-list dd {
     text-align: left;
-  }
-
-  .release-detail-more-card {
-    min-height: 6.25rem;
-    grid-template-columns: 5.3rem minmax(0, 1fr);
   }
 
   .about-hero {

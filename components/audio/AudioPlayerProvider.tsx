@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -55,7 +56,10 @@ const normalizeQueue = (queue: GlobalAudioQueue, activeIndex = queue.activeIndex
 });
 
 export function AudioPlayerProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const audioRef = useRef<HTMLAudioElement>(null);
+  const continuePlaybackRef = useRef(false);
+  const previousPathnameRef = useRef(pathname);
   const previousVolumeRef = useRef(DEFAULT_VOLUME);
   const [currentQueue, setCurrentQueue] = useState<GlobalAudioQueue>();
   const [currentTime, setCurrentTime] = useState(0);
@@ -128,10 +132,43 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       setIsLoading(false);
       setHasEnded(false);
     }).catch(() => {
+      continuePlaybackRef.current = false;
       setIsPlaying(false);
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    if (previousPathnameRef.current === pathname) {
+      return;
+    }
+
+    previousPathnameRef.current = pathname;
+
+    if (!continuePlaybackRef.current || !currentTrack) {
+      return;
+    }
+
+    const resumeIfInterrupted = () => {
+      const audio = audioRef.current;
+
+      if (
+        continuePlaybackRef.current &&
+        audio &&
+        audio.paused &&
+        !audio.ended
+      ) {
+        void requestPlayback(audio);
+      }
+    };
+    const frame = requestAnimationFrame(resumeIfInterrupted);
+    const followUp = window.setTimeout(resumeIfInterrupted, 250);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(followUp);
+    };
+  }, [currentTrack, pathname, requestPlayback]);
 
   const playPendingTrack = useCallback(() => {
     const audio = audioRef.current;
@@ -175,6 +212,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       setCurrentTime(0);
     }
 
+    continuePlaybackRef.current = true;
     setCurrentQueue(nextQueue);
     setHasEnded(false);
     setHasError(false);
@@ -214,6 +252,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     setHasError(false);
 
     if (shouldPlay) {
+      continuePlaybackRef.current = true;
       setPendingPlay(true);
     }
   }, [currentQueue]);
@@ -242,6 +281,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     }
 
     if (!audio.paused && !audio.ended) {
+      continuePlaybackRef.current = false;
       audio.pause();
       setIsPlaying(false);
       setIsLoading(false);
@@ -257,6 +297,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     audio.volume = volume;
     audio.muted = isMuted;
 
+    continuePlaybackRef.current = true;
     void requestPlayback(audio);
   }, [currentTrack, hasEnded, hasError, isMuted, requestPlayback, volume]);
 
@@ -405,9 +446,11 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
             return;
           }
 
+          continuePlaybackRef.current = false;
           setHasEnded(true);
         }}
         onError={() => {
+          continuePlaybackRef.current = false;
           setIsPlaying(false);
           setIsLoading(false);
           setHasError(true);
