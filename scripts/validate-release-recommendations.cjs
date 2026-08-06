@@ -186,17 +186,33 @@ assert(
 );
 
 const validOverrideSlug = eligible[0].slug;
+const ineligibleOverride = {
+  ...eligible[1],
+  slug: "synthetic-draft-release",
+  visibility: "draft",
+};
 const invalidOverrideSource = {
   ...releases.find((release) => release.slug !== validOverrideSlug),
-  recommendedSlugs: [validOverrideSlug, validOverrideSlug, "missing-release", validOverrideSlug],
+  recommendedSlugs: [
+    validOverrideSlug,
+    validOverrideSlug,
+    "missing-release",
+    "synthetic-draft-release",
+    validOverrideSlug,
+  ],
 };
 invalidOverrideSource.recommendedSlugs.push(invalidOverrideSource.slug);
-const invalidOverrideResult = recommendReleases(invalidOverrideSource, releases, { date: matrixDate });
+const invalidOverrideResult = recommendReleases(
+  invalidOverrideSource,
+  [...releases, ineligibleOverride],
+  { date: matrixDate },
+);
 assert(
   invalidOverrideResult.overrideIssues.some((issue) => issue.reason === "duplicate") &&
     invalidOverrideResult.overrideIssues.some((issue) => issue.reason === "missing") &&
+    invalidOverrideResult.overrideIssues.some((issue) => issue.reason === "ineligible") &&
     invalidOverrideResult.overrideIssues.some((issue) => issue.reason === "self"),
-  "Owner override validation did not report duplicate, missing, and self references.",
+  "Owner override validation did not report duplicate, missing, ineligible, and self references.",
 );
 
 const report = {
