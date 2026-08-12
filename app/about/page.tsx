@@ -4,44 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { PressMentionsSection } from "@/components/sections/PressMentionsSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { siteConfig } from "@/content/site";
+import { staticPageMetadata } from "@/content/page-metadata";
+import { createPageMetadata } from "@/content/seo";
 import { absoluteUrl } from "@/lib/site-origin";
 
-const aboutDescription =
-  "Broey is the project of Joe Montaro, a Scranton-area producer and audio engineer making electronic music from lo-fi roots, house, UKG, drum and bass, and club records.";
-const aboutPortraitImage = "/assets/brand/broey-headshot-2025.jpg";
-const aboutSocialImage = {
-  url: aboutPortraitImage,
-  width: 1440,
-  height: 1800,
-  alt: "Broey artist portrait lit in blue and purple.",
-};
+const aboutDescription = staticPageMetadata.about.description;
+const aboutPortraitImage = staticPageMetadata.about.image.url;
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "About Broey. | Electronic Music from Scranton, PA",
-  },
-  description: aboutDescription,
-  alternates: {
-    canonical: "/about",
-  },
-  openGraph: {
-    title: "About Broey. | Electronic Music from Scranton, PA",
-    description: aboutDescription,
-    url: "/about",
-    siteName: siteConfig.name,
-    images: [aboutSocialImage],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Broey. | Electronic Music from Scranton, PA",
-    description: aboutDescription,
-    images: [aboutPortraitImage],
-    site: siteConfig.seo.twitterHandle,
-    creator: siteConfig.seo.twitterHandle,
-  },
-};
+export const metadata: Metadata = createPageMetadata(staticPageMetadata.about);
 
 const bioParagraphs: ReactNode[] = [
   "Broey started with dusty chords, clipped drums, warped samples, warm noise, and self-produced records.",

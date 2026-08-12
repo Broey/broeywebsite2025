@@ -14,7 +14,8 @@ export function HomepageMusicArchiveSection() {
             Broey selects
           </h2>
           <p className="homepage-section-lede">
-            House, UKG, Breakbeats, and the sounds that define Broey.
+            Explore music and releases from Broey, spanning house, UK garage,
+            breakbeats, and more.
           </p>
           <Link href="/music" className="homepage-section-cta">
             Browse the catalog

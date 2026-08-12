@@ -40,7 +40,7 @@ export function ReleaseCard({
     ? `${releaseTypeDisplay} / ${release.year}`
     : releaseTypeDisplay;
   const resolvedCtaHref = ctaHref ?? releaseDetailHref(release);
-  const resolvedCtaLabel = ctaLabel ?? "View Release";
+  const resolvedCtaLabel = ctaLabel ?? `View ${release.title}`;
   const genres = normalizedGenres(release);
   const playSubject = audioQueue && audioQueue.queueTitle !== release.title
     ? `${release.title} from ${audioQueue.queueTitle}`

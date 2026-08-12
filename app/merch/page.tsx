@@ -5,17 +5,13 @@ import { MerchCard } from "@/components/ui/MerchCard";
 import { MerchArtwork } from "@/components/ui/MerchArtwork";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { staticPageMetadata } from "@/content/page-metadata";
 import { createPageMetadata } from "@/content/seo";
 import { getMerchProducts } from "@/lib/shopify-merch";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Merch",
-  description:
-    "Official Broey merch with hoodies, crewnecks, hats, and wearable pieces.",
-  path: "/merch",
-});
+export const metadata: Metadata = createPageMetadata(staticPageMetadata.merch);
 
 export default async function MerchPage() {
   const merch = await getMerchProducts();

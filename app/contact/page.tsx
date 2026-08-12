@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { staticPageMetadata } from "@/content/page-metadata";
 import { createPageMetadata } from "@/content/seo";
 import { siteConfig } from "@/content/site";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Contact",
-  description:
-    "Contact Broey about music, collaborations, audio work, press, or direct notes.",
-  path: "/contact",
-});
+export const metadata: Metadata = createPageMetadata(staticPageMetadata.contact);
 
 const discordLink = siteConfig.businessLinks.find((link) => link.label === "Join the Community");
 const contactEmail = siteConfig.contact.email;

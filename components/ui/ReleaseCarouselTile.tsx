@@ -411,7 +411,7 @@ export function ReleaseCarouselTile({
                 onSelect?.(index);
               }}
             >
-              Open <span aria-hidden="true">&rarr;</span>
+              Open {release.title} <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </div>

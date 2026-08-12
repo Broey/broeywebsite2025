@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { staticPageMetadata } from "@/content/page-metadata";
 import { privacyNotice } from "@/content/privacy";
 import { createPageMetadata } from "@/content/seo";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Privacy Notice",
-  description: "How the Broey website handles Contact and newsletter information.",
-  path: "/privacy",
-});
+export const metadata: Metadata = createPageMetadata(staticPageMetadata.privacy);
 
 export default function PrivacyPage() {
   return (

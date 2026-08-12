@@ -1,5 +1,5 @@
-import { normalizedGenres } from "@/content/genres";
-import type { ReleaseEntry } from "@/content/releases";
+import { normalizedGenres } from "./genres.ts";
+import type { ReleaseEntry } from "./releases.ts";
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
   single: "single",
@@ -11,6 +11,12 @@ const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
 
 export const releaseDisplayArtist = (release: ReleaseEntry) =>
   release.artistName ?? release.catalogSource?.artistName ?? "Broey.";
+
+export const releaseSearchTitle = (release: ReleaseEntry) =>
+  release.seoTitle?.trim() || `${release.title} by ${releaseDisplayArtist(release)}`;
+
+export const releaseSearchDescription = (release: ReleaseEntry) =>
+  release.seoDescription?.trim() || releaseFactualDescription(release);
 
 const releaseRoleAttribution = (release: ReleaseEntry) =>
   (release.credits ?? [])

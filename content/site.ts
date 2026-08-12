@@ -10,12 +10,12 @@ export type SiteLinkEntry = {
 export const siteConfig = {
   name: "Broey.",
   handle: "@broeybeats",
-  location: "Scranton, PA",
-  tagline: "Electronic artist, producer, and audio engineer from Scranton, PA",
+  location: "Scranton, Pennsylvania",
+  tagline: "Electronic artist, producer, and audio engineer from Scranton, Pennsylvania",
   positioning:
-    "Broey is the electronic project of Joe Montaro, a producer, audio engineer, and self-taught multi-instrumentalist from Scranton, PA.",
+    "Broey is the electronic project of Joe Montaro, a producer, audio engineer, and self-taught multi-instrumentalist from Scranton, Pennsylvania.",
   shortBio:
-    "Broey is an electronic artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, PA.",
+    "Broey is an electronic artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, Pennsylvania.",
   businessLinks: [
     {
       label: "About Me",
@@ -69,7 +69,7 @@ export const siteConfig = {
   seo: {
     defaultTitle: "Broey. | Electronic Artist & Producer",
     description:
-      "Broey is an electronic artist, producer, audio engineer, and self-taught multi-instrumentalist from Scranton, PA, with releases across lo-fi, house, UK garage, jungle, drum and bass, sax, and guitar.",
+      "Official site of Broey, an electronic artist, producer, audio engineer, and multi-instrumentalist from Scranton, Pennsylvania. Explore music, press, merch, and updates.",
     twitterHandle: "@broeybeats",
   },
 };

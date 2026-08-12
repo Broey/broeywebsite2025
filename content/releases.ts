@@ -3,7 +3,7 @@ import {
   trackRegistryByReleaseSlug,
   type GeneratedReleaseRegistry,
   type GeneratedTrackRegistry,
-} from "@/content/musicRegistry.generated";
+} from "./musicRegistry.generated.ts";
 
 export type ReleaseType = "single" | "ep" | "remix" | "mix" | "set";
 
@@ -1103,9 +1103,9 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       { role: "Artist", name: "Broey." },
       { role: "Collaborator", name: "Broken Blythe" },
     ],
-    seoTitle: "I Can't Wait For Love by Broey., Broken Blythe",
+    seoTitle: "I Can't Wait For Love by Broey. and Broken Blythe",
     seoDescription:
-      "Listen to I Can't Wait For Love by Broey., Broken Blythe, a vocal-led electronic collaboration.",
+      "Listen to I Can't Wait For Love by Broey. and Broken Blythe, a vocal-led electronic collaboration.",
     about: [
       "I Can't Wait For Love pairs Broey with Broken Blythe, moving the production into a more vocal-led space without losing the dance-floor pull around it.",
       "The track works as a bridge between Broey's club-facing singles and a more direct songwriter frame: polished, melodic, and built around the push of the vocal.",
@@ -1429,9 +1429,9 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       { role: "Collaborator", name: "notminimal." },
       { role: "Artwork", name: "DreamEater" },
     ],
-    seoTitle: "4u by Broey., notminimal.",
+    seoTitle: "4u by Broey. and notminimal.",
     seoDescription:
-      "Listen to 4u by Broey., notminimal., a dance collaboration with heavy low-end.",
+      "Listen to 4u by Broey. and notminimal., a dance collaboration with heavy low-end.",
     about: [
       "4u brings Broey and notminimal. together on a dance-focused single with heavy low-end.",
       "The DreamEater artwork gives the single its visual identity.",
@@ -2409,7 +2409,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     seoTitle: "Warning by Cryztal Grid & Broey.",
     seoDescription:
-      "Listen to Warning by Cryztal Grid & Broey., a collaboration with heavier electronic production.",
+      "Listen to Warning by Cryztal Grid and Broey, a collaboration with heavier electronic production.",
     about: [
       "Warning catches Broey in collaboration with Cryztal Grid during the move away from softer lo-fi framing and toward heavier, more physical electronic production.",
       "The track is useful context for the current catalog because it points toward the later club-facing work.",

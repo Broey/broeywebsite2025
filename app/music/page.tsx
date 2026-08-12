@@ -19,21 +19,11 @@ import {
   normalizedGenres,
 } from "@/content/genres";
 import { releaseDetailHref } from "@/content/release-actions";
+import { staticPageMetadata } from "@/content/page-metadata";
 import { releases, type ReleaseEntry } from "@/content/releases";
 import { createPageMetadata } from "@/content/seo";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Selected Catalog",
-  description:
-    "Explore selected Broey releases, including Fragments, dancing dumpster fire, STEREO LUV, blu., FREE, and more.",
-  path: "/music",
-  image: {
-    url: "/assets/cover-art/latest-release.png",
-    width: 1200,
-    height: 1200,
-    alt: "Latest Broey release artwork",
-  },
-});
+export const metadata: Metadata = createPageMetadata(staticPageMetadata.music);
 
 const releaseTypeLabel = {
   single: "Single",
@@ -111,7 +101,7 @@ export default function MusicPage() {
               release={release}
               hidePendingLinks
               ctaHref={releaseDetailHref(release)}
-              ctaLabel="View Release"
+              ctaLabel={`View ${release.title}`}
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(release)}
               sourceSurface="music_catalog"
@@ -142,7 +132,7 @@ export default function MusicPage() {
               release={release}
               hidePendingLinks
               ctaHref={releaseDetailHref(release)}
-              ctaLabel="View Release"
+              ctaLabel={`View ${release.title}`}
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(release)}
               sourceSurface="music_catalog"
@@ -173,7 +163,7 @@ export default function MusicPage() {
               release={release}
               hidePendingLinks
               ctaHref={releaseDetailHref(release)}
-              ctaLabel="View Release"
+              ctaLabel={`View ${release.title}`}
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(release)}
               sourceSurface="music_catalog"
@@ -190,7 +180,7 @@ export default function MusicPage() {
         eyebrow="/ music"
         title="Broey. Selects"
         titleId="music-page-title"
-        description="Selected releases with genre filters, playback, credits, and platform links."
+        description="Explore music and releases by Broey with genre filters, playback, credits, and platform links."
       />
 
       <section className="hero-panel music-featured-release" aria-labelledby="music-featured-title">
@@ -232,7 +222,7 @@ export default function MusicPage() {
                 sourceSurface="music_catalog"
                 className={featuredQueue ? "release-detail-secondary-cta" : "release-detail-primary-cta"}
               >
-                View Release
+                View {featured.title}
               </TrackedReleaseLink>
             </div>
           </div>
