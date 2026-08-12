@@ -1,8 +1,8 @@
 import {
   musicRegistryTracks,
   type GeneratedTrackRegistry,
-} from "@/content/musicRegistry.generated";
-import type { ReleaseEntry } from "@/content/releases";
+} from "./musicRegistry.generated.ts";
+import type { ReleaseEntry } from "./releases.ts";
 
 // Keys are normalized source values. Values are the owner-editable public labels.
 const genreTaxonomy: Record<string, readonly string[]> = {

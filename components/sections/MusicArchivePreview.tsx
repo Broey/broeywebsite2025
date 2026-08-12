@@ -63,7 +63,7 @@ export function MusicArchivePreview() {
                 sourceSurface="home"
                 className="mt-3 text-xs font-semibold uppercase text-[var(--color-amber)] transition hover:text-white"
               >
-                View Release
+                View {release.title}
               </TrackedReleaseLink>
             </div>
           </article>

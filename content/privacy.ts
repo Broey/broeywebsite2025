@@ -32,7 +32,7 @@ export const privacyNotice = {
       title: "Abuse prevention and hosting",
       paragraphs: [
         "Cloudflare Turnstile may process browser, device, request, and network signals to distinguish legitimate submissions from abuse.",
-        "The selected hosting provider may process request, network, security, and operational information needed to deliver and protect the website. The permanent production-hosting provider has not yet been selected.",
+        "DigitalOcean may process request, network, security, and operational information needed to deliver and protect the website through its App Platform hosting service.",
       ],
     },
     {

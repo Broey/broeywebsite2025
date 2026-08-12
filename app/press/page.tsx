@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 import { PressMentionsSection } from "@/components/sections/PressMentionsSection";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { staticPageMetadata } from "@/content/page-metadata";
 import { createPageMetadata } from "@/content/seo";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Press & Coverage",
-  description:
-    "Press and coverage for Broey, including independent reviews, features, interviews, podcasts, video appearances, and coverage of dancing dumpster fire and Fragments.",
-  path: "/press",
-});
+export const metadata: Metadata = createPageMetadata(staticPageMetadata.press);
 
 export default function PressPage() {
   return (

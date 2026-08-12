@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/content/site";
-import { absoluteUrl, canonicalPath } from "@/lib/site-origin";
-import { privateRobotsMetadata } from "@/lib/site-visibility";
+import type { PageMetadataDefinition } from "./page-metadata.ts";
+import { siteConfig } from "./site.ts";
+import { absoluteUrl, canonicalPath } from "../lib/site-origin.ts";
+import { privateRobotsMetadata } from "../lib/site-visibility.ts";
 
 export const defaultSocialImage = {
   url: "/opengraph-image",
@@ -10,34 +11,25 @@ export const defaultSocialImage = {
   alt: "Broey electronic artist and producer",
 };
 
-export const twitterSocialImage = defaultSocialImage.url;
-
-type PageMetadataOptions = {
-  title: string;
-  description: string;
-  path: string;
-  image?: {
-    url: string;
-    width: number;
-    height: number;
-    alt: string;
-  };
-  indexable?: boolean;
-};
-
 export function createPageMetadata({
   title,
   description,
   path,
   image,
+  absoluteTitle = false,
   indexable = true,
-}: PageMetadataOptions): Metadata {
+}: PageMetadataDefinition): Metadata {
   const resolvedCanonicalPath = canonicalPath(path.startsWith("/") ? path : `/${path}`);
   const canonicalUrl = absoluteUrl(resolvedCanonicalPath);
   const socialImage = image ?? defaultSocialImage;
+  const resolvedTitle = title === "Home" ? siteConfig.seo.defaultTitle : title;
+  const shouldUseAbsoluteTitle = title === "Home" || absoluteTitle;
+  const socialTitle = shouldUseAbsoluteTitle
+    ? resolvedTitle
+    : `${resolvedTitle} | ${siteConfig.name}`;
 
   return {
-    title: title === "Home" ? { absolute: siteConfig.seo.defaultTitle } : title,
+    title: shouldUseAbsoluteTitle ? { absolute: resolvedTitle } : resolvedTitle,
     description,
     robots: indexable
       ? privateRobotsMetadata()
@@ -46,7 +38,7 @@ export function createPageMetadata({
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: title === "Home" ? siteConfig.seo.defaultTitle : `${title} | ${siteConfig.name}`,
+      title: socialTitle,
       description,
       url: canonicalUrl,
       siteName: siteConfig.name,
@@ -55,9 +47,9 @@ export function createPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: title === "Home" ? siteConfig.seo.defaultTitle : `${title} | ${siteConfig.name}`,
+      title: socialTitle,
       description,
-      images: [image?.url ?? twitterSocialImage],
+      images: [socialImage],
       site: siteConfig.seo.twitterHandle,
       creator: siteConfig.seo.twitterHandle,
     },

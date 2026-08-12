@@ -50,7 +50,7 @@ export function MusicCarouselHero() {
     >
       <div className="music-carousel-hero-inner mx-auto flex w-full max-w-none flex-col px-[clamp(1rem,3vw,2.75rem)] py-2 md:py-3">
         <h1 id={carouselTitleId} className="sr-only">
-          Highlighted Releases
+          Broey. — Electronic Artist &amp; Producer
         </h1>
 
         <ReleaseCarousel

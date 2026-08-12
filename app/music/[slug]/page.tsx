@@ -25,9 +25,12 @@ import {
   type GeneratedTrackRegistry,
 } from "@/content/musicRegistry.generated";
 import { normalizedGenres } from "@/content/genres";
+import { imageDimensionsForPath } from "@/content/image-metadata";
 import {
   releaseDisplayArtist,
   releaseFactualDescription,
+  releaseSearchDescription,
+  releaseSearchTitle,
 } from "@/content/release-metadata";
 import { createPageMetadata } from "@/content/seo";
 import {
@@ -369,15 +372,15 @@ const verifiedCoverImage = (release: ReleaseEntry) =>
 
 const releaseMetadataImage = (release: ReleaseEntry) => {
   const coverImage = verifiedCoverImage(release);
+  const dimensions = coverImage ? imageDimensionsForPath(coverImage) : undefined;
 
-  if (!coverImage) {
+  if (!coverImage || !dimensions) {
     return undefined;
   }
 
   return {
     url: coverImage,
-    width: 1200,
-    height: 1200,
+    ...dimensions,
     alt: release.coverAlt ?? `${release.title} cover art`,
   };
 };
@@ -685,7 +688,7 @@ function ParentProjectContext({
     <div className="release-detail-parent-context">
       <p>Part of {parentRelease.title}</p>
       <Link href={releaseDetailHref(parentRelease)}>
-        View Project
+        View {parentRelease.title}
       </Link>
     </div>
   );
@@ -714,7 +717,7 @@ function KeepListeningSection({
           </p>
         </div>
         <Link href="/music" className="release-detail-inline-link">
-          Selected Releases
+          Browse selected releases
         </Link>
       </div>
       <div className="release-detail-recommendation-grid">
@@ -726,7 +729,7 @@ function KeepListeningSection({
               key={entry.slug}
               release={entry}
               ctaHref={releaseDetailHref(entry)}
-              ctaLabel="View Release"
+              ctaLabel={`View ${entry.title}`}
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(entry)}
               sourceSurface="recommendations"
@@ -757,10 +760,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return createPageMetadata({
-    title: `${release.title} by ${releaseArtistName(release)}`,
-    description: releaseFactualDescription(release),
+    title: releaseSearchTitle(release),
+    description: releaseSearchDescription(release),
     path: releaseDetailHref(release),
     image: releaseMetadataImage(release),
+    absoluteTitle: true,
     indexable: showReleaseInSitemap(release),
   });
 }
@@ -856,7 +860,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
                 className={audioQueue ? "release-detail-secondary-cta" : "release-detail-primary-cta"}
               />
               <Link href="/music" className="release-detail-secondary-cta">
-                All Music
+                Browse all music
               </Link>
             </div>
           </article>
@@ -892,7 +896,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
 
           <div className="release-detail-back-row">
             <Link href="/music" className="release-detail-nav-center">
-              Back to Selected Releases
+              Back to selected releases
             </Link>
           </div>
         </div>

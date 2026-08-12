@@ -39,7 +39,7 @@ export const merch: MerchProduct[] = [
     price: "From $60.00 USD",
     href: "https://broey-beats.myshopify.com/products/beats-hoodie-1",
     image: "/images/merch/beats-hoodie.jpg",
-    imageAlt: "Beats Hoodie product image",
+    imageAlt: "Black Broey Beats Hoodie with red chest and sleeve graphics",
     status: "available",
     featured: true,
   },

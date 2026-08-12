@@ -4,7 +4,7 @@ import "./globals.css";
 import { AudioPlayerProvider } from "@/components/audio/AudioPlayerProvider";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { defaultSocialImage, twitterSocialImage } from "@/content/seo";
+import { defaultSocialImage } from "@/content/seo";
 import { siteConfig } from "@/content/site";
 import { siteOrigin } from "@/lib/site-origin";
 import { isSitePrivate, privateRobotsMetadata } from "@/lib/site-visibility";
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.description,
-    images: [twitterSocialImage],
+    images: [defaultSocialImage],
     site: siteConfig.seo.twitterHandle,
     creator: siteConfig.seo.twitterHandle,
   },
