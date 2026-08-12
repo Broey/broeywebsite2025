@@ -74,7 +74,13 @@ function inspectHtml(path, status, html) {
     );
   const images = [...html.matchAll(/<img\s[^>]*>/g)]
     .map((match) => attributes(match[0]))
-    .map(({ src, alt = "" }) => ({ src, alt }))
+    .map(({ src, alt, class: className = "", "aria-hidden": ariaHidden }) => ({
+      src,
+      altPresent: alt !== undefined,
+      alt: alt ?? null,
+      ariaHidden: ariaHidden === "true",
+      className,
+    }))
     .filter(({ src }) => src);
 
   return {
@@ -180,6 +186,13 @@ for (const page of pages) {
   if (page.twitterImageAlt !== page.ogImageAlt) failures.push(`${page.path}: social image alt mismatch`);
   if (/noindex/i.test(page.robots)) failures.push(`${page.path}: sitemap route is noindex`);
 
+  for (const [index, image] of page.images.entries()) {
+    if (!image.altPresent) failures.push(`${page.path}: image ${index + 1} is missing an alt attribute`);
+    if (image.alt === "" && !image.ariaHidden) {
+      failures.push(`${page.path}: image ${index + 1} has empty alt without aria-hidden`);
+    }
+  }
+
   for (const [label, imageUrl] of [["Open Graph", page.ogImage], ["Twitter", page.twitterImage]]) {
     try {
       const parsed = new URL(imageUrl);
@@ -235,6 +248,13 @@ for (const field of ["title", "description"]) {
 if (noindexPage) {
   if (routes.includes(noindexPage.path)) failures.push(`${noindexPage.path}: noindex route appeared in sitemap`);
   if (!/noindex/i.test(noindexPage.robots)) failures.push(`${noindexPage.path}: expected noindex metadata`);
+
+  for (const [index, image] of noindexPage.images.entries()) {
+    if (!image.altPresent) failures.push(`${noindexPage.path}: image ${index + 1} is missing an alt attribute`);
+    if (image.alt === "" && !image.ariaHidden) {
+      failures.push(`${noindexPage.path}: image ${index + 1} has empty alt without aria-hidden`);
+    }
+  }
 }
 
 const inventory = {

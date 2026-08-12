@@ -15,6 +15,7 @@ const {
 const { releases } = await import("../content/releases.ts");
 const { showReleaseInSitemap } = await import("../content/release-filters.ts");
 const { createPageMetadata } = await import("../content/seo.ts");
+const { shouldUseFallbackArtwork } = await import("../lib/release-artwork.ts");
 
 const expectedStaticRoutes = [
   "/",
@@ -134,4 +135,26 @@ test("non-sitemap release metadata preserves the existing noindex policy", () =>
   });
 
   assert.deepEqual(metadata.robots, { index: false, follow: false });
+});
+
+test("release artwork data always provides a meaningful alt fallback", () => {
+  const artworkAlt = (release) => release.coverAlt?.trim() || `${release.title} cover art`;
+  const publicRelease = releases.find((release) => release.slug === "free");
+  const internalRelease = releases.find((release) => release.slug === "4u-vip");
+  const fallbackArtworkReleases = releases.filter(
+    (release) => !release.coverImage || shouldUseFallbackArtwork(release.coverImage),
+  );
+
+  assert.ok(publicRelease && showReleaseInSitemap(publicRelease));
+  assert.ok(internalRelease && !showReleaseInSitemap(internalRelease));
+  assert.ok(artworkAlt(publicRelease));
+  assert.ok(artworkAlt(internalRelease));
+
+  for (const release of releases) {
+    assert.ok(artworkAlt(release), `${release.slug} needs meaningful artwork alt text`);
+  }
+
+  for (const release of fallbackArtworkReleases) {
+    assert.ok(artworkAlt(release), `${release.slug} needs accessible fallback artwork text`);
+  }
 });

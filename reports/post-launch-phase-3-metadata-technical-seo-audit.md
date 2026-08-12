@@ -260,6 +260,53 @@ The rendered audit also confirmed:
 
 No changes were made to `app/sitemap.ts`, `app/robots.ts`, `lib/indexnow.ts`, canonical helpers, publication filters, URLs, DigitalOcean configuration, or deployment configuration.
 
+## Bing pre-deployment site-scan reconciliation
+
+Bing's pre-deployment scan reported one 4xx URL at
+`https://broey.net/cdn-cgi/l/email-protection`. This is a Cloudflare email-obfuscation
+artifact, not an application route. No route, redirect, or synthetic 200 response was
+added for it.
+
+The scan also reported missing image alt attributes on all 37 generated
+`/music/[slug]` pages. All of those pages share `ReleaseDetailArtwork`. Before this
+follow-up, that component emitted two copies of the hero cover: a meaningful foreground
+image using `release.coverAlt` with a `${release.title} cover art` fallback, and a decorative glow copy
+with explicit `alt=""` and `aria-hidden="true"`. The glow class was already
+`display: none` with zero opacity, so it had no visual effect. Rendered production HTML
+confirmed that every image had an `alt` attribute; the glow copy was the only image with
+an empty value and therefore the element Bing was most likely classifying as missing-alt.
+
+Phase 3 had already preserved valid descriptive alt text on the meaningful hero and
+recommendation artwork, and it correctly documented the decorative empty alt. Those
+rendered image attributes predated Phase 3, however, and Phase 3 did not remove the
+redundant hidden image. Open Graph and Twitter image-alt work from Phase 3 was separate
+from this rendered-HTML finding.
+
+The narrow follow-up removes the unused decorative `<Image>` from
+`app/music/[slug]/page.tsx` and its dead `.release-detail-artwork-glow` CSS from
+`app/globals.css`. Visual behavior is unchanged because that element was never displayed.
+`scripts/metadata-inventory.mjs` now records whether each rendered `<img>` actually has
+an `alt` attribute and fails when one is absent, or when a non-hidden image has an empty
+alt. `tests/metadata.test.mjs` validates meaningful artwork-alt fallback data across all
+37 releases, including the public `/music/free` and internal/noindex `/music/4u-vip`
+cases. There are currently no releases using fallback artwork; the existing
+`PendingArtwork` fallback remains a non-`img` element with `role="img"` and a descriptive
+`aria-label`.
+
+Production-rendered verification covered `/music/free`, `/music/blu`,
+`/music/contrast`, `/music/shake`, and `/music/4u-vip`. Before the change, each response
+contained seven `<img>` elements: two logo images, the empty-alt decorative hero duplicate,
+one descriptive hero cover, and three descriptive recommendation covers. After the
+change, each response contained six `<img>` elements; the redundant duplicate was gone
+and every remaining image had an explicit, nonempty alt value. The rendered metadata
+audit passed all 22 sitemap pages and confirmed that `/music/4u-vip` remained
+`noindex, nofollow`. The regression suite passed all 19 tests.
+
+Files changed by this reconciliation are `app/music/[slug]/page.tsx`,
+`app/globals.css`, `scripts/metadata-inventory.mjs`, `tests/metadata.test.mjs`, and this
+report. Sitemap, robots, canonical, IndexNow, structured data, publication policy, URLs,
+and deployment configuration were not changed.
+
 ## Deferred questions and recommendations
 
 1. Phase 4 should inventory and formally review the pre-existing About and release JSON-LD before adding, replacing, or removing any structured data. No structured-data judgment was folded into this phase.

@@ -476,15 +476,6 @@ function ReleaseDetailArtwork({ release }: { release: ReleaseEntry }) {
     <div className="release-detail-artwork-panel">
       <Image
         src={release.coverImage}
-        alt=""
-        fill
-        sizes="(min-width: 1024px) 42vw, 92vw"
-        aria-hidden="true"
-        className="release-detail-artwork-glow"
-        priority
-      />
-      <Image
-        src={release.coverImage}
         alt={alt}
         fill
         sizes="(min-width: 1024px) 36vw, 86vw"
