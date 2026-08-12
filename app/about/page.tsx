@@ -21,7 +21,15 @@ const bioParagraphs: ReactNode[] = [
   <>
     Based in the Scranton area, Joe has spent more than 15 years producing, engineering, and shaping his own sound. The catalog has moved through streaming releases, select label partnerships, vinyl runs, physical moments, and editorial support while staying self-directed at the center.
   </>,
-  "Releases like Fragments, 4u, Mean Something, dancing dumpster fire, STEREO LUV, blu., and FREE show the current Broey catalog in plain terms: singles, EPs, remixes, and club-focused tracks.",
+  <>
+    Releases like <Link href="/music/fragments-ep">Fragments</Link>,{" "}
+    <Link href="/music/4u">4u</Link>,{" "}
+    <Link href="/music/mean-something">Mean Something</Link>,{" "}
+    <Link href="/music/dancing-dumpster-fire">dancing dumpster fire</Link>,{" "}
+    <Link href="/music/stereo-luv">STEREO LUV</Link>,{" "}
+    <Link href="/music/blu">blu.</Link>, and <Link href="/music/free">FREE</Link>{" "}
+    show the current Broey catalog in plain terms: singles, EPs, remixes, and club-focused tracks.
+  </>,
 ];
 
 const artistHighlights = [

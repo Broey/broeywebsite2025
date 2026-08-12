@@ -1,0 +1,2229 @@
+{
+  "generatedAt": "2026-08-12T19:05:38.685Z",
+  "baseUrl": "http://127.0.0.1:3235/",
+  "sitemapRouteCount": 22,
+  "indexableReleaseCount": 15,
+  "auditedRouteCount": 23,
+  "approvedCopy": {
+    "homepage": "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.",
+    "music": "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.",
+    "edmReviewer": "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”"
+  },
+  "pages": [
+    {
+      "route": "/",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Broey. — Electronic Artist & Producer"
+      ],
+      "h2": [
+        "FREE",
+        "STEREO LUV",
+        "blu.",
+        "Fragments",
+        "dancing dumpster fire",
+        "Fragments (Remixes)",
+        "Mean Something",
+        "4u",
+        "Broey selects",
+        "Join the list",
+        "Selected Press"
+      ],
+      "h3": [],
+      "intro": "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.",
+      "paragraphs": [
+        "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.",
+        "New tracks, drop notes, odd scraps.",
+        "By subscribing, you agree to receive Broey updates. You can unsubscribe at any time. See the Privacy Notice .",
+        "Reviews and features on dancing dumpster fire and Fragments, plus interviews on Broey’s production process.",
+        "Release — dancing dumpster fire"
+      ],
+      "visibleWordCount": 207,
+      "internalLinks": [
+        {
+          "href": "/music/free",
+          "text": "Open FREE →"
+        },
+        {
+          "href": "/music/stereo-luv",
+          "text": "Open STEREO LUV →"
+        },
+        {
+          "href": "/music/blu",
+          "text": "Open blu. →"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "Open Fragments →"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "Open dancing dumpster fire →"
+        },
+        {
+          "href": "/music/fragments-remixes",
+          "text": "Open Fragments (Remixes) →"
+        },
+        {
+          "href": "/music/mean-something",
+          "text": "Open Mean Something →"
+        },
+        {
+          "href": "/music/4u",
+          "text": "Open 4u →"
+        },
+        {
+          "href": "/music",
+          "text": "Explore the music"
+        },
+        {
+          "href": "/about",
+          "text": "About Broey"
+        },
+        {
+          "href": "/privacy",
+          "text": "Privacy Notice"
+        },
+        {
+          "href": "/press",
+          "text": "View Press & Coverage →"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://weraveyou.com/2025/08/broey-dancing-dumpster-fire-ep-review/",
+          "text": "Read coverage →"
+        },
+        {
+          "href": "https://insightmusic.co/scranton-based-multi-instrumentalist-broey-releases-electrifying-new-ep-fragments/",
+          "text": "Read coverage →"
+        },
+        {
+          "href": "https://www.loudnessblog.com/broey",
+          "text": "Read coverage →"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Broey. Selects"
+      ],
+      "h2": [
+        "FREE",
+        "Selected Catalog",
+        "2022–2023: Faster forms",
+        "Earlier releases"
+      ],
+      "h3": [
+        "FREE",
+        "blu.",
+        "STEREO LUV",
+        "dancing dumpster fire",
+        "I Can't Wait For Love",
+        "Mean Something",
+        "4u",
+        "Fragments (Remixes)",
+        "Fragments",
+        "Contrast",
+        "Warning",
+        "Hold On",
+        "hysteria",
+        "After You"
+      ],
+      "intro": "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.",
+      "paragraphs": [
+        "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.",
+        "Singles, EPs, remixes, and recent catalog highlights.",
+        "Four releases spanning drum and bass, heavier collaboration, melodic electronic work, and remixes.",
+        "Instrumental, collaborative, and beat-driven work from the earlier Broey discography."
+      ],
+      "visibleWordCount": 300,
+      "internalLinks": [
+        {
+          "href": "/music/free",
+          "text": "View FREE"
+        },
+        {
+          "href": "/music/free",
+          "text": "View FREE →"
+        },
+        {
+          "href": "/music/blu",
+          "text": "View blu. →"
+        },
+        {
+          "href": "/music/stereo-luv",
+          "text": "View STEREO LUV →"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "View dancing dumpster fire →"
+        },
+        {
+          "href": "/music/i-cant-wait-for-love",
+          "text": "View I Can't Wait For Love →"
+        },
+        {
+          "href": "/music/mean-something",
+          "text": "View Mean Something →"
+        },
+        {
+          "href": "/music/4u",
+          "text": "View 4u →"
+        },
+        {
+          "href": "/music/fragments-remixes",
+          "text": "View Fragments (Remixes) →"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music/contrast",
+          "text": "View Contrast →"
+        },
+        {
+          "href": "/music/warning",
+          "text": "View Warning →"
+        },
+        {
+          "href": "/music/hold-on",
+          "text": "View Hold On →"
+        },
+        {
+          "href": "/music/hysteria",
+          "text": "View hysteria →"
+        },
+        {
+          "href": "/music/after-you",
+          "text": "View After You →"
+        }
+      ],
+      "outboundLinks": [],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "A Real Sound Guy."
+      ],
+      "h2": [
+        "How the sound got here",
+        "Behind the sound",
+        "Selected points in the discography",
+        "Coverage and context",
+        "Start with the music."
+      ],
+      "h3": [
+        "15+ years behind the sound",
+        "Hands-on production",
+        "Digital releases and physical records",
+        "Independent by design",
+        "Press and editorial recognition",
+        "Self-directed production",
+        "Learning the language",
+        "Warmth and intimacy",
+        "House and breakbeats",
+        "Loose club records",
+        "Broey. embraces raw creativity with new EP dancing dumpster fire",
+        "Scranton-based Multi-instrumentalist Broey. Releases Electrifying New EP, \"Fragments\"",
+        "EP Review: Broey. - Fragments",
+        "Fragments of experimental lofi: A review of Broey.'s EP \"Fragments\""
+      ],
+      "intro": "Lo-fi roots. Club instincts. Electronic music from Scranton, Pennsylvania.",
+      "paragraphs": [
+        "Lo-fi roots. Club instincts. Electronic music from Scranton, Pennsylvania.",
+        "Broey is the electronic project of Joe Montaro, a Scranton, Pennsylvania artist, producer, audio engineer, and self-taught multi-instrumentalist. His work moves between live instrumentation, sampling, synthesis, sequencing, and hands-on production.",
+        "Sound in the technical sense, and sound in the human one.",
+        "Broey started with dusty chords, clipped drums, warped samples, warm noise, and self-produced records.",
+        "The early records centered on lo-fi, chillhop, and beat-driven production.",
+        "Based in the Scranton area, Joe has spent more than 15 years producing, engineering, and shaping his own sound. The catalog has moved through streaming releases, select label partnerships, vinyl runs, physical moments, and editorial support while staying self-directed at the center.",
+        "Releases like Fragments , 4u , Mean Something , dancing dumpster fire , STEREO LUV , blu. , and FREE show the current Broey catalog in plain terms: singles, EPs, remixes, and club-focused tracks.",
+        "Producing, engineering, mixing, and building a catalog across lo-fi, house, garage, jungle, drum and bass, and left-field electronic music.",
+        "Broey builds records through live instrumentation, sampling, synthesis, sequencing, engineering, and detailed production.",
+        "The catalog spans streaming platforms, independent releases, and physical editions, including vinyl from Broey's earlier lo-fi work.",
+        "Releases have moved between self-released projects and selective label partnerships without locking Broey into one sound or scene.",
+        "Broey's music has received editorial support and coverage from outlets including We Rave You, Insight Music, and LOUDNESS.",
+        "Broey remains self-directed from production and engineering through mixing, release planning, and presentation.",
+        "Years of production, engineering, sampling, and learning how to turn small sounds into full records.",
+        "Warm beats, intimate melodies, vinyl moments, playlist support, and the foundation of the Broey sound.",
+        "Projects like Fragments opened the catalog into house, processed vocals, sax lines, and breakbeats.",
+        "dancing dumpster fire, STEREO LUV, blu., and FREE sit at the front of the current catalog.",
+        "Writeups, interviews, podcasts, and outside features around dancing dumpster fire, Fragments, early lo-fi roots, and the production work behind the catalog.",
+        "dancing dumpster fire",
+        "We Rave You covered dancing dumpster fire as an EP with underground electronic instincts.",
+        "Chris Vuoncino / August 20, 2025",
+        "Insight Music highlighted Fragments as a bright, rhythm-forward electronic project from a Scranton-based multi-instrumentalist.",
+        "LOUDNESS described Fragments as hazy, laid-back house music that still sounds distinctly Broey.",
+        "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”",
+        "The records are the center. The rest is here when you want the notes around them."
+      ],
+      "visibleWordCount": 608,
+      "internalLinks": [
+        {
+          "href": "/music",
+          "text": "Browse the catalog"
+        },
+        {
+          "href": "/contact",
+          "text": "Contact"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "Fragments"
+        },
+        {
+          "href": "/music/4u",
+          "text": "4u"
+        },
+        {
+          "href": "/music/mean-something",
+          "text": "Mean Something"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "dancing dumpster fire"
+        },
+        {
+          "href": "/music/stereo-luv",
+          "text": "STEREO LUV"
+        },
+        {
+          "href": "/music/blu",
+          "text": "blu."
+        },
+        {
+          "href": "/music/free",
+          "text": "FREE"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "View dancing dumpster fire"
+        },
+        {
+          "href": "/press",
+          "text": "View all press & coverage →"
+        },
+        {
+          "href": "/music",
+          "text": "Browse the catalog"
+        },
+        {
+          "href": "/press",
+          "text": "View Press & Coverage"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://weraveyou.com/2025/08/broey-dancing-dumpster-fire-ep-review/",
+          "text": "Read Coverage →"
+        },
+        {
+          "href": "https://insightmusic.co/scranton-based-multi-instrumentalist-broey-releases-electrifying-new-ep-fragments/",
+          "text": "Read coverage →"
+        },
+        {
+          "href": "https://www.loudnessblog.com/broey",
+          "text": "Read coverage →"
+        },
+        {
+          "href": "https://edmreviewer.com/2024/04/03/fragments-of-experimental-lofi-a-review-of-broey-s-ep-fragments/",
+          "text": "Read coverage →"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/contact",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Contact"
+      ],
+      "h2": [
+        "Send a Note",
+        "Prefer Discord?"
+      ],
+      "h3": [],
+      "intro": "Reach out about music, collaborations, mixing or audio work, press, or direct inquiries.",
+      "paragraphs": [
+        "Reach out about music, collaborations, mixing or audio work, press, or direct inquiries.",
+        "All fields are required.",
+        "Messages are processed to respond to your inquiry. See the Privacy Notice .",
+        "For direct inquiries, email broey@broey.net . Join the Broey Discord to share tracks, catch release notes, and talk casually."
+      ],
+      "visibleWordCount": 74,
+      "internalLinks": [
+        {
+          "href": "/privacy",
+          "text": "Privacy Notice"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://discord.gg/J5BCTsUuAN",
+          "text": "Join the Community"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/merch",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Merch"
+      ],
+      "h2": [
+        "Beats Hoodie",
+        "Available Pieces"
+      ],
+      "h3": [
+        "Featured item",
+        "Beats Hoodie",
+        "Broey. Crewneck Sweater - Colors",
+        "Broey. Dad Hat (The Original)",
+        "Broey. Unisex Crewbeck Sweatshirt (The Classic)",
+        "Broey. Unisex Hoodie",
+        "Broey. Unisex Hoodie - Pastels"
+      ],
+      "intro": "Hoodies, crewnecks, hats, and wearable pieces from the official store.",
+      "paragraphs": [
+        "Hoodies, crewnecks, hats, and wearable pieces from the official store.",
+        "Washed boxy-fit hoodie with distressed details and a worn-in Broey feel.",
+        "6 items / hoodie / crewneck / hat",
+        "Showing 6 items in all categories .",
+        "Washed boxy-fit hoodie with distressed details and a worn-in Broey feel.",
+        "Classic-fit Broey crewneck available in multiple colorways.",
+        "Low-profile embroidered Broey dad hat with adjustable strap.",
+        "Simple black Broey crewneck with a clean everyday fit.",
+        "Soft everyday Broey hoodie with front pouch pocket and classic fit.",
+        "Pastel Broey hoodie available in soft colorways."
+      ],
+      "visibleWordCount": 184,
+      "internalLinks": [],
+      "outboundLinks": [
+        {
+          "href": "https://broey-beats.myshopify.com/products/beats-hoodie-1",
+          "text": "Shop featured piece →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/beats-hoodie-1",
+          "text": "Hoodie Featured item From $60.00 USD View item →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/beats-hoodie-1",
+          "text": "View item →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/broey-crewneck-sweater-colors",
+          "text": "View item →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/dad-hat",
+          "text": "View item →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/broey-unisex-crewbeck-sweatshirt-the-classic",
+          "text": "View item →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/broey-unisex-hoodie-new-logo",
+          "text": "View item →"
+        },
+        {
+          "href": "https://broey-beats.myshopify.com/products/broey-unisex-hoodie-pastels",
+          "text": "View item →"
+        }
+      ],
+      "duplicateParagraphs": [
+        "Washed boxy-fit hoodie with distressed details and a worn-in Broey feel."
+      ],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/press",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Press & Coverage"
+      ],
+      "h2": [],
+      "h3": [
+        "Featured Coverage",
+        "Broey. embraces raw creativity with new EP dancing dumpster fire",
+        "Written Coverage",
+        "Interviews & Podcasts",
+        "Video Features"
+      ],
+      "intro": "Reviews, features, interviews, podcasts, and video coverage from across the Broey catalog.",
+      "paragraphs": [
+        "Reviews, features, interviews, podcasts, and video coverage from across the Broey catalog.",
+        "A highlighted feature on dancing dumpster fire.",
+        "dancing dumpster fire",
+        "We Rave You covered dancing dumpster fire as an EP with underground electronic instincts.",
+        "Chris Vuoncino / August 20, 2025",
+        "Reviews, features, and roundups around Fragments, dancing dumpster fire, and the wider catalog.",
+        "Insight Music highlighted Fragments as a bright, rhythm-forward electronic project from a Scranton-based multi-instrumentalist.",
+        "Stefan Baranowski / April 4, 2024",
+        "LOUDNESS described Fragments as hazy, laid-back house music that still sounds distinctly Broey.",
+        "A press roundup collecting outside coverage and reviews around the Fragments EP.",
+        "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”",
+        "Palms Out connected Fragments to Broey's shift toward the music he actually loves.",
+        "Conversations documenting Broey's production background, lo-fi roots, collaborations, and creative process.",
+        "Reverie / early Broey. story",
+        "BuzzMusic captured the early Broey foundation: self-taught musicianship, instrumental writing, and music designed to leave space for the listener.",
+        "BUZZMUSIC / April 6, 2019",
+        "W. Wang's World Commentary",
+        "early influences / lo-fi foundation",
+        "W. Wang's interview preserves the foundation: vinyl warmth, jazz and soul influence, bluesy guitar, and instinct-led writing.",
+        "W. Wang / April 2, 2019",
+        "The Chilled Samples Podcast",
+        "A long-form podcast conversation with Broey during the lo-fi/chillhop community years.",
+        "The Chilled Samples Podcast",
+        "A follow-up Chilled Samples appearance documenting Broey's producer identity before the club-facing catalog took shape.",
+        "YouTube interviews and video appearances gathered under Press & Coverage.",
+        "video interview / podcast appearance",
+        "A video podcast appearance centered on Broey's sound work, artist background, and production perspective.",
+        "collabs / artist interview",
+        "A video interview with Broey discussing collaborations, past work, and creative background."
+      ],
+      "visibleWordCount": 524,
+      "internalLinks": [
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "View dancing dumpster fire"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://weraveyou.com/2025/08/broey-dancing-dumpster-fire-ep-review/",
+          "text": "Read Coverage →"
+        },
+        {
+          "href": "https://insightmusic.co/scranton-based-multi-instrumentalist-broey-releases-electrifying-new-ep-fragments/",
+          "text": "Read Coverage →"
+        },
+        {
+          "href": "https://www.loudnessblog.com/broey",
+          "text": "Read Review →"
+        },
+        {
+          "href": "https://www.submithub.com/link/fragments-reviews",
+          "text": "View Roundup →"
+        },
+        {
+          "href": "https://edmreviewer.com/2024/04/03/fragments-of-experimental-lofi-a-review-of-broey-s-ep-fragments/",
+          "text": "Read Review →"
+        },
+        {
+          "href": "https://www.palmsout.net/2024/mailbox-broey-fragments/",
+          "text": "Read Review →"
+        },
+        {
+          "href": "https://www.buzz-music.com/post/expect-the-unexpected-with-broey",
+          "text": "Read Interview →"
+        },
+        {
+          "href": "https://wworldcommentary.wordpress.com/2019/04/02/interview-with-joe-montaro-broey/",
+          "text": "Read Interview →"
+        },
+        {
+          "href": "https://open.spotify.com/episode/4ScuZUr9vAmwjfTZKh3kuf",
+          "text": "Listen →"
+        },
+        {
+          "href": "https://open.spotify.com/episode/6eoaOwTlc0XXKbk7WoUruY",
+          "text": "Listen →"
+        },
+        {
+          "href": "https://youtu.be/-YGwa2EObRs?si=J1hps-RsN7T1VijO",
+          "text": "Watch on YouTube →"
+        },
+        {
+          "href": "https://www.youtube.com/watch?v=BxUS_QnU9J8",
+          "text": "Watch on YouTube →"
+        }
+      ],
+      "duplicateParagraphs": [
+        "The Chilled Samples Podcast"
+      ],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/privacy",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Privacy Notice"
+      ],
+      "h2": [
+        "Privacy-focused analytics",
+        "Contact messages",
+        "Newsletter subscriptions",
+        "Abuse prevention and hosting",
+        "Retention, requests, and deletion"
+      ],
+      "h3": [],
+      "intro": "This notice explains the limited information the Broey website may process for aggregate analytics, when you send a message, or when you intentionally join the mailing list.",
+      "paragraphs": [
+        "This notice explains the limited information the Broey website may process for aggregate analytics, when you send a message, or when you intentionally join the mailing list.",
+        "The website uses Umami Cloud to understand aggregate traffic and engagement. It may measure pages viewed, general referral sources, standard campaign parameters, browser and device categories, approximate geographic region where Umami provides it, and anonymous events such as music playback, streaming-link clicks, release and genre activity, merchandise and press clicks, and successful newsletter or Contact submissions.",
+        "Names, email addresses, Contact subjects, message contents, newsletter form contents, subscriber identifiers, and provider responses are not sent to Umami. The current analytics implementation does not use advertising or behavioral-tracking cookies, persistent visitor identifiers, cross-site tracking, fingerprinting, or Umami identify features.",
+        "Analytics may be unavailable when blocked by a browser or network tool; the rest of the website continues to work normally.",
+        "The Contact form may collect your first name, last name, email address, subject, message, form source or page context, and basic request information used for abuse prevention and website security.",
+        "This information is used to receive, review, and respond to inquiries; protect the website and form providers against spam and abuse; and maintain website reliability and security. Resend processes and delivers Contact-form messages.",
+        "Submitting the Contact form does not subscribe you to marketing emails.",
+        "The newsletter form may collect your email address, form source or page context, and basic request information used for abuse prevention and website security.",
+        "This information is used to add you to the Broey mailing list after an intentional submission, send music, release, merchandise, event, and other Broey-related updates, and protect the mailing list from spam and abuse. MailerLite processes and manages subscriptions, subscriber status, and unsubscribe activity.",
+        "You can unsubscribe using the link in a marketing email or contact the privacy address below for assistance.",
+        "Cloudflare Turnstile may process browser, device, request, and network signals to distinguish legitimate submissions from abuse.",
+        "DigitalOcean may process request, network, security, and operational information needed to deliver and protect the website through its App Platform hosting service.",
+        "Information is retained only as reasonably necessary to respond to inquiries, operate requested subscriptions, maintain appropriate records, prevent abuse, and support website security and reliability. No fixed retention period is promised.",
+        "Privacy questions and deletion requests may be sent to the address below. Reasonable requests will be reviewed and handled subject to operational, security, and legal requirements; provider backups and necessary security records may not be deleted immediately.",
+        "Privacy contact: broey@broey.net",
+        "Effective August 6, 2026"
+      ],
+      "visibleWordCount": 436,
+      "internalLinks": [],
+      "outboundLinks": [],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/stereo-luv",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "STEREO LUV"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "blu.",
+        "Contrast",
+        "Like That"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 145,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/blu",
+          "text": "View blu. →"
+        },
+        {
+          "href": "/music/contrast",
+          "text": "View Contrast →"
+        },
+        {
+          "href": "/music/like-that",
+          "text": "View Like That →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/2XU1WGtc5BbePITaatGe9D",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/stereo-luv-single/1837799560",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/stereo-luv-1",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://www.youtube.com/playlist?list=OLAK5uy_lZCSeRIHh032U7XfC86Ih33UFgRZ4R-Mg",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/album/458541065",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/816347021",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://broey.bandcamp.com/track/stereo-luv",
+          "text": "Bandcamp"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0FPTB7TQR",
+          "text": "Amazon Music"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/free",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "FREE"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments",
+        "Contrast",
+        "Hold On"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 111,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music/contrast",
+          "text": "View Contrast →"
+        },
+        {
+          "href": "/music/hold-on",
+          "text": "View Hold On →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/5bLOPMvddqpng76Lj5ZRKt",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/free-single/1892157471",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://www.youtube.com/watch?v=3Ee5ewA2MiQ",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/browse/album/514645954",
+          "text": "TIDAL"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/dancing-dumpster-fire",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "dancing dumpster fire"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "tracklist",
+        "press coverage",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments (Remixes)",
+        "hysteria",
+        "blu."
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "Reviews and features connected to this release.",
+        "We Rave You : We Rave You covered dancing dumpster fire as an EP with underground electronic instincts. Read Coverage",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 305,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music/shake",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/old-fashion",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/lil-luv",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/brainrot",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/glfm",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/i-can-do-better-broey-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/4u-vip",
+          "text": "View Track"
+        },
+        {
+          "href": "/press",
+          "text": "View all coverage"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-remixes",
+          "text": "View Fragments (Remixes) →"
+        },
+        {
+          "href": "/music/hysteria",
+          "text": "View hysteria →"
+        },
+        {
+          "href": "/music/blu",
+          "text": "View blu. →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/1oZeVU9ghK6owsQFnYDPdY",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/dancing-dumpster-fire/1820012666",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://www.youtube.com/playlist?list=OLAK5uy_m1ZFQYUjx7bDctJFqND7L75hIfmfYG-_w",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/browse/album/441546103",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://broey.bandcamp.com/album/dancing-dumpster-fire",
+          "text": "Bandcamp"
+        },
+        {
+          "href": "https://weraveyou.com/2025/08/broey-dancing-dumpster-fire-ep-review/",
+          "text": "Read Coverage"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/i-cant-wait-for-love",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "I Can't Wait For Love"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Hold On",
+        "After You",
+        "Fragments"
+      ],
+      "intro": "Broey., Broken Blythe",
+      "paragraphs": [
+        "Broey., Broken Blythe",
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 167,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/hold-on",
+          "text": "View Hold On →"
+        },
+        {
+          "href": "/music/after-you",
+          "text": "View After You →"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/2nqHG03NQFtKUm4grl9DAj",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/i-cant-wait-for-love-single/1805900957",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/i-cant-wait-for-love",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://www.youtube.com/playlist?list=OLAK5uy_kTPixthtQQRfkfKQKndRzlBGOCr-0cbKo",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/browse/album/427566340",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/736193071",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0F39J9X94",
+          "text": "Amazon Music"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/fragments-ep",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Fragments"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "tracklist",
+        "press coverage",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments (Remixes)",
+        "hysteria",
+        "I Can't Wait For Love"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "Reviews and features connected to this release.",
+        "Insight Music : Insight Music highlighted Fragments as a bright, rhythm-forward electronic project from a Scranton-based multi-instrumentalist. Read Coverage",
+        "LOUDNESS : LOUDNESS described Fragments as hazy, laid-back house music that still sounds distinctly Broey. Read Review",
+        "SubmitHub : A press roundup collecting outside coverage and reviews around the Fragments EP. View Roundup",
+        "EDM Reviewer : EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.” Read Review",
+        "Palms Out Sounds : Palms Out connected Fragments to Broey's shift toward the music he actually loves. Read Review",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 362,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music/like-that",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/run-for-cover",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/wanted",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/numbers",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/breathing-room",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/eyes-on-me",
+          "text": "View Track"
+        },
+        {
+          "href": "/press",
+          "text": "View all coverage"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-remixes",
+          "text": "View Fragments (Remixes) →"
+        },
+        {
+          "href": "/music/hysteria",
+          "text": "View hysteria →"
+        },
+        {
+          "href": "/music/i-cant-wait-for-love",
+          "text": "View I Can't Wait For Love →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/fragments-ep/1729476600",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/sets/fragments-807582035",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://tidal.com/album/344095853",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/544619982",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0CV4MNZJV",
+          "text": "Amazon Music"
+        },
+        {
+          "href": "https://insightmusic.co/scranton-based-multi-instrumentalist-broey-releases-electrifying-new-ep-fragments/",
+          "text": "Read Coverage"
+        },
+        {
+          "href": "https://www.loudnessblog.com/broey",
+          "text": "Read Review"
+        },
+        {
+          "href": "https://www.submithub.com/link/fragments-reviews",
+          "text": "View Roundup"
+        },
+        {
+          "href": "https://edmreviewer.com/2024/04/03/fragments-of-experimental-lofi-a-review-of-broey-s-ep-fragments/",
+          "text": "Read Review"
+        },
+        {
+          "href": "https://www.palmsout.net/2024/mailbox-broey-fragments/",
+          "text": "Read Review"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/4u",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "4u"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments (Remixes)",
+        "Contrast",
+        "Warning"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 157,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-remixes",
+          "text": "View Fragments (Remixes) →"
+        },
+        {
+          "href": "/music/contrast",
+          "text": "View Contrast →"
+        },
+        {
+          "href": "/music/warning",
+          "text": "View Warning →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/0lvaKQqHglh6aHU78gB42M",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/4u-single/1752540493",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/4u",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://www.youtube.com/watch?v=gG9b17Y-GEI",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/album/369907613",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/602990992",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0D79Q4ZHS",
+          "text": "Amazon Music"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/mean-something",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Mean Something"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Like That",
+        "Contrast",
+        "Hold On"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 142,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/like-that",
+          "text": "View Like That →"
+        },
+        {
+          "href": "/music/contrast",
+          "text": "View Contrast →"
+        },
+        {
+          "href": "/music/hold-on",
+          "text": "View Hold On →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/1IOco7DVpyPuePje8qZEnZ",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/mean-something-single/1772176805",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/mean-something-1",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://www.youtube.com/playlist?list=OLAK5uy_lC7gQTFNkQwzWg71HTs0ImdvRNopbySEg",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/album/391217958",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/651735401",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0DJG8W8WY",
+          "text": "Amazon Music"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/fragments-remixes",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Fragments (Remixes)"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "tracklist",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments",
+        "hysteria",
+        "STEREO LUV"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 322,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music/numbers-tom-ecko-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/eyes-on-me-dreamsuite-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/like-that-notminimal-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/wanted-almost-anyone-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/eyes-on-me-vivid-fever-dreams-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/wanted-kaiyo-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/eyes-on-me-exmaxhina-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music/hysteria",
+          "text": "View hysteria →"
+        },
+        {
+          "href": "/music/stereo-luv",
+          "text": "View STEREO LUV →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/0I3culeJDMjf1rIcl0guyB",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/fragments-remixes/1742637606",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/sets/fragments-remixes-2",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://www.youtube.com/playlist?list=OLAK5uy_lCBCvuruoKn5fK9Hwu3tkI_bns0oV6Z8g",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/album/359004950",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/576922861",
+          "text": "Deezer"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/blu",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "blu."
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "versions",
+        "Keep listening"
+      ],
+      "h3": [
+        "STEREO LUV",
+        "Warning",
+        "Fragments"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 171,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/stereo-luv",
+          "text": "View STEREO LUV →"
+        },
+        {
+          "href": "/music/warning",
+          "text": "View Warning →"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/6nljucMAQ8fHgb0kBNzLta",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/blu-single/1869157131",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://soundcloud.com/broeybeats/sets/blu-860403193",
+          "text": "SoundCloud"
+        },
+        {
+          "href": "https://www.youtube.com/playlist?list=OLAK5uy_nARjDMR_qJuNmpjAqTlePDqHUltOiX1yg",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/album/489787750",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/897704392",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://broey.bandcamp.com/album/blu",
+          "text": "Bandcamp"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0GGWLLFKY",
+          "text": "Amazon Music"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/like-that",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Like That"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments",
+        "After You",
+        "dancing dumpster fire"
+      ],
+      "intro": "Track 1 on Fragments",
+      "paragraphs": [
+        "Track 1 on Fragments",
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 120,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music/after-you",
+          "text": "View After You →"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "View dancing dumpster fire →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/5HzzutixZ8qVwIqUdhrRe7",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/like-that-single/1730121194?uo=4",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://www.youtube.com/watch?v=COOMXMksJ9E",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/browse/album/344685076",
+          "text": "TIDAL"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/contrast",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Contrast"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "tracklist",
+        "Keep listening"
+      ],
+      "h3": [
+        "Hold On",
+        "blu.",
+        "FREE"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 159,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music/contrast-falling",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/contrast-falling-almost-anyone-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music/contrast-origins-almost-anyone-remix",
+          "text": "View Track"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/hold-on",
+          "text": "View Hold On →"
+        },
+        {
+          "href": "/music/blu",
+          "text": "View blu. →"
+        },
+        {
+          "href": "/music/free",
+          "text": "View FREE →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/3o65TaH8pFQ5Ls0e3lO8ij",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/contrast-single/1694344760?uo=4",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://tidal.com/browse/album/301898934",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/album/458008805",
+          "text": "Deezer"
+        },
+        {
+          "href": "https://music.amazon.com/albums/B0C9F66L5B",
+          "text": "Amazon Music"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/hold-on",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Hold On"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "I Can't Wait For Love",
+        "blu.",
+        "Warning"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 117,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/i-cant-wait-for-love",
+          "text": "View I Can't Wait For Love →"
+        },
+        {
+          "href": "/music/blu",
+          "text": "View blu. →"
+        },
+        {
+          "href": "/music/warning",
+          "text": "View Warning →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/7iZkuzxea9D0SHEIXv3bVA",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/hold-on-single/1684637507?uo=4",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://tidal.com/browse/album/291346877",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://broey.bandcamp.com/track/hold-on",
+          "text": "Bandcamp"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/warning",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "Warning"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Fragments (Remixes)",
+        "Mean Something",
+        "I Can't Wait For Love"
+      ],
+      "intro": "Cryztal Grid & Broey.",
+      "paragraphs": [
+        "Cryztal Grid & Broey.",
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 134,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/fragments-remixes",
+          "text": "View Fragments (Remixes) →"
+        },
+        {
+          "href": "/music/mean-something",
+          "text": "View Mean Something →"
+        },
+        {
+          "href": "/music/i-cant-wait-for-love",
+          "text": "View I Can't Wait For Love →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/0m7quPpvC0EVQ21J86apaa",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/warning-single/1673797798?uo=4",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://tidal.com/browse/album/279433677",
+          "text": "TIDAL"
+        },
+        {
+          "href": "https://www.deezer.com/en/album/410679107",
+          "text": "Deezer"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/hysteria",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "hysteria"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "Hold On",
+        "Fragments",
+        "Contrast"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 112,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/hold-on",
+          "text": "View Hold On →"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music/contrast",
+          "text": "View Contrast →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/track/12I7dRdt4uhBXMOKFSm7NV",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/hysteria-single/1602310014?uo=4",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://www.youtube.com/watch?v=ffnbbnsniSs",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/browse/album/210567515",
+          "text": "TIDAL"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/after-you",
+      "status": 200,
+      "robots": "",
+      "h1": [
+        "After You"
+      ],
+      "h2": [
+        "find your platform",
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "FREE",
+        "Fragments",
+        "Mean Something"
+      ],
+      "intro": "Save, playlist, or stream wherever you listen.",
+      "paragraphs": [
+        "Save, playlist, or stream wherever you listen.",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 115,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/free",
+          "text": "View FREE →"
+        },
+        {
+          "href": "/music/fragments-ep",
+          "text": "View Fragments →"
+        },
+        {
+          "href": "/music/mean-something",
+          "text": "View Mean Something →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [
+        {
+          "href": "https://open.spotify.com/album/10KYFjdvz7plRKXRmSQqtb",
+          "text": "Spotify"
+        },
+        {
+          "href": "https://music.apple.com/us/album/after-you-single/1726655763?uo=4",
+          "text": "Apple Music"
+        },
+        {
+          "href": "https://www.youtube.com/watch?v=TN90jROEvHw",
+          "text": "YouTube"
+        },
+        {
+          "href": "https://tidal.com/browse/album/340981922",
+          "text": "TIDAL"
+        }
+      ],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    },
+    {
+      "route": "/music/4u-vip",
+      "status": 200,
+      "robots": "noindex, nofollow",
+      "h1": [
+        "4u vip"
+      ],
+      "h2": [
+        "release details",
+        "credits",
+        "Keep listening"
+      ],
+      "h3": [
+        "dancing dumpster fire",
+        "After You",
+        "FREE"
+      ],
+      "intro": "Track 7 on dancing dumpster fire",
+      "paragraphs": [
+        "Track 7 on dancing dumpster fire",
+        "More from across the Broey catalog."
+      ],
+      "visibleWordCount": 109,
+      "internalLinks": [
+        {
+          "href": "/",
+          "text": "Home"
+        },
+        {
+          "href": "/music",
+          "text": "Music"
+        },
+        {
+          "href": "/music",
+          "text": "/ music"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "View dancing dumpster fire"
+        },
+        {
+          "href": "/music",
+          "text": "Browse all music"
+        },
+        {
+          "href": "/music",
+          "text": "Browse selected releases"
+        },
+        {
+          "href": "/music/dancing-dumpster-fire",
+          "text": "View dancing dumpster fire →"
+        },
+        {
+          "href": "/music/after-you",
+          "text": "View After You →"
+        },
+        {
+          "href": "/music/free",
+          "text": "View FREE →"
+        },
+        {
+          "href": "/music",
+          "text": "Back to selected releases"
+        }
+      ],
+      "outboundLinks": [],
+      "duplicateParagraphs": [],
+      "duplicateSubstantiveBlocks": [],
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "failureCount": 0,
+    "failures": []
+  }
+}

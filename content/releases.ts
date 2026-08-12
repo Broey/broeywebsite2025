@@ -2072,6 +2072,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
   {
     title: "Like That",
     slug: "like-that",
+    parentReleaseSlug: "fragments-ep",
     type: "single",
     visibility: "public",
     year: 2024,

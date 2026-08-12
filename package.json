@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "audit:metadata": "node scripts/metadata-inventory.mjs",
+    "audit:content": "node --experimental-strip-types scripts/content-rendered-audit.mjs",
     "audit:structured-data": "node --experimental-strip-types scripts/structured-data-rendered-audit.mjs",
     "indexnow": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/submit-indexnow.mjs",
     "import:releases": "node scripts/import-release-registry.mjs",

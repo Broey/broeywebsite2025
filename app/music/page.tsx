@@ -180,7 +180,7 @@ export default function MusicPage() {
         eyebrow="/ music"
         title="Broey. Selects"
         titleId="music-page-title"
-        description="Explore music and releases by Broey with genre filters, playback, credits, and platform links."
+        description="Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras."
       />
 
       <section className="hero-panel music-featured-release" aria-labelledby="music-featured-title">

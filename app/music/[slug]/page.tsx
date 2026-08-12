@@ -32,6 +32,7 @@ import {
   releaseSearchTitle,
 } from "@/content/release-metadata";
 import { createPageMetadata } from "@/content/seo";
+import { pressItemsForRelease } from "@/content/press";
 import {
   createReleaseBreadcrumbStructuredData,
   createReleaseStructuredData,
@@ -616,21 +617,71 @@ function ReleaseFactsSection({ release }: { release: ReleaseEntry }) {
 }
 
 function ParentProjectContext({
+  release,
   parentRelease,
 }: {
+  release: ReleaseEntry;
   parentRelease?: ReleaseEntry;
 }) {
   if (!parentRelease) {
     return null;
   }
 
+  const trackIndex = (parentRelease.tracklist ?? []).findIndex((track) => {
+    const trackTitle = typeof track === "string" ? track : track.title;
+    const trackSlug = typeof track === "string" ? undefined : track.slug;
+
+    return trackSlug === release.slug || trackTitlesMatch(trackTitle, release.title);
+  });
+  const context = trackIndex >= 0
+    ? `Track ${trackIndex + 1} on ${parentRelease.title}`
+    : `Part of ${parentRelease.title}`;
+
   return (
     <div className="release-detail-parent-context">
-      <p>Part of {parentRelease.title}</p>
+      <p>{context}</p>
       <Link href={releaseDetailHref(parentRelease)}>
         View {parentRelease.title}
       </Link>
     </div>
+  );
+}
+
+function ReleaseCoverageSection({ release }: { release: ReleaseEntry }) {
+  const coverage = pressItemsForRelease(release.slug);
+
+  if (!coverage.length) {
+    return null;
+  }
+
+  return (
+    <section className="release-detail-section" aria-labelledby="release-coverage-title">
+      <div className="release-detail-section-header">
+        <div>
+          <h2 id="release-coverage-title" className="release-detail-section-kicker">
+            press coverage
+          </h2>
+          <p className="release-detail-recommendation-copy">
+            Reviews and features connected to this release.
+          </p>
+        </div>
+        <Link href="/press" className="release-detail-inline-link">
+          View all coverage
+        </Link>
+      </div>
+      <div className="release-detail-copy">
+        {coverage.map((item) => (
+          <article key={item.id}>
+            <p>
+              <strong>{item.outlet}:</strong> {item.summary}{" "}
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
+                {item.ctaLabel}
+              </a>
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -782,7 +833,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
               </div>
             ) : null}
 
-            <ParentProjectContext parentRelease={parentRelease} />
+            <ParentProjectContext release={release} parentRelease={parentRelease} />
 
             <div className="release-detail-cta-row" style={releaseCtaAccentStyle}>
               {audioQueue ? (
@@ -831,6 +882,8 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
               />
             </section>
           ) : null}
+
+          <ReleaseCoverageSection release={release} />
 
           <KeepListeningSection recommendations={recommendationSet.recommendations} />
 
