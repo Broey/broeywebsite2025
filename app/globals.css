@@ -3994,14 +3994,6 @@ body.has-global-player .site-shell {
   box-shadow: none;
 }
 
-.release-detail-artwork-glow {
-  display: none;
-  object-fit: cover;
-  opacity: 0;
-  filter: blur(28px) saturate(0.82) brightness(0.5);
-  transform: scale(1.04);
-}
-
 .release-detail-artwork-frame {
   position: relative;
   z-index: 1;
