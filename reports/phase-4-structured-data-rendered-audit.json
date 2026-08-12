@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-12T17:06:37.216Z",
-  "baseUrl": "http://127.0.0.1:3347",
+  "generatedAt": "2026-08-12T19:05:46.293Z",
+  "baseUrl": "http://127.0.0.1:3235",
   "productionOrigin": "https://broey.net",
   "routeCount": 22,
   "indexableReleaseCount": 15,
@@ -229,7 +229,8 @@
         "https://broey.net/music/like-that#release",
         "https://broey.net/music/like-that",
         "https://broey.net/#website",
-        "https://broey.net/#artist"
+        "https://broey.net/#artist",
+        "https://broey.net/music/fragments-ep#release"
       ],
       "errors": []
     },

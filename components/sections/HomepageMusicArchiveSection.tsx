@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { EmailSignup } from "@/components/sections/EmailSignup";
-import { siteConfig } from "@/content/site";
 
 export function HomepageMusicArchiveSection() {
   return (
@@ -15,12 +14,12 @@ export function HomepageMusicArchiveSection() {
             Broey selects
           </h2>
           <p className="homepage-section-lede">
-            {siteConfig.positioning} Explore selected releases spanning house,
-            UK garage, breakbeats, and more.
+            Learn more about Broey and explore music and releases spanning house, UK garage,
+            breakbeats, and more.
           </p>
           <div className="homepage-section-cta-row">
             <Link href="/music" className="homepage-section-cta">
-              Browse the catalog
+              Explore the music
             </Link>
             <Link href="/about" className="homepage-section-cta homepage-section-cta-secondary">
               About Broey

@@ -189,10 +189,9 @@ export const pressItems: PressItem[] = [
     href: "https://edmreviewer.com/2024/04/03/fragments-of-experimental-lofi-a-review-of-broey-s-ep-fragments/",
     pullQuote: "unique approach to the genre",
     summary:
-      "EDM Reviewer called attention to Broey's risk-taking on Fragments, from vocal chops and deep-house grooves to saxophone and genre-blurring structure.",
+      "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”",
     ctaLabel: "Read Review",
     featuredOnAbout: true,
-    needsVerification: true,
   },
   {
     id: "palms-out-fragments",

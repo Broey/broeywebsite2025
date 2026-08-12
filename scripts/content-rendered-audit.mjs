@@ -1,8 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { pressItemsForRelease } from "../content/press.ts";
+import { releases } from "../content/releases.ts";
 
 const baseUrl = new URL(process.argv[2] ?? "http://127.0.0.1:3000");
 const outputPath = path.resolve(process.cwd(), "reports/phase-5-rendered-content-audit.json");
+const approvedHomepageCopy = "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.";
+const approvedMusicCopy = "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.";
+const approvedEdmReviewerSummary = "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”";
 
 const decodeHtml = (value = "") => value
   .replaceAll("&amp;", "&")
@@ -10,7 +15,10 @@ const decodeHtml = (value = "") => value
   .replaceAll("&#x27;", "'")
   .replaceAll("&#39;", "'")
   .replaceAll("&lt;", "<")
-  .replaceAll("&gt;", ">");
+  .replaceAll("&gt;", ">")
+  .replaceAll("&nbsp;", " ")
+  .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+  .replace(/&#x([\da-f]+);/gi, (_, code) => String.fromCodePoint(Number.parseInt(code, 16)));
 
 const stripHtml = (value = "") => decodeHtml(value)
   .replace(/<script[\s\S]*?<\/script>/gi, " ")
@@ -31,6 +39,10 @@ const unique = (values) => [...new Set(values)];
 const elementText = (html, tag) => [...html.matchAll(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "gi"))]
   .map((match) => stripHtml(match[1]))
   .filter(Boolean);
+const releaseForRoute = (route) => releases.find((release) => `/music/${release.slug}` === route);
+const hasLink = (page, href, text) => page.internalLinks.some(
+  (link) => link.href === href && link.text === text,
+);
 
 const sitemapResponse = await fetch(new URL("/sitemap.xml", baseUrl));
 const sitemapXml = await sitemapResponse.text();
@@ -64,14 +76,24 @@ for (const route of auditRoutes) {
   const robots = html.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']+)["']/i)?.[1]
     ?? html.match(/<meta[^>]*content=["']([^"']+)["'][^>]*name=["']robots["']/i)?.[1]
     ?? "";
+  const release = releaseForRoute(route);
+  const storedAboutParagraphs = release
+    ? (Array.isArray(release.about) ? release.about : [release.about])
+      .filter((paragraph) => paragraph?.trim())
+    : [];
+  const exposedStoredAboutParagraphs = storedAboutParagraphs.filter(
+    (paragraph) => visibleText.includes(paragraph.trim()),
+  );
 
   if (response.status !== 200) failures.push(`${route}: HTTP ${response.status}`);
   if (h1.length !== 1) failures.push(`${route}: expected one H1, found ${h1.length}`);
-  if (route.startsWith("/music/") && route !== "/music/4u-vip") {
-    if (!h2.map((heading) => heading.toLowerCase()).includes("about the release")) {
-      failures.push(`${route}: missing visible About the release section`);
+  if (release) {
+    if (h2.some((heading) => heading.toLowerCase() === "about the release")) {
+      failures.push(`${route}: rendered the rejected About the release section`);
     }
-    if (visibleWordCount < 80) failures.push(`${route}: unexpectedly thin rendered body`);
+    if (exposedStoredAboutParagraphs.length) {
+      failures.push(`${route}: automatically exposed stored about prose`);
+    }
   }
   if (route === "/music/4u-vip" && !/noindex/i.test(robots)) {
     failures.push(`${route}: expected noindex metadata`);
@@ -94,7 +116,8 @@ for (const route of auditRoutes) {
     outboundLinks: outboundLinks.map(({ href, text }) => ({ href, text })),
     duplicateParagraphs,
     duplicateSubstantiveBlocks,
-    hasReleaseContext: h2.map((heading) => heading.toLowerCase()).includes("about the release"),
+    hasAboutReleaseSection: h2.some((heading) => heading.toLowerCase() === "about the release"),
+    exposedStoredAboutParagraphs,
   });
 }
 
@@ -103,6 +126,67 @@ if (sitemapRoutes.filter((route) => route.startsWith("/music/")).length !== 15) 
   failures.push("sitemap: expected 15 indexable release routes");
 }
 if (sitemapRoutes.includes("/music/4u-vip")) failures.push("sitemap: noindex route was included");
+
+const pagesByRoute = new Map(pages.map((page) => [page.route, page]));
+const homePage = pagesByRoute.get("/");
+const musicPage = pagesByRoute.get("/music");
+const aboutPage = pagesByRoute.get("/about");
+const pressPage = pagesByRoute.get("/press");
+
+if (!homePage?.paragraphs.includes(approvedHomepageCopy)) failures.push("/: approved homepage copy is not exact");
+if (!hasLink(homePage, "/music", "Explore the music")) failures.push("/: missing primary Explore the music link");
+if (!hasLink(homePage, "/about", "About Broey")) failures.push("/: missing secondary About Broey link");
+if (musicPage?.h1[0] !== "Broey. Selects") failures.push("/music: branded H1 changed");
+if (!musicPage?.paragraphs.includes(approvedMusicCopy)) failures.push("/music: approved introduction is not exact");
+
+const aboutReleaseLinks = [
+  ["/music/fragments-ep", "Fragments"],
+  ["/music/4u", "4u"],
+  ["/music/mean-something", "Mean Something"],
+  ["/music/dancing-dumpster-fire", "dancing dumpster fire"],
+  ["/music/stereo-luv", "STEREO LUV"],
+  ["/music/blu", "blu."],
+  ["/music/free", "FREE"],
+];
+for (const [href, text] of aboutReleaseLinks) {
+  if (!hasLink(aboutPage, href, text)) failures.push(`/about: missing ${text} release link`);
+}
+if (!hasLink(aboutPage, "/music/dancing-dumpster-fire", "View dancing dumpster fire")) {
+  failures.push("/about: missing featured press-card release link");
+}
+
+if (!pressPage?.paragraphs.includes(approvedEdmReviewerSummary)) {
+  failures.push("/press: approved EDM Reviewer summary is not exact");
+}
+for (const [href, text] of [
+  ["/music/dancing-dumpster-fire", "View dancing dumpster fire"],
+  ["/music/fragments-ep", "View Fragments"],
+]) {
+  if (!hasLink(pressPage, href, text)) failures.push(`/press: missing ${text} release link`);
+}
+
+for (const [route, context, parentHref, parentText] of [
+  ["/music/like-that", "Track 1 on Fragments", "/music/fragments-ep", "View Fragments"],
+  ["/music/4u-vip", "Track 7 on dancing dumpster fire", "/music/dancing-dumpster-fire", "View dancing dumpster fire"],
+]) {
+  const page = pagesByRoute.get(route);
+  if (!page?.paragraphs.includes(context)) failures.push(`${route}: missing verified track position`);
+  if (!hasLink(page, parentHref, parentText)) failures.push(`${route}: missing parent-project link`);
+}
+
+for (const route of ["/music/dancing-dumpster-fire", "/music/fragments-ep"]) {
+  const page = pagesByRoute.get(route);
+  const release = releaseForRoute(route);
+  if (!page?.h2.some((heading) => heading.toLowerCase() === "press coverage")) {
+    failures.push(`${route}: missing release press section`);
+  }
+  if (!hasLink(page, "/press", "View all coverage")) failures.push(`${route}: missing press archive link`);
+  for (const item of pressItemsForRelease(release.slug)) {
+    if (!page?.outboundLinks.some((link) => link.href === item.href)) {
+      failures.push(`${route}: missing original press source ${item.href}`);
+    }
+  }
+}
 
 const internalPaths = unique(pages.flatMap((page) => page.internalLinks.map(({ href }) => href.split("#")[0])))
   .filter(Boolean);
@@ -117,6 +201,11 @@ const audit = {
   sitemapRouteCount: sitemapRoutes.length,
   indexableReleaseCount: sitemapRoutes.filter((route) => route.startsWith("/music/")).length,
   auditedRouteCount: pages.length,
+  approvedCopy: {
+    homepage: approvedHomepageCopy,
+    music: approvedMusicCopy,
+    edmReviewer: approvedEdmReviewerSummary,
+  },
   pages,
   summary: {
     passed: failures.length === 0,

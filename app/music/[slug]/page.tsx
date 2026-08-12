@@ -26,7 +26,6 @@ import {
 } from "@/content/musicRegistry.generated";
 import { normalizedGenres } from "@/content/genres";
 import { imageDimensionsForPath } from "@/content/image-metadata";
-import { releaseAboutParagraphs } from "@/content/release-content";
 import {
   releaseDisplayArtist,
   releaseSearchDescription,
@@ -617,25 +616,6 @@ function ReleaseFactsSection({ release }: { release: ReleaseEntry }) {
   );
 }
 
-function ReleaseAboutSection({ release }: { release: ReleaseEntry }) {
-  const visibleParagraphs = releaseAboutParagraphs(release);
-
-  return (
-    <section className="release-detail-section" aria-labelledby="release-about-title">
-      <div className="release-detail-section-header">
-        <h2 id="release-about-title" className="release-detail-section-kicker">
-          about the release
-        </h2>
-      </div>
-      <div className="release-detail-copy">
-        {visibleParagraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function ParentProjectContext({
   release,
   parentRelease,
@@ -883,8 +863,6 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
           {!attachPlayerToHero && hasDiscoFallbackPlayer(release) ? (
             <ReleasePlayerModule release={release} />
           ) : null}
-
-          <ReleaseAboutSection release={release} />
 
           <FindYourPlatformSection release={release} />
 

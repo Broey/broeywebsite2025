@@ -1,9 +1,14 @@
 {
-  "generatedAt": "2026-08-12T18:22:59.292Z",
+  "generatedAt": "2026-08-12T19:05:38.685Z",
   "baseUrl": "http://127.0.0.1:3235/",
   "sitemapRouteCount": 22,
   "indexableReleaseCount": 15,
   "auditedRouteCount": 23,
+  "approvedCopy": {
+    "homepage": "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.",
+    "music": "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.",
+    "edmReviewer": "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”"
+  },
   "pages": [
     {
       "route": "/",
@@ -26,15 +31,15 @@
         "Selected Press"
       ],
       "h3": [],
-      "intro": "Broey is the electronic project of Joe Montaro, a producer, audio engineer, and self-taught multi-instrumentalist from Scranton, Pennsylvania. Explore selected releases spanning house, UK garage, breakbeats, and more.",
+      "intro": "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.",
       "paragraphs": [
-        "Broey is the electronic project of Joe Montaro, a producer, audio engineer, and self-taught multi-instrumentalist from Scranton, Pennsylvania. Explore selected releases spanning house, UK garage, breakbeats, and more.",
+        "Learn more about Broey and explore music and releases spanning house, UK garage, breakbeats, and more.",
         "New tracks, drop notes, odd scraps.",
         "By subscribing, you agree to receive Broey updates. You can unsubscribe at any time. See the Privacy Notice .",
         "Reviews and features on dancing dumpster fire and Fragments, plus interviews on Broey’s production process.",
         "Release — dancing dumpster fire"
       ],
-      "visibleWordCount": 219,
+      "visibleWordCount": 207,
       "internalLinks": [
         {
           "href": "/music/free",
@@ -70,7 +75,7 @@
         },
         {
           "href": "/music",
-          "text": "Browse the catalog"
+          "text": "Explore the music"
         },
         {
           "href": "/about",
@@ -101,7 +106,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music",
@@ -132,14 +138,14 @@
         "hysteria",
         "After You"
       ],
-      "intro": "Explore Broey's selected catalog, grouped from current club-focused releases through the faster 2022-2023 work and earlier foundations. Each release includes playback, credits, and verified platform links.",
+      "intro": "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.",
       "paragraphs": [
-        "Explore Broey's selected catalog, grouped from current club-focused releases through the faster 2022-2023 work and earlier foundations. Each release includes playback, credits, and verified platform links.",
+        "Explore selected Broey releases with playback, credits, and platform links, organized across current and earlier catalog eras.",
         "Singles, EPs, remixes, and recent catalog highlights.",
         "Four releases spanning drum and bass, heavier collaboration, melodic electronic work, and remixes.",
         "Instrumental, collaborative, and beat-driven work from the earlier Broey discography."
       ],
-      "visibleWordCount": 309,
+      "visibleWordCount": 300,
       "internalLinks": [
         {
           "href": "/music/free",
@@ -205,7 +211,8 @@
       "outboundLinks": [],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/about",
@@ -262,10 +269,10 @@
         "Chris Vuoncino / August 20, 2025",
         "Insight Music highlighted Fragments as a bright, rhythm-forward electronic project from a Scranton-based multi-instrumentalist.",
         "LOUDNESS described Fragments as hazy, laid-back house music that still sounds distinctly Broey.",
-        "EDM Reviewer called attention to Broey's risk-taking on Fragments, from vocal chops and deep-house grooves to saxophone and genre-blurring structure.",
+        "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”",
         "The records are the center. The rest is here when you want the notes around them."
       ],
-      "visibleWordCount": 612,
+      "visibleWordCount": 608,
       "internalLinks": [
         {
           "href": "/music",
@@ -340,7 +347,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/contact",
@@ -376,7 +384,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/merch",
@@ -451,7 +460,8 @@
         "Washed boxy-fit hoodie with distressed details and a worn-in Broey feel."
       ],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/press",
@@ -480,7 +490,7 @@
         "Stefan Baranowski / April 4, 2024",
         "LOUDNESS described Fragments as hazy, laid-back house music that still sounds distinctly Broey.",
         "A press roundup collecting outside coverage and reviews around the Fragments EP.",
-        "EDM Reviewer called attention to Broey's risk-taking on Fragments, from vocal chops and deep-house grooves to saxophone and genre-blurring structure.",
+        "EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.”",
         "Palms Out connected Fragments to Broey's shift toward the music he actually loves.",
         "Conversations documenting Broey's production background, lo-fi roots, collaborations, and creative process.",
         "Reverie / early Broey. story",
@@ -500,7 +510,7 @@
         "collabs / artist interview",
         "A video interview with Broey discussing collaborations, past work, and creative background."
       ],
-      "visibleWordCount": 528,
+      "visibleWordCount": 524,
       "internalLinks": [
         {
           "href": "/music/dancing-dumpster-fire",
@@ -581,7 +591,8 @@
         "The Chilled Samples Podcast"
       ],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/privacy",
@@ -622,7 +633,8 @@
       "outboundLinks": [],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": false
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/stereo-luv",
@@ -632,7 +644,6 @@
         "STEREO LUV"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -643,14 +654,12 @@
         "Contrast",
         "Like That"
       ],
-      "intro": "STEREO LUV came together after Broey treated and calibrated a new home-studio space. The track leans into a dusty 90s deep-house feel with drum machines, bass sequencing, samplers, and a noticeably wide stereo image.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "STEREO LUV came together after Broey treated and calibrated a new home-studio space. The track leans into a dusty 90s deep-house feel with drum machines, bass sequencing, samplers, and a noticeably wide stereo image.",
-        "It sits in the catalog as a cleaner club record without losing the warm, hands-on detail that runs through the older lo-fi work.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 205,
+      "visibleWordCount": 145,
       "internalLinks": [
         {
           "href": "/",
@@ -725,7 +734,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/free",
@@ -735,7 +745,6 @@
         "FREE"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -746,14 +755,12 @@
         "Contrast",
         "Hold On"
       ],
-      "intro": "FREE is the current focus release: a concise, house-leaning single with a stripped-down arrangement.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "FREE is the current focus release: a concise, house-leaning single with a stripped-down arrangement.",
-        "It puts Broey's newer catalog right up front with a direct club track and minimal extra framing.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 145,
+      "visibleWordCount": 111,
       "internalLinks": [
         {
           "href": "/",
@@ -812,7 +819,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/dancing-dumpster-fire",
@@ -822,7 +830,6 @@
         "dancing dumpster fire"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -835,16 +842,14 @@
         "hysteria",
         "blu."
       ],
-      "intro": "dancing dumpster fire collects seven club tracks across UKG, bassline, trance, and speed-house.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "dancing dumpster fire collects seven club tracks across UKG, bassline, trance, and speed-house.",
-        "It is intentionally direct: short tracks, fast ideas, and a title that says what the record is.",
         "Save, playlist, or stream wherever you listen.",
         "Reviews and features connected to this release.",
         "We Rave You : We Rave You covered dancing dumpster fire as an EP with underground electronic instincts. Read Coverage",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 338,
+      "visibleWordCount": 305,
       "internalLinks": [
         {
           "href": "/",
@@ -943,7 +948,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/i-cant-wait-for-love",
@@ -953,7 +959,6 @@
         "I Can't Wait For Love"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -967,12 +972,10 @@
       "intro": "Broey., Broken Blythe",
       "paragraphs": [
         "Broey., Broken Blythe",
-        "I Can't Wait For Love pairs Broey with Broken Blythe, moving the production into a more vocal-led space without losing the dance-floor pull around it.",
-        "The track works as a bridge between Broey's club-facing singles and a more direct songwriter frame: polished, melodic, and built around the push of the vocal.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 221,
+      "visibleWordCount": 167,
       "internalLinks": [
         {
           "href": "/",
@@ -1043,7 +1046,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/fragments-ep",
@@ -1053,7 +1057,6 @@
         "Fragments"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1066,20 +1069,18 @@
         "hysteria",
         "I Can't Wait For Love"
       ],
-      "intro": "Fragments is one of the catalog's clear turning points. The six-track EP connects Broey's lo-fi roots with house, processed vocals, sax, breakbeats, and bass.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "Fragments is one of the catalog's clear turning points. The six-track EP connects Broey's lo-fi roots with house, processed vocals, sax, breakbeats, and bass.",
-        "The record sits between the older headphone records and the later club-focused catalog.",
         "Save, playlist, or stream wherever you listen.",
         "Reviews and features connected to this release.",
         "Insight Music : Insight Music highlighted Fragments as a bright, rhythm-forward electronic project from a Scranton-based multi-instrumentalist. Read Coverage",
         "LOUDNESS : LOUDNESS described Fragments as hazy, laid-back house music that still sounds distinctly Broey. Read Review",
         "SubmitHub : A press roundup collecting outside coverage and reviews around the Fragments EP. View Roundup",
-        "EDM Reviewer : EDM Reviewer called attention to Broey's risk-taking on Fragments, from vocal chops and deep-house grooves to saxophone and genre-blurring structure. Read Review",
+        "EDM Reviewer : EDM Reviewer highlighted Fragments’ vocal choices, deep-house elements, stylistic variety, and the saxophone on “Breathing Room.” Read Review",
         "Palms Out Sounds : Palms Out connected Fragments to Broey's shift toward the music he actually loves. Read Review",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 406,
+      "visibleWordCount": 362,
       "internalLinks": [
         {
           "href": "/",
@@ -1194,7 +1195,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/4u",
@@ -1204,7 +1206,6 @@
         "4u"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1215,14 +1216,12 @@
         "Contrast",
         "Warning"
       ],
-      "intro": "4u brings Broey and notminimal. together on a dance-focused single with heavy low-end.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "4u brings Broey and notminimal. together on a dance-focused single with heavy low-end.",
-        "The DreamEater artwork gives the single its visual identity.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 182,
+      "visibleWordCount": 157,
       "internalLinks": [
         {
           "href": "/",
@@ -1293,7 +1292,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/mean-something",
@@ -1303,7 +1303,6 @@
         "Mean Something"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1314,14 +1313,12 @@
         "Contrast",
         "Hold On"
       ],
-      "intro": "Mean Something is one of the more reflective singles in the selected catalog. It keeps the production direct, letting melody and space carry most of the weight.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "Mean Something is one of the more reflective singles in the selected catalog. It keeps the production direct, letting melody and space carry most of the weight.",
-        "The track belongs near the newer club-facing work, but it is smaller and more song-focused.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 187,
+      "visibleWordCount": 142,
       "internalLinks": [
         {
           "href": "/",
@@ -1392,7 +1389,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/fragments-remixes",
@@ -1402,7 +1400,6 @@
         "Fragments (Remixes)"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1414,14 +1411,12 @@
         "hysteria",
         "STEREO LUV"
       ],
-      "intro": "Fragments (Remixes) opens the EP to outside producers with shorter edits, late-night versions, bass remixes, and longer club-facing builds.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "Fragments (Remixes) opens the EP to outside producers with shorter edits, late-night versions, bass remixes, and longer club-facing builds.",
-        "The companion release keeps the original EP's melodic DNA in view, but the point is range. Each remix treats Fragments as material to be bent, sharpened, stretched, or pushed further toward the floor.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 377,
+      "visibleWordCount": 322,
       "internalLinks": [
         {
           "href": "/",
@@ -1516,7 +1511,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/blu",
@@ -1526,7 +1522,6 @@
         "blu."
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1538,14 +1533,12 @@
         "Warning",
         "Fragments"
       ],
-      "intro": "blu. is built as a two-version deep-house release: a concise radio edit for standard listening and an extended version with more room for the groove.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "blu. is built as a two-version deep-house release: a concise radio edit for standard listening and an extended version with more room for the groove.",
-        "The release is framed by its format: one tighter version for quick listening and one longer mix with more space for the club-facing groove.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 223,
+      "visibleWordCount": 171,
       "internalLinks": [
         {
           "href": "/",
@@ -1620,7 +1613,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/like-that",
@@ -1630,7 +1624,6 @@
         "Like That"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1644,12 +1637,10 @@
       "intro": "Track 1 on Fragments",
       "paragraphs": [
         "Track 1 on Fragments",
-        "Like That is a compact Fragments-era single with clipped rhythm and quick melodic turns.",
-        "It works as a clean entry point into that 2024 pocket of the catalog, where Broey was pulling the older melodic instincts into sharper drums and more direct electronic shapes.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 167,
+      "visibleWordCount": 120,
       "internalLinks": [
         {
           "href": "/",
@@ -1712,7 +1703,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/contrast",
@@ -1722,7 +1714,6 @@
         "Contrast"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1734,14 +1725,12 @@
         "blu.",
         "FREE"
       ],
-      "intro": "Contrast is a 2023 Broey project built around Falling and two Almost Anyone remix versions. The release ties fast drum and bass, jungle pressure, and brighter club-facing remix work into a compact three-track run.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "Contrast is a 2023 Broey project built around Falling and two Almost Anyone remix versions. The release ties fast drum and bass, jungle pressure, and brighter club-facing remix work into a compact three-track run.",
-        "It sits in the discography as a bridge between the earlier DnB/electronic run and the later Fragments-era catalog.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 214,
+      "visibleWordCount": 159,
       "internalLinks": [
         {
           "href": "/",
@@ -1816,7 +1805,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/hold-on",
@@ -1826,7 +1816,6 @@
         "Hold On"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1837,14 +1826,12 @@
         "blu.",
         "Warning"
       ],
-      "intro": "Hold On sits in the transition stretch before the newer club records took over the front of the catalog. The production is patient, melodic, and steady.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "Hold On sits in the transition stretch before the newer club records took over the front of the catalog. The production is patient, melodic, and steady.",
-        "It is still connected to the broader electronic direction, but its center is restraint: a single built around tension and release.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 167,
+      "visibleWordCount": 117,
       "internalLinks": [
         {
           "href": "/",
@@ -1903,7 +1890,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/warning",
@@ -1913,7 +1901,6 @@
         "Warning"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -1927,12 +1914,10 @@
       "intro": "Cryztal Grid & Broey.",
       "paragraphs": [
         "Cryztal Grid & Broey.",
-        "Warning catches Broey in collaboration with Cryztal Grid during the move away from softer lo-fi framing and toward heavier, more physical electronic production.",
-        "The track is useful context for the current catalog because it points toward the later club-facing work.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 177,
+      "visibleWordCount": 134,
       "internalLinks": [
         {
           "href": "/",
@@ -1991,7 +1976,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/hysteria",
@@ -2001,7 +1987,6 @@
         "hysteria"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -2012,14 +1997,12 @@
         "Fragments",
         "Contrast"
       ],
-      "intro": "hysteria marks an earlier break from the softer lo-fi frame, pushing into faster DNB/electronic production.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "hysteria marks an earlier break from the softer lo-fi frame, pushing into faster DNB/electronic production.",
-        "It is not as polished or club-shaped as the newest records, but it matters as an early signal of the later catalog.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 152,
+      "visibleWordCount": 112,
       "internalLinks": [
         {
           "href": "/",
@@ -2078,7 +2061,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/after-you",
@@ -2088,7 +2072,6 @@
         "After You"
       ],
       "h2": [
-        "about the release",
         "find your platform",
         "release details",
         "credits",
@@ -2099,14 +2082,12 @@
         "Fragments",
         "Mean Something"
       ],
-      "intro": "After You sits in the older archive as a softer collaboration with Mr. Hilroy, built around melody and a lighter arrangement.",
+      "intro": "Save, playlist, or stream wherever you listen.",
       "paragraphs": [
-        "After You sits in the older archive as a softer collaboration with Mr. Hilroy, built around melody and a lighter arrangement.",
-        "It is not part of the current club-facing run, but it helps show the quieter side of the catalog that fed into the later production instincts.",
         "Save, playlist, or stream wherever you listen.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 165,
+      "visibleWordCount": 115,
       "internalLinks": [
         {
           "href": "/",
@@ -2165,7 +2146,8 @@
       ],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     },
     {
       "route": "/music/4u-vip",
@@ -2175,7 +2157,6 @@
         "4u vip"
       ],
       "h2": [
-        "about the release",
         "release details",
         "credits",
         "Keep listening"
@@ -2188,10 +2169,9 @@
       "intro": "Track 7 on dancing dumpster fire",
       "paragraphs": [
         "Track 7 on dancing dumpster fire",
-        "4u vip tightens the Broey and notminimal. collaboration into a shorter club version, pushing the bass forward and cutting down the space around it.",
         "More from across the Broey catalog."
       ],
-      "visibleWordCount": 136,
+      "visibleWordCount": 109,
       "internalLinks": [
         {
           "href": "/",
@@ -2237,7 +2217,8 @@
       "outboundLinks": [],
       "duplicateParagraphs": [],
       "duplicateSubstantiveBlocks": [],
-      "hasReleaseContext": true
+      "hasAboutReleaseSection": false,
+      "exposedStoredAboutParagraphs": []
     }
   ],
   "summary": {
