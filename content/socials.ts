@@ -8,57 +8,72 @@ export interface SocialLinkEntry {
   featured?: boolean;
 }
 
+export const officialArtistProfileUrls = {
+  tiktok: "https://tiktok.com/@broeybeats",
+  instagram: "https://instagram.com/broeybeats",
+  x: "https://x.com/broeybeats",
+  youtube: "https://www.youtube.com/channel/UCiPFLFHcbBW0RE5oHBPAvAw",
+  appleMusic: "https://music.apple.com/us/artist/broey/1444936978",
+  audius: "https://audius.co/broeybeats",
+  spotify: "https://open.spotify.com/artist/6HmeISbko4bc0zsZQvIAco",
+  soundCloud: "https://soundcloud.com/broeybeats",
+  tidal: "https://tidal.com/browse/artist/10677705",
+  bandcamp: "https://broey.bandcamp.com/",
+} as const;
+
+export const officialArtistSameAs = Object.values(officialArtistProfileUrls);
+
 export const socials: SocialLinkEntry[] = [
   {
     platform: "TikTok",
     label: "Broey on TikTok",
-    url: "https://tiktok.com/@broeybeats",
+    url: officialArtistProfileUrls.tiktok,
     kind: "social",
     featured: true,
   },
   {
     platform: "Instagram",
     label: "Broey on Instagram",
-    url: "https://instagram.com/broeybeats",
+    url: officialArtistProfileUrls.instagram,
     kind: "social",
     featured: true,
   },
   {
     platform: "X",
     label: "Broey on X",
-    url: "https://x.com/broeybeats",
+    url: officialArtistProfileUrls.x,
     kind: "social",
     featured: true,
   },
   {
     platform: "YouTube",
     label: "Broey on YouTube",
-    url: "https://www.youtube.com/channel/UCiPFLFHcbBW0RE5oHBPAvAw",
+    url: officialArtistProfileUrls.youtube,
     kind: "social",
     featured: true,
   },
   {
     platform: "Apple Music",
     label: "Broey on Apple Music",
-    url: "https://music.apple.com/us/artist/broey/1444936978",
+    url: officialArtistProfileUrls.appleMusic,
     kind: "streaming",
   },
   {
     platform: "Audius",
     label: "Broey on Audius",
-    url: "https://audius.co/broeybeats",
+    url: officialArtistProfileUrls.audius,
     kind: "streaming",
   },
   {
     platform: "Spotify",
     label: "Broey on Spotify",
-    url: "https://open.spotify.com/artist/6HmeISbko4bc0zsZQvIAco?si=k66s5QnrQvejvX6YBZhAZw&dl_branch=1",
+    url: officialArtistProfileUrls.spotify,
     kind: "streaming",
   },
   {
     platform: "SoundCloud",
     label: "Broey on SoundCloud",
-    url: "https://soundcloud.com/broeybeats",
+    url: officialArtistProfileUrls.soundCloud,
     kind: "streaming",
   },
   {
@@ -70,7 +85,7 @@ export const socials: SocialLinkEntry[] = [
   {
     platform: "TIDAL",
     label: "Broey on TIDAL",
-    url: "https://tidal.com/browse/artist/10677705",
+    url: officialArtistProfileUrls.tidal,
     kind: "streaming",
   },
   {

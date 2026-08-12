@@ -6,9 +6,11 @@ import { PressMentionsSection } from "@/components/sections/PressMentionsSection
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { staticPageMetadata } from "@/content/page-metadata";
 import { createPageMetadata } from "@/content/seo";
-import { absoluteUrl } from "@/lib/site-origin";
+import {
+  createArtistStructuredData,
+  serializeJsonLd,
+} from "@/content/structured-data";
 
-const aboutDescription = staticPageMetadata.about.description;
 const aboutPortraitImage = staticPageMetadata.about.image.url;
 
 export const metadata: Metadata = createPageMetadata(staticPageMetadata.about);
@@ -72,28 +74,13 @@ const timelineItems = [
   },
 ];
 
-const absoluteAboutUrl = absoluteUrl("/about");
-
 export default function AboutPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Joe Montaro",
-            alternateName: "Broey.",
-            url: absoluteAboutUrl,
-            description: aboutDescription,
-            jobTitle: "Producer and audio engineer",
-            image: absoluteUrl(aboutPortraitImage),
-            homeLocation: {
-              "@type": "Place",
-              name: "Scranton, Pennsylvania",
-            },
-          }),
+          __html: serializeJsonLd(createArtistStructuredData()),
         }}
       />
       <section className="about-page release-detail-shell inner-page" aria-labelledby="about-page-title">

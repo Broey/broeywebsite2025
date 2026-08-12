@@ -1,0 +1,378 @@
+{
+  "generatedAt": "2026-08-12T17:06:37.216Z",
+  "baseUrl": "http://127.0.0.1:3347",
+  "productionOrigin": "https://broey.net",
+  "routeCount": 22,
+  "indexableReleaseCount": 15,
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 1,
+      "schemaTypes": [
+        "WebSite"
+      ],
+      "entityIds": [
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 1,
+      "schemaTypes": [
+        "Person"
+      ],
+      "entityIds": [
+        "https://broey.net/#artist",
+        "https://broey.net/about",
+        "https://broey.net/#website"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 0,
+      "schemaTypes": [],
+      "entityIds": [],
+      "errors": []
+    },
+    {
+      "route": "/music/stereo-luv",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/stereo-luv#release",
+        "https://broey.net/music/stereo-luv",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/free",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/free#release",
+        "https://broey.net/music/free",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/dancing-dumpster-fire",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicAlbum",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/dancing-dumpster-fire#release",
+        "https://broey.net/music/dancing-dumpster-fire",
+        "https://broey.net/#website",
+        "https://broey.net/#artist",
+        "https://broey.net/music/shake#release",
+        "https://broey.net/music/old-fashion#release",
+        "https://broey.net/music/lil-luv#release",
+        "https://broey.net/music/dancing-dumpster-fire#release/track/brainrot-feat-vivid-fever-dreams",
+        "https://broey.net/music/glfm#release",
+        "https://broey.net/music/i-can-do-better-broey-remix#release",
+        "https://broey.net/music/4u-vip#release"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/i-cant-wait-for-love",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/i-cant-wait-for-love#release",
+        "https://broey.net/music/i-cant-wait-for-love",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/fragments-ep",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicAlbum",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/fragments-ep#release",
+        "https://broey.net/music/fragments-ep",
+        "https://broey.net/#website",
+        "https://broey.net/#artist",
+        "https://broey.net/music/like-that#release",
+        "https://broey.net/music/run-for-cover#release",
+        "https://broey.net/music/wanted#release",
+        "https://broey.net/music/numbers#release",
+        "https://broey.net/music/fragments-ep#release/track/breathing-room-feat-vivid-fever-dreams",
+        "https://broey.net/music/eyes-on-me#release"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/4u",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/4u#release",
+        "https://broey.net/music/4u",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/mean-something",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/mean-something#release",
+        "https://broey.net/music/mean-something",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/fragments-remixes",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicAlbum",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/fragments-remixes#release",
+        "https://broey.net/music/fragments-remixes",
+        "https://broey.net/#website",
+        "https://broey.net/#artist",
+        "https://broey.net/music/numbers-tom-ecko-remix#release",
+        "https://broey.net/music/eyes-on-me-dreamsuite-remix#release",
+        "https://broey.net/music/like-that-notminimal-remix#release",
+        "https://broey.net/music/wanted-almost-anyone-remix#release",
+        "https://broey.net/music/eyes-on-me-vivid-fever-dreams-remix#release",
+        "https://broey.net/music/wanted-kaiyo-remix#release",
+        "https://broey.net/music/eyes-on-me-exmaxhina-remix#release"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/blu",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/blu#release",
+        "https://broey.net/music/blu",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/like-that",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/like-that#release",
+        "https://broey.net/music/like-that",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/contrast",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicAlbum",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/contrast#release",
+        "https://broey.net/music/contrast",
+        "https://broey.net/#website",
+        "https://broey.net/#artist",
+        "https://broey.net/music/contrast-falling#release",
+        "https://broey.net/music/contrast-falling-almost-anyone-remix#release",
+        "https://broey.net/music/contrast-origins-almost-anyone-remix#release"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/hold-on",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/hold-on#release",
+        "https://broey.net/music/hold-on",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/warning",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/warning#release",
+        "https://broey.net/music/warning",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/hysteria",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/hysteria#release",
+        "https://broey.net/music/hysteria",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/after-you",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/after-you#release",
+        "https://broey.net/music/after-you",
+        "https://broey.net/#website",
+        "https://broey.net/#artist"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/music/4u-vip",
+      "status": 200,
+      "robots": "noindex, nofollow",
+      "schemaCount": 2,
+      "schemaTypes": [
+        "MusicRecording",
+        "BreadcrumbList"
+      ],
+      "entityIds": [
+        "https://broey.net/music/4u-vip#release",
+        "https://broey.net/music/4u-vip",
+        "https://broey.net/#website",
+        "https://broey.net/#artist",
+        "https://broey.net/music/dancing-dumpster-fire#release"
+      ],
+      "errors": []
+    },
+    {
+      "route": "/press",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 0,
+      "schemaTypes": [],
+      "entityIds": [],
+      "errors": []
+    },
+    {
+      "route": "/contact",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 0,
+      "schemaTypes": [],
+      "entityIds": [],
+      "errors": []
+    },
+    {
+      "route": "/merch",
+      "status": 200,
+      "robots": null,
+      "schemaCount": 0,
+      "schemaTypes": [],
+      "entityIds": [],
+      "errors": []
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "errorCount": 0,
+    "errors": [],
+    "httpStatusCounts": {
+      "200": 22
+    }
+  }
+}
