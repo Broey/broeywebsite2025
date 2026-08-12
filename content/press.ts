@@ -30,6 +30,7 @@ export type PressItem = {
   author?: string;
   date?: string;
   releaseOrTopic: string;
+  releaseSlugs?: string[];
   href: string;
   videoId?: string;
   embedUrl?: string;
@@ -116,6 +117,7 @@ export const pressItems: PressItem[] = [
     author: "Chris Vuoncino",
     date: "2025-08-20",
     releaseOrTopic: "dancing dumpster fire",
+    releaseSlugs: ["dancing-dumpster-fire"],
     href: "https://weraveyou.com/2025/08/broey-dancing-dumpster-fire-ep-review/",
     pullQuote: "raw creativity and underground edge",
     summary:
@@ -134,6 +136,7 @@ export const pressItems: PressItem[] = [
     author: "Stefan Baranowski",
     date: "2024-04-04",
     releaseOrTopic: "Fragments",
+    releaseSlugs: ["fragments-ep"],
     href: "https://insightmusic.co/scranton-based-multi-instrumentalist-broey-releases-electrifying-new-ep-fragments/",
     pullQuote: "electrifying odyssey",
     summary:
@@ -150,6 +153,7 @@ export const pressItems: PressItem[] = [
     title: "EP Review: Broey. - Fragments",
     medium: "review",
     releaseOrTopic: "Fragments",
+    releaseSlugs: ["fragments-ep"],
     href: "https://www.loudnessblog.com/broey",
     pullQuote: "dreamy, hazy and laid-back",
     summary:
@@ -166,6 +170,7 @@ export const pressItems: PressItem[] = [
     title: "Fragments EP Press Coverage",
     medium: "roundup",
     releaseOrTopic: "Fragments",
+    releaseSlugs: ["fragments-ep"],
     href: "https://www.submithub.com/link/fragments-reviews",
     summary:
       "A press roundup collecting outside coverage and reviews around the Fragments EP.",
@@ -180,6 +185,7 @@ export const pressItems: PressItem[] = [
     medium: "review",
     date: "2024-04-03",
     releaseOrTopic: "Fragments",
+    releaseSlugs: ["fragments-ep"],
     href: "https://edmreviewer.com/2024/04/03/fragments-of-experimental-lofi-a-review-of-broey-s-ep-fragments/",
     pullQuote: "unique approach to the genre",
     summary:
@@ -197,6 +203,7 @@ export const pressItems: PressItem[] = [
     medium: "review",
     date: "2024-05-01",
     releaseOrTopic: "Fragments",
+    releaseSlugs: ["fragments-ep"],
     href: "https://www.palmsout.net/2024/mailbox-broey-fragments/",
     pullQuote: "producer who can shape-shift",
     summary:
@@ -313,6 +320,9 @@ export const homePressItems = pressItems
 export const aboutPressItems = pressItems.filter((item) => item.featuredOnAbout);
 export const watchPressItems = pressItems.filter((item) => item.featuredOnWatch);
 export const pressArchiveItems = pressItems;
+
+export const pressItemsForRelease = (releaseSlug: string) =>
+  pressItems.filter((item) => item.releaseSlugs?.includes(releaseSlug));
 
 export type PressEntryType = PressItemType;
 export type PressEntry = PressItem;

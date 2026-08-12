@@ -180,7 +180,7 @@ export default function MusicPage() {
         eyebrow="/ music"
         title="Broey. Selects"
         titleId="music-page-title"
-        description="Explore music and releases by Broey with genre filters, playback, credits, and platform links."
+        description="Explore Broey's selected catalog, grouped from current club-focused releases through the faster 2022-2023 work and earlier foundations. Each release includes playback, credits, and verified platform links."
       />
 
       <section className="hero-panel music-featured-release" aria-labelledby="music-featured-title">

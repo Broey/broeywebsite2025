@@ -12,6 +12,7 @@ import {
   type PressItemGroup,
 } from "@/content/press";
 import type { AnalyticsSourceSurface } from "@/lib/analytics";
+import { releases, type ReleaseEntry } from "@/content/releases";
 
 type PressMentionsSectionProps = {
   variant: "preview" | "about" | "archive";
@@ -70,6 +71,26 @@ function PressExternalLink({
   );
 }
 
+function PressReleaseLinks({ item }: { item: PressItem }) {
+  const relatedReleases = (item.releaseSlugs ?? [])
+    .map((slug) => releases.find((release) => release.slug === slug))
+    .filter((release): release is ReleaseEntry => Boolean(release) && release?.visibility !== "draft");
+
+  if (!relatedReleases.length) {
+    return null;
+  }
+
+  return (
+    <div className="press-release-links" aria-label="Related Broey releases">
+      {relatedReleases.map((release) => (
+        <Link key={release.slug} href={`/music/${release.slug}`} className="press-mention-link press-mention-link-secondary">
+          View {release.title}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 function getYouTubeEmbedUrl(item: PressItem) {
   if (item.embedUrl) {
     return item.embedUrl;
@@ -122,6 +143,7 @@ function PressFeatured({
           </p>
         ) : null}
         <PressExternalLink item={item} sourceSurface={sourceSurface} />
+        <PressReleaseLinks item={item} />
       </div>
     </article>
   );
@@ -159,6 +181,7 @@ function PressLedgerItem({
           </p>
         ) : null}
         <PressExternalLink item={item} />
+        <PressReleaseLinks item={item} />
       </div>
     </article>
   );

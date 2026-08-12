@@ -2764,7 +2764,14 @@ body.has-global-player .site-shell {
   border-right: 1px solid rgba(240, 236, 225, 0.1);
 }
 
-.homepage-music-archive-pane .homepage-section-cta {
+.homepage-music-archive-pane > .homepage-section-cta {
+  margin-top: clamp(1rem, 2vw, 1.35rem);
+}
+
+.homepage-section-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
   margin-top: clamp(1rem, 2vw, 1.35rem);
 }
 
@@ -3372,6 +3379,12 @@ body.has-global-player .site-shell {
 .press-mention-link:hover {
   gap: 0.66rem;
   color: white;
+}
+
+.press-release-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
 .press-interview-list {

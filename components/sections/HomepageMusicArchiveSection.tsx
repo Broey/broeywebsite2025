@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EmailSignup } from "@/components/sections/EmailSignup";
+import { siteConfig } from "@/content/site";
 
 export function HomepageMusicArchiveSection() {
   return (
@@ -14,12 +15,17 @@ export function HomepageMusicArchiveSection() {
             Broey selects
           </h2>
           <p className="homepage-section-lede">
-            Explore music and releases from Broey, spanning house, UK garage,
-            breakbeats, and more.
+            {siteConfig.positioning} Explore selected releases spanning house,
+            UK garage, breakbeats, and more.
           </p>
-          <Link href="/music" className="homepage-section-cta">
-            Browse the catalog
-          </Link>
+          <div className="homepage-section-cta-row">
+            <Link href="/music" className="homepage-section-cta">
+              Browse the catalog
+            </Link>
+            <Link href="/about" className="homepage-section-cta homepage-section-cta-secondary">
+              About Broey
+            </Link>
+          </div>
         </div>
         <EmailSignup
           id="homepage-mailing-list"
