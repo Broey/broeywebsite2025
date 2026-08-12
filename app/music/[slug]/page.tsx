@@ -28,11 +28,15 @@ import { normalizedGenres } from "@/content/genres";
 import { imageDimensionsForPath } from "@/content/image-metadata";
 import {
   releaseDisplayArtist,
-  releaseFactualDescription,
   releaseSearchDescription,
   releaseSearchTitle,
 } from "@/content/release-metadata";
 import { createPageMetadata } from "@/content/seo";
+import {
+  createReleaseBreadcrumbStructuredData,
+  createReleaseStructuredData,
+  serializeJsonLd,
+} from "@/content/structured-data";
 import {
   isPublishedRelease,
   showReleaseInSitemap,
@@ -362,9 +366,6 @@ const shouldAttachPlayerToHero = (release: ReleaseEntry) =>
 const absoluteReleaseUrl = (release: ReleaseEntry) =>
   absoluteUrl(releaseDetailHref(release));
 
-const absoluteAssetUrl = (assetPath?: string) =>
-  assetPath ? absoluteUrl(assetPath) : undefined;
-
 const verifiedCoverImage = (release: ReleaseEntry) =>
   release.coverImage && !shouldUseFallbackArtwork(release.coverImage)
     ? release.coverImage
@@ -384,58 +385,6 @@ const releaseMetadataImage = (release: ReleaseEntry) => {
     alt: release.coverAlt ?? `${release.title} cover art`,
   };
 };
-
-const releaseJsonLd = (release: ReleaseEntry) => {
-  const isSingle = release.type === "single" || release.type === "remix";
-  const coverImage = verifiedCoverImage(release);
-
-  return {
-    "@context": "https://schema.org",
-    "@type": isSingle ? "MusicRecording" : "MusicAlbum",
-    name: release.title,
-    byArtist: {
-      "@type": "MusicGroup",
-      name: releaseArtistName(release),
-    },
-    datePublished: release.releaseDate && !release.releaseDate.includes("-00-")
-      ? release.releaseDate
-      : release.year
-        ? String(release.year)
-      : undefined,
-    description: releaseFactualDescription(release),
-    genre: releaseTags(release),
-    image: absoluteAssetUrl(coverImage),
-    url: absoluteReleaseUrl(release),
-  };
-};
-
-const releaseBreadcrumbJsonLd = (release: ReleaseEntry) => ({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: absoluteUrl("/"),
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Music",
-      item: absoluteUrl("/music"),
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: release.title,
-      item: absoluteReleaseUrl(release),
-    },
-  ],
-});
-
-const serializeJsonLd = (data: unknown) =>
-  JSON.stringify(data).replace(/</g, "\\u003c");
 
 function ReleaseBreadcrumbs({ release }: { release: ReleaseEntry }) {
   return (
@@ -777,8 +726,8 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
   const artistName = releaseArtistName(release);
   const tags = releaseTags(release);
   const shareUrl = absoluteReleaseUrl(release);
-  const jsonLd = releaseJsonLd(release);
-  const breadcrumbJsonLd = releaseBreadcrumbJsonLd(release);
+  const jsonLd = createReleaseStructuredData(release);
+  const breadcrumbJsonLd = createReleaseBreadcrumbStructuredData(release);
   const attachPlayerToHero = shouldAttachPlayerToHero(release);
   const parentRelease = parentReleaseFor(release);
   const audioQueue = releaseHeroAudioQueue(release, parentRelease);
