@@ -28,7 +28,7 @@ const bioParagraphs: ReactNode[] = [
     <Link href="/music/dancing-dumpster-fire">dancing dumpster fire</Link>,{" "}
     <Link href="/music/stereo-luv">STEREO LUV</Link>,{" "}
     <Link href="/music/blu">blu.</Link>, and <Link href="/music/free">FREE</Link>{" "}
-    show the current Broey catalog in plain terms: singles, EPs, remixes, and club-focused tracks.
+    show the range of Broey’s current catalog.
   </>,
 ];
 

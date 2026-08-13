@@ -5601,6 +5601,22 @@ main:has(.release-detail-shell) + footer {
   font-weight: 650;
 }
 
+.about-bio-copy p:last-child a {
+  text-decoration: underline;
+  text-decoration-color: rgba(211, 169, 91, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.about-bio-copy p:last-child a:hover,
+.about-bio-copy p:last-child a:focus-visible {
+  color: var(--color-amber);
+  text-decoration-color: currentColor;
+}
+
 .about-highlight-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
