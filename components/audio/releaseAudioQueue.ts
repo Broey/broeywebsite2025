@@ -54,7 +54,7 @@ export const releaseAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | und
       duration: track.duration,
       artwork: queueArtwork,
       releaseUrl,
-      playerAccent: track.playerAccent ?? playerAccent,
+      playerAccent,
       analytics: {
         release_slug: release.slug,
         track_slug: track.slug ?? track.audioKey,

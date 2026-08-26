@@ -47,6 +47,8 @@ const currentEraReleaseSlugs = [
 
 const transitionReleaseSlugs = [
   "contrast",
+  "counting",
+  "hold-me-back",
   "warning",
   "hold-on",
   "hysteria",
@@ -117,7 +119,7 @@ export default function MusicPage() {
         <SectionHeader
           eyebrow="Bridge"
           title="2022–2023: Faster forms"
-          description="Four releases spanning drum and bass, heavier collaboration, melodic electronic work, and remixes."
+          description="Music from 2022–2023 spanning drum and bass, heavier collaboration, melodic electronic work, and remixes."
         />
       ),
       gridClassName: "mt-5 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3",

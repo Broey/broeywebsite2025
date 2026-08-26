@@ -130,6 +130,10 @@ const primaryArtistNames = (
 };
 
 const validDatePublished = (release: ReleaseEntry) => {
+  if (release.status === "unreleased") {
+    return undefined;
+  }
+
   if (release.releaseDate && !release.releaseDate.includes("-00-")) {
     return release.releaseDate;
   }

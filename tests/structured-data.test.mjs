@@ -81,7 +81,7 @@ test("all indexable releases have factual, connected, clean structured data", ()
   const indexable = releases.filter(showReleaseInSitemap);
   const schemas = indexable.map(createReleaseStructuredData);
 
-  assert.equal(indexable.length, 15);
+  assert.equal(indexable.length, 17);
   assert.equal(new Set(schemas.map((schema) => schema["@id"])).size, schemas.length);
 
   for (const [index, schema] of schemas.entries()) {
@@ -127,6 +127,15 @@ test("all indexable releases have factual, connected, clean structured data", ()
       (entity) => entity["@id"] === artistEntityId,
     );
     assert.ok(broeyReferences.length >= 1, `${source.slug} must link the artist entity`);
+  }
+});
+
+test("unreleased entries do not expose a publication date", () => {
+  for (const slug of ["counting", "hold-me-back"]) {
+    const schema = createReleaseStructuredData(release(slug));
+
+    assert.equal(schema.datePublished, undefined);
+    assert.match(schema.description, /unreleased track created circa 2023/i);
   }
 });
 

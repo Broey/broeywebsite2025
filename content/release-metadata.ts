@@ -38,6 +38,12 @@ export function releaseFactualDescription(release: ReleaseEntry) {
   const article = /^[aeiou]/i.test(factualType) ? "an" : "a";
   const year = release.year ?? release.releaseDate?.match(/^\d{4}/)?.[0];
 
+  if (release.status === "unreleased") {
+    return year
+      ? `Listen to ${release.title} by ${artist}, an unreleased track created circa ${year}.`
+      : `Listen to ${release.title} by ${artist}, an unreleased track.`;
+  }
+
   if (!year) {
     return `Listen to ${release.title} by ${artistAttribution}.`;
   }

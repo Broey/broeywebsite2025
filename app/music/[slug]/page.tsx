@@ -13,6 +13,7 @@ import { ReleaseTracklist } from "@/components/audio/ReleaseTracklist";
 import { PlatformLinkList } from "@/components/ui/PlatformLinkList";
 import { PendingArtwork } from "@/components/ui/PendingArtwork";
 import { ReleaseCard } from "@/components/ui/ReleaseCard";
+import { ReleaseStatusMeta } from "@/components/ui/ReleaseStatusMeta";
 import { ShareReleaseButton } from "@/components/ui/ShareReleaseButton";
 import {
   releaseDetailHref,
@@ -207,7 +208,9 @@ const releaseEyebrow = (release: ReleaseEntry) =>
   release.isProjectTrack ? "Track" : releaseTypeDisplay(release);
 
 const releaseHeroMeta = (release: ReleaseEntry) =>
-  [releaseTypeDisplay(release), releaseHeroDate(release)].filter(Boolean).join(" / ");
+  release.status
+    ? undefined
+    : [releaseTypeDisplay(release), releaseHeroDate(release)].filter(Boolean).join(" / ");
 
 const detailLabelKey = (label: string) => label.toLowerCase().replace(/\s+/g, " ").trim();
 
@@ -273,7 +276,15 @@ const releaseDetailRows = (release: ReleaseEntry): ReleaseDetail[] => {
 
     return key !== "label" && key !== "focus track" && !catalogDetailLabels.has(key);
   });
-  const baseDetails: ReleaseDetail[] = [
+  const baseDetails: ReleaseDetail[] = release.status === "unreleased"
+    ? [
+        { label: "Artist", value: releaseArtistName(release) },
+        { label: "Status", value: "Unreleased" },
+        release.year
+          ? { label: "Catalog Era", value: String(release.year) }
+          : undefined,
+      ].filter((row): row is ReleaseDetail => Boolean(row))
+    : [
     { label: "Artist", value: releaseArtistName(release) },
     { label: "Release Type", value: releaseTypeDisplay(release) },
     releaseDate
@@ -287,7 +298,7 @@ const releaseDetailRows = (release: ReleaseEntry): ReleaseDetail[] => {
     focusTrack && shouldShowFocusTrack(release, focusTrack.value)
       ? { label: "Focus Track", value: focusTrack.value }
       : undefined,
-  ].filter((row): row is ReleaseDetail => Boolean(row));
+      ].filter((row): row is ReleaseDetail => Boolean(row));
 
   return [...baseDetails, ...publicDetails];
 };
@@ -820,6 +831,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
               <p className="release-detail-eyebrow">{releaseEyebrow(release)}</p>
               <h1 className="release-detail-title">{release.title}</h1>
               <p className="release-detail-artist">{artistName}</p>
+              <ReleaseStatusMeta release={release} className="release-detail-status-meta" />
               {heroMeta ? <p className="release-detail-hero-meta">{heroMeta}</p> : null}
             </div>
 

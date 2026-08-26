@@ -2,6 +2,7 @@ import { TrackedReleaseLink } from "@/components/analytics/TrackedLinks";
 import { ReleasePlayButton } from "@/components/audio/ReleasePlayButton";
 import type { GlobalAudioQueue } from "@/components/audio/useAudioPlayer";
 import { ReleaseArtwork } from "@/components/ui/ReleaseArtwork";
+import { ReleaseStatusMeta } from "@/components/ui/ReleaseStatusMeta";
 import { normalizedGenres } from "@/content/genres";
 import { releaseDetailHref } from "@/content/release-actions";
 import type { ReleaseEntry } from "@/content/releases";
@@ -54,6 +55,11 @@ export function ReleaseCard({
       <div className="release-grid-card-copy">
         <p className="release-grid-card-meta">{releaseMeta}</p>
         <h3 className="release-grid-card-title">{release.title}</h3>
+        <ReleaseStatusMeta
+          release={release}
+          className="release-grid-card-status"
+          showEra={false}
+        />
         {genres.length ? (
           <div className="release-grid-card-tags" aria-label={`Genres for ${release.title}`}>
             {genres.map((genre) => (

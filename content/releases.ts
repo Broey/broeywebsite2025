@@ -4,6 +4,7 @@ import {
   type GeneratedReleaseRegistry,
   type GeneratedTrackRegistry,
 } from "./musicRegistry.generated.ts";
+import { resolvePlayerAccent, withPlayerAccentQuery } from "../lib/player-accent.ts";
 
 export type ReleaseType = "single" | "ep" | "remix" | "mix" | "set";
 
@@ -44,6 +45,7 @@ export type ExternalLink = {
 
 export type ReleaseEmbedProvider = "disco" | "soundcloud" | "youtube" | "spotify";
 export type ReleaseVisibility = "draft" | "public";
+export type ReleaseStatus = "unreleased";
 export type ReleaseIndexing = "index" | "noindex" | "internal";
 export type ReleaseCatalogStatus = "tidal" | "manual" | "pending-tidal" | "draft";
 export type ReleaseSuggestedTileType = "collectionTile" | "singleTile" | "trackTile";
@@ -109,7 +111,6 @@ export type ReleaseAudioTrack = {
   artist?: string;
   duration?: string;
   src: string;
-  playerAccent?: string;
 };
 
 export type ReleaseAudio = {
@@ -141,6 +142,7 @@ export type ReleaseEntry = {
   title: string;
   slug: string;
   type: ReleaseType;
+  status?: ReleaseStatus;
   visibility?: ReleaseVisibility;
   indexing?: ReleaseIndexing;
   metadataStatus?: ReleaseMetadataStatus;
@@ -154,7 +156,7 @@ export type ReleaseEntry = {
   dateConfidence?: ReleaseVerificationStatus;
   dateNotes?: string;
   artistName?: string;
-  description: string;
+  description?: string;
   about?: string | string[];
   tags?: string[];
   credits?: ReleaseCredit[];
@@ -498,12 +500,12 @@ const mergeGeneratedRelease = (release: ReleaseEntry): ReleaseEntry => {
   };
 };
 
-const applyParentPlayerAccents = (releaseList: ReleaseEntry[]) => {
+const applyReleasePlayerAccents = (releaseList: ReleaseEntry[]) => {
   const accentBySlug = new Map(
     releaseList.map((release) => [release.slug, release.playerAccent]),
   );
 
-  return releaseList.map((release) => {
+  const accentedReleases = releaseList.map((release) => {
     if (release.playerAccent || !release.parentReleaseSlug) {
       return release;
     }
@@ -512,9 +514,41 @@ const applyParentPlayerAccents = (releaseList: ReleaseEntry[]) => {
 
     return parentAccent ? { ...release, playerAccent: parentAccent } : release;
   });
+
+  return accentedReleases.map((release) => {
+    const accent = release.playerAccent;
+    const playerSafeAccent = resolvePlayerAccent(accent);
+    const accentDiscoUrl = (url?: string) =>
+      url && url.includes("broeybeats.disco.ac/")
+        ? withPlayerAccentQuery(url, accent)
+        : url;
+
+    return {
+      ...release,
+      links: release.links.map((entry) => ({
+        ...entry,
+        url: accentDiscoUrl(entry.url) ?? entry.url,
+      })),
+      platformLinks: release.platformLinks?.map((entry) => ({
+        ...entry,
+        url: accentDiscoUrl(entry.url) ?? entry.url,
+      })),
+      embed: release.embed?.provider === "disco"
+        ? {
+            ...release.embed,
+            src: accentDiscoUrl(release.embed.src),
+            embedUrl: accentDiscoUrl(release.embed.embedUrl),
+            disco: {
+              ...release.embed.disco,
+              controlColor: playerSafeAccent,
+            },
+          }
+        : release.embed,
+    };
+  });
 };
 
-export const releases: ReleaseEntry[] = applyParentPlayerAccents(
+export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
   (([
   {
     title: "LiNK",
@@ -543,7 +577,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     links: [
       link(
         "Disco",
-        "https://broeybeats.disco.ac/e/t/199920329?s=wxTEgXu5BYAOwfQ056jIjaSauVA%3AZZwg3MNV&artwork=false&color=%234E98FF&theme=dark",
+        "https://broeybeats.disco.ac/e/t/199920329?s=wxTEgXu5BYAOwfQ056jIjaSauVA%3AZZwg3MNV&artwork=false&theme=dark",
         "disco",
       ),
     ],
@@ -551,7 +585,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       provider: "disco",
       title: "LiNK by Broey.",
       embedUrl:
-        "https://broeybeats.disco.ac/e/t/199920329?s=wxTEgXu5BYAOwfQ056jIjaSauVA%3AZZwg3MNV&artwork=false&color=%234E98FF&theme=dark",
+        "https://broeybeats.disco.ac/e/t/199920329?s=wxTEgXu5BYAOwfQ056jIjaSauVA%3AZZwg3MNV&artwork=false&theme=dark",
       height: 235,
       lazy: true,
       disco: {
@@ -559,7 +593,6 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
         width: 480,
         height: 235,
         theme: "dark",
-        controlColor: "#4E98FF",
         artworkEnabled: false,
         downloadsEnabled: false,
       },
@@ -655,9 +688,9 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       title: "STEREO LUV by Broey.",
       label: "STEREO LUV",
       src:
-        "https://broeybeats.disco.ac/e/t/163013451?s=TnGWrsfeaxB9JWQ4l7vy2UFr35Q%3AwFcVLOEG&artwork=false&color=%234E98FF&theme=dark",
+        "https://broeybeats.disco.ac/e/t/163013451?s=TnGWrsfeaxB9JWQ4l7vy2UFr35Q%3AwFcVLOEG&artwork=false&theme=dark",
       embedUrl:
-        "https://broeybeats.disco.ac/e/t/163013451?s=-iKLOiEjvYkHdhylWiKgVOaNsfo%3AQsm0RJkf&artwork=false&color=%234E98FF&theme=dark",
+        "https://broeybeats.disco.ac/e/t/163013451?s=-iKLOiEjvYkHdhylWiKgVOaNsfo%3AQsm0RJkf&artwork=false&theme=dark",
       height: 235,
       lazy: true,
       disco: {
@@ -665,7 +698,6 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
         width: 480,
         height: 235,
         theme: "dark",
-        controlColor: "#4E98FF",
         artworkEnabled: false,
         downloadsEnabled: false,
       },
@@ -691,12 +723,12 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/free.png",
     coverAlt: "FREE by Broey. cover art",
-    playerAccent: "#b68a45",
+    playerAccent: "#397b8a",
     audio: localAudio("FREE", "/audio/free.mp3", "3:51"),
     links: [
       link(
         "Disco",
-        "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark",
+        "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&theme=dark",
         "disco",
       ),
       link(
@@ -741,7 +773,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       provider: "disco",
       title: "FREE by Broey.",
       embedUrl:
-        "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&color=%234E98FF&theme=dark",
+        "https://broeybeats.disco.ac/e/t/198818529?s=mIqIdkYOAHpGj60mv1ub4FxUxCQ%3AknM749BX&artwork=false&theme=dark",
       height: 235,
       lazy: true,
       disco: {
@@ -749,7 +781,6 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
         width: 480,
         height: 235,
         theme: "dark",
-        controlColor: "#4E98FF",
         artworkEnabled: false,
         downloadsEnabled: false,
       },
@@ -908,8 +939,8 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     embed: {
       provider: "disco",
       title: "dancing dumpster fire by Broey.",
-      src: "https://broeybeats.disco.ac/e/p/21737356?download=false&s=fx4DjEYWTZcHY60Xbdg6QBSSqRk%3AJcrwEkwq&artwork=false&color=%234E98FF&theme=dark",
-      embedUrl: "https://broeybeats.disco.ac/e/p/21737356?download=false&s=fx4DjEYWTZcHY60Xbdg6QBSSqRk%3AJcrwEkwq&artwork=false&color=%234E98FF&theme=dark",
+      src: "https://broeybeats.disco.ac/e/p/21737356?download=false&s=fx4DjEYWTZcHY60Xbdg6QBSSqRk%3AJcrwEkwq&artwork=false&theme=dark",
+      embedUrl: "https://broeybeats.disco.ac/e/p/21737356?download=false&s=fx4DjEYWTZcHY60Xbdg6QBSSqRk%3AJcrwEkwq&artwork=false&theme=dark",
       height: 395,
       lazy: true,
       disco: {
@@ -917,7 +948,6 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
         width: 480,
         height: 395,
         theme: "dark",
-        controlColor: "#4E98FF",
         artworkEnabled: false,
         downloadsEnabled: false,
       },
@@ -1112,6 +1142,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/i-cant-wait-for-love.png",
     coverAlt: "I Can't Wait For Love cover art",
+    playerAccent: "#c6aa64",
     audio: localAudio(
       "I Can't Wait For Love",
       "/audio/i-cant-wait-for-love.mp3",
@@ -1514,7 +1545,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/mean-something.jpg",
     coverAlt: "Mean Something cover art",
-    playerAccent: "#9a7448",
+    playerAccent: "#4f8068",
     audio: localAudio("Mean Something", "/audio/mean-something.mp3", "4:31"),
     links: [
       link("Create Music", "https://createmusic.fm/meansomething"),
@@ -1597,7 +1628,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       fit: "cover",
       position: "center bottom",
     },
-    playerAccent: "#717bb0",
+    playerAccent: "#3f8f8c",
     audio: {
       type: "project",
       title: "Fragments (Remixes)",
@@ -1940,6 +1971,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/glfm.png",
     coverAlt: "GLFM cover art",
+    playerAccent: "#4f8589",
     audio: localAudio("GLFM", "/audio/glfm.mp3", "3:30"),
     links: [link("TIDAL", "https://tidal.com/browse/track/441546108")],
     catalogStatus: "tidal",
@@ -2124,6 +2156,38 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     },
   },
   {
+    title: "COUNTING",
+    slug: "counting",
+    type: "single",
+    status: "unreleased",
+    visibility: "public",
+    year: 2023,
+    artistName: "Broey.",
+    coverImage: "/assets/cover-art/counting.png",
+    coverAlt: "COUNTING artwork",
+    playerAccent: "#4f9fa8",
+    audio: localAudio("COUNTING", "/audio/counting.mp3", "1:42"),
+    tags: ["Dubstep", "Electronic"],
+    links: [],
+    catalogStatus: "manual",
+  },
+  {
+    title: "Hold Me Back",
+    slug: "hold-me-back",
+    type: "single",
+    status: "unreleased",
+    visibility: "public",
+    year: 2023,
+    artistName: "Broey.",
+    coverImage: "/assets/cover-art/hold-me-back.jpg",
+    coverAlt: "Hold Me Back artwork",
+    playerAccent: "#688B9D",
+    audio: localAudio("Hold Me Back", "/audio/hold-me-back.mp3", "3:03"),
+    tags: ["Drum & Bass", "Electronic"],
+    links: [],
+    catalogStatus: "manual",
+  },
+  {
     title: "Contrast",
     slug: "contrast",
     type: "ep",
@@ -2146,6 +2210,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/contrast.jpg",
     coverAlt: "Contrast cover art",
+    playerAccent: "#c66eae",
     audio: {
       type: "project",
       title: "Contrast",
@@ -2360,6 +2425,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/hold-on.png",
     coverAlt: "Hold On cover art",
+    playerAccent: "#c76f3b",
     audio: localAudio("Hold On", "/audio/hold-on.mp3", "3:35"),
     links: [
       link("Spotify", "https://open.spotify.com/album/7iZkuzxea9D0SHEIXv3bVA", "streaming", false),
@@ -2417,6 +2483,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/warning.jpg",
     coverAlt: "Warning by Cryztal Grid and Broey. cover art",
+    playerAccent: "#9470ad",
     audio: localAudio("Warning", "/audio/warning.mp3", "3:16", "Cryztal Grid & Broey."),
     links: [
       link("Spotify", "https://open.spotify.com/album/0m7quPpvC0EVQ21J86apaa", "streaming", false),
@@ -2474,6 +2541,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
     ],
     coverImage: "/assets/cover-art/hysteria.jpg",
     coverAlt: "hysteria cover art",
+    playerAccent: "#5d8b78",
     audio: localAudio("hysteria", "/audio/hysteria.mp3", "3:42"),
     links: [
       link("Spotify", "https://open.spotify.com/track/12I7dRdt4uhBXMOKFSm7NV", "streaming", false),
@@ -2592,6 +2660,7 @@ export const releases: ReleaseEntry[] = applyParentPlayerAccents(
       "Paradise is an early catalog entry: bright, open, and lighter on its feet than the newer dance-focused records.",
     ],
     coverAlt: "Paradise artwork pending",
+    playerAccent: "#a5a9ae",
     links: [
       link("Spotify", "https://open.spotify.com/album/2nkJjtXF1s41m8DscqlMK2", "streaming", false),
       link("TIDAL", "https://tidal.com/browse/album/314502943"),

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReleaseEntry } from "@/content/releases";
+import { playerAccentStyle } from "@/lib/player-accent";
 
 type BroeyAudioPlayerProps = {
   release: ReleaseEntry;
@@ -118,6 +119,7 @@ export function BroeyAudioPlayer({ release, className }: BroeyAudioPlayerProps) 
           : "Ready";
   const buttonLabel = hasEnded ? `Replay ${title}` : isPlaying ? `Pause ${title}` : `Play ${title}`;
   const volumeLabel = isMuted ? `Unmute ${title}` : `Mute ${title}`;
+  const accentStyle = playerAccentStyle(release.playerAccent);
 
   const togglePlayback = async () => {
     const audio = audioRef.current;
@@ -222,7 +224,10 @@ export function BroeyAudioPlayer({ release, className }: BroeyAudioPlayerProps) 
   };
 
   return (
-    <div className={["broey-audio-player", className].filter(Boolean).join(" ")}>
+    <div
+      className={["broey-audio-player", className].filter(Boolean).join(" ")}
+      style={accentStyle}
+    >
       <audio
         ref={audioRef}
         src={track.src}
@@ -303,7 +308,7 @@ export function BroeyAudioPlayer({ release, className }: BroeyAudioPlayerProps) 
             aria-label={`Seek through ${title}`}
             onChange={(event) => seekTo(event.currentTarget.value)}
             style={{
-              background: `linear-gradient(90deg, var(--color-cyan) ${progress}%, rgba(240, 236, 225, 0.18) ${progress}%)`,
+              background: `linear-gradient(90deg, var(--player-accent) ${progress}%, rgba(240, 236, 225, 0.18) ${progress}%)`,
             }}
           />
         </label>

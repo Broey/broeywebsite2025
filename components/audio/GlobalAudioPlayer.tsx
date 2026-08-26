@@ -2,31 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { useAudioPlayer } from "@/components/audio/useAudioPlayer";
-
-type PlayerAccentStyle = CSSProperties & Record<`--player-${string}`, string>;
-
-const DEFAULT_PLAYER_ACCENT = "#f0b64d";
-
-const normalizeHexColor = (color?: string) => {
-  if (!color) {
-    return DEFAULT_PLAYER_ACCENT;
-  }
-
-  const normalized = color.trim();
-
-  if (/^#[0-9a-f]{6}$/i.test(normalized)) {
-    return normalized;
-  }
-
-  return DEFAULT_PLAYER_ACCENT;
-};
-
-const accentChannel = (hex: string, start: number) => Number.parseInt(hex.slice(start, start + 2), 16);
-
-const alphaColor = (hex: string, alpha: number) =>
-  `rgba(${accentChannel(hex, 1)}, ${accentChannel(hex, 3)}, ${accentChannel(hex, 5)}, ${alpha})`;
+import { playerAccentStyle } from "@/lib/player-accent";
 
 const formatTime = (seconds: number) => {
   if (!Number.isFinite(seconds) || seconds <= 0) {
@@ -77,14 +54,7 @@ export function GlobalAudioPlayer() {
   const resolvedDuration = hasMetadata ? duration : duration || fallbackDuration;
   const progress = resolvedDuration > 0 ? Math.min((currentTime / resolvedDuration) * 100, 100) : 0;
   const activeVolume = isMuted ? 0 : volume;
-  const playerAccent = normalizeHexColor(currentTrack.playerAccent ?? currentQueue?.playerAccent);
-  const playerAccentStyle: PlayerAccentStyle = {
-    "--player-accent": playerAccent,
-    "--player-accent-soft": alphaColor(playerAccent, 0.08),
-    "--player-accent-border": alphaColor(playerAccent, 0.44),
-    "--player-accent-glow": alphaColor(playerAccent, 0.12),
-    "--player-accent-strong-glow": alphaColor(playerAccent, 0.2),
-  };
+  const accentStyle = playerAccentStyle(currentTrack.playerAccent, currentQueue?.playerAccent);
   const status = hasError
     ? "Audio unavailable"
     : isLoading
@@ -126,7 +96,7 @@ export function GlobalAudioPlayer() {
     <aside
       className="global-audio-player"
       aria-label="Site audio player"
-      style={playerAccentStyle}
+      style={accentStyle}
     >
       <div className="global-audio-player__inner">
         {currentTrack.releaseUrl ? (
