@@ -8,7 +8,21 @@ export type AnalyticsSourceSurface =
   | "press"
   | "about"
   | "contact_page"
+  | "join"
   | "footer";
+
+type CampaignAttributionProperties = {
+  page_path: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+};
+
+type NewsletterLifecycleProperties = CampaignAttributionProperties & {
+  source_surface: AnalyticsSourceSurface;
+};
 
 type AudioEventProperties = {
   release_slug?: string;
@@ -43,6 +57,15 @@ export type AnalyticsEventMap = {
     source_surface: AnalyticsSourceSurface;
     page_path: string;
   };
+  join_page_view: NewsletterLifecycleProperties;
+  newsletter_signup_submit: NewsletterLifecycleProperties;
+  newsletter_signup_success: NewsletterLifecycleProperties;
+  newsletter_signup_error: NewsletterLifecycleProperties & {
+    error_type: string;
+  };
+  newsletter_signup_followup_click: NewsletterLifecycleProperties & {
+    destination: string;
+  };
   contact_submit: {
     source_surface: AnalyticsSourceSurface;
     page_path: string;
@@ -59,6 +82,23 @@ export type AnalyticsEventMap = {
 };
 
 export type AnalyticsEventName = keyof AnalyticsEventMap;
+
+export function newsletterAnalyticsProperties(
+  sourceSurface: AnalyticsSourceSurface,
+): NewsletterLifecycleProperties {
+  const searchParams = new URLSearchParams(window.location.search);
+  const campaignProperties = Object.fromEntries(
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
+      .map((key) => [key, searchParams.get(key)?.trim()] as const)
+      .filter((entry): entry is readonly [string, string] => Boolean(entry[1])),
+  );
+
+  return {
+    source_surface: sourceSurface,
+    page_path: window.location.pathname,
+    ...campaignProperties,
+  };
+}
 
 export function isAnalyticsConversionSuccess(
   responseOk: boolean,

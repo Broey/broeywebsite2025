@@ -12,6 +12,7 @@ export type PageMetadataDefinition = {
   image?: SocialImageDefinition;
   absoluteTitle?: boolean;
   indexable?: boolean;
+  followWhenNoIndex?: boolean;
 };
 
 const latestReleaseImage: SocialImageDefinition = {
@@ -87,5 +88,14 @@ export const staticPageMetadata = {
     path: "/privacy",
   },
 } as const satisfies Record<string, PageMetadataDefinition>;
+
+export const joinPageMetadata = {
+  title: "Join the List",
+  description:
+    "Join the Broey. mailing list for new music, release updates, and occasional stories behind the records.",
+  path: "/join",
+  indexable: false,
+  followWhenNoIndex: true,
+} as const satisfies PageMetadataDefinition;
 
 export const staticSitemapRoutes = Object.values(staticPageMetadata).map(({ path }) => path);

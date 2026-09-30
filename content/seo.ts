@@ -18,6 +18,7 @@ export function createPageMetadata({
   image,
   absoluteTitle = false,
   indexable = true,
+  followWhenNoIndex = false,
 }: PageMetadataDefinition): Metadata {
   const resolvedCanonicalPath = canonicalPath(path.startsWith("/") ? path : `/${path}`);
   const canonicalUrl = absoluteUrl(resolvedCanonicalPath);
@@ -33,7 +34,7 @@ export function createPageMetadata({
     description,
     robots: indexable
       ? privateRobotsMetadata()
-      : { index: false, follow: false },
+      : { index: false, follow: followWhenNoIndex },
     alternates: {
       canonical: canonicalUrl,
     },

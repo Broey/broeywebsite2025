@@ -9,6 +9,7 @@ import {
 import { rateLimitMessage } from "@/lib/form-client";
 import {
   isAnalyticsConversionSuccess,
+  newsletterAnalyticsProperties,
   trackEvent,
   type AnalyticsSourceSurface,
 } from "@/lib/analytics";
@@ -36,10 +37,13 @@ type EmailSignupProps = {
   buttonLabel?: string;
   finePrint?: string;
   secondaryActions?: EmailSignupAction[];
+  successActions?: EmailSignupAction[];
   action?: string;
   emailFieldName?: string;
   hiddenFields?: Record<string, string>;
   sourceSurface?: AnalyticsSourceSurface;
+  headingAs?: "h1" | "h2";
+  trackLifecycleEvents?: boolean;
 };
 
 const defaultCopy: Record<
@@ -77,10 +81,13 @@ export function EmailSignup({
   buttonLabel,
   finePrint,
   secondaryActions = [],
+  successActions = [],
   action,
   emailFieldName = "email",
   hiddenFields = {},
   sourceSurface = variant === "footer" ? "footer" : "home",
+  headingAs: Heading = "h2",
+  trackLifecycleEvents = false,
 }: EmailSignupProps) {
   const copy = defaultCopy[variant];
   const reactId = useId().replace(/:/g, "");
@@ -94,9 +101,41 @@ export function EmailSignup({
   const [turnstileActive, setTurnstileActive] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const submissionLockRef = useRef(false);
+
+  const trackLifecycle = (
+    eventName:
+      | "newsletter_signup_submit"
+      | "newsletter_signup_success"
+      | "newsletter_signup_error",
+    errorType?: string,
+  ) => {
+    if (!trackLifecycleEvents) {
+      return;
+    }
+
+    const properties = newsletterAnalyticsProperties(sourceSurface);
+
+    if (eventName === "newsletter_signup_error") {
+      trackEvent(eventName, {
+        ...properties,
+        error_type: errorType ?? "unknown",
+      });
+      return;
+    }
+
+    trackEvent(eventName, properties);
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (submissionLockRef.current) {
+      return;
+    }
+
+    submissionLockRef.current = true;
+    trackLifecycle("newsletter_signup_submit");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -107,6 +146,8 @@ export function EmailSignup({
         tone: "error",
         message: "Enter an email address before joining the list.",
       });
+      trackLifecycle("newsletter_signup_error", "missing_email");
+      submissionLockRef.current = false;
       return;
     }
 
@@ -116,6 +157,8 @@ export function EmailSignup({
         tone: "error",
         message: "Complete the verification before joining the list.",
       });
+      trackLifecycle("newsletter_signup_error", "verification_required");
+      submissionLockRef.current = false;
       return;
     }
 
@@ -162,6 +205,9 @@ export function EmailSignup({
           source_surface: sourceSurface,
           page_path: window.location.pathname,
         });
+        trackLifecycle("newsletter_signup_success");
+      } else {
+        trackLifecycle("newsletter_signup_error", `http_${response.status}`);
       }
 
       if (response.ok && payload?.ok !== false) {
@@ -172,9 +218,11 @@ export function EmailSignup({
         tone: "error",
         message: "Mailing list signup could not be reached. Please try again in a bit.",
       });
+      trackLifecycle("newsletter_signup_error", "network");
     } finally {
       turnstileRef.current?.reset();
       setIsSubmitting(false);
+      submissionLockRef.current = false;
     }
   };
 
@@ -188,9 +236,9 @@ export function EmailSignup({
     >
       <div className="email-signup-copy">
         <p className="release-detail-section-kicker">{eyebrow ?? copy.eyebrow}</p>
-        <h2 id={headingId} className="email-signup-heading">
+        <Heading id={headingId} className="email-signup-heading">
           {heading ?? copy.heading}
-        </h2>
+        </Heading>
         <p className="email-signup-body">{body ?? copy.body}</p>
       </div>
 
@@ -251,6 +299,27 @@ export function EmailSignup({
           >
             {status.message}
           </p>
+        ) : null}
+        {status?.tone === "success" && successActions.length ? (
+          <div className="email-signup-action-row email-signup-success-action-row">
+            {successActions.map((item) => (
+              <Link
+                key={`${item.href}-${item.label}`}
+                href={item.href}
+                className="email-signup-secondary-action email-signup-success-action"
+                onClick={() => {
+                  if (trackLifecycleEvents) {
+                    trackEvent("newsletter_signup_followup_click", {
+                      ...newsletterAnalyticsProperties(sourceSurface),
+                      destination: item.href,
+                    });
+                  }
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         ) : null}
         {secondaryActions.length ? (
           <div className="email-signup-action-row">
