@@ -238,16 +238,16 @@ export function EmailSignup({
       aria-labelledby={isComplete ? undefined : headingId}
     >
       {isComplete ? (
-        <div className="email-signup-complete">
-          <p
-            id={statusId}
-            className="email-signup-status email-signup-complete-message"
-            data-tone="success"
-            role="status"
-            aria-live="polite"
-          >
-            {status.message}
+        <div
+          id={statusId}
+          className="email-signup-complete"
+          role="status"
+          aria-live="polite"
+        >
+          <p className="release-detail-section-kicker email-signup-complete-kicker">
+            SIGNUP COMPLETE
           </p>
+          <p className="email-signup-complete-message">{status.message}</p>
           <div className="email-signup-action-row email-signup-success-action-row">
             {successActions.map((item) => (
               <Link

@@ -6578,15 +6578,24 @@ a.about-pillar-card:hover {
   display: grid;
   width: min(100%, 32rem);
   justify-items: center;
-  gap: 1.15rem;
+  gap: 0.85rem;
   text-align: center;
 }
 
+.email-signup-complete-kicker {
+  color: var(--color-amber);
+}
+
 .email-signup-complete-message {
+  max-width: 25ch;
   margin: 0;
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(1.25rem, 3vw, 1.7rem);
-  line-height: 1.3;
+  color: var(--color-text);
+  font-family: var(--font-editorial);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-weight: 540;
+  letter-spacing: -0.018em;
+  line-height: 1.22;
+  text-wrap: balance;
 }
 
 .email-signup--join .email-signup-input,
@@ -6596,7 +6605,7 @@ a.about-pillar-card:hover {
 
 .email-signup--join .email-signup-success-action-row {
   justify-content: center;
-  margin-top: 0.15rem;
+  margin-top: 0.35rem;
 }
 
 .email-signup--join .email-signup-success-action {
