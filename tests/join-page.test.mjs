@@ -37,6 +37,10 @@ test("join page reuses the production signup route and tracks its requested life
   assert.match(pageSource, /trackLifecycleEvents/);
   assert.match(signupSource, /action \?\? "\/api\/newsletter"/);
   assert.match(signupSource, /submissionLockRef/);
+  assert.match(signupSource, /const isComplete = status\?\.tone === "success"/);
+  assert.match(signupSource, /data-state=\{isComplete \? "complete" : "ready"\}/);
+  assert.match(signupSource, /className="email-signup-complete"/);
+  assert.match(signupSource, /isComplete \? \(/);
   assert.match(analyticsSource, /join_page_view/);
   assert.match(analyticsSource, /newsletter_signup_submit/);
   assert.match(analyticsSource, /newsletter_signup_success/);

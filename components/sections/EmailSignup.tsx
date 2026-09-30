@@ -102,6 +102,7 @@ export function EmailSignup({
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
   const submissionLockRef = useRef(false);
+  const isComplete = status?.tone === "success" && successActions.length > 0;
 
   const trackLifecycle = (
     eventName:
@@ -232,24 +233,59 @@ export function EmailSignup({
       className={["email-signup", `email-signup--${variant}`, className]
         .filter(Boolean)
         .join(" ")}
-      aria-labelledby={headingId}
+      data-state={isComplete ? "complete" : "ready"}
+      aria-label={isComplete ? "Mailing list signup complete" : undefined}
+      aria-labelledby={isComplete ? undefined : headingId}
     >
-      <div className="email-signup-copy">
-        <p className="release-detail-section-kicker">{eyebrow ?? copy.eyebrow}</p>
-        <Heading id={headingId} className="email-signup-heading">
-          {heading ?? copy.heading}
-        </Heading>
-        <p className="email-signup-body">{body ?? copy.body}</p>
-      </div>
+      {isComplete ? (
+        <div className="email-signup-complete">
+          <p
+            id={statusId}
+            className="email-signup-status email-signup-complete-message"
+            data-tone="success"
+            role="status"
+            aria-live="polite"
+          >
+            {status.message}
+          </p>
+          <div className="email-signup-action-row email-signup-success-action-row">
+            {successActions.map((item) => (
+              <Link
+                key={`${item.href}-${item.label}`}
+                href={item.href}
+                className="email-signup-secondary-action email-signup-success-action"
+                onClick={() => {
+                  if (trackLifecycleEvents) {
+                    trackEvent("newsletter_signup_followup_click", {
+                      ...newsletterAnalyticsProperties(sourceSurface),
+                      destination: item.href,
+                    });
+                  }
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="email-signup-copy">
+            <p className="release-detail-section-kicker">{eyebrow ?? copy.eyebrow}</p>
+            <Heading id={headingId} className="email-signup-heading">
+              {heading ?? copy.heading}
+            </Heading>
+            <p className="email-signup-body">{body ?? copy.body}</p>
+          </div>
 
-      <form
-        className="email-signup-form"
-        action={endpoint}
-        method="post"
-        onFocusCapture={() => setTurnstileActive(true)}
-        onChange={() => setTurnstileActive(true)}
-        onSubmit={handleSubmit}
-      >
+          <form
+            className="email-signup-form"
+            action={endpoint}
+            method="post"
+            onFocusCapture={() => setTurnstileActive(true)}
+            onChange={() => setTurnstileActive(true)}
+            onSubmit={handleSubmit}
+          >
         {Object.entries(hiddenFields).map(([name, value]) => (
           <input key={name} type="hidden" name={name} value={value} />
         ))}
@@ -300,27 +336,6 @@ export function EmailSignup({
             {status.message}
           </p>
         ) : null}
-        {status?.tone === "success" && successActions.length ? (
-          <div className="email-signup-action-row email-signup-success-action-row">
-            {successActions.map((item) => (
-              <Link
-                key={`${item.href}-${item.label}`}
-                href={item.href}
-                className="email-signup-secondary-action email-signup-success-action"
-                onClick={() => {
-                  if (trackLifecycleEvents) {
-                    trackEvent("newsletter_signup_followup_click", {
-                      ...newsletterAnalyticsProperties(sourceSurface),
-                      destination: item.href,
-                    });
-                  }
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        ) : null}
         {secondaryActions.length ? (
           <div className="email-signup-action-row">
             {secondaryActions.map((item) => (
@@ -334,7 +349,9 @@ export function EmailSignup({
             ))}
           </div>
         ) : null}
-      </form>
+          </form>
+        </>
+      )}
     </section>
   );
 }
