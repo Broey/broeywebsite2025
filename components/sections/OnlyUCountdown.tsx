@@ -39,7 +39,7 @@ export function OnlyUCountdownBanner() {
       </span>
       <a href={campaignUrl(onlyUCampaign.presaveUrl, "release_banner")} target="_blank" rel="noopener noreferrer"
         className="release-countdown-cta" onClick={() => trackOnlyUPresave("release_banner")}>
-        Presave {onlyUCampaign.title} <span aria-hidden="true">↗</span>
+        Presave {onlyUCampaign.title}
       </a>
     </aside>
   );

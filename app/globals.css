@@ -7589,6 +7589,14 @@ main:has(.join-page) + .site-footer .site-footer-grid {
     height: 0;
   }
 
+  .music-release-card-body {
+    flex: 1;
+  }
+
+  .music-release-card-panel {
+    flex: 1;
+  }
+
   .music-release-carousel-stage .music-release-card,
   .music-release-carousel-stage[data-native-scroll="true"] .music-release-card {
     position: relative;
