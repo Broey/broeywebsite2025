@@ -567,7 +567,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
     dateConfidence: "source-backed",
     description: "OnlyU, a drum and bass single by Just A Gent and Broey.",
     tags: ["Electronic", "Drum & Bass", "Collaboration"],
-    coverImage: "/assets/cover-art/only-u.webp",
+    coverImage: "/assets/cover-art/only-u-spotify.jpg",
     coverAlt: "OnlyU by Just A Gent and Broey. cover art",
     playerAccent: "#a5a9ae",
     audio: localAudio(onlyUCampaign.title, "/api/release-audio/only-u", "3:19", onlyUCampaign.artist),
