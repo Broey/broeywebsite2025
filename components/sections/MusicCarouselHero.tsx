@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/ReleaseCarouselTile";
 import { shouldUseFallbackArtwork } from "@/components/ui/ReleaseArtwork";
 import { releases, type ReleaseEntry } from "@/content/releases";
+import { isOnlyUReleased } from "@/content/only-u-campaign";
 
 const buildCarouselOrder = (releaseList: ReleaseEntry[]) => {
   const orderedReleases = releaseList
@@ -15,16 +16,18 @@ const buildCarouselOrder = (releaseList: ReleaseEntry[]) => {
 
   return {
     orderedReleases,
-    initialIndex: featuredIndex >= 0 ? featuredIndex : 0,
+    initialIndex: orderedReleases[0]?.availableAt ? 0 : featuredIndex >= 0 ? featuredIndex : 0,
   };
 };
 
 const prepareCarouselRelease = (release: ReleaseEntry): CarouselRelease => ({
   title: release.title,
+  artistName: release.artistName,
   slug: release.slug,
   type: release.type,
   year: release.year,
   releaseDate: release.releaseDate,
+  availableAt: release.availableAt,
   coverImage: shouldUseFallbackArtwork(release.coverImage) ? undefined : release.coverImage,
   coverAlt: release.coverAlt,
   artworkPresentation: release.artworkPresentation,
@@ -56,6 +59,7 @@ export function MusicCarouselHero() {
         <ReleaseCarousel
           labelledBy={carouselTitleId}
           initialIndex={initialIndex}
+          autoAdvance={isOnlyUReleased()}
           releaseCount={carouselItems.length}
           initialTitle={featured?.title ?? "Release"}
           releaseTitles={carouselItems.map((item) => item.release.title)}

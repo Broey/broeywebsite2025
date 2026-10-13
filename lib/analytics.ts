@@ -1,5 +1,8 @@
+import { onlyUCampaign } from "../content/only-u-campaign.ts";
+
 export type AnalyticsSourceSurface =
   | "home"
+  | "release_banner"
   | "music_catalog"
   | "release_page"
   | "recommendations"
@@ -33,6 +36,11 @@ type AudioEventProperties = {
 };
 
 export type AnalyticsEventMap = {
+  presave_click: CampaignAttributionProperties & {
+    release_slug: string;
+    source_surface: AnalyticsSourceSurface;
+    destination_type: "presave";
+  };
   audio_play: AudioEventProperties;
   audio_25_percent: AudioEventProperties;
   audio_50_percent: AudioEventProperties;
@@ -83,6 +91,31 @@ export type AnalyticsEventMap = {
 
 export type AnalyticsEventName = keyof AnalyticsEventMap;
 
+const campaignAttributionKey = "broey-campaign-attribution";
+const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
+
+export function rememberCampaignAttribution() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const values = Object.fromEntries(utmKeys.map(key => [key, params.get(key)?.trim()])
+      .filter(([, value]) => Boolean(value)));
+    if (Object.keys(values).length) {
+      window.sessionStorage.setItem(campaignAttributionKey, JSON.stringify(values));
+    }
+  } catch { /* Tracking remains optional when storage is unavailable. */ }
+}
+
+export function campaignAnalyticsProperties() {
+  rememberCampaignAttribution();
+  let stored: Record<string, string> = {};
+  try {
+    const value = JSON.parse(window.sessionStorage.getItem(campaignAttributionKey) ?? "{}");
+    stored = Object.fromEntries(utmKeys.filter(key => typeof value?.[key] === "string")
+      .map(key => [key, value[key]]));
+  } catch { /* Do not let analytics affect navigation or playback. */ }
+  return { page_path: window.location.pathname, campaign: onlyUCampaign.campaign, ...stored };
+}
+
 export function newsletterAnalyticsProperties(
   sourceSurface: AnalyticsSourceSurface,
 ): NewsletterLifecycleProperties {
@@ -127,7 +160,11 @@ export function trackEvent<Name extends AnalyticsEventName>(
     }
 
     const factualProperties = Object.fromEntries(
-      Object.entries(properties).filter(([, value]) =>
+      Object.entries({
+        ...("release_slug" in properties && properties.release_slug === onlyUCampaign.slug
+          ? campaignAnalyticsProperties() : {}),
+        ...properties,
+      }).filter(([, value]) =>
         typeof value === "number" || typeof value === "boolean" ||
         (typeof value === "string" && value.length > 0),
       ),

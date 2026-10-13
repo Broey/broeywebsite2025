@@ -18,6 +18,7 @@ type ReleaseCarouselProps = {
   releaseCount: number;
   initialTitle: string;
   releaseTitles: string[];
+  autoAdvance?: boolean;
 };
 
 type CarouselChildProps = {
@@ -134,6 +135,7 @@ export function ReleaseCarousel({
   releaseCount,
   initialTitle,
   releaseTitles,
+  autoAdvance = true,
 }: ReleaseCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const activePositionRef = useRef(initialIndex);
@@ -623,6 +625,7 @@ export function ReleaseCarousel({
     clearAutoplayTimer();
 
     if (
+      !autoAdvance ||
       prefersReducedMotion.current ||
       usesNativeScroll ||
       isDragging ||
@@ -646,6 +649,7 @@ export function ReleaseCarousel({
     return clearAutoplayTimer;
   }, [
     activeIndex,
+    autoAdvance,
     animateToPosition,
     clearAutoplayTimer,
     isDragging,

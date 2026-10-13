@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+export const dynamic = "force-dynamic";
 import { TrackedReleaseLink } from "@/components/analytics/TrackedLinks";
 import { ReleasePlayButton } from "@/components/audio/ReleasePlayButton";
 import {

@@ -5,6 +5,7 @@ import {
   type GeneratedTrackRegistry,
 } from "./musicRegistry.generated.ts";
 import { resolvePlayerAccent, withPlayerAccentQuery } from "../lib/player-accent.ts";
+import { onlyUCampaign } from "./only-u-campaign.ts";
 
 export type ReleaseType = "single" | "ep" | "remix" | "mix" | "set";
 
@@ -149,6 +150,7 @@ export type ReleaseEntry = {
   verificationStatus?: ReleaseVerificationStatus;
   year?: number;
   releaseDate?: string;
+  availableAt?: string;
   displayDate?: string;
   originalReleaseDate?: string;
   dspReleaseDate?: string;
@@ -550,6 +552,52 @@ const applyReleasePlayerAccents = (releaseList: ReleaseEntry[]) => {
 
 export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
   (([
+  {
+    title: onlyUCampaign.title,
+    slug: onlyUCampaign.slug,
+    type: "single",
+    visibility: "public",
+    availableAt: onlyUCampaign.releaseAt,
+    releaseDate: onlyUCampaign.releaseDate,
+    year: 2026,
+    artistName: onlyUCampaign.artist,
+    metadataStatus: "source-backed",
+    verificationStatus: "source-backed",
+    dateSource: "Artist confirmed October 15, 2026 at midnight Eastern",
+    dateConfidence: "source-backed",
+    description: "OnlyU, a drum and bass single by Just A Gent and Broey.",
+    tags: ["Electronic", "Drum & Bass", "Collaboration"],
+    coverImage: "/assets/cover-art/only-u.webp",
+    coverAlt: "OnlyU by Just A Gent and Broey. cover art",
+    playerAccent: "#a5a9ae",
+    audio: localAudio(onlyUCampaign.title, "/api/release-audio/only-u", "3:19", onlyUCampaign.artist),
+    credits: [
+      { role: "Primary artist", name: "Just A Gent", publishApproved: true },
+      { role: "Primary artist", name: "Broey.", publishApproved: true },
+      { role: "Composer", name: "Jacob Grant", publishApproved: true },
+      { role: "Composer", name: "Joseph Montaro", publishApproved: true },
+    ],
+    details: [
+      { label: "Label", value: onlyUCampaign.label },
+      { label: "UPC", value: onlyUCampaign.upc },
+      { label: "ISRC", value: onlyUCampaign.isrc },
+      { label: "Catalogue number", value: onlyUCampaign.catalogNumber },
+      { label: "Copyright", value: "2026 Just A Gent" },
+      { label: "Phonographic copyright", value: "2026 Just A Gent" },
+      { label: "Duration", value: onlyUCampaign.duration },
+      { label: "Explicit lyrics", value: "No" },
+    ],
+    links: onlyUCampaign.stores.map((store) => ({
+      ...store, label: store.platform, kind: "streaming" as const,
+      primary: store.platform === "Spotify", confidence: "source-backed" as const,
+      source: "Distributor details supplied by artist, 2026-10-12",
+    })),
+    tracklist: [{ title: onlyUCampaign.title, artist: onlyUCampaign.artist, duration: "3:19" }],
+    catalogStatus: "manual",
+    carouselEnabled: true,
+    carouselPriority: -1,
+    excludeFromRecommendations: true,
+  },
   {
     title: "LiNK",
     slug: "link",

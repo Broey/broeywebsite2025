@@ -8068,3 +8068,25 @@ main:has(.join-page) + .site-footer .site-footer-grid {
   }
 }
 
+.release-countdown-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .65rem 1.5rem;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid rgba(211,169,91,.3);
+  background: #181711;
+  color: var(--color-text);
+  font-size: .8rem;
+}
+.release-countdown-copy { display: flex; flex-wrap: wrap; gap: .35rem .75rem; }
+.release-countdown-copy strong { color: var(--color-amber); }
+.release-countdown-clock { font-variant-numeric: tabular-nums; }
+.release-countdown-cta { border: 1px solid var(--color-amber); border-radius: 999px; padding: .35rem .8rem; }
+.release-countdown-cta:hover { background: var(--color-amber); color: #111; }
+.release-countdown-cta:focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 3px; }
+@media (max-width: 540px) {
+  .release-countdown-banner { justify-content: space-between; gap: .55rem; }
+  .release-countdown-copy { width: 100%; justify-content: center; }
+}

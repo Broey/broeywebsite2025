@@ -2,6 +2,7 @@
 
 import type { ExternalLinkKind } from "@/content/releases";
 import { trackEvent, type AnalyticsSourceSurface } from "@/lib/analytics";
+import { campaignUrl, onlyUCampaign } from "@/content/only-u-campaign";
 
 type ExternalServiceButtonProps = {
   label: string;
@@ -58,7 +59,9 @@ export function ExternalServiceButton({
 
   return (
     <a
-      href={url}
+      href={url && analytics?.releaseSlug === onlyUCampaign.slug
+        ? campaignUrl(url, `${analytics.sourceSurface}_${platform.toLowerCase().replace(/\s+/g, "_")}`)
+        : url}
       target="_blank"
       rel="noopener noreferrer"
       className={`${base} ${active} ${className}`}

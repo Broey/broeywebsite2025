@@ -24,6 +24,7 @@ export const sortReleasesNewestFirst = <T extends ReleaseEntry>(releaseList: T[]
 export const isPublishedRelease = (release: ReleaseEntry) =>
   Boolean(
     release.slug.trim() &&
+      (!release.availableAt || Date.now() >= Date.parse(release.availableAt)) &&
       release.visibility !== "draft" &&
       release.catalogStatus !== "draft" &&
       release.indexing !== "noindex" &&

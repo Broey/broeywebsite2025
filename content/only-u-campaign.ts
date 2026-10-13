@@ -1,0 +1,45 @@
+// Distributor details supplied by the artist on October 12, 2026.
+// Midnight Eastern confirmed by the artist on October 12, 2026.
+export const onlyUCampaign = {
+  slug: "only-u",
+  title: "OnlyU",
+  artist: "Just A Gent, Broey.",
+  releaseAt: "2026-10-15T00:00:00-04:00",
+  releaseDate: "2026-10-15",
+  presaveUrl: "https://bfan.link/onlyustores",
+  campaign: "only_u_2026_10_15",
+  duration: "3:18.947",
+  label: "Just A Gent",
+  upc: "3618114985136",
+  isrc: "FR-X45-26-45232",
+  catalogNumber: "BL1392272",
+  spotifyTrackUri: "spotify:track:1sAyb06cJiHKPm18gc2fWN",
+  // Preserve the supplied store URLs; availability has not been independently verified.
+  stores: [
+    { platform: "Spotify", url: "https://open.spotify.com/album/3ZMHIWgHbaboU9PlbvgUcf" },
+    { platform: "Apple Music", url: "https://music.apple.com/song/6807108702" },
+    { platform: "iTunes", url: "https://geo.itunes.apple.com/au/album/id6807108697?at=1l3v9Tx&app=itunes" },
+    { platform: "VK Music", url: "https://music.vk.com/link/s2lEy" },
+  ],
+} as const;
+
+export function isOnlyUReleased(now = Date.now()) {
+  return now >= Date.parse(onlyUCampaign.releaseAt);
+}
+
+export function campaignUrl(url: string, surface: string) {
+  const destination = new URL(url);
+  destination.searchParams.set("utm_source", "broey.net");
+  destination.searchParams.set("utm_medium", "website");
+  destination.searchParams.set("utm_campaign", onlyUCampaign.campaign);
+  destination.searchParams.set("utm_content", surface);
+  return destination.toString();
+}
+
+export function onlyUCountdown(now: number) {
+  const seconds = Math.max(0, Math.ceil((Date.parse(onlyUCampaign.releaseAt) - now) / 1000));
+  const days = Math.floor(seconds / 86400);
+  const hours = Math.floor((seconds % 86400) / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  return `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds % 60).padStart(2, "0")}s`;
+}

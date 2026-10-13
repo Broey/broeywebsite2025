@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingIncludes: {
+    "/api/release-audio/only-u": ["./assets/releases/only-u.mp3.enc"],
+  },
   reactStrictMode: true,
   turbopack: {
     root: __dirname,

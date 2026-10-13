@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+export const dynamic = "force-dynamic";
 import { HomepageMusicArchiveSection } from "@/components/sections/HomepageMusicArchiveSection";
 import { MusicCarouselHero } from "@/components/sections/MusicCarouselHero";
 import { PressMentionsPreview } from "@/components/sections/PressMentionsPreview";

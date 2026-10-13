@@ -86,7 +86,8 @@ const singlesQueueAudioQueue = (release: ReleaseEntry): GlobalAudioQueue | undef
 };
 
 const highlightedPlayableReleases = (releaseList: ReleaseEntry[]) =>
-  releaseList.filter((release) => release.carouselEnabled && isSinglesQueueAudioRelease(release));
+  releaseList.filter((release) => release.carouselEnabled && isSinglesQueueAudioRelease(release) &&
+    (!release.availableAt || Date.now() >= Date.parse(release.availableAt)));
 
 const archivePlayableReleases = (releaseList: ReleaseEntry[]) =>
   sortReleasesNewestFirst(archiveReleases(releaseList)).filter(isSinglesQueueAudioRelease);

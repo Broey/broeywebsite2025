@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+export const dynamic = "force-dynamic";
 import { releaseDetailHref } from "@/content/release-actions";
 import { showReleaseInSitemap } from "@/content/release-filters";
 import { releases } from "@/content/releases";

@@ -21,8 +21,9 @@ const {
 const indexableReleases = releases.filter(showReleaseInSitemap);
 const comparableTitle = (title) => title.toLowerCase().replace(/[.!]/g, "").trim();
 
-test("all 17 indexable catalog entries retain the factual data needed by music-first pages", () => {
-  assert.equal(indexableReleases.length, 17);
+test("indexable catalog entries retain the factual data needed by music-first pages", () => {
+  const scheduledEntries = indexableReleases.filter(release => release.availableAt);
+  assert.equal(indexableReleases.length, 17 + scheduledEntries.length);
 
   for (const release of indexableReleases) {
     assert.ok(release.title.trim(), `${release.slug} needs a title`);

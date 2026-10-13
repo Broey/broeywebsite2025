@@ -10,14 +10,18 @@ import type { ReleaseEntry, ReleaseType } from "@/content/releases";
 import type { CSSProperties, ReactNode } from "react";
 import type { CarouselMetrics, CarouselPointer } from "@/components/ui/ReleaseCarousel";
 import { trackEvent } from "@/lib/analytics";
+import { trackOnlyUPresave, useOnlyUReleased } from "@/components/sections/OnlyUCountdown";
+import { campaignUrl, onlyUCampaign } from "@/content/only-u-campaign";
 
 export type CarouselRelease = Pick<
   ReleaseEntry,
   | "title"
+  | "artistName"
   | "slug"
   | "type"
   | "year"
   | "releaseDate"
+  | "availableAt"
   | "coverImage"
   | "coverAlt"
   | "artworkPresentation"
@@ -277,23 +281,33 @@ export function ReleaseCarouselTile({
   suppressCardClick,
 }: ReleaseCarouselTileProps) {
   const router = useRouter();
+  const isCampaign = release.slug === onlyUCampaign.slug;
+  const { released } = useOnlyUReleased(isCampaign);
+  const isUpcoming = isCampaign && !released;
   const safeReleaseCount = Math.max(releaseCount, 1);
   const offset = circularOffset(index, displayPosition, safeReleaseCount);
   const distance = Math.abs(offset);
   const isActive = activeIndex === index;
   const releaseTypeDisplay = release.releaseTypeDisplay ?? releaseTypeLabel[release.type];
   const meta = [releaseTypeDisplay, releaseDateLabel(release)].filter(Boolean).join(" / ");
-  const detailHref = releaseDetailHref(release);
-  const audioQueue = contextualAudioQueue;
+  const detailHref = isUpcoming
+    ? campaignUrl(onlyUCampaign.presaveUrl, "home_tile")
+    : releaseDetailHref(release);
+  const audioQueue = isUpcoming ? undefined : contextualAudioQueue;
   const side = distance < 0.001 ? "center" : offset < 0 ? "left" : "right";
-  const isCurrent = Boolean(release.featured);
+  const isCurrent = isCampaign || Boolean(release.featured);
   const currentReleaseBadge =
-    release.title.length <= 12 ? `${release.title} out now` : "Out now";
+    isUpcoming ? "Out October 15" : release.title.length <= 12 ? `${release.title} out now` : "Out now";
   const visualState = visualStateForOffset(offset, metrics, pointer, motionEnergy);
   const accentColor = isCurrent ? [211, 169, 91] : [63, 177, 217];
   const focusWeight = visualState.focusWeight;
   const selectCard = () => {
     if (isActive) {
+      if (isUpcoming) {
+        trackOnlyUPresave("home");
+        window.location.assign(detailHref);
+        return;
+      }
       trackEvent("release_open", {
         release_slug: release.slug,
         source_surface: "home",
@@ -391,15 +405,20 @@ export function ReleaseCarouselTile({
           <h2 className="site-heading break-words text-3xl font-semibold leading-[0.98] text-white sm:text-4xl">
             {release.title}
           </h2>
+          {isCampaign ? <p className="text-sm text-[var(--color-muted)]">{release.artistName}</p> : null}
           <div className="music-release-action-row">
             <Link
               href={detailHref}
-              aria-label={`View ${release.title} release page`}
+              aria-label={isUpcoming ? `Presave ${release.title}` : `View ${release.title} release page`}
               className="music-release-view-cta"
               tabIndex={isActive ? 0 : -1}
               onClick={(event) => {
                 if (isActive) {
                   event.stopPropagation();
+                  if (isUpcoming) {
+                    trackOnlyUPresave("home");
+                    return;
+                  }
                   trackEvent("release_open", {
                     release_slug: release.slug,
                     source_surface: "home",
@@ -411,7 +430,7 @@ export function ReleaseCarouselTile({
                 onSelect?.(index);
               }}
             >
-              Open {release.title} <span aria-hidden="true">&rarr;</span>
+              {isUpcoming ? "Presave" : "Open"} {release.title} <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { CSSProperties } from "react";
 import { ReleasePlayButton } from "@/components/audio/ReleasePlayButton";
 import {
@@ -46,6 +46,7 @@ import {
 import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } from "@/content/releases";
 import { shouldUseFallbackArtwork } from "@/lib/release-artwork";
 import { absoluteUrl } from "@/lib/site-origin";
+import { campaignUrl, isOnlyUReleased, onlyUCampaign } from "@/content/only-u-campaign";
 
 type PageProps = {
   params: Promise<{
@@ -55,9 +56,8 @@ type PageProps = {
 
 type ReleaseCtaAccentStyle = CSSProperties & Partial<Record<"--release-cta-accent", string>>;
 
-// Preserve static generation while allowing the UTC-date discovery seed to
-// advance on a cache-safe interval after deployment.
-export const revalidate = 86_400;
+// Evaluate scheduled release availability on each request, including at launch.
+export const dynamic = "force-dynamic";
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
   single: "Single",
@@ -758,6 +758,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: "Release Not Found",
       description: "The requested Broey. release could not be found.",
       path: `/music/${slug}`,
+      indexable: false,
     });
   }
 
@@ -773,6 +774,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ReleaseDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  if (slug === onlyUCampaign.slug && !isOnlyUReleased()) {
+    redirect(campaignUrl(onlyUCampaign.presaveUrl, "release_route"));
+  }
   const release = releaseBySlug(slug);
 
   if (!release) {
