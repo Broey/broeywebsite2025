@@ -1,0 +1,165 @@
+{
+  "source": "https://openapi.tidal.com/v2/tracks?filter%5Bisrc%5D=FRX452645232&countryCode=US&include=artists%2Calbums",
+  "status": 200,
+  "result": {
+    "data": [
+      {
+        "id": "550245641",
+        "type": "tracks",
+        "attributes": {
+          "title": "OnlyU",
+          "version": null,
+          "isrc": "FRX452645232",
+          "duration": "PT3M19S",
+          "copyright": {
+            "text": "Just A Gent"
+          },
+          "explicit": false,
+          "popularity": 0,
+          "accessType": "PUBLIC",
+          "mediaTags": [
+            "HIRES_LOSSLESS",
+            "LOSSLESS"
+          ],
+          "externalLinks": [
+            {
+              "href": "https://tidal.com/browse/track/550245641",
+              "meta": {
+                "type": "TIDAL_SHARING"
+              }
+            }
+          ],
+          "spotlighted": false,
+          "createdAt": "2026-08-07T23:34:28Z"
+        },
+        "relationships": {
+          "artists": {
+            "data": [
+              {
+                "id": "6160474",
+                "type": "artists"
+              },
+              {
+                "id": "10677705",
+                "type": "artists"
+              }
+            ],
+            "links": {
+              "self": "/tracks/550245641/relationships/artists?countryCode=US"
+            }
+          },
+          "albums": {
+            "data": [
+              {
+                "id": "550245640",
+                "type": "albums"
+              }
+            ],
+            "links": {
+              "self": "/tracks/550245641/relationships/albums?countryCode=US"
+            }
+          }
+        }
+      }
+    ],
+    "links": {
+      "self": "/tracks?filter%5Bisrc%5D=FRX452645232&include=albums%2Cartists&countryCode=US"
+    },
+    "included": [
+      {
+        "id": "550245640",
+        "type": "albums",
+        "attributes": {
+          "title": "OnlyU",
+          "barcodeId": "3618114985136",
+          "numberOfVolumes": 1,
+          "numberOfItems": 1,
+          "duration": "PT3M19S",
+          "explicit": false,
+          "releaseDate": "2026-10-15",
+          "copyright": {
+            "text": "Just A Gent"
+          },
+          "popularity": 0,
+          "accessType": "PUBLIC",
+          "mediaTags": [
+            "HIRES_LOSSLESS",
+            "LOSSLESS"
+          ],
+          "externalLinks": [
+            {
+              "href": "https://tidal.com/browse/album/550245640",
+              "meta": {
+                "type": "TIDAL_SHARING"
+              }
+            }
+          ],
+          "type": "SINGLE",
+          "albumType": "SINGLE",
+          "createdAt": "2026-08-07T23:34:28Z"
+        }
+      },
+      {
+        "id": "10677705",
+        "type": "artists",
+        "attributes": {
+          "name": "Broey.",
+          "popularity": 0.26070569635776975,
+          "numberOfFollowers": 49,
+          "externalLinks": [
+            {
+              "href": "https://instagram.com/broeybeats",
+              "meta": {
+                "type": "INSTAGRAM"
+              }
+            },
+            {
+              "href": "https://linktr.ee/broeybeats",
+              "meta": {
+                "type": "OFFICIAL_HOMEPAGE"
+              }
+            },
+            {
+              "href": "https://tiktok.com/@broeybeats",
+              "meta": {
+                "type": "TIKTOK"
+              }
+            },
+            {
+              "href": "https://twitter.com/broeybeats",
+              "meta": {
+                "type": "TWITTER"
+              }
+            },
+            {
+              "href": "https://tidal.com/browse/artist/10677705",
+              "meta": {
+                "type": "TIDAL_SHARING"
+              }
+            }
+          ],
+          "handle": "broey",
+          "ownerType": "MIXED"
+        }
+      },
+      {
+        "id": "6160474",
+        "type": "artists",
+        "attributes": {
+          "name": "Just a Gent",
+          "popularity": 0.5865422913322649,
+          "numberOfFollowers": 5342,
+          "externalLinks": [
+            {
+              "href": "https://tidal.com/browse/artist/6160474",
+              "meta": {
+                "type": "TIDAL_SHARING"
+              }
+            }
+          ],
+          "ownerType": "LABEL"
+        }
+      }
+    ]
+  }
+}

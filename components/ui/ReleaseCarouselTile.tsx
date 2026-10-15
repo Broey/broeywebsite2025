@@ -28,6 +28,7 @@ export type CarouselRelease = Pick<
   | "featured"
 > & {
   releaseTypeDisplay?: string;
+  releasedAtRender?: boolean;
   tileKind: "collection" | "single";
 };
 
@@ -282,7 +283,7 @@ export function ReleaseCarouselTile({
 }: ReleaseCarouselTileProps) {
   const router = useRouter();
   const isCampaign = release.slug === onlyUCampaign.slug;
-  const { released } = useOnlyUReleased(isCampaign);
+  const { released } = useOnlyUReleased(isCampaign, release.releasedAtRender);
   const isUpcoming = isCampaign && !released;
   const safeReleaseCount = Math.max(releaseCount, 1);
   const offset = circularOffset(index, displayPosition, safeReleaseCount);
@@ -295,7 +296,7 @@ export function ReleaseCarouselTile({
     : releaseDetailHref(release);
   const audioQueue = isUpcoming ? undefined : contextualAudioQueue;
   const side = distance < 0.001 ? "center" : offset < 0 ? "left" : "right";
-  const isCurrent = isCampaign || Boolean(release.featured);
+  const isCurrent = Boolean(release.featured);
   const currentReleaseBadge =
     isUpcoming ? "Out October 15" : release.title.length <= 12 ? `${release.title} out now` : "Out now";
   const visualState = visualStateForOffset(offset, metrics, pointer, motionEnergy);
@@ -348,7 +349,7 @@ export function ReleaseCarouselTile({
     ),
     boxShadow: `
       0 ${(22 + focusWeight * 24).toFixed(2)}px ${(60 + focusWeight * 64).toFixed(2)}px ${rgba(0, 0, 0, 0.34 + focusWeight * 0.38)},
-      0 0 0 1px ${rgba(211, 169, 91, (isCurrent ? 0.1 : 0.04) + focusWeight * 0.24)},
+      0 0 0 1px ${rgba(accentColor[0], accentColor[1], accentColor[2], (isCurrent ? 0.1 : 0.04) + focusWeight * 0.24)},
       0 0 ${(18 + focusWeight * 58).toFixed(2)}px ${rgba(accentColor[0], accentColor[1], accentColor[2], 0.05 + focusWeight * 0.15)},
       inset 0 1px 0 ${rgba(255, 255, 255, 0.04 + focusWeight * 0.12)}
     `,
@@ -397,7 +398,7 @@ export function ReleaseCarouselTile({
               {meta}
             </p>
             <div className="music-release-badge-stack">
-              {isCurrent ? (
+              {isCurrent || isUpcoming ? (
                 <span className="music-release-status-badge">{currentReleaseBadge}</span>
               ) : null}
             </div>

@@ -22,6 +22,8 @@ import {
 import { releaseDetailHref } from "@/content/release-actions";
 import { staticPageMetadata } from "@/content/page-metadata";
 import { releases, type ReleaseEntry } from "@/content/releases";
+import { isPublishedRelease } from "@/content/release-filters";
+import { currentFocusRelease } from "@/content/release-focus";
 import { createPageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = createPageMetadata(staticPageMetadata.music);
@@ -35,6 +37,7 @@ const releaseTypeLabel = {
 } as const;
 
 const currentEraReleaseSlugs = [
+  "only-u",
   "free",
   "blu",
   "stereo-luv",
@@ -67,14 +70,14 @@ const selectedReleases = (slugs: string[]) =>
     .map(findRelease)
     .filter(
       (release): release is ReleaseEntry =>
-        Boolean(release) && release?.visibility !== "draft",
+        Boolean(release) && isPublishedRelease(release!),
     );
 
 export default function MusicPage() {
   const currentEraReleases = selectedReleases(currentEraReleaseSlugs);
   const transitionReleases = selectedReleases(transitionReleaseSlugs);
   const foundationReleases = selectedReleases(foundationReleaseSlugs);
-  const featured = findRelease("free") ?? currentEraReleases[0];
+  const featured = currentFocusRelease(releases) ?? currentEraReleases[0];
   const featuredType = featured.registry?.releaseTypeDisplay ?? releaseTypeLabel[featured.type];
   const featuredMeta = [featuredType, featured.year].filter(Boolean).join(" / ");
   const featuredQueue = releaseAudioQueueForContext(featured, releases, "archive");

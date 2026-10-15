@@ -5,6 +5,7 @@ export type AnalyticsSourceSurface =
   | "release_banner"
   | "music_catalog"
   | "release_page"
+  | "playlist_prompt"
   | "recommendations"
   | "project_tracklist"
   | "merch_page"
@@ -46,6 +47,13 @@ export type AnalyticsEventMap = {
   audio_50_percent: AudioEventProperties;
   audio_75_percent: AudioEventProperties;
   audio_complete: AudioEventProperties;
+  playlist_prompt_view: AudioEventProperties & { source_surface: "playlist_prompt" };
+  playlist_prompt_dismiss: AudioEventProperties & { source_surface: "playlist_prompt" };
+  playlist_prompt_click: AudioEventProperties & {
+    source_surface: "playlist_prompt";
+    platform: string;
+    destination_type: string;
+  };
   streaming_click: {
     release_slug?: string;
     track_slug?: string;

@@ -2,6 +2,8 @@
 
 Broey. Website is the branded presentation layer and SEO/content hub for Broey.
 
+Release focus and streaming CTA rules are recorded in [Release policy](docs/launch-readiness/RELEASE_POLICY.md). New published highlights automatically replace the previous focus; streaming services receive equal visual weight.
+
 ## Stack
 
 - Next.js

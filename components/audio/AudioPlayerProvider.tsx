@@ -10,6 +10,9 @@ import {
   type ReactNode,
 } from "react";
 import { GlobalAudioPlayer } from "@/components/audio/GlobalAudioPlayer";
+import { OnlyUPlaylistPrompt } from "@/components/audio/OnlyUPlaylistPrompt";
+import { onlyUCampaign } from "@/content/only-u-campaign";
+import { PlaylistPromptSession } from "@/lib/playlist-prompt";
 import {
   AudioPlayerContext,
   type AudioPlayerContextValue,
@@ -63,6 +66,8 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const previousPathnameRef = useRef(pathname);
   const previousVolumeRef = useRef(DEFAULT_VOLUME);
   const [audioAnalyticsSession] = useState(() => new AudioAnalyticsSession());
+  const [playlistPromptSession] = useState(() => new PlaylistPromptSession());
+  const [playlistPromptTrack, setPlaylistPromptTrack] = useState<string>();
   const [currentQueue, setCurrentQueue] = useState<GlobalAudioQueue>();
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -92,6 +97,11 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
     trackEvent(eventName, currentTrack.analytics);
   }, [currentTrack]);
+
+  const dismissPlaylistPrompt = useCallback(() => {
+    setPlaylistPromptTrack(undefined);
+    trackEvent("playlist_prompt_dismiss", { release_slug: onlyUCampaign.slug, source_surface: "playlist_prompt" });
+  }, []);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
@@ -416,6 +426,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
         preload={pendingPlay ? "auto" : "metadata"}
         data-broey-global-audio
         onLoadStart={() => {
+          setPlaylistPromptTrack(undefined);
           setCurrentTime(0);
           setDuration(fallbackDuration);
           setHasEnded(false);
@@ -441,6 +452,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
         }}
         onWaiting={() => setIsLoading(true)}
         onPlaying={() => {
+          playlistPromptSession.interrupt();
           setIsPlaying(true);
           setIsLoading(false);
           setHasEnded(false);
@@ -449,9 +461,12 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
             .forEach(trackAudioEvent);
         }}
         onPause={() => {
+          playlistPromptSession.interrupt();
           setIsPlaying(false);
           setIsLoading(false);
         }}
+        onSeeking={() => playlistPromptSession.interrupt()}
+        onSeeked={() => playlistPromptSession.interrupt()}
         onTimeUpdate={(event) => {
           const audio = event.currentTarget;
           setCurrentTime(audio.currentTime);
@@ -463,6 +478,19 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
           audioAnalyticsSession
             .progress(currentTrackKey, audio.currentTime, audio.duration)
             .forEach(trackAudioEvent);
+          if (playlistPromptSession.progress(currentTrackKey, audio.currentTime, audio.duration, !audio.paused && !audio.seeking)
+            && currentTrack?.analytics?.release_slug === onlyUCampaign.slug) {
+            const storageKey = "broey-only-u-playlist-prompt";
+            let alreadyShown = false;
+            try {
+              alreadyShown = window.sessionStorage.getItem(storageKey) === "shown";
+              window.sessionStorage.setItem(storageKey, "shown");
+            } catch { /* In-memory deduplication still works without storage. */ }
+            if (!alreadyShown) {
+              setPlaylistPromptTrack(currentTrackKey);
+              trackEvent("playlist_prompt_view", { ...currentTrack.analytics, source_surface: "playlist_prompt" });
+            }
+          }
         }}
         onEnded={() => {
           setIsPlaying(false);
@@ -487,6 +515,9 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
         }}
       />
       <GlobalAudioPlayer />
+      {playlistPromptTrack && playlistPromptTrack === currentTrackKey ? (
+        <OnlyUPlaylistPrompt onDismiss={dismissPlaylistPrompt} />
+      ) : null}
     </AudioPlayerContext.Provider>
   );
 }

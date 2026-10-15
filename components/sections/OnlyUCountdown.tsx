@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { campaignUrl, isOnlyUReleased, onlyUCampaign, onlyUCountdown } from "@/content/only-u-campaign";
 import { newsletterAnalyticsProperties, rememberCampaignAttribution, trackEvent } from "@/lib/analytics";
 
-export function useOnlyUReleased(enabled = true) {
+export function useOnlyUReleased(enabled = true, releasedAtRender = false) {
   const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
     if (!enabled) return;
@@ -14,7 +14,7 @@ export function useOnlyUReleased(enabled = true) {
     const interval = window.setInterval(update, 1000);
     return () => window.clearInterval(interval);
   }, [enabled]);
-  return { released: now !== null && isOnlyUReleased(now), now };
+  return { released: releasedAtRender || (now !== null && isOnlyUReleased(now)), now };
 }
 
 export function trackOnlyUPresave(surface: "home" | "release_banner") {
@@ -25,9 +25,9 @@ export function trackOnlyUPresave(surface: "home" | "release_banner") {
   });
 }
 
-export function OnlyUCountdownBanner() {
-  const { released, now } = useOnlyUReleased();
-  if (released) return null;
+export function OnlyUCountdownBanner({ releasedAtRender = false }: { releasedAtRender?: boolean }) {
+  const { released, now } = useOnlyUReleased(true, releasedAtRender);
+  if (now === null || released) return null;
   return (
     <aside className="release-countdown-banner" aria-label="Upcoming release">
       <div className="release-countdown-copy">

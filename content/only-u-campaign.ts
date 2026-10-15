@@ -14,12 +14,19 @@ export const onlyUCampaign = {
   isrc: "FR-X45-26-45232",
   catalogNumber: "BL1392272",
   spotifyTrackUri: "spotify:track:1sAyb06cJiHKPm18gc2fWN",
-  // Preserve the supplied store URLs; availability has not been independently verified.
+  // Official smartlink destinations, supplemented by exact ISRC matches from
+  // TIDAL and Deezer on October 14, 2026. Regional playback may unlock later.
   stores: [
-    { platform: "Spotify", url: "https://open.spotify.com/album/3ZMHIWgHbaboU9PlbvgUcf" },
+    { platform: "Spotify", url: "https://open.spotify.com/album/3ZMHlWgHbaboU9PlbvgUcf" },
     { platform: "Apple Music", url: "https://music.apple.com/song/6807108702" },
     { platform: "iTunes", url: "https://geo.itunes.apple.com/au/album/id6807108697?at=1l3v9Tx&app=itunes" },
     { platform: "VK Music", url: "https://music.vk.com/link/s2lEy" },
+    { platform: "YouTube Music", url: "https://music.youtube.com/playlist?list=OLAK5uy_mWs3a3oqE7aP5fsgzFLPddpMCovgKMGWk" },
+    { platform: "YouTube", url: "https://www.youtube.com/playlist?list=OLAK5uy_mWs3a3oqE7aP5fsgzFLPddpMCovgKMGWk" },
+    { platform: "Amazon Music", url: "https://music.amazon.fr/albums/B0HHB16N45?ref=dm_ff_amazonmusic_3p" },
+    { platform: "TIDAL", url: "https://tidal.com/browse/track/550245641" },
+    { platform: "Deezer", url: "https://www.deezer.com/track/4209089652" },
+    { platform: "All platforms", url: "https://bfan.link/onlyustores" },
   ],
 } as const;
 

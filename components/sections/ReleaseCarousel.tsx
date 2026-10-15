@@ -8,6 +8,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { releasePlatformLinks } from "@/content/release-actions";
 import { archiveReleases } from "@/content/release-filters";
 import { releases } from "@/content/releases";
+import { currentFocusRelease } from "@/content/release-focus";
 import type { ReleaseEntry } from "@/content/releases";
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
@@ -59,12 +60,13 @@ const releaseCtaLabel = (release: ReleaseEntry) => {
 
 export function ReleaseCarousel() {
   const carouselTitleId = "release-carousel-title";
+  const focusSlug = currentFocusRelease(releases)?.slug;
   const sortedReleases = archiveReleases(releases).sort((a, b) => {
-    if (a.featured && !b.featured) {
+    if (a.slug === focusSlug && b.slug !== focusSlug) {
       return -1;
     }
 
-    if (!a.featured && b.featured) {
+    if (a.slug !== focusSlug && b.slug === focusSlug) {
       return 1;
     }
 
@@ -99,7 +101,7 @@ export function ReleaseCarousel() {
           const href = releaseHref(release);
           const hasExternalHref = isRealUrl(href);
           const hasAudioPreview = publicFileExists(release.audioPreview);
-          const isFeatured = Boolean(release.featured);
+          const isFeatured = release.slug === focusSlug;
 
           return (
             <article
