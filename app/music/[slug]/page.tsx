@@ -47,6 +47,7 @@ import { releases, type ReleaseCredit, type ReleaseDetail, type ReleaseEntry } f
 import { shouldUseFallbackArtwork } from "@/lib/release-artwork";
 import { absoluteUrl } from "@/lib/site-origin";
 import { campaignUrl, isOnlyUReleased, onlyUCampaign } from "@/content/only-u-campaign";
+import { currentFocusRelease } from "@/content/release-focus";
 
 type PageProps = {
   params: Promise<{
@@ -824,7 +825,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
           <Link href="/music" className="release-detail-kicker">
             / music
           </Link>
-          {release.featured ? <span className="release-detail-status">Current</span> : null}
+          {release.slug === currentFocusRelease(releases)?.slug ? <span className="release-detail-status">Current</span> : null}
         </div>
 
         <div className="release-detail-hero">
@@ -834,7 +835,19 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
             <div>
               <p className="release-detail-eyebrow">{releaseEyebrow(release)}</p>
               <h1 className="release-detail-title">{release.title}</h1>
-              <p className="release-detail-artist">{artistName}</p>
+              <p className="release-detail-artist">
+                {release.artists?.length ? release.artists.map((artist, index) => (
+                  <span key={artist.name}>
+                    {index > 0 ? ", " : ""}
+                    {artist.url ? (
+                      <a href={artist.url} target="_blank" rel="noopener noreferrer"
+                        className="underline decoration-current/40 underline-offset-4 hover:decoration-current focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                        {artist.name}<span className="sr-only"> (official website, opens in a new tab)</span>
+                      </a>
+                    ) : artist.name}
+                  </span>
+                )) : artistName}
+              </p>
               <ReleaseStatusMeta release={release} className="release-detail-status-meta" />
               {heroMeta ? <p className="release-detail-hero-meta">{heroMeta}</p> : null}
             </div>

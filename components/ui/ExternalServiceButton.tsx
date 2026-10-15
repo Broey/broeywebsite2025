@@ -42,7 +42,7 @@ export function ExternalServiceButton({
   const isPending = !url || url === "#";
   const base =
     "inline-flex items-center justify-center rounded-full border px-3 py-2 text-xs font-semibold transition-colors";
-  const active = primary
+  const active = primary && kind !== "streaming" && kind !== "video"
     ? "border-[var(--color-primary-cta-border)] bg-[var(--color-primary-cta)] text-black hover:bg-[var(--color-primary-cta-hover)] button-primary cta-primary"
     : "border-white/20 bg-white/[0.03] text-[var(--color-text)] hover:border-[var(--color-cyan)] hover:text-white";
   const pending = "cursor-not-allowed border-white/10 bg-white/[0.02] text-[var(--color-muted)]";
@@ -77,6 +77,15 @@ export function ExternalServiceButton({
           destination_type: kind,
           source_surface: analytics.sourceSurface,
         });
+        if (analytics.sourceSurface === "playlist_prompt") {
+          trackEvent("playlist_prompt_click", {
+            release_slug: analytics.releaseSlug,
+            track_slug: analytics.trackSlug,
+            platform,
+            destination_type: platform === "All platforms" ? "smartlink" : kind,
+            source_surface: "playlist_prompt",
+          });
+        }
       }}
     >
       {text}

@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { archiveReleases } from "@/content/release-filters";
 import { releaseDetailHref } from "@/content/release-actions";
 import { releases } from "@/content/releases";
+import { currentFocusRelease } from "@/content/release-focus";
 
 const releaseTypeLabel = {
   single: "Single",
@@ -24,7 +25,7 @@ const releaseSortValue = (release: (typeof releases)[number]) => {
 
 export function MusicArchivePreview() {
   const previewReleases = archiveReleases(releases)
-    .filter((release) => !release.featured)
+    .filter((release) => release.slug !== currentFocusRelease(releases)?.slug)
     .sort((a, b) => releaseSortValue(b) - releaseSortValue(a))
     .slice(0, 4);
 

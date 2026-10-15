@@ -2360,14 +2360,14 @@ body.has-global-player .site-shell {
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
-.music-release-card[data-tile-kind="collection"] .music-release-card-panel {
+.music-release-card[data-current="true"][data-tile-kind="collection"] .music-release-card-panel {
   border-top-color: rgba(211, 169, 91, 0.34);
   background:
     linear-gradient(180deg, rgba(26, 19, 12, 0.18), rgba(9, 12, 15, 0.24)),
     transparent;
 }
 
-.music-release-card[data-tile-kind="collection"][data-active="true"] {
+.music-release-card[data-current="true"][data-tile-kind="collection"][data-active="true"] {
   border-color: rgba(211, 169, 91, 0.62);
 }
 
@@ -2389,6 +2389,12 @@ body.has-global-player .site-shell {
 
 .music-release-card[data-active="true"] .music-release-card-glow {
   mix-blend-mode: screen;
+}
+
+.music-release-card[data-current="false"] .music-release-card-glow {
+  background:
+    radial-gradient(circle at var(--carousel-glow-x, 50%) var(--carousel-glow-y, 40%), rgba(255, 255, 255, 0.2), transparent 28%),
+    linear-gradient(245deg, rgba(63, 177, 217, 0.14), transparent 38%);
 }
 
 .music-release-card-panel {
@@ -8098,3 +8104,23 @@ main:has(.join-page) + .site-footer .site-footer-grid {
   .release-countdown-banner { justify-content: space-between; gap: .55rem; }
   .release-countdown-copy { width: 100%; justify-content: center; }
 }
+/* A non-modal reminder leaves playback and page navigation available. */
+.playlist-prompt {
+  position: fixed;
+  z-index: 120;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: calc(8rem + env(safe-area-inset-bottom));
+  width: min(25rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 12rem);
+  overflow-y: auto;
+  padding: 1.35rem;
+  border: 1px solid rgba(211, 169, 91, .45);
+  border-radius: 1rem;
+  background: #11141b;
+  box-shadow: 0 1.5rem 5rem #0009;
+}
+.playlist-prompt h2 { margin: .5rem 1.5rem .5rem 0; font-size: 1.5rem; color: white; }
+.playlist-prompt p:not(.release-detail-section-kicker) { color: var(--color-muted); font-size: .9rem; }
+.playlist-prompt-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.playlist-prompt-close { position: absolute; top: .5rem; right: .5rem; width: 2.75rem; height: 2.75rem; color: white; font-size: 1.5rem; }
+.playlist-prompt a:focus-visible, .playlist-prompt button:focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 3px; }

@@ -21,11 +21,15 @@ const platformOrder = [
   "Apple Music",
   "SoundCloud",
   "YouTube",
+  "YouTube Music",
   "TIDAL",
   "Deezer",
   "Audius",
   "Bandcamp",
   "Amazon Music",
+  "iTunes",
+  "VK Music",
+  "All platforms",
 ];
 
 const platformRanks = new Map(

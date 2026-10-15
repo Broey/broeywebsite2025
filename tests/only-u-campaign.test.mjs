@@ -5,9 +5,20 @@ const { campaignUrl, isOnlyUReleased, onlyUCampaign, onlyUCountdown } = await im
 const { isPublishedRelease, showReleaseInSitemap } = await import("../content/release-filters.ts");
 const { scheduledAudioResponse } = await import("../lib/scheduled-release-audio.ts");
 const { rememberCampaignAttribution, trackEvent } = await import("../lib/analytics.ts");
+const { releases } = await import("../content/releases.ts");
+const { releasePlatformLinks } = await import("../content/release-actions.ts");
 
-test("Only U switches at midnight Eastern, with no early release-page indexing", () => {
-  const boundary = Date.parse("2026-10-15T04:00:00Z");
+test("OnlyU exposes every configured destination through the shared track-page platform list", () => {
+  const release = releases.find(release => release.slug === onlyUCampaign.slug);
+  const links = releasePlatformLinks(release);
+  assert.deepEqual(new Set(links.map(link => link.platform)), new Set(onlyUCampaign.stores.map(store => store.platform)));
+  assert.equal(links.find(link => link.platform === "Spotify").url, "https://open.spotify.com/album/3ZMHlWgHbaboU9PlbvgUcf");
+  assert.equal(links.some(link => /\/search[/?]/.test(link.url)), false);
+  assert.equal(release.carouselPriority, Math.min(...releases.filter(r => r.carouselEnabled).map(r => r.carouselPriority ?? Infinity)));
+});
+
+test("OnlyU switches at its approved publication time, with no early release-page indexing", () => {
+  const boundary = Date.parse("2026-10-15T03:26:52Z");
   assert.equal(Date.parse(onlyUCampaign.releaseAt), boundary);
   assert.equal(isOnlyUReleased(boundary - 1), false);
   assert.equal(isOnlyUReleased(boundary), true);

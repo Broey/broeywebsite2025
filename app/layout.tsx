@@ -5,6 +5,7 @@ import { AudioPlayerProvider } from "@/components/audio/AudioPlayerProvider";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { OnlyUCountdownBanner } from "@/components/sections/OnlyUCountdown";
+import { isOnlyUReleased } from "@/content/only-u-campaign";
 import { defaultSocialImage } from "@/content/seo";
 import { siteConfig } from "@/content/site";
 import { siteOrigin } from "@/lib/site-origin";
@@ -70,7 +71,7 @@ export default function RootLayout({
         <AudioPlayerProvider>
           <div className="site-shell">
             <Header />
-            <OnlyUCountdownBanner />
+            <OnlyUCountdownBanner releasedAtRender={isOnlyUReleased()} />
             <main className="site-main">{children}</main>
             <Footer />
           </div>

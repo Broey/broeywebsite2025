@@ -158,6 +158,7 @@ export type ReleaseEntry = {
   dateConfidence?: ReleaseVerificationStatus;
   dateNotes?: string;
   artistName?: string;
+  artists?: Array<{ name: string; url?: string }>;
   description?: string;
   about?: string | string[];
   tags?: string[];
@@ -561,9 +562,13 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
     releaseDate: onlyUCampaign.releaseDate,
     year: 2026,
     artistName: onlyUCampaign.artist,
+    artists: [
+      { name: "Just A Gent", url: "https://justagent.net/" },
+      { name: "Broey." },
+    ],
     metadataStatus: "source-backed",
     verificationStatus: "source-backed",
-    dateSource: "Artist confirmed October 15, 2026 at midnight Eastern",
+    dateSource: "Distributor release October 15, 2026; owner approved website publication October 14",
     dateConfidence: "source-backed",
     description: "OnlyU, a drum and bass single by Just A Gent and Broey.",
     tags: ["Electronic", "Drum & Bass", "Collaboration"],
@@ -588,15 +593,15 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
       { label: "Explicit lyrics", value: "No" },
     ],
     links: onlyUCampaign.stores.map((store) => ({
-      ...store, label: store.platform, kind: "streaming" as const,
-      primary: store.platform === "Spotify", confidence: "source-backed" as const,
-      source: "Distributor details supplied by artist, 2026-10-12",
+      ...store, label: store.platform, kind: store.platform === "YouTube" ? "video" as const : "streaming" as const,
+      primary: false, confidence: "source-backed" as const,
+      source: "Artist distributor details, official smartlink, and TIDAL/Deezer ISRC lookups, checked 2026-10-14",
     })),
     tracklist: [{ title: onlyUCampaign.title, artist: onlyUCampaign.artist, duration: "3:19" }],
     catalogStatus: "manual",
     carouselEnabled: true,
     carouselPriority: -1,
-    excludeFromRecommendations: true,
+    recommendedSlugs: ["free", "hold-me-back", "stereo-luv"],
   },
   {
     title: "LiNK",
@@ -833,7 +838,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
         downloadsEnabled: false,
       },
     },
-    featured: true,
+    featured: false,
   },
   {
     title: "dancing dumpster fire",

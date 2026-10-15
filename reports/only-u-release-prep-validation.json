@@ -1,0 +1,86 @@
+[
+  {
+    "phase": "released",
+    "path": "/",
+    "status": 200,
+    "location": null,
+    "countdownMarkup": false,
+    "homePlayButton": true,
+    "contentRange": null
+  },
+  {
+    "phase": "released",
+    "path": "/music",
+    "status": 200,
+    "location": null,
+    "featured": "OnlyU",
+    "contentRange": null
+  },
+  {
+    "phase": "released",
+    "path": "/music/only-u",
+    "status": 200,
+    "location": null,
+    "contentRange": null,
+    "platformLinks": [
+      "Spotify",
+      "Apple Music",
+      "YouTube",
+      "YouTube Music",
+      "TIDAL",
+      "Deezer",
+      "Amazon Music",
+      "iTunes",
+      "VK Music",
+      "All platforms"
+    ]
+  },
+  {
+    "phase": "released",
+    "path": "/sitemap.xml",
+    "status": 200,
+    "location": null,
+    "onlyUIndexed": true,
+    "contentRange": null
+  },
+  {
+    "phase": "released",
+    "path": "/api/release-audio/only-u",
+    "status": 206,
+    "location": null,
+    "contentRange": "bytes 0-63/6375817"
+  },
+  {
+    "phase": "prerelease",
+    "path": "/",
+    "status": 200,
+    "location": null,
+    "homePresave": true
+  },
+  {
+    "phase": "prerelease",
+    "path": "/music",
+    "status": 200,
+    "location": null,
+    "featured": "FREE"
+  },
+  {
+    "phase": "prerelease",
+    "path": "/music/only-u",
+    "status": 307,
+    "location": "https://bfan.link/onlyustores?utm_source=broey.net&utm_medium=website&utm_campaign=only_u_2026_10_15&utm_content=release_route"
+  },
+  {
+    "phase": "prerelease",
+    "path": "/sitemap.xml",
+    "status": 200,
+    "location": null,
+    "onlyUIndexed": false
+  },
+  {
+    "phase": "prerelease",
+    "path": "/api/release-audio/only-u",
+    "status": 404,
+    "location": null
+  }
+]

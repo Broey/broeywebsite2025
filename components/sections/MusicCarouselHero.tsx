@@ -7,20 +7,25 @@ import {
 import { shouldUseFallbackArtwork } from "@/components/ui/ReleaseArtwork";
 import { releases, type ReleaseEntry } from "@/content/releases";
 import { isOnlyUReleased } from "@/content/only-u-campaign";
+import { currentFocusRelease } from "@/content/release-focus";
 
 const buildCarouselOrder = (releaseList: ReleaseEntry[]) => {
   const orderedReleases = releaseList
     .filter((release) => release.carouselEnabled)
     .sort((a, b) => (a.carouselPriority ?? Number.MAX_SAFE_INTEGER) - (b.carouselPriority ?? Number.MAX_SAFE_INTEGER));
-  const featuredIndex = orderedReleases.findIndex((release) => release.featured);
+  const focus = currentFocusRelease(releaseList);
+  const upcoming = orderedReleases.find(release => release.availableAt && Date.now() < Date.parse(release.availableAt));
+  const leadSlug = upcoming?.slug ?? focus?.slug;
+  orderedReleases.sort((a, b) => Number(b.slug === leadSlug) - Number(a.slug === leadSlug));
 
   return {
     orderedReleases,
-    initialIndex: orderedReleases[0]?.availableAt ? 0 : featuredIndex >= 0 ? featuredIndex : 0,
+    initialIndex: 0,
+    focusSlug: focus?.slug,
   };
 };
 
-const prepareCarouselRelease = (release: ReleaseEntry): CarouselRelease => ({
+const prepareCarouselRelease = (release: ReleaseEntry, focusSlug?: string): CarouselRelease => ({
   title: release.title,
   artistName: release.artistName,
   slug: release.slug,
@@ -28,10 +33,11 @@ const prepareCarouselRelease = (release: ReleaseEntry): CarouselRelease => ({
   year: release.year,
   releaseDate: release.releaseDate,
   availableAt: release.availableAt,
+  releasedAtRender: !release.availableAt || Date.now() >= Date.parse(release.availableAt),
   coverImage: shouldUseFallbackArtwork(release.coverImage) ? undefined : release.coverImage,
   coverAlt: release.coverAlt,
   artworkPresentation: release.artworkPresentation,
-  featured: release.featured,
+  featured: release.slug === focusSlug,
   releaseTypeDisplay: release.registry?.releaseTypeDisplay,
   tileKind:
     release.catalogSource?.suggestedTileType === "collectionTile" ? "collection" : "single",
@@ -39,9 +45,9 @@ const prepareCarouselRelease = (release: ReleaseEntry): CarouselRelease => ({
 
 export function MusicCarouselHero() {
   const carouselTitleId = "home-music-carousel-title";
-  const { orderedReleases, initialIndex } = buildCarouselOrder(releases);
+  const { orderedReleases, initialIndex, focusSlug } = buildCarouselOrder(releases);
   const carouselItems = orderedReleases.map((release) => ({
-    release: prepareCarouselRelease(release),
+    release: prepareCarouselRelease(release, focusSlug),
     audioQueue: releaseAudioQueueForContext(release, releases, "highlighted"),
   }));
   const featured = carouselItems[initialIndex]?.release;

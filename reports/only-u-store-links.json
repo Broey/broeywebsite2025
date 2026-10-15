@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-15T02:50:39.421Z",
+  "source": "https://bfan.link/onlyustores",
+  "stores": {
+    "spotify": {
+      "displayName": "Spotify",
+      "url": "http://open.spotify.com/album/3ZMHlWgHbaboU9PlbvgUcf"
+    },
+    "appleMusic": {
+      "displayName": "Apple Music",
+      "url": "https://geo.itunes.apple.com/at/album/id6807108697?at=1l3v9Tx&app=music&at=1l3v9Tx&ct=BL"
+    },
+    "youtubeMusic": {
+      "displayName": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_mWs3a3oqE7aP5fsgzFLPddpMCovgKMGWk"
+    },
+    "youtube": {
+      "displayName": "YouTube",
+      "url": "https://www.youtube.com/playlist?list=OLAK5uy_mWs3a3oqE7aP5fsgzFLPddpMCovgKMGWk"
+    },
+    "tiktok": {
+      "displayName": "Tiktok (Use My Sound)",
+      "url": null
+    },
+    "amazonMusic": {
+      "displayName": "Amazon Music",
+      "url": "https://music.amazon.fr/albums/B0HHB16N45?ref=dm_ff_amazonmusic_3p"
+    },
+    "tidal": {
+      "displayName": "Tidal",
+      "url": null
+    },
+    "deezer": {
+      "displayName": "Deezer",
+      "url": null
+    },
+    "beatport": {
+      "displayName": "Beatport",
+      "url": null
+    },
+    "pandora": {
+      "displayName": "Pandora",
+      "url": null
+    },
+    "vevo": {
+      "displayName": "Vevo",
+      "url": null
+    }
+  }
+}
