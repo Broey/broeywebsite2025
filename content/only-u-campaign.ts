@@ -9,7 +9,7 @@ export const onlyUCampaign = {
   releaseDate: "2026-10-15",
   presaveUrl: "https://bfan.link/onlyustores",
   campaign: "only_u_2026_10_15",
-  duration: "3:18.947",
+  duration: "3:18",
   label: "Just A Gent",
   upc: "3618114985136",
   isrc: "FR-X45-26-45232",

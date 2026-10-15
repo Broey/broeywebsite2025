@@ -577,10 +577,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
     playerAccent: "#a5a9ae",
     audio: localAudio(onlyUCampaign.title, "/api/release-audio/only-u", "3:19", onlyUCampaign.artist),
     credits: [
-      { role: "Primary artist", name: "Just A Gent", publishApproved: true },
-      { role: "Primary artist", name: "Broey.", publishApproved: true },
-      { role: "Composer", name: "Jacob Grant", publishApproved: true },
-      { role: "Composer", name: "Joseph Montaro", publishApproved: true },
+      { role: "Composer", name: "Jacob Grant, Joseph Montaro", publishApproved: true },
     ],
     details: [
       { label: "Label", value: onlyUCampaign.label },
