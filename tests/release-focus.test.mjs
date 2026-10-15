@@ -5,7 +5,7 @@ const { currentFocusRelease } = await import("../content/release-focus.ts");
 
 test("scheduled releases replace the old focus and future drafts cannot take over", () => {
   const originalNow = Date.now;
-  const launch = Date.parse("2026-10-15T04:00:00Z");
+  const launch = Date.parse("2026-10-15T03:26:52Z");
   try {
     Date.now = () => launch - 1;
     assert.equal(currentFocusRelease(releases).slug, "free");

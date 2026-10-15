@@ -4,7 +4,7 @@ The release candidate is staged on `codex/onlyu-release` for review and controll
 
 ## Release behavior
 
-- Keep the artist-confirmed launch at October 15, 2026, midnight Eastern (`2026-10-15T04:00:00Z`).
+- The owner subsequently approved immediate website publication on October 14, 2026 at 11:26:52 PM Eastern (`2026-10-15T03:26:52Z`). The distributor release date remains October 15.
 - Before launch: home presave, release-route redirect, locked MP3, and exclusion from the sitemap remain active.
 - At launch: the first home card plays OnlyU, the countdown disappears without flashing during hydration, and `/music` highlights OnlyU and includes it in Selected Catalog.
 - `/music/only-u` uses the existing shared release template, artwork, credits, metadata, sharing, recommendations, and player.
@@ -58,3 +58,7 @@ The production build needs the existing `NEXT_PUBLIC_UMAMI_SCRIPT_URL` and `NEXT
 ## Midnight deployment plan
 
 Launch time is October 15, 2026 at 12:00 AM America/New_York (04:00 UTC). DigitalOcean production currently tracks `main` with autodeploy off. The app already gates OnlyU by that timestamp: deploying the candidate before midnight allows the release to unlock on schedule, while a deployment started at midnight becomes available only after the build and rollout finish. No deployment scheduler or production change has been created by this staging step. Vultures source changes/assets and local secrets are excluded from the candidate.
+
+## Owner launch authorization
+
+The owner approved publishing the release immediately on October 14, ahead of the previously planned midnight unlock. Website availability was advanced to 23:26:52 Eastern; the distributor release date remains October 15. The owner also requested a matching release newsletter for October 15 at 10:00 AM Eastern.

@@ -81,7 +81,7 @@ test("all indexable releases have factual, connected, clean structured data", ()
   const indexable = releases.filter(showReleaseInSitemap);
   const schemas = indexable.map(createReleaseStructuredData);
 
-  assert.equal(indexable.length, 17);
+  assert.ok(indexable.length >= 17, "published catalog retains its baseline releases as new releases launch");
   assert.equal(new Set(schemas.map((schema) => schema["@id"])).size, schemas.length);
 
   for (const [index, schema] of schemas.entries()) {

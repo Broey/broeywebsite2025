@@ -1,10 +1,11 @@
 // Distributor details supplied by the artist on October 12, 2026.
-// Midnight Eastern confirmed by the artist on October 12, 2026.
+// Owner authorized immediate website publication on October 14, 2026.
+// Keep the distributor release date separate from website availability.
 export const onlyUCampaign = {
   slug: "only-u",
   title: "OnlyU",
   artist: "Just A Gent, Broey.",
-  releaseAt: "2026-10-15T00:00:00-04:00",
+  releaseAt: "2026-10-15T03:26:52Z",
   releaseDate: "2026-10-15",
   presaveUrl: "https://bfan.link/onlyustores",
   campaign: "only_u_2026_10_15",

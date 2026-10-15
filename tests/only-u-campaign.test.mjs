@@ -17,8 +17,8 @@ test("OnlyU exposes every configured destination through the shared track-page p
   assert.equal(release.carouselPriority, Math.min(...releases.filter(r => r.carouselEnabled).map(r => r.carouselPriority ?? Infinity)));
 });
 
-test("Only U switches at midnight Eastern, with no early release-page indexing", () => {
-  const boundary = Date.parse("2026-10-15T04:00:00Z");
+test("OnlyU switches at its approved publication time, with no early release-page indexing", () => {
+  const boundary = Date.parse("2026-10-15T03:26:52Z");
   assert.equal(Date.parse(onlyUCampaign.releaseAt), boundary);
   assert.equal(isOnlyUReleased(boundary - 1), false);
   assert.equal(isOnlyUReleased(boundary), true);

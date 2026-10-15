@@ -568,7 +568,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
     ],
     metadataStatus: "source-backed",
     verificationStatus: "source-backed",
-    dateSource: "Artist confirmed October 15, 2026 at midnight Eastern",
+    dateSource: "Distributor release October 15, 2026; owner approved website publication October 14",
     dateConfidence: "source-backed",
     description: "OnlyU, a drum and bass single by Just A Gent and Broey.",
     tags: ["Electronic", "Drum & Bass", "Collaboration"],
