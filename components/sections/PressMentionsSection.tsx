@@ -51,10 +51,12 @@ function PressExternalLink({
   item,
   label,
   sourceSurface = "press",
+  appearance = "link",
 }: {
   item: PressItem;
   label?: string;
   sourceSurface?: AnalyticsSourceSurface;
+  appearance?: "link" | "button";
 }) {
   return (
     <TrackedPressLink
@@ -63,7 +65,9 @@ function PressExternalLink({
       sourceSurface={sourceSurface}
       target="_blank"
       rel="noopener noreferrer"
-      className="press-mention-link"
+      className={appearance === "button"
+        ? "system-button system-button--primary button-primary cta-primary"
+        : "press-mention-link"}
       aria-label={pressLinkAria(item, label)}
     >
       {label ?? item.ctaLabel} <span aria-hidden="true">&rarr;</span>
@@ -136,14 +140,16 @@ function PressFeatured({
 
       <p className="press-mention-summary">{item.summary}</p>
 
-      <div className="press-mention-footer">
+      <div className="press-mention-footer press-featured-footer">
         {formattedDate || item.author ? (
           <p className="press-mention-meta">
             {[item.author, formattedDate].filter(Boolean).join(" / ")}
           </p>
         ) : null}
-        <PressExternalLink item={item} sourceSurface={sourceSurface} />
-        <PressReleaseLinks item={item} />
+        <div className="press-featured-actions">
+          <PressExternalLink item={item} sourceSurface={sourceSurface} appearance="button" />
+          <PressReleaseLinks item={item} />
+        </div>
       </div>
     </article>
   );
@@ -291,7 +297,9 @@ function HomePressTeaser() {
                 <blockquote className="homepage-press-callout-quote">
                   &quot;{item.pullQuote}&quot;
                 </blockquote>
-              ) : null}
+              ) : (
+                <p className="homepage-press-callout-quote">{item.title}</p>
+              )}
               <PressExternalLink item={item} label="Read coverage" sourceSurface="home" />
             </article>
           ))}
@@ -338,7 +346,7 @@ function AboutPressTeaser() {
             <article key={item.id} className="about-press-mini-item">
               <div>
                 <p className="press-mention-outlet">{item.outlet}</p>
-                <p className="press-mention-topic">Release &mdash; {item.releaseOrTopic}</p>
+                <p className="press-mention-topic">{item.releaseOrTopic}</p>
               </div>
               <h3 className="about-press-mini-title">{item.title}</h3>
               {item.pullQuote ? (

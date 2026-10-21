@@ -2992,7 +2992,8 @@ body.has-global-player .site-shell {
 
 .homepage-press-callout {
   display: grid;
-  align-content: start;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
   gap: 0.5rem;
   min-width: 0;
   border-right: 1px solid rgba(240, 236, 225, 0.1);
@@ -3047,6 +3048,8 @@ body.has-global-player .site-shell {
 }
 
 .homepage-press-callout .press-mention-link {
+  align-self: end;
+  justify-self: start;
   color: rgba(211, 169, 91, 0.92);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
@@ -3383,6 +3386,23 @@ body.has-global-player .site-shell {
   padding-top: clamp(0.9rem, 1.8vw, 1.2rem);
 }
 
+.press-featured-footer {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.press-featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.2rem;
+}
+
+.press-featured-actions .system-button {
+  min-height: 2.75rem;
+  gap: 0.5rem;
+}
+
 .press-mention-meta {
   color: rgba(240, 236, 225, 0.62);
 }
@@ -3588,7 +3608,9 @@ body.has-global-player .site-shell {
 }
 
 .about-press-mini-item .press-mention-topic {
+  max-width: none;
   margin-top: 0.26rem;
+  text-align: left;
 }
 
 .about-press-mini-title {

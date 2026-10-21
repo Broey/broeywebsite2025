@@ -48,7 +48,7 @@ export const pressMentionsCopy = {
     eyebrow: "Selected Press",
     heading: "Selected Press",
     description:
-      "Reviews and features on dancing dumpster fire and Fragments, plus interviews on Broey’s production process.",
+      "Editorial coverage of OnlyU by Just A Gent & Broey., plus reviews, features, and interviews from across the catalog.",
     ctaLabel: "View Press & Coverage",
     ctaHref: "/press",
   },
@@ -57,7 +57,7 @@ export const pressMentionsCopy = {
     eyebrow: "Press & Coverage",
     heading: "Coverage and context",
     description:
-      "Writeups, interviews, podcasts, and outside features around dancing dumpster fire, Fragments, early lo-fi roots, and the production work behind the catalog.",
+      "Editorial coverage of OnlyU by Just A Gent & Broey., plus writeups, interviews, and podcasts from across the catalog.",
     ctaLabel: "View all press & coverage",
     ctaHref: "/press",
   },
@@ -80,12 +80,12 @@ export const pressGroups: Record<
   "featured-coverage": {
     label: "Featured Coverage",
     description:
-      "A highlighted feature on dancing dumpster fire.",
+      "A highlighted editorial write-up on OnlyU by Just A Gent & Broey.",
   },
   "written-coverage": {
     label: "Written Coverage",
     description:
-      "Reviews, features, and roundups around Fragments, dancing dumpster fire, and the wider catalog.",
+      "Editorial selections, reviews, and features around OnlyU, Fragments, dancing dumpster fire, and the wider catalog.",
   },
   "interviews-podcasts": {
     label: "Interviews & Podcasts",
@@ -106,11 +106,47 @@ export const pressGroupOrder: PressItemGroup[] = [
   "video-features",
 ];
 
+// Curated priority order, independent of publication dates. Groups retain this
+// order in the archive; home and About previews use it before applying limits.
 export const pressItems: PressItem[] = [
+  {
+    id: "kick-kick-snare-only-u",
+    type: "feature",
+    group: "featured-coverage",
+    outlet: "Kick Kick Snare",
+    title: "CRATE Pulls of the Week",
+    medium: "article",
+    date: "2026-10-21",
+    releaseOrTopic: "OnlyU — Just A Gent & Broey.",
+    releaseSlugs: ["only-u"],
+    href: "https://kickkicksnare.com/crate-pulls-october-20-2026",
+    summary:
+      "In an editorial write-up for its curated CRATE selection, Kick Kick Snare highlights OnlyU's liquid drum and bass, expressive vocals, intricate drums, atmospheric melody, and horns.",
+    ctaLabel: "Read Write-up",
+    featuredOnHome: true,
+    featuredOnAbout: true,
+  },
+  {
+    id: "edm-com-only-u-fresh-picks",
+    type: "roundup",
+    group: "written-coverage",
+    outlet: "EDM.com",
+    title: "Fresh Picks: Ciara Graves, Loosid, Oddly Godly & More",
+    medium: "roundup",
+    date: "2026-10-16",
+    releaseOrTopic: "OnlyU — Just A Gent & Broey.",
+    releaseSlugs: ["only-u"],
+    href: "https://edm.com/music-releases/fresh-picks-ciara-graves-loosid-oddly-godly-more/",
+    summary:
+      "EDM.com selected OnlyU by Just A Gent & Broey. for Fresh Picks, its weekly editorial roundup of electronic releases.",
+    ctaLabel: "View Selection",
+    featuredOnHome: true,
+    featuredOnAbout: true,
+  },
   {
     id: "we-rave-you-dancing-dumpster-fire",
     type: "feature",
-    group: "featured-coverage",
+    group: "written-coverage",
     outlet: "We Rave You",
     title: "Broey. embraces raw creativity with new EP dancing dumpster fire",
     medium: "article",
