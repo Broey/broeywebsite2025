@@ -29,6 +29,8 @@ const platformOrder = [
   "Amazon Music",
   "iTunes",
   "VK Music",
+  "Pandora",
+  "Anghami",
   "All platforms",
 ];
 
@@ -98,6 +100,11 @@ const tidalCatalogLink = (release: ReleaseEntry): ReleaseEntry["links"][number] 
 };
 
 export const releasePlatformLinks = (release: ReleaseEntry) => {
+  const priorityRanks = new Map(
+    (release.platformPriority ?? []).map((platform, index) => [platform.toLowerCase(), index]),
+  );
+  const rank = (platform: string) => priorityRanks.get(platform.toLowerCase()) ??
+    priorityRanks.size + findPlatformRank(platform);
   const sourceLinks = release.platformLinks?.length ? release.platformLinks : release.links;
   const exposeDisco = shouldExposePublicDisco(release);
   const links = sourceLinks.filter(
@@ -114,7 +121,7 @@ export const releasePlatformLinks = (release: ReleaseEntry) => {
       const key = `${link.platform.toLowerCase()}-${link.url}`;
       return list.findIndex((entry) => `${entry.platform.toLowerCase()}-${entry.url}` === key) === index;
     })
-    .sort((a, b) => findPlatformRank(a.platform) - findPlatformRank(b.platform));
+    .sort((a, b) => rank(a.platform) - rank(b.platform));
 };
 
 const releaseListenAction = (

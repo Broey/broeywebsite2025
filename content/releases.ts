@@ -185,6 +185,7 @@ export type ReleaseEntry = {
   audio?: ReleaseAudio;
   links: ExternalLink[];
   platformLinks?: ExternalLink[];
+  platformPriority?: string[];
   disco?: {
     publicUrl?: string;
     privateShareUrl?: string;
@@ -639,7 +640,27 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
       "3:28",
       "Broey. & sunscrn",
     ),
-    links: [],
+    links: [
+      link("Spotify", "https://open.spotify.com/album/7whgxhuckOvfg76akJPi1b9"),
+      link("Apple Music", "https://music.apple.com/us/album/vultures-single/6818576391"),
+      link("SoundCloud", "https://soundcloud.com/broey-sc/vultures"),
+      link("TIDAL", "https://tidal.com/album/566609024"),
+      link("YouTube Music", "https://music.youtube.com/playlist?list=OLAK5uy_kSk93K9T6biZZNbz0hYlSdFeCeH3NVNXg"),
+      link("YouTube", "https://www.youtube.com/playlist?list=OLAK5uy_kSk93K9T6biZZNbz0hYlSdFeCeH3NVNXg", "video"),
+      link("Amazon Music", "https://music.amazon.com/albums/B0HLTKJY9T"),
+      link("Deezer", "https://www.deezer.com/album/1112175352"),
+      link("Pandora", "https://www.pandora.com/artist/broey-and-sunscrn/vultures/ALvqcfjVkdxhK7g"),
+      link("Anghami", "https://play.anghami.com/album/1101518126"),
+      link("All platforms", "https://ffm.to/vultures-6dam", "promo"),
+    ].map((destination) => ({
+      ...destination,
+      confidence: "source-backed" as const,
+      source: "Direct release links supplied by artist October 26, 2026",
+    })),
+    platformPriority: [
+      "Spotify", "Apple Music", "SoundCloud", "TIDAL", "YouTube Music",
+      "YouTube", "Amazon Music", "Deezer", "Pandora", "Anghami", "All platforms",
+    ],
     tracklist: [
       {
         title: "vultures",
@@ -667,7 +688,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
       trackCount: 1,
     },
     carouselEnabled: true,
-    carouselPriority: 0,
+    carouselPriority: -2,
     recommendedSlugs: ["free", "only-u", "fragments-ep"],
     featured: false,
   },

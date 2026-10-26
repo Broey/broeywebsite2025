@@ -14,7 +14,9 @@ test("OnlyU exposes every configured destination through the shared track-page p
   assert.deepEqual(new Set(links.map(link => link.platform)), new Set(onlyUCampaign.stores.map(store => store.platform)));
   assert.equal(links.find(link => link.platform === "Spotify").url, "https://open.spotify.com/album/3ZMHlWgHbaboU9PlbvgUcf");
   assert.equal(links.some(link => /\/search[/?]/.test(link.url)), false);
-  assert.equal(release.carouselPriority, Math.min(...releases.filter(r => r.carouselEnabled).map(r => r.carouselPriority ?? Infinity)));
+  const highlights = releases.filter(release => release.carouselEnabled)
+    .sort((a, b) => (a.carouselPriority ?? Infinity) - (b.carouselPriority ?? Infinity));
+  assert.deepEqual(highlights.slice(0, 2).map(release => release.slug), ["vultures", "only-u"]);
 });
 
 test("OnlyU switches at its approved publication time, with no early release-page indexing", () => {

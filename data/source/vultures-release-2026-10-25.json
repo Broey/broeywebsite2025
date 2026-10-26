@@ -42,7 +42,48 @@
     "mode": "Manual DigitalOcean deployment authorized by owner October 25, 2026",
     "status": "Public website launch approved; no scheduled gate"
   },
-  "officialStreamingLinks": [],
+  "officialStreamingLinks": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/album/7whgxhuckOvfg76akJPi1b9"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/us/album/vultures-single/6818576391"
+    },
+    {
+      "platform": "SoundCloud",
+      "url": "https://soundcloud.com/broey-sc/vultures"
+    },
+    {
+      "platform": "TIDAL",
+      "url": "https://tidal.com/album/566609024"
+    },
+    {
+      "platform": "YouTube Music",
+      "url": "https://music.youtube.com/playlist?list=OLAK5uy_kSk93K9T6biZZNbz0hYlSdFeCeH3NVNXg"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/playlist?list=OLAK5uy_kSk93K9T6biZZNbz0hYlSdFeCeH3NVNXg"
+    },
+    {
+      "platform": "Amazon Music",
+      "url": "https://music.amazon.com/albums/B0HLTKJY9T"
+    },
+    {
+      "platform": "Deezer",
+      "url": "https://www.deezer.com/album/1112175352"
+    },
+    {
+      "platform": "Pandora",
+      "url": "https://www.pandora.com/artist/broey-and-sunscrn/vultures/ALvqcfjVkdxhK7g"
+    },
+    {
+      "platform": "Anghami",
+      "url": "https://play.anghami.com/album/1101518126"
+    }
+  ],
   "audio": {
     "sourcePath": "C:\\Users\\phill\\Downloads\\suncrn, Broey. - vultures (1).mp3",
     "sourceSha256": "a351247b04322425a34e63c047d0bec20182b876ff74e075882afa57db02a6b2",
@@ -58,5 +99,7 @@
     "height": 2400,
     "sha256": "6a209c9e87ce0dd73cfebeaf79166f47eea69b54612d99a52d8b2b4061809ee5",
     "notes": "Visually matches supplied distributor screenshot. Downloads/vultures artwork final.png is a different design and was not substituted."
-  }
+  },
+  "smartLink": "https://ffm.to/vultures-6dam",
+  "streamingLinksSource": "Direct release links supplied by artist October 26, 2026"
 }
