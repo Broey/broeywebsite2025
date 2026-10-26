@@ -37,6 +37,7 @@ const releaseTypeLabel = {
 } as const;
 
 const currentEraReleaseSlugs = [
+  "vultures",
   "only-u",
   "free",
   "blu",

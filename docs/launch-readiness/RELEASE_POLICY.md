@@ -6,9 +6,9 @@ This document records the owner's standing release priorities. It governs conten
 
 The newest published, non-project-track release enabled for highlights is the current focus. `currentFocusRelease` in `content/release-focus.ts` resolves this at request time using release dates and scheduled availability. A stale `featured` flag cannot keep an older song in focus.
 
-Only the current focus receives gold home-card styling, its “out now” pill, the `/music` featured slot, and the Current badge on its track page. When a newer release launches, it takes over those placements. Prior releases remain playable and discoverable in highlight rotation, catalog, and recommendations without retaining the focus treatment. An explicitly staged presave tile may lead the home carousel before release; it does not become the published focus early.
+Only the current focus receives gold home-card styling, its “out now” pill, the `/music` featured slot, and the Current badge on its track page. When a newer release launches, it takes over those placements. Prior releases remain playable and discoverable in highlight rotation, catalog, and recommendations without retaining the focus treatment. An explicitly staged presave tile may lead the home carousel before release; it does not become the published focus early. Owner update October 25, 2026: home tile order follows carousel priorities, with OnlyU first and Vultures second, independently of date-based focus styling and badges.
 
-For a new release, verify its date, set `availableAt` for an exact timed launch, finish approved assets and links, and enable public visibility and `carouselEnabled` when authorized. Keep drafts excluded. Do not activate Vultures or replace OnlyU's approved suggestions until its release work is requested.
+For a new release, verify its date, set `availableAt` for an exact timed launch, finish approved assets and links, and enable public visibility and `carouselEnabled` when authorized. Keep drafts excluded until launch is authorized. The owner authorized Vultures publication and both pages' curated suggestions on October 25, 2026.
 
 ## Preferred streaming service
 

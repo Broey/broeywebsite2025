@@ -117,7 +117,7 @@ for (const source of releases) {
         sharedValues(sourceCurated, curatedGenreFiltersForRelease(candidate)).length > 0),
   );
 
-  if (candidatesWithGenreAffinity.length) {
+  if (candidatesWithGenreAffinity.length && !first.recommendations[0]?.manualOverride) {
     const closestHasAffinity =
       sharedValues(sourceDetailed, normalizedGenres(closest)).length > 0 ||
       sharedValues(sourceCurated, curatedGenreFiltersForRelease(closest)).length > 0;
@@ -134,7 +134,7 @@ for (const source of releases) {
     curatedGenreFiltersForRelease(source)[0] !== curatedGenreFiltersForRelease(bridge)[0],
     source.type !== bridge.type,
   ];
-  assert(bridgeDifferences.some(Boolean), `${source.slug}: bridge has no catalog-lane difference.`);
+  assert(first.recommendations[1]?.manualOverride || bridgeDifferences.some(Boolean), `${source.slug}: bridge has no catalog-lane difference.`);
 
   const datedSets = dates.map((date) => recommendReleases(source, releases, { date }));
   assert(
@@ -142,7 +142,8 @@ for (const source of releases) {
     `${source.slug}: closest or bridge changed across dates.`,
   );
   assert(
-    new Set(datedSets.map((set) => set.recommendations[2]?.release.slug)).size > 1,
+    first.recommendations[2]?.manualOverride ||
+      new Set(datedSets.map((set) => set.recommendations[2]?.release.slug)).size > 1,
     `${source.slug}: discovery did not rotate across the three validation dates.`,
   );
   assert(

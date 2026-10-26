@@ -1,0 +1,62 @@
+{
+  "source": "Artist-supplied distributor screenshots, October 25, 2026",
+  "title": "vultures",
+  "primaryArtists": [
+    "Broey.",
+    "sunscrn"
+  ],
+  "composers": [
+    "Brendan Rosenberg",
+    "Joseph Montaro"
+  ],
+  "credits": {
+    "additionalProducer": "Broey.",
+    "leadVocals": "sunscrn",
+    "producer": "sunscrn",
+    "synthesizerProgramming": "Broey."
+  },
+  "genre": "Electronic",
+  "subgenre": "Drum & Bass",
+  "type": "Single",
+  "trackCount": 1,
+  "upc": "708208997091",
+  "isrc": "QZWDD2674390",
+  "catalogNumber": "CAT2341160",
+  "label": "Broey.",
+  "cLine": "2026 Broey.",
+  "pLine": "2026 Broey.",
+  "explicit": false,
+  "language": "English",
+  "recordedYear": 2026,
+  "recordedCountry": "United States of America",
+  "coverArtAIUse": "None",
+  "stereoAIUse": "None",
+  "lyrics": "Where do we go when the lights start to glow?\nWhere do we go from here?\nWhere do we go when the lights fade low?\nWhere do we go from here?",
+  "previewStartSeconds": 33,
+  "releaseDate": {
+    "value": "2026-10-26",
+    "source": "Symphonic release overview 3416032, Release Availability timeline; verified October 25, 2026",
+    "status": "Confirmed by distributor"
+  },
+  "publication": {
+    "mode": "Manual DigitalOcean deployment authorized by owner October 25, 2026",
+    "status": "Public website launch approved; no scheduled gate"
+  },
+  "officialStreamingLinks": [],
+  "audio": {
+    "sourcePath": "C:\\Users\\phill\\Downloads\\suncrn, Broey. - vultures (1).mp3",
+    "sourceSha256": "a351247b04322425a34e63c047d0bec20182b876ff74e075882afa57db02a6b2",
+    "websitePath": "assets/releases/vultures.mp3",
+    "websiteSha256": "22fcefb80f1c5c56d53057fc4a70c5af2545c7f385475eefe474a76386f091b3",
+    "decodedAudioSha256": "bd9f5809eb612198bbfdb12dc515e525733244177c19b8c983d533779080c4f2",
+    "durationSeconds": 207.93,
+    "notes": "Decoded audio matches exactly. Website MP3 omits the large embedded PNG. Use distributor spelling sunscrn; MP3 artist tag says suncrn."
+  },
+  "artwork": {
+    "path": "public/assets/cover-art/vultures.png",
+    "width": 2400,
+    "height": 2400,
+    "sha256": "6a209c9e87ce0dd73cfebeaf79166f47eea69b54612d99a52d8b2b4061809ee5",
+    "notes": "Visually matches supplied distributor screenshot. Downloads/vultures artwork final.png is a different design and was not substituted."
+  }
+}

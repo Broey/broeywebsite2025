@@ -31,6 +31,7 @@ const localImageDimensions: Record<string, ImageDimensions> = {
   "/assets/cover-art/mean-something.png": { width: 1200, height: 1200 },
   "/assets/cover-art/only-u-spotify.jpg": { width: 640, height: 640 },
   "/assets/cover-art/stereo-luv.png": { width: 1200, height: 1200 },
+  "/assets/cover-art/vultures.png": { width: 2400, height: 2400 },
   "/assets/cover-art/warning.jpg": { width: 1600, height: 1600 },
   "/images/merch/beats-hoodie.jpg": { width: 1200, height: 1200 },
 };

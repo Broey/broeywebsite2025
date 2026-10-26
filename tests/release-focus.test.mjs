@@ -11,11 +11,11 @@ test("scheduled releases replace the old focus and future drafts cannot take ove
     assert.equal(currentFocusRelease(releases).slug, "free");
     Date.now = () => launch;
     assert.equal(currentFocusRelease(releases).slug, "only-u");
-    const future = { ...releases.find(r => r.slug === "only-u"), slug: "future-release", releaseDate: "2026-10-26", availableAt: "2026-10-26T04:00:00Z", featured: false };
+    const future = { ...releases.find(r => r.slug === "only-u"), slug: "future-release", releaseDate: "2026-10-27", availableAt: "2026-10-27T04:00:00Z", featured: false };
     assert.equal(currentFocusRelease([...releases, future]).slug, "only-u");
     Date.now = () => Date.parse(future.availableAt);
     assert.equal(currentFocusRelease([...releases, future]).slug, "future-release");
-    assert.equal(currentFocusRelease([...releases, { ...future, visibility: "draft", featured: true }]).slug, "only-u");
-    assert.equal(currentFocusRelease([...releases, { ...future, carouselEnabled: false }]).slug, "only-u");
+    assert.equal(currentFocusRelease([...releases, { ...future, visibility: "draft", featured: true }]).slug, "vultures");
+    assert.equal(currentFocusRelease([...releases, { ...future, carouselEnabled: false }]).slug, "vultures");
   } finally { Date.now = originalNow; }
 });

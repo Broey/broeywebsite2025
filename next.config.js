@@ -2,6 +2,7 @@
 const nextConfig = {
   outputFileTracingIncludes: {
     "/api/release-audio/only-u": ["./assets/releases/only-u.mp3.enc"],
+    "/api/release-audio/vultures": ["./assets/releases/vultures.mp3"],
   },
   reactStrictMode: true,
   turbopack: {

@@ -344,15 +344,25 @@ const releaseCatalogRows = (release: ReleaseEntry): ReleaseDetail[] => {
 
 const releaseCreditRows = (release: ReleaseEntry): ReleaseCredit[] => {
   const credits = release.credits ?? [];
+  const rows = credits.some((credit) => detailLabelKey(credit.role) === "artist")
+    ? credits
+    : [{ role: "Artist", name: releaseArtistName(release) }, ...credits];
+  const grouped = new Map<string, { credit: ReleaseCredit; names: Set<string> }>();
 
-  if (credits.some((credit) => detailLabelKey(credit.role) === "artist")) {
-    return credits;
+  for (const credit of rows) {
+    const key = detailLabelKey(credit.role);
+    const group = grouped.get(key);
+    if (group) {
+      group.names.add(credit.name);
+    } else {
+      grouped.set(key, { credit, names: new Set([credit.name]) });
+    }
   }
 
-  return [
-    { role: "Artist", name: releaseArtistName(release) },
-    ...credits,
-  ];
+  return [...grouped.values()].map(({ credit, names }) => ({
+    ...credit,
+    name: [...names].join(" & "),
+  }));
 };
 
 const releaseDiscoEmbed = (release: ReleaseEntry) => {

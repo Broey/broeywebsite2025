@@ -15,7 +15,8 @@ const buildCarouselOrder = (releaseList: ReleaseEntry[]) => {
     .sort((a, b) => (a.carouselPriority ?? Number.MAX_SAFE_INTEGER) - (b.carouselPriority ?? Number.MAX_SAFE_INTEGER));
   const focus = currentFocusRelease(releaseList);
   const upcoming = orderedReleases.find(release => release.availableAt && Date.now() < Date.parse(release.availableAt));
-  const leadSlug = upcoming?.slug ?? focus?.slug;
+  // Honor the owner's carousel priorities independently of current-release badges.
+  const leadSlug = upcoming?.slug ?? orderedReleases[0]?.slug;
   orderedReleases.sort((a, b) => Number(b.slug === leadSlug) - Number(a.slug === leadSlug));
 
   return {
