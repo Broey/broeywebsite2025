@@ -867,6 +867,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
     coverAlt: "FREE by Broey. cover art",
     playerAccent: "#397b8a",
     audio: localAudio("FREE", "/audio/free.mp3", "3:51"),
+    recommendedSlugs: ["only-u", "vultures", "dancing-dumpster-fire"],
     links: [
       link(
         "Disco",
