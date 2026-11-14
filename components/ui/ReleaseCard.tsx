@@ -7,6 +7,8 @@ import { normalizedGenres } from "@/content/genres";
 import { releaseDetailHref } from "@/content/release-actions";
 import type { ReleaseEntry } from "@/content/releases";
 import type { AnalyticsSourceSurface } from "@/lib/analytics";
+import type { RecommendationContext } from "@/lib/recommendation-analytics";
+import { RecommendationImpression } from "@/components/analytics/RecommendationImpression";
 
 type Props = {
   release: ReleaseEntry;
@@ -17,6 +19,7 @@ type Props = {
   audioQueue?: GlobalAudioQueue;
   playLabel?: string;
   sourceSurface: AnalyticsSourceSurface;
+  recommendation?: RecommendationContext;
 };
 
 const releaseTypeLabel: Record<ReleaseEntry["type"], string> = {
@@ -35,6 +38,7 @@ export function ReleaseCard({
   audioQueue,
   playLabel,
   sourceSurface,
+  recommendation,
 }: Props) {
   const releaseTypeDisplay = release.registry?.releaseTypeDisplay ?? releaseTypeLabel[release.type];
   const releaseMeta = release.year
@@ -51,6 +55,7 @@ export function ReleaseCard({
     <article
       className={`release-grid-card group ${featured ? "release-grid-card--featured" : ""}`}
     >
+      {recommendation ? <RecommendationImpression context={recommendation} /> : null}
       <ReleaseArtwork release={release} className="release-grid-card-artwork aspect-square" />
       <div className="release-grid-card-copy">
         <p className="release-grid-card-meta">{releaseMeta}</p>
@@ -71,6 +76,7 @@ export function ReleaseCard({
           {audioQueue ? (
             <ReleasePlayButton
               queue={audioQueue}
+              recommendation={recommendation}
               label={playLabel ?? "Play"}
               ariaLabelSubject={playSubject}
               className="release-detail-track-play"
@@ -80,6 +86,7 @@ export function ReleaseCard({
             href={resolvedCtaHref}
             releaseSlug={release.slug}
             sourceSurface={sourceSurface}
+            recommendation={recommendation}
             className="release-grid-card-action"
           >
             <span>{resolvedCtaLabel}</span>

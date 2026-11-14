@@ -709,8 +709,10 @@ function ReleaseCoverageSection({ release }: { release: ReleaseEntry }) {
 
 function KeepListeningSection({
   recommendations,
+  sourceReleaseSlug,
 }: {
   recommendations: ReleaseRecommendation[];
+  sourceReleaseSlug: string;
 }) {
   const moreReleases = recommendations.map((recommendation) => recommendation.release);
 
@@ -734,7 +736,8 @@ function KeepListeningSection({
         </Link>
       </div>
       <div className="release-detail-recommendation-grid">
-        {moreReleases.map((entry) => {
+        {recommendations.map((recommendation, index) => {
+          const entry = recommendation.release;
           const audioQueue = releaseAudioQueueForContext(entry, releases, "archive");
 
           return (
@@ -746,6 +749,13 @@ function KeepListeningSection({
               audioQueue={audioQueue}
               playLabel={releasePlayLabel(entry)}
               sourceSurface="recommendations"
+              recommendation={{
+                source_release_slug: sourceReleaseSlug,
+                recommended_release_slug: entry.slug,
+                recommendation_slot: recommendation.slot,
+                recommendation_position: (index + 1) as 1 | 2 | 3,
+                curated_override: recommendation.manualOverride,
+              }}
             />
           );
         })}
@@ -924,7 +934,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
 
           <ReleaseCoverageSection release={release} />
 
-          <KeepListeningSection recommendations={recommendationSet.recommendations} />
+          <KeepListeningSection recommendations={recommendationSet.recommendations} sourceReleaseSlug={release.slug} />
 
           <div className="release-detail-back-row">
             <Link href="/music" className="release-detail-nav-center">

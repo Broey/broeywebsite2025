@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
 
 process.env.NODE_ENV = "development";
 delete process.env.NEXT_PUBLIC_SITE_URL;
@@ -22,12 +24,94 @@ const {
 
 test("robots policy allows public crawling and blocks private crawling", () => {
   assert.deepEqual(createRobotsPolicy(false, "https://broey.net/sitemap.xml"), {
-    rules: { userAgent: "*", allow: "/" },
+    rules: [
+      { userAgent: "*", allow: "/" },
+      { userAgent: "GPTBot", disallow: "/" },
+      { userAgent: "ClaudeBot", disallow: "/" },
+    ],
     sitemap: "https://broey.net/sitemap.xml",
   });
   assert.deepEqual(createRobotsPolicy(true, "https://broey.net/sitemap.xml"), {
     rules: { userAgent: "*", disallow: "/" },
   });
+});
+
+test("only verified training crawlers are restricted on the public site", () => {
+  const policy = createRobotsPolicy(false, "https://broey.net/sitemap.xml");
+  for (const agent of ["Googlebot", "bingbot", "OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "Google-Extended"]) {
+    const applicable = policy.rules.find((rule) => rule.userAgent === agent)
+      ?? policy.rules.find((rule) => rule.userAgent === "*");
+    assert.equal(applicable.allow, "/", agent);
+    assert.equal(applicable.disallow, undefined, agent);
+  }
+  assert.deepEqual(policy.rules.filter((rule) => rule.disallow).map((rule) => rule.userAgent), ["GPTBot", "ClaudeBot"]);
+});
+
+test("rights metadata follows public and private visibility and has one dated sitemap entry", async () => {
+  const { staticPageMetadata, staticSitemapPages } = await import("../content/page-metadata.ts");
+  const { createPageMetadata } = await import("../content/seo.ts");
+  const visibility = process.env.SITE_VISIBILITY;
+  const passcode = process.env.SITE_PASSCODE;
+  try {
+    process.env.SITE_VISIBILITY = "public";
+    const publicMetadata = createPageMetadata(staticPageMetadata.rights);
+    // This suite uses the development fallback origin; the built-site validator checks production.
+    assert.equal(publicMetadata.alternates.canonical, "http://localhost:3000/rights");
+    assert.equal(publicMetadata.title, "Rights & Licensing");
+    assert.equal(publicMetadata.robots, undefined);
+    const entries = createPublicSitemap(staticSitemapPages, [], (path) => `${productionSiteOrigin}${path}`);
+    const rights = entries.filter((entry) => entry.url === "https://broey.net/rights");
+    assert.equal(rights.length, 1);
+    assert.equal(rights[0].lastModified.toISOString(), "2026-11-14T00:00:00.000Z");
+    assert.equal(entries.find((entry) => entry.url === "https://broey.net/privacy").lastModified.toISOString(), "2026-11-14T00:00:00.000Z");
+    process.env.SITE_VISIBILITY = "private";
+    process.env.SITE_PASSCODE = "synthetic-test-only";
+    assert.deepEqual(createPageMetadata(staticPageMetadata.rights).robots, {
+      index: false, follow: false, googleBot: { index: false, follow: false },
+    });
+  } finally {
+    if (visibility === undefined) delete process.env.SITE_VISIBILITY;
+    else process.env.SITE_VISIBILITY = visibility;
+    if (passcode === undefined) delete process.env.SITE_PASSCODE;
+    else process.env.SITE_PASSCODE = passcode;
+  }
+});
+
+test("private preview gates rights requests and accepts only valid preview authorization", async () => {
+  const require = createRequire(import.meta.url);
+  const ts = require("typescript");
+  const { NextRequest } = require("next/server");
+  const visibility = await import("../lib/site-visibility.ts");
+  // Evaluate the actual proxy, resolving its application alias without a running server.
+  const compiled = ts.transpileModule(readFileSync(new URL("../proxy.ts", import.meta.url), "utf8"), {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+  }).outputText;
+  const exports = {};
+  new Function("require", "exports", compiled)((id) => id === "@/lib/site-visibility" ? visibility : require(id), exports);
+  const previousVisibility = process.env.SITE_VISIBILITY;
+  const previousPasscode = process.env.SITE_PASSCODE;
+  try {
+    process.env.SITE_VISIBILITY = "private";
+    process.env.SITE_PASSCODE = "synthetic-test-only";
+    for (const cookie of [undefined, "invalid"]) {
+      const request = new NextRequest("http://localhost:3000/rights", cookie ? { headers: { cookie: `${visibility.gateCookieName}=${cookie}` } } : {});
+      const response = await exports.proxy(request);
+      assert.equal(response.status, 307);
+      assert.equal(response.headers.get("location"), "http://localhost:3000/gate?next=%2Frights");
+    }
+    const cookie = await visibility.createGateCookieValue();
+    const authorized = await exports.proxy(new NextRequest("http://localhost:3000/rights", {
+      headers: { cookie: `${visibility.gateCookieName}=${cookie}` },
+    }));
+    assert.equal(authorized.headers.get("x-middleware-next"), "1");
+    process.env.SITE_VISIBILITY = "public";
+    assert.equal((await exports.proxy(new NextRequest("http://localhost:3000/rights"))).headers.get("x-middleware-next"), "1");
+  } finally {
+    if (previousVisibility === undefined) delete process.env.SITE_VISIBILITY;
+    else process.env.SITE_VISIBILITY = previousVisibility;
+    if (previousPasscode === undefined) delete process.env.SITE_PASSCODE;
+    else process.env.SITE_PASSCODE = previousPasscode;
+  }
 });
 
 test("public sitemap contains static and eligible release URLs once", () => {

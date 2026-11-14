@@ -16,7 +16,12 @@ export function createRobotsPolicy(
   }
 
   return {
-    rules: { userAgent: "*", allow: "/" },
+    rules: [
+      { userAgent: "*", allow: "/" },
+      // Training crawlers only; search and user-directed retrieval retain public access.
+      { userAgent: "GPTBot", disallow: "/" },
+      { userAgent: "ClaudeBot", disallow: "/" },
+    ],
     sitemap: sitemapUrl,
   };
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
+import type { RecommendationContext } from "@/lib/recommendation-analytics";
 
 export type GlobalAudioTrack = {
   title: string;
@@ -52,13 +53,14 @@ export type AudioPlayerContextValue = {
   canGoNext: boolean;
   canGoPrevious: boolean;
   playTrack: (track: GlobalAudioTrack) => void;
-  playQueue: (queue: GlobalAudioQueue, activeIndex?: number) => void;
+  playQueue: (queue: GlobalAudioQueue, activeIndex?: number, recommendation?: RecommendationContext) => void;
+  rememberRecommendationNavigation: (context: RecommendationContext) => void;
   playNext: () => void;
   playPrevious: () => void;
   seekTo: (time: number) => void;
   setPlayerVolume: (volume: number) => void;
   toggleMute: () => void;
-  togglePlayback: () => void;
+  togglePlayback: (recommendation?: RecommendationContext) => void;
 };
 
 export const AudioPlayerContext = createContext<AudioPlayerContextValue | undefined>(undefined);

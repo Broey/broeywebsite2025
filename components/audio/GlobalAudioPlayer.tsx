@@ -127,7 +127,7 @@ export function GlobalAudioPlayer() {
               data-state={isPlaying ? "playing" : hasEnded ? "ended" : "paused"}
               aria-label={buttonLabel}
               disabled={hasError}
-              onClick={togglePlayback}
+              onClick={() => togglePlayback()}
             >
               <span aria-hidden="true" />
             </button>

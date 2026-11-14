@@ -21,6 +21,7 @@ import {
 } from "@/components/audio/useAudioPlayer";
 import { trackEvent } from "@/lib/analytics";
 import { AudioAnalyticsSession, type AudioAnalyticsEventName } from "@/lib/audio-analytics";
+import { RecommendationPlaybackAttribution, type RecommendationContext } from "@/lib/recommendation-analytics";
 
 const DEFAULT_VOLUME = 0.7;
 const VOLUME_STORAGE_KEY = "broey-audio-volume";
@@ -66,6 +67,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const previousPathnameRef = useRef(pathname);
   const previousVolumeRef = useRef(DEFAULT_VOLUME);
   const [audioAnalyticsSession] = useState(() => new AudioAnalyticsSession());
+  const [recommendationAttribution] = useState(() => new RecommendationPlaybackAttribution());
   const [playlistPromptSession] = useState(() => new PlaylistPromptSession());
   const [playlistPromptTrack, setPlaylistPromptTrack] = useState<string>();
   const [currentQueue, setCurrentQueue] = useState<GlobalAudioQueue>();
@@ -95,8 +97,14 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    trackEvent(eventName, currentTrack.analytics);
-  }, [currentTrack]);
+    trackEvent(eventName, { ...currentTrack.analytics, ...recommendationAttribution.properties(currentTrackKey) });
+  }, [currentTrack, currentTrackKey, recommendationAttribution]);
+
+  const rememberRecommendationNavigation = useCallback((context: RecommendationContext) => {
+    recommendationAttribution.rememberNavigation(context);
+  }, [recommendationAttribution]);
+
+  useEffect(() => { recommendationAttribution.visit(pathname); }, [pathname, recommendationAttribution]);
 
   const dismissPlaylistPrompt = useCallback(() => {
     setPlaylistPromptTrack(undefined);
@@ -154,12 +162,16 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       setIsPlaying(true);
       setIsLoading(false);
       setHasEnded(false);
+      // play() may resolve without a new playing event when the same source is active.
+      if (recommendationAttribution.properties(currentTrackKey).playback_trigger) {
+        audioAnalyticsSession.start(currentTrackKey).forEach(trackAudioEvent);
+      }
     }).catch(() => {
       continuePlaybackRef.current = false;
       setIsPlaying(false);
       setIsLoading(false);
     });
-  }, []);
+  }, [audioAnalyticsSession, currentTrackKey, recommendationAttribution, trackAudioEvent]);
 
   useEffect(() => {
     if (previousPathnameRef.current === pathname) {
@@ -217,7 +229,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     playPendingTrack();
   }, [playPendingTrack]);
 
-  const playQueue = useCallback((queue: GlobalAudioQueue, startIndex = queue.activeIndex) => {
+  const playQueue = useCallback((queue: GlobalAudioQueue, startIndex = queue.activeIndex, recommendation?: RecommendationContext) => {
     if (!queue.tracks.length) {
       return;
     }
@@ -225,6 +237,9 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     const nextQueue = normalizeQueue(queue, startIndex);
     const nextTrack = nextQueue.tracks[nextQueue.activeIndex];
+    if (recommendationAttribution.select(`${nextQueue.queueId}:${nextTrack.src}`, nextTrack.analytics?.release_slug, pathname, recommendation)) {
+      audioAnalyticsSession.reset();
+    }
     const isSameTrack =
       currentQueue?.queueId === nextQueue.queueId &&
       currentQueue?.activeIndex === nextQueue.activeIndex &&
@@ -240,7 +255,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     setHasEnded(false);
     setHasError(false);
     setPendingPlay(true);
-  }, [currentQueue?.activeIndex, currentQueue?.queueId, currentTrack?.src, hasEnded]);
+  }, [currentQueue?.activeIndex, currentQueue?.queueId, currentTrack?.src, hasEnded, pathname, recommendationAttribution, audioAnalyticsSession]);
 
   const playTrack = useCallback((track: GlobalAudioTrack) => {
     playQueue({
@@ -256,7 +271,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     });
   }, [playQueue]);
 
-  const setActiveQueueIndex = useCallback((nextIndex: number, shouldPlay = true) => {
+  const setActiveQueueIndex = useCallback((nextIndex: number, shouldPlay = true, trigger: "automatic" | "queue_selection" = "queue_selection") => {
     if (!currentQueue) {
       return;
     }
@@ -266,6 +281,8 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     if (safeIndex === currentQueue.activeIndex) {
       return;
     }
+
+    recommendationAttribution.advance(`${currentQueue.queueId}:${currentQueue.tracks[safeIndex].src}`, trigger);
 
     setCurrentQueue({
       ...currentQueue,
@@ -278,7 +295,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       continuePlaybackRef.current = true;
       setPendingPlay(true);
     }
-  }, [currentQueue]);
+  }, [currentQueue, recommendationAttribution]);
 
   const playNext = useCallback(() => {
     if (!canGoNext) {
@@ -296,7 +313,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     setActiveQueueIndex(activeIndex - 1);
   }, [activeIndex, canGoPrevious, setActiveQueueIndex]);
 
-  const togglePlayback = useCallback(() => {
+  const togglePlayback = useCallback((recommendation?: RecommendationContext) => {
     const audio = audioRef.current;
 
     if (!audio || hasError || !currentTrack) {
@@ -311,6 +328,10 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       return;
     }
 
+    if (recommendationAttribution.resume(currentTrackKey, currentTrack.analytics?.release_slug, pathname, recommendation)) {
+      audioAnalyticsSession.reset();
+    }
+
     if (hasEnded) {
       audio.currentTime = 0;
       setCurrentTime(0);
@@ -322,7 +343,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
     continuePlaybackRef.current = true;
     void requestPlayback(audio);
-  }, [currentTrack, hasEnded, hasError, isMuted, requestPlayback, volume]);
+  }, [currentTrack, currentTrackKey, hasEnded, hasError, isMuted, requestPlayback, volume, pathname, recommendationAttribution, audioAnalyticsSession]);
 
   const seekTo = useCallback((time: number) => {
     const audio = audioRef.current;
@@ -385,6 +406,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     canGoPrevious,
     playTrack,
     playQueue,
+    rememberRecommendationNavigation,
     playNext,
     playPrevious,
     seekTo,
@@ -409,6 +431,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     canGoPrevious,
     playTrack,
     playQueue,
+    rememberRecommendationNavigation,
     playNext,
     playPrevious,
     seekTo,
@@ -500,7 +523,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
             .forEach(trackAudioEvent);
 
           if (canGoNext) {
-            setActiveQueueIndex(activeIndex + 1);
+            setActiveQueueIndex(activeIndex + 1, true, "automatic");
             return;
           }
 

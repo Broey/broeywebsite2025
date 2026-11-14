@@ -1,0 +1,7 @@
+export const artistRightsParagraphs = [
+  "Broey welcomes ordinary search engine indexing, AI-assisted factual discovery of the artist and releases, references to publicly available release metadata, and links to authorized listening destinations. Listening through the website and authorized streaming services is welcome, subject to the terms that apply to those services.",
+  "Copyright and related rights in the music, sound recordings, compositions, artwork, and other protected material remain with their respective rights holders, which may include Broey, collaborators, labels, publishers, and others.",
+  "This website does not grant permission to use protected music, compositions, or sound recordings for AI training, to fine-tune generative audio models, to collect recordings into machine-learning datasets, or to reproduce or extract protected recordings for model development without authorization from the applicable rights holders.",
+  "Public availability, including access through this website or a streaming platform, does not by itself constitute a license for those uses. Any permission must come from the rights holders authorized to grant it.",
+  "Broey and other applicable rights holders reserve their rights and their ability to pursue remedies available under applicable law. This statement does not override applicable copyright exceptions or limitations, existing licenses, or terms governing material on external platforms.",
+] as const;

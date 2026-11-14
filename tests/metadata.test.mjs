@@ -25,6 +25,7 @@ const expectedStaticRoutes = [
   "/merch",
   "/press",
   "/privacy",
+  "/rights",
 ];
 
 const absoluteTitle = (definition) => {

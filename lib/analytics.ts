@@ -1,4 +1,5 @@
 import { onlyUCampaign } from "../content/only-u-campaign.ts";
+import type { RecommendationAudioProperties, RecommendationContext, RecommendationInteraction } from "./recommendation-analytics.ts";
 
 export type AnalyticsSourceSurface =
   | "home"
@@ -28,7 +29,8 @@ type NewsletterLifecycleProperties = CampaignAttributionProperties & {
   source_surface: AnalyticsSourceSurface;
 };
 
-type AudioEventProperties = {
+type AudioEventProperties = Omit<RecommendationAudioProperties, "source_surface"> & {
+  source_surface?: AnalyticsSourceSurface;
   release_slug?: string;
   track_slug?: string;
   track_title?: string;
@@ -37,6 +39,14 @@ type AudioEventProperties = {
 };
 
 export type AnalyticsEventMap = {
+  recommendation_impression: RecommendationContext & {
+    source_surface: "recommendations";
+    interaction_type: "impression";
+  };
+  recommendation_interaction: RecommendationContext & {
+    source_surface: "recommendations";
+    interaction_type: Exclude<RecommendationInteraction, "impression" | "open">;
+  };
   presave_click: CampaignAttributionProperties & {
     release_slug: string;
     source_surface: AnalyticsSourceSurface;
@@ -68,7 +78,8 @@ export type AnalyticsEventMap = {
   release_open: {
     release_slug: string;
     source_surface: AnalyticsSourceSurface;
-  };
+    interaction_type?: "open";
+  } & Partial<RecommendationContext>;
   newsletter_signup: {
     source_surface: AnalyticsSourceSurface;
     page_path: string;
@@ -151,7 +162,7 @@ export function isAnalyticsConversionSuccess(
 declare global {
   interface Window {
     umami?: {
-      track?: (eventName: string, properties?: Record<string, string | number | boolean>) => void;
+      track?: (eventName: string, properties?: Record<string, string | number | boolean>) => void | Promise<unknown>;
     };
   }
 }
@@ -178,7 +189,8 @@ export function trackEvent<Name extends AnalyticsEventName>(
       ),
     ) as Record<string, string | number | boolean>;
 
-    track(eventName, factualProperties);
+    const result = track(eventName, factualProperties);
+    if (result) void Promise.resolve(result).catch(() => { /* Delivery is optional. */ });
   } catch {
     // Analytics must never interfere with the visitor experience.
   }

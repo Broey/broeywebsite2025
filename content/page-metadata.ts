@@ -89,6 +89,14 @@ export const staticPageMetadata = {
     description:
       "Learn how the Broey website handles analytics, contact messages, newsletter subscriptions, abuse prevention, retention, and privacy requests.",
     path: "/privacy",
+    lastModified: "2026-11-14",
+  },
+  rights: {
+    title: "Rights & Licensing",
+    description:
+      "Read Broey’s artist rights and AI usage policy, including permissions for factual discovery and contact details for rights and licensing inquiries.",
+    path: "/rights",
+    lastModified: "2026-11-14",
   },
 } as const satisfies Record<string, PageMetadataDefinition>;
 

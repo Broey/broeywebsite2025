@@ -9,6 +9,7 @@ const followCommunityPlatforms = ["Instagram", "YouTube", "TikTok", "Discord"] a
 const footerSiteItems = [
   ...primaryNavItems,
   { href: "/privacy", label: "Privacy" },
+  { href: "/rights", label: "Rights & Licensing" },
 ];
 
 const visibleSocials = new Map<string, (typeof socials)[number]>();

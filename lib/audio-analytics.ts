@@ -17,6 +17,13 @@ export class AudioAnalyticsSession {
   private completed = false;
   private firedMilestones = new Set<AudioAnalyticsEventName>();
 
+  reset() {
+    this.trackKey = "";
+    this.started = false;
+    this.completed = false;
+    this.firedMilestones.clear();
+  }
+
   start(trackKey: string): AudioAnalyticsEventName[] {
     this.prepare(trackKey);
 
