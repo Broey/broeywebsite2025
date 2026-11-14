@@ -150,6 +150,8 @@ export type ReleaseEntry = {
   verificationStatus?: ReleaseVerificationStatus;
   year?: number;
   releaseDate?: string;
+  // Verified date (YYYY-MM-DD) of a substantive detail-page update, not the music release date.
+  lastModified?: string;
   availableAt?: string;
   displayDate?: string;
   originalReleaseDate?: string;
@@ -868,6 +870,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
     playerAccent: "#397b8a",
     audio: localAudio("FREE", "/audio/free.mp3", "3:51"),
     recommendedSlugs: ["only-u", "vultures", "dancing-dumpster-fire"],
+    lastModified: "2026-11-07",
     links: [
       link(
         "Disco",
@@ -933,6 +936,7 @@ export const releases: ReleaseEntry[] = applyReleasePlayerAccents(
   {
     title: "dancing dumpster fire",
     slug: "dancing-dumpster-fire",
+    lastModified: "2026-11-14",
     type: "ep",
     year: 2025,
     releaseDate: "2025-00-00",

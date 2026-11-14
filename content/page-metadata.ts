@@ -9,6 +9,8 @@ export type PageMetadataDefinition = {
   title: string;
   description: string;
   path: string;
+  // Verified date (YYYY-MM-DD) of a substantive page update; omit when unknown.
+  lastModified?: string;
   image?: SocialImageDefinition;
   absoluteTitle?: boolean;
   indexable?: boolean;
@@ -78,6 +80,7 @@ export const staticPageMetadata = {
     description:
       "Explore press coverage of Broey, including independent reviews, features, interviews, podcasts, and video appearances from across the catalog.",
     path: "/press",
+    lastModified: "2026-11-14",
     image: artistPortraitImage,
     absoluteTitle: true,
   },
@@ -98,4 +101,7 @@ export const joinPageMetadata = {
   followWhenNoIndex: true,
 } as const satisfies PageMetadataDefinition;
 
-export const staticSitemapRoutes = Object.values(staticPageMetadata).map(({ path }) => path);
+export const staticSitemapPages = (Object.values(staticPageMetadata) as PageMetadataDefinition[])
+  .filter((page) => page.indexable !== false);
+
+export const staticSitemapRoutes = staticSitemapPages.map(({ path }) => path);

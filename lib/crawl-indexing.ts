@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 
-type SitemapRelease = {
+type SitemapPage = {
   path: string;
-  releaseDate?: string;
+  lastModified?: string;
 };
 
 export function createRobotsPolicy(
@@ -21,7 +21,7 @@ export function createRobotsPolicy(
   };
 }
 
-export function reliableReleaseDate(value?: string) {
+export function reliableSitemapDate(value?: string) {
   if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.includes("-00")) {
     return undefined;
   }
@@ -33,26 +33,19 @@ export function reliableReleaseDate(value?: string) {
 }
 
 export function createPublicSitemap(
-  staticPaths: readonly string[],
-  releases: readonly SitemapRelease[],
+  staticPages: readonly SitemapPage[],
+  releases: readonly SitemapPage[],
   toAbsoluteUrl: (path: string) => string,
 ): MetadataRoute.Sitemap {
   const seen = new Set<string>();
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const path of staticPaths) {
-    const url = toAbsoluteUrl(path);
+  for (const page of [...staticPages, ...releases]) {
+    const url = toAbsoluteUrl(page.path);
     if (!seen.has(url)) {
       seen.add(url);
-      entries.push({ url });
-    }
-  }
-
-  for (const release of releases) {
-    const url = toAbsoluteUrl(release.path);
-    if (!seen.has(url)) {
-      seen.add(url);
-      const lastModified = reliableReleaseDate(release.releaseDate);
+      // Publication dates and request/build times do not establish page updates.
+      const lastModified = reliableSitemapDate(page.lastModified);
       entries.push(lastModified ? { url, lastModified } : { url });
     }
   }
