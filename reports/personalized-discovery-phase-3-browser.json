@@ -1,0 +1,267 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:3000",
+  "expectedSiteOrigin": "https://broey.com",
+  "headless": true,
+  "temporaryContexts": true,
+  "externalRequestsBlocked": true,
+  "browserVersion": "149.0.7827.55",
+  "checks": [
+    "1440px: first visit disabled; genre and successful playback do not store preferences before opt-in",
+    "1440px: keyboard opt-in creates versioned profile; status and focus update; genre score and reload persist",
+    "1440px: intentional native playback scores; pause/resume/seek do not duplicate; SPA navigation retains playback; Recently Played survives return and reload",
+    "1440px: real native ended/queue advancement adds no preference evidence; manual next-track selection updates history",
+    "1440px: clear removes interests/history and retains consent; disable deletes profile; no cookies created",
+    "1440px: blocked localStorage safely falls back to disabled discovery",
+    "1440px: corrupt profile safely falls back to disabled discovery",
+    "1440px: expired profile safely falls back to disabled discovery",
+    "1440px: unknown profile version safely falls back to disabled discovery",
+    "1440px: rejected play promise creates no false preference or audio_play",
+    "1440px: unavailable media response creates no false preference or audio_play",
+    "1440px: 5 real near-ties change only eligible Closest; Bridge/Discovery and focused link persist; curated precedence, personalized play/open attribution and impression dedup pass",
+    "390px: first visit disabled; genre and successful playback do not store preferences before opt-in",
+    "390px: keyboard opt-in creates versioned profile; status and focus update; genre score and reload persist",
+    "390px: intentional native playback scores; pause/resume/seek do not duplicate; SPA navigation retains playback; Recently Played survives return and reload",
+    "390px: real native ended/queue advancement adds no preference evidence; manual next-track selection updates history",
+    "390px: clear removes interests/history and retains consent; disable deletes profile; no cookies created",
+    "390px: blocked localStorage safely falls back to disabled discovery",
+    "390px: corrupt profile safely falls back to disabled discovery",
+    "390px: expired profile safely falls back to disabled discovery",
+    "390px: unknown profile version safely falls back to disabled discovery",
+    "390px: rejected play promise creates no false preference or audio_play",
+    "390px: unavailable media response creates no false preference or audio_play",
+    "390px: 5 real near-ties change only eligible Closest; Bridge/Discovery and focused link persist; curated precedence, personalized play/open attribution and impression dedup pass",
+    "1440px: Music/Recently Played, release, Privacy, Rights and home have no overflow; canonical and disclosure checks pass",
+    "768px: Music/Recently Played, release, Privacy, Rights and home have no overflow; canonical and disclosure checks pass",
+    "390px: Music/Recently Played, release, Privacy, Rights and home have no overflow; canonical and disclosure checks pass",
+    "320px: Music/Recently Played, release, Privacy, Rights and home have no overflow; canonical and disclosure checks pass",
+    "Browser-captured synthetic analytics requests contain only aggregate allowlisted properties; no preference profile in application requests; no uncaught or hydration errors"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "layouts": [
+    {
+      "route": "/music",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "route": "/music/free",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "route": "/rights",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "route": "/music",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "route": "/music/free",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "route": "/privacy",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "route": "/rights",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "route": "/music",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "route": "/music/free",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "route": "/rights",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "route": "/music",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "route": "/music/free",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "route": "/privacy",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "route": "/rights",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "scrollWidth": 320
+    }
+  ],
+  "recommendationCases": [
+    {
+      "source": "blu",
+      "genre": "garage",
+      "selected": "dancing-dumpster-fire",
+      "baseline": [
+        "/music/stereo-luv",
+        "/music/hold-me-back",
+        "/music/fragments-remixes"
+      ]
+    },
+    {
+      "source": "contrast-falling",
+      "genre": "jungle",
+      "selected": "hold-on",
+      "baseline": [
+        "/music/hysteria",
+        "/music/free",
+        "/music/stereo-luv"
+      ]
+    },
+    {
+      "source": "contrast-falling-almost-anyone-remix",
+      "genre": "drum-and-bass",
+      "selected": "hold-on",
+      "baseline": [
+        "/music/fragments-remixes",
+        "/music/only-u",
+        "/music/blu"
+      ]
+    },
+    {
+      "source": "contrast-origins-almost-anyone-remix",
+      "genre": "drum-and-bass",
+      "selected": "hysteria",
+      "baseline": [
+        "/music/fragments-remixes",
+        "/music/4u",
+        "/music/after-you"
+      ]
+    },
+    {
+      "source": "after-you",
+      "genre": "drum-and-bass",
+      "selected": "only-u",
+      "baseline": [
+        "/music/free",
+        "/music/fragments-ep",
+        "/music/i-cant-wait-for-love"
+      ]
+    }
+  ],
+  "currentFocus": "vultures",
+  "analytics": {
+    "transport": "synthetic local interception; not provider receipt",
+    "eventCounts": {
+      "genre_filter": 6,
+      "audio_play": 14,
+      "personalization_change": 4,
+      "audio_25_percent": 4,
+      "audio_50_percent": 4,
+      "audio_75_percent": 2,
+      "audio_complete": 2,
+      "recommendation_impression": 25,
+      "release_open": 2,
+      "recommendation_interaction": 2
+    },
+    "fields": [
+      "curated_override",
+      "enabled",
+      "genre",
+      "interaction_type",
+      "personalized",
+      "playback_trigger",
+      "project_slug",
+      "recommendation_position",
+      "recommendation_slot",
+      "recommended_release_slug",
+      "release_slug",
+      "result_count",
+      "source_release_slug",
+      "source_surface",
+      "track_slug",
+      "track_title"
+    ],
+    "otherApplicationPostRequests": 0
+  },
+  "rawEvidence": "C:\\Users\\phill\\AppData\\Local\\Temp\\broey-phase3-browser-x1jZLC",
+  "baselinePolicy": "Owner explicitly approved preserving existing public-but-unreleased baseline suggestions; no unreleased personalization additions.",
+  "promotionChecks": [
+    {
+      "width": 1440,
+      "promotionOrder": [
+        "vultures",
+        "OnlyU",
+        "FREE",
+        "STEREO LUV",
+        "blu.",
+        "Fragments",
+        "dancing dumpster fire",
+        "Fragments (Remixes)",
+        "Mean Something",
+        "4u"
+      ],
+      "unchangedWhenEnabled": true
+    },
+    {
+      "width": 390,
+      "promotionOrder": [
+        "vultures",
+        "OnlyU",
+        "FREE",
+        "STEREO LUV",
+        "blu.",
+        "Fragments",
+        "dancing dumpster fire",
+        "Fragments (Remixes)",
+        "Mean Something",
+        "4u"
+      ],
+      "unchangedWhenEnabled": true
+    }
+  ]
+}

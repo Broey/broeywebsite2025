@@ -24,6 +24,8 @@ import { staticPageMetadata } from "@/content/page-metadata";
 import { releases, type ReleaseEntry } from "@/content/releases";
 import { isPublishedRelease } from "@/content/release-filters";
 import { currentFocusRelease } from "@/content/release-focus";
+import { preferenceCatalog } from "@/content/music-personalization";
+import { MusicPersonalization } from "@/components/music/MusicPersonalization";
 import { createPageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = createPageMetadata(staticPageMetadata.music);
@@ -236,6 +238,11 @@ export default function MusicPage() {
         </div>
       </section>
 
+      <MusicPersonalization catalog={preferenceCatalog(releases)} cards={preferenceCatalog(releases).map(({ slug }) => {
+        const release = releases.find((entry) => entry.slug === slug)!;
+        return { slug, card: <TrackedReleaseLink href={releaseDetailHref(release)} releaseSlug={slug}
+          sourceSurface="music_catalog" className="release-detail-secondary-cta">{release.title}</TrackedReleaseLink> };
+      })} />
       <MusicCatalogFilter filters={curatedGenreFilters} sections={catalogSections} />
     </section>
   );

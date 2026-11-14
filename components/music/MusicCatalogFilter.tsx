@@ -2,6 +2,7 @@
 
 import { type ReactNode, useMemo, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { useMusicPreferenceStore } from "./MusicPreferencesProvider";
 
 export type MusicCatalogRelease = {
   id: string;
@@ -27,6 +28,7 @@ export function MusicCatalogFilter({
   sections,
 }: MusicCatalogFilterProps) {
   const [selectedFilter, setSelectedFilter] = useState("All");
+  const preferences = useMusicPreferenceStore();
   const filteredSections = useMemo(
     () =>
       sections
@@ -59,6 +61,7 @@ export function MusicCatalogFilter({
     );
 
     setSelectedFilter(filter);
+    preferences.selectGenre(filter);
     trackEvent("genre_filter", {
       genre: filter,
       result_count: resultCount,

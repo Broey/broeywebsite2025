@@ -39,6 +39,7 @@ type AudioEventProperties = Omit<RecommendationAudioProperties, "source_surface"
 };
 
 export type AnalyticsEventMap = {
+  personalization_change: { enabled: boolean; source_surface: "music_catalog" };
   recommendation_impression: RecommendationContext & {
     source_surface: "recommendations";
     interaction_type: "impression";

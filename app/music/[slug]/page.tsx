@@ -20,7 +20,8 @@ import {
   releasePlatformLinks,
   shouldExposePublicDisco,
 } from "@/content/release-actions";
-import { recommendReleases, type ReleaseRecommendation } from "@/content/release-recommendations";
+import { recommendReleases, personalizedClosestChoices, type ReleaseRecommendation, type RecommendationSet } from "@/content/release-recommendations";
+import { PersonalizedRecommendations } from "@/components/music/MusicPersonalization";
 import {
   trackRegistryByReleaseSlug,
   type GeneratedTrackRegistry,
@@ -708,12 +709,24 @@ function ReleaseCoverageSection({ release }: { release: ReleaseEntry }) {
 }
 
 function KeepListeningSection({
-  recommendations,
+  set,
   sourceReleaseSlug,
 }: {
-  recommendations: ReleaseRecommendation[];
+  set: RecommendationSet;
   sourceReleaseSlug: string;
 }) {
+  const { recommendations } = set;
+  const choices = personalizedClosestChoices(set, releases);
+  const card = (recommendation: ReleaseRecommendation, index: number, personalized = false) => {
+    const entry = recommendation.release;
+    return <ReleaseCard key={`${sourceReleaseSlug}:${recommendation.slot}`} release={entry}
+      ctaHref={releaseDetailHref(entry)} ctaLabel={`View ${entry.title}`}
+      audioQueue={releaseAudioQueueForContext(entry, releases, "archive")}
+      playLabel={releasePlayLabel(entry)} sourceSurface="recommendations"
+      recommendation={{ source_release_slug: sourceReleaseSlug, recommended_release_slug: entry.slug,
+        recommendation_slot: recommendation.slot, recommendation_position: (index + 1) as 1 | 2 | 3,
+        curated_override: recommendation.manualOverride, ...(personalized ? { personalized: true } : {}) }} />;
+  };
   const moreReleases = recommendations.map((recommendation) => recommendation.release);
 
   if (!moreReleases.length) {
@@ -735,31 +748,11 @@ function KeepListeningSection({
           Browse selected releases
         </Link>
       </div>
-      <div className="release-detail-recommendation-grid">
-        {recommendations.map((recommendation, index) => {
-          const entry = recommendation.release;
-          const audioQueue = releaseAudioQueueForContext(entry, releases, "archive");
-
-          return (
-            <ReleaseCard
-              key={entry.slug}
-              release={entry}
-              ctaHref={releaseDetailHref(entry)}
-              ctaLabel={`View ${entry.title}`}
-              audioQueue={audioQueue}
-              playLabel={releasePlayLabel(entry)}
-              sourceSurface="recommendations"
-              recommendation={{
-                source_release_slug: sourceReleaseSlug,
-                recommended_release_slug: entry.slug,
-                recommendation_slot: recommendation.slot,
-                recommendation_position: (index + 1) as 1 | 2 | 3,
-                curated_override: recommendation.manualOverride,
-              }}
-            />
-          );
-        })}
-      </div>
+      <PersonalizedRecommendations day={Math.floor(Date.parse(set.dateKey) / 86400000)} choices={choices.map((choice, index) => ({ ...choice,
+        card: card({ ...recommendations[0], release: releases.find((entry) => entry.slug === choice.slug)! }, 0, index > 0),
+      }))}>
+        {recommendations.slice(1).map((recommendation, index) => card(recommendation, index + 1))}
+      </PersonalizedRecommendations>
     </section>
   );
 }
@@ -934,7 +927,7 @@ export default async function ReleaseDetailPage({ params }: PageProps) {
 
           <ReleaseCoverageSection release={release} />
 
-          <KeepListeningSection recommendations={recommendationSet.recommendations} sourceReleaseSlug={release.slug} />
+          <KeepListeningSection set={recommendationSet} sourceReleaseSlug={release.slug} />
 
           <div className="release-detail-back-row">
             <Link href="/music" className="release-detail-nav-center">

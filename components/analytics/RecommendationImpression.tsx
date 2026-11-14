@@ -7,11 +7,11 @@ import { observeRecommendationImpression, recommendationProperties, type Recomme
 export function RecommendationImpression({ context }: { context: RecommendationContext }) {
   const marker = useRef<HTMLSpanElement>(null);
   const counted = useRef(new Set<string>());
-  const { source_release_slug, recommended_release_slug, recommendation_slot, recommendation_position, curated_override } = context;
+  const { source_release_slug, recommended_release_slug, recommendation_slot, recommendation_position, curated_override, personalized } = context;
 
   useEffect(() => {
     const card = marker.current?.parentElement;
-    const context = { source_release_slug, recommended_release_slug, recommendation_slot, recommendation_position, curated_override };
+    const context = { source_release_slug, recommended_release_slug, recommendation_slot, recommendation_position, curated_override, ...(personalized ? { personalized } : {}) };
     const key = JSON.stringify(context);
     if (!card || counted.current.has(key)) return;
     return observeRecommendationImpression(card, () => {
@@ -19,7 +19,7 @@ export function RecommendationImpression({ context }: { context: RecommendationC
       counted.current.add(key);
       trackEvent("recommendation_impression", recommendationProperties(context, "impression"));
     });
-  }, [source_release_slug, recommended_release_slug, recommendation_slot, recommendation_position, curated_override]);
+  }, [source_release_slug, recommended_release_slug, recommendation_slot, recommendation_position, curated_override, personalized]);
 
   return <span ref={marker} hidden />;
 }

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { AudioPlayerProvider } from "@/components/audio/AudioPlayerProvider";
+import { MusicPreferencesProvider } from "@/components/music/MusicPreferencesProvider";
+import { preferenceCatalog } from "@/content/music-personalization";
+import { releases } from "@/content/releases";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { OnlyUCountdownBanner } from "@/components/sections/OnlyUCountdown";
@@ -68,14 +71,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AudioPlayerProvider>
-          <div className="site-shell">
-            <Header />
-            <OnlyUCountdownBanner releasedAtRender={isOnlyUReleased()} />
-            <main className="site-main">{children}</main>
-            <Footer />
-          </div>
-        </AudioPlayerProvider>
+        <MusicPreferencesProvider catalog={preferenceCatalog(releases)}>
+          <AudioPlayerProvider>
+            <div className="site-shell">
+              <Header />
+              <OnlyUCountdownBanner releasedAtRender={isOnlyUReleased()} />
+              <main className="site-main">{children}</main>
+              <Footer />
+            </div>
+          </AudioPlayerProvider>
+        </MusicPreferencesProvider>
         {shouldLoadUmami ? (
           <Script
             id="umami-analytics"

@@ -6,6 +6,7 @@ export type RecommendationContext = {
   recommendation_slot: RecommendationSlot;
   recommendation_position: 1 | 2 | 3;
   curated_override: boolean;
+  personalized?: boolean;
 };
 
 export type RecommendationInteraction = "impression" | "open" | "play" | "pause" | "resume" | "replay";

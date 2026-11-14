@@ -22,6 +22,7 @@ import {
 import { trackEvent } from "@/lib/analytics";
 import { AudioAnalyticsSession, type AudioAnalyticsEventName } from "@/lib/audio-analytics";
 import { RecommendationPlaybackAttribution, type RecommendationContext } from "@/lib/recommendation-analytics";
+import { useMusicPreferenceStore } from "@/components/music/MusicPreferencesProvider";
 
 const DEFAULT_VOLUME = 0.7;
 const VOLUME_STORAGE_KEY = "broey-audio-volume";
@@ -62,6 +63,8 @@ const normalizeQueue = (queue: GlobalAudioQueue, activeIndex = queue.activeIndex
 
 export function AudioPlayerProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const musicPreferences = useMusicPreferenceStore();
+  const intentionalPlayRef = useRef<string | undefined>(undefined);
   const audioRef = useRef<HTMLAudioElement>(null);
   const continuePlaybackRef = useRef(false);
   const previousPathnameRef = useRef(pathname);
@@ -92,6 +95,13 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     ? `${currentQueue?.queueId ?? "single"}:${currentTrack.src}`
     : "";
 
+  const rememberIntentionalPlayback = useCallback(() => {
+    if (intentionalPlayRef.current !== currentTrackKey) return;
+    intentionalPlayRef.current = undefined;
+    musicPreferences.played(currentTrack?.analytics?.release_slug,
+      recommendationAttribution.properties(currentTrackKey).playback_trigger);
+  }, [currentTrackKey, currentTrack, musicPreferences, recommendationAttribution]);
+
   const trackAudioEvent = useCallback((eventName: AudioAnalyticsEventName) => {
     if (!currentTrack?.analytics) {
       return;
@@ -113,7 +123,8 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
-      const savedVolume = window.localStorage.getItem(VOLUME_STORAGE_KEY);
+      let savedVolume: string | null = null;
+      try { savedVolume = window.localStorage.getItem(VOLUME_STORAGE_KEY); } catch { /* Keep the default when storage is blocked. */ }
       const parsedVolume = savedVolume === null ? DEFAULT_VOLUME : Number(savedVolume);
       const nextVolume = Number.isFinite(parsedVolume) ? clampVolume(parsedVolume) : DEFAULT_VOLUME;
       const nextMuted = nextVolume === 0;
@@ -162,6 +173,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       setIsPlaying(true);
       setIsLoading(false);
       setHasEnded(false);
+      rememberIntentionalPlayback();
       // play() may resolve without a new playing event when the same source is active.
       if (recommendationAttribution.properties(currentTrackKey).playback_trigger) {
         audioAnalyticsSession.start(currentTrackKey).forEach(trackAudioEvent);
@@ -171,7 +183,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
       setIsPlaying(false);
       setIsLoading(false);
     });
-  }, [audioAnalyticsSession, currentTrackKey, recommendationAttribution, trackAudioEvent]);
+  }, [audioAnalyticsSession, currentTrackKey, recommendationAttribution, trackAudioEvent, rememberIntentionalPlayback]);
 
   useEffect(() => {
     if (previousPathnameRef.current === pathname) {
@@ -237,6 +249,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     const nextQueue = normalizeQueue(queue, startIndex);
     const nextTrack = nextQueue.tracks[nextQueue.activeIndex];
+    intentionalPlayRef.current = `${nextQueue.queueId}:${nextTrack.src}`;
     if (recommendationAttribution.select(`${nextQueue.queueId}:${nextTrack.src}`, nextTrack.analytics?.release_slug, pathname, recommendation)) {
       audioAnalyticsSession.reset();
     }
@@ -283,6 +296,8 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     }
 
     recommendationAttribution.advance(`${currentQueue.queueId}:${currentQueue.tracks[safeIndex].src}`, trigger);
+    intentionalPlayRef.current = trigger === "queue_selection"
+      ? `${currentQueue.queueId}:${currentQueue.tracks[safeIndex].src}` : undefined;
 
     setCurrentQueue({
       ...currentQueue,
@@ -331,6 +346,11 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     if (recommendationAttribution.resume(currentTrackKey, currentTrack.analytics?.release_slug, pathname, recommendation)) {
       audioAnalyticsSession.reset();
     }
+    // A manual resume of an automatically advanced track is an intentional choice.
+    if (recommendationAttribution.properties(currentTrackKey).playback_trigger === "automatic") {
+      recommendationAttribution.advance(currentTrackKey, "queue_selection");
+    }
+    intentionalPlayRef.current = currentTrackKey;
 
     if (hasEnded) {
       audio.currentTime = 0;
@@ -361,7 +381,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
     const normalizedVolume = clampVolume(nextVolume);
 
     setVolume(normalizedVolume);
-    window.localStorage.setItem(VOLUME_STORAGE_KEY, String(normalizedVolume));
+    try { window.localStorage.setItem(VOLUME_STORAGE_KEY, String(normalizedVolume)); } catch { /* Volume still works in memory. */ }
 
     if (normalizedVolume > 0) {
       previousVolumeRef.current = normalizedVolume;
@@ -377,7 +397,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
       setVolume(restoredVolume);
       setIsMuted(false);
-      window.localStorage.setItem(VOLUME_STORAGE_KEY, String(restoredVolume));
+      try { window.localStorage.setItem(VOLUME_STORAGE_KEY, String(restoredVolume)); } catch { /* Volume still works in memory. */ }
       return;
     }
 
@@ -475,6 +495,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
         }}
         onWaiting={() => setIsLoading(true)}
         onPlaying={() => {
+          rememberIntentionalPlayback();
           playlistPromptSession.interrupt();
           setIsPlaying(true);
           setIsLoading(false);

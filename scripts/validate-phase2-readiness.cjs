@@ -6,6 +6,8 @@ const origin = process.env.PHASE2_TEST_ORIGIN || "http://127.0.0.1:3227";
 const privateBuildDir = process.env.PHASE2_PRIVATE_BUILD_DIR;
 const isPrivate = Boolean(privateBuildDir) || process.env.PHASE2_TEST_MODE === "private";
 const mode = isPrivate ? "private" : "public";
+const reportDir = process.env.PHASE2_REPORT_DIR || "reports";
+const expectedSiteOrigin = new URL(process.env.DISCOVERY_EXPECTED_SITE_ORIGIN || "https://broey.net").origin;
 const target = new URL(origin);
 assert.ok(target.protocol === "http:" && ["localhost", "127.0.0.1"].includes(target.hostname), "Only loopback HTTP servers are permitted");
 assert.equal(target.origin, origin, "Specify an origin without a path or credentials");
@@ -23,6 +25,7 @@ function robotsGroups(text) {
 }
 
 async function main() {
+  await fs.mkdir(reportDir, { recursive: true });
   if (privateBuildDir) {
     // Noninteractive fallback: inspect real private build output and invoke its sitemap handler.
     assert.equal(process.env.SITE_VISIBILITY, "private");
@@ -72,7 +75,7 @@ async function main() {
       assert.deepEqual(effective.disallow, [], agent);
     }
     assert.equal(groups.filter((group) => group.agents.length).length, 3);
-    assert.match(report.robots, /Sitemap: https:\/\/broey\.net\/sitemap\.xml/);
+    assert.ok(report.robots.includes(`Sitemap: ${expectedSiteOrigin}/sitemap.xml`));
   }
   report.checks.push(`${mode} robots output and effective crawler groups`);
 
@@ -87,16 +90,16 @@ async function main() {
     assert.equal(entries.length, 0);
   } else {
     assert.equal(new Set(entries.map(({ url }) => url)).size, entries.length);
-    assert.equal(entries.filter(({ url }) => url === "https://broey.net/rights").length, 1);
+    assert.equal(entries.filter(({ url }) => url === `${expectedSiteOrigin}/rights`).length, 1);
     for (const path of ["/rights", "/privacy"]) {
-      assert.equal(entries.find(({ url }) => url === `https://broey.net${path}`).lastModified, "2026-11-14T00:00:00.000Z");
+      assert.equal(entries.find(({ url }) => url === `${expectedSiteOrigin}${path}`).lastModified, "2026-11-14T00:00:00.000Z");
     }
     if (process.env.PHASE2_BASELINE_SITEMAP) {
       const baseline = JSON.parse(await fs.readFile(process.env.PHASE2_BASELINE_SITEMAP, "utf8"));
       for (const entry of baseline) {
         const current = entries.find(({ url }) => url === entry.url);
         assert.ok(current, `Existing URL retained: ${entry.url}`);
-        if (entry.url !== "https://broey.net/privacy") assert.equal(current.lastModified, entry.lastModified, entry.url);
+        if (entry.url !== `${expectedSiteOrigin}/privacy`) assert.equal(current.lastModified, entry.lastModified, entry.url);
       }
       assert.equal(entries.length, baseline.length + 1);
       report.checks.push(`All ${baseline.length} baseline sitemap URLs retained; only privacy date changed`);
@@ -104,7 +107,7 @@ async function main() {
   }
   report.checks.push(`${mode} sitemap eligibility, uniqueness, and source-backed dates`);
 
-  const { chromium } = require(process.env.DISCOVERY_PLAYWRIGHT_MODULE || "playwright");
+  const { chromium } = require("./discovery-browser.cjs").installedPlaywright();
   const browser = await chromium.launch({ headless: true });
   try {
     for (const width of isPrivate ? [1440, 390] : [1440, 768, 390, 320]) {
@@ -127,7 +130,7 @@ async function main() {
       const response = await page.goto(`${origin}/rights`);
       assert.equal(response.status(), 200);
       assert.equal(await page.title(), "Rights & Licensing | Broey.");
-      assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), "https://broey.net/rights");
+      assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), `${expectedSiteOrigin}/rights`);
       assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /rights.*AI usage/i);
       await page.getByRole("heading", { name: "Rights & Licensing", exact: true }).waitFor();
       assert.equal(await page.getByRole("heading", { name: "Artist Rights & AI Usage", exact: true }).count(), 1);
@@ -147,10 +150,10 @@ async function main() {
       const layout = await page.evaluate(() => ({ viewport: innerWidth, contentWidth: document.documentElement.scrollWidth, horizontalOverflow: document.documentElement.scrollWidth > innerWidth, paragraphFont: getComputedStyle(document.querySelector(".release-detail-copy p")).fontSize }));
       assert.equal(layout.horizontalOverflow, false, `${width}px overflow`);
       report.layouts.push({ width, ...layout });
-      if (width === 1440 || width === 390) await page.screenshot({ path: `reports/discovery-analytics-phase-2-rights-${mode}-${width}.png`, fullPage: true });
+      if (width === 1440 || width === 390) await page.screenshot({ path: path.join(reportDir, `discovery-analytics-phase-2-rights-${mode}-${width}.png`), fullPage: true });
       await page.locator('nav[aria-label="Footer navigation"] a[href="/privacy"]').click();
       await page.waitForURL(`${origin}/privacy`);
-      assert.match(await page.locator("main").innerText(), /cross-session behavioral histories/);
+      assert.match(await page.locator("main").innerText(), /Optional music personalization on this device/i);
       const links = page.locator('nav[aria-label="Footer navigation"] a');
       const hrefs = await links.evaluateAll((elements) => elements.map((element) => element.getAttribute("href")));
       assert.equal(hrefs[hrefs.indexOf("/privacy") + 1], "/rights");
@@ -171,7 +174,8 @@ async function main() {
 }
 
 main().catch((error) => { report.failure = error.stack; process.exitCode = 1; }).finally(async () => {
-  const reportPath = privateBuildDir ? "reports/discovery-analytics-phase-2-private-artifacts.json" : `reports/discovery-analytics-phase-2-${mode}-readiness.json`;
+  await fs.mkdir(reportDir, { recursive: true });
+  const reportPath = path.join(reportDir, privateBuildDir ? "discovery-analytics-phase-2-private-artifacts.json" : `discovery-analytics-phase-2-${mode}-readiness.json`);
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify({ passed: report.passed, mode, checks: report.checks, errors: report.errors, failure: report.failure }, null, 2));
 });

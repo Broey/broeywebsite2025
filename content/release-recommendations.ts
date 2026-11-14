@@ -5,6 +5,7 @@ import {
 import { showReleaseInArchive } from "@/content/release-filters";
 import type { ReleaseEntry } from "@/content/releases";
 import { hasApprovedPublicArtwork } from "@/lib/release-artwork";
+import { genreId, type PreferenceCandidate } from "../lib/music-preferences";
 
 export const recommendationWeights = {
   sharedDetailedGenre: 18,
@@ -527,4 +528,34 @@ export function recommendReleases(
     overrideIssues: issues,
     eligibleCandidateSlugs: eligible.map((candidate) => candidate.slug),
   };
+}
+
+// Build a narrow client plan from the existing engine's factual Closest scores.
+// Editorial slots, Bridge and daily Discovery are left exactly as selected.
+export function personalizedClosestChoices(set: RecommendationSet, allReleases: readonly ReleaseEntry[]): PreferenceCandidate[] {
+  const baseline = set.recommendations.find((item) => item.slot === "closest");
+  if (!baseline) return [];
+  const fixed = set.recommendations.filter((item) => item.slot !== "closest").map((item) => item.release);
+  const variety = (candidate: ReleaseEntry) => new Set([candidate, ...fixed].map(primaryGenre)).size;
+  const describe = (release: ReleaseEntry, score: number): PreferenceCandidate => ({
+    slug: release.slug, family: recommendationParentKey(release), score,
+    genres: curatedGenreFiltersForRelease(release).flatMap((label) => {
+      const id = genreId(label);
+      return id ? [id] : [];
+    }),
+  });
+  const choices = [describe(baseline.release, baseline.score)];
+  if (baseline.manualOverride) return choices;
+  const baselineVariety = variety(baseline.release);
+  for (const score of set.candidateScores.closest) {
+    const release = allReleases.find((entry) => entry.slug === score.slug);
+    if (!release || release.slug === baseline.release.slug || score.score < baseline.score - 3
+      || !isEligibleRecommendationCandidate(release)
+      || release.status === "unreleased"
+      || (release.releaseDate && Date.parse(release.releaseDate) > Date.now())
+      || fixed.some((entry) => recommendationParentKey(entry) === recommendationParentKey(release))
+      || variety(release) < baselineVariety) continue;
+    choices.push(describe(release, score.score));
+  }
+  return choices;
 }

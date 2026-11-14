@@ -87,7 +87,7 @@ export const staticPageMetadata = {
   privacy: {
     title: "Privacy Notice",
     description:
-      "Learn how the Broey website handles analytics, contact messages, newsletter subscriptions, abuse prevention, retention, and privacy requests.",
+      "Learn how the Broey website handles optional browser-local music preferences, analytics, contact messages, newsletter subscriptions, retention, and privacy requests.",
     path: "/privacy",
     lastModified: "2026-11-14",
   },

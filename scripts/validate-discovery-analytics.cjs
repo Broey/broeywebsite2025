@@ -3,17 +3,18 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs/promises");
 const path = require("node:path");
-const { chromium } = require(process.env.DISCOVERY_PLAYWRIGHT_MODULE || "playwright");
+const { installedPlaywright, loopbackOrigin } = require("./discovery-browser.cjs");
+const { chromium } = installedPlaywright();
 const origin = process.env.DISCOVERY_TEST_ORIGIN || "http://127.0.0.1:3000";
 // Keep later readiness runs separate from the original Phase 1 evidence.
 const reportPrefix = process.env.DISCOVERY_REPORT_PREFIX || "reports/discovery-analytics-phase-1";
-assert.ok(["localhost", "127.0.0.1"].includes(new URL(origin).hostname), "Only a local test server is permitted");
+loopbackOrigin(origin);
 const report = { passed: false, origin, headless: true, freshContexts: true, externalRequestsBlocked: true, checks: [], events: [], errors: [] };
 
 async function main() {
   const browser = await chromium.launch({ headless: true });
   try {
-    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce", serviceWorkers: "block" });
     await context.route("**/*", (route) => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
     await context.addInitScript(() => {
       window.__discoveryEvents = [];
@@ -129,7 +130,7 @@ async function main() {
     report.historyEvents = await page.evaluate(() => window.__discoveryEvents);
     await context.close();
 
-    const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+    const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce", serviceWorkers: "block" });
     await mobile.route("**/*", (route) => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
     const mobilePage = await mobile.newPage();
     mobilePage.on("pageerror", (error) => report.errors.push(error.message));

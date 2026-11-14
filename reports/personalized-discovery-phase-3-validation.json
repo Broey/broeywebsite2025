@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "mode": "compiled-artifacts",
+  "checks": [
+    "All actual source releases retain disabled baseline; fixed-date preference plans are deterministic and can adjust real near-ties",
+    "Real compiled Privacy HTML has optional local storage disclosure, retention, controls, authored effective date, canonical and public indexability",
+    "Actual compiled sitemap handler retains public URL eligibility and unique canonicals; Rights and exact selective robots policy remain intact"
+  ],
+  "browserValidation": "Separate gate: node scripts/validate-personalized-discovery-browser.cjs",
+  "recommendationDate": "2026-11-14",
+  "personalizedExamples": [
+    {
+      "source": "blu",
+      "genre": "garage",
+      "baseline": "stereo-luv",
+      "personalized": "dancing-dumpster-fire"
+    },
+    {
+      "source": "hold-me-back",
+      "genre": "jungle",
+      "baseline": "hysteria",
+      "personalized": "hold-on"
+    },
+    {
+      "source": "contrast-falling",
+      "genre": "jungle",
+      "baseline": "hysteria",
+      "personalized": "hold-on"
+    },
+    {
+      "source": "contrast-falling-almost-anyone-remix",
+      "genre": "drum-and-bass",
+      "baseline": "fragments-remixes",
+      "personalized": "hold-on"
+    },
+    {
+      "source": "contrast-origins-almost-anyone-remix",
+      "genre": "drum-and-bass",
+      "baseline": "fragments-remixes",
+      "personalized": "hysteria"
+    }
+  ],
+  "totalChoices": 73,
+  "sitemapUrls": 27
+}
