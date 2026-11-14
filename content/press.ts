@@ -144,6 +144,22 @@ export const pressItems: PressItem[] = [
     featuredOnAbout: true,
   },
   {
+    id: "onemusic-hungary-dancing-dumpster-fire",
+    type: "feature",
+    group: "written-coverage",
+    outlet: "OneMusic Hungary",
+    title: "Broey. új EP-je: Dancing Dumpster Fire",
+    medium: "article",
+    author: "Ostroml",
+    date: "2025-08-21",
+    releaseOrTopic: "dancing dumpster fire",
+    releaseSlugs: ["dancing-dumpster-fire"],
+    href: "https://www.onemusic.hu/articles/broey-uj-ep-je-a-dancing-dumpster-fire-zenei-utazasa",
+    summary:
+      "In Hungarian-language editorial coverage, OneMusic explores Broey.'s dancing dumpster fire EP, highlighting its emotional depth, experimental electronic sounds, and creativity.",
+    ctaLabel: "Read Coverage",
+  },
+  {
     id: "we-rave-you-dancing-dumpster-fire",
     type: "feature",
     group: "written-coverage",
