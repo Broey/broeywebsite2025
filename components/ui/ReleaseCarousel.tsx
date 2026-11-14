@@ -70,6 +70,7 @@ type DragState = {
   startX: number;
   startY: number;
   startPosition: number;
+  startScrollLeft: number;
   lastPosition: number;
   lastTime: number;
   velocity: number;
@@ -393,6 +394,11 @@ export function ReleaseCarousel({
   };
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    // Narrow layouts keep browser-native touch swiping; only mouse drags need help.
+    if (usesNativeScroll && (event.pointerType !== "mouse" || event.button !== 0)) {
+      return;
+    }
+
     const target = event.target as HTMLElement;
     markUserActive();
 
@@ -409,6 +415,7 @@ export function ReleaseCarousel({
       startX: event.clientX,
       startY: event.clientY,
       startPosition: activePositionRef.current,
+      startScrollLeft: event.currentTarget.scrollLeft,
       lastPosition: activePositionRef.current,
       lastTime: performance.now(),
       velocity: 0,
@@ -417,11 +424,15 @@ export function ReleaseCarousel({
   };
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (usesNativeScroll && event.pointerType !== "mouse") {
+      return;
+    }
+
     updatePointer(event);
 
     const drag = dragState.current;
 
-    if (!drag) {
+    if (!drag || drag.pointerId !== event.pointerId) {
       setMotionDirection(0);
       return;
     }
@@ -447,6 +458,10 @@ export function ReleaseCarousel({
 
       drag.intent = "horizontal";
       setIsDragging(true);
+      if (usesNativeScroll) {
+        // Snap only after release so it does not fight each mouse movement.
+        event.currentTarget.style.scrollSnapType = "none";
+      }
       trackRef.current?.setPointerCapture(event.pointerId);
     }
 
@@ -455,6 +470,11 @@ export function ReleaseCarousel({
     }
 
     event.preventDefault();
+
+    if (usesNativeScroll) {
+      event.currentTarget.scrollLeft = drag.startScrollLeft - deltaX;
+      return;
+    }
 
     const nextPosition =
       drag.startPosition - deltaX / Math.max(metricsRef.current.dragDistance, 1);
@@ -476,20 +496,25 @@ export function ReleaseCarousel({
 
   const handlePointerEnd = (event: PointerEvent<HTMLDivElement>) => {
     const drag = dragState.current;
+    if (!drag || drag.pointerId !== event.pointerId) {
+      return;
+    }
     dragState.current = null;
 
     if (trackRef.current?.hasPointerCapture(event.pointerId)) {
       trackRef.current.releasePointerCapture(event.pointerId);
     }
 
-    if (!drag) {
-      return;
-    }
-
     if (drag.intent === "horizontal") {
       event.preventDefault();
       suppressSelectionBriefly();
       setIsDragging(false);
+      if (usesNativeScroll) {
+        updateNativeActiveCard();
+        event.currentTarget.style.removeProperty("scroll-snap-type");
+        scrollToNativeCard(activePositionRef.current);
+        return;
+      }
       startMomentum(drag.velocity);
       return;
     }
@@ -710,10 +735,17 @@ export function ReleaseCarousel({
           }
         }}
         onScroll={usesNativeScroll ? updateNativeActiveCard : undefined}
-        onPointerDown={usesNativeScroll ? undefined : handlePointerDown}
-        onPointerMove={usesNativeScroll ? undefined : handlePointerMove}
-        onPointerUp={usesNativeScroll ? undefined : handlePointerEnd}
-        onPointerCancel={usesNativeScroll ? undefined : handlePointerEnd}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={handlePointerEnd}
+        onLostPointerCapture={handlePointerEnd}
+        onClickCapture={(event) => {
+          if (usesNativeScroll && suppressCardClick()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }}
         onPointerEnter={
           usesNativeScroll
             ? undefined
@@ -766,7 +798,21 @@ export function ReleaseCarousel({
           {children}
         </CarouselChildren>
       </div>
-      <div className="music-carousel-mobile-controls" aria-hidden="true">
+      <div className="music-carousel-mobile-controls">
+        <button
+          type="button"
+          className="music-carousel-control music-carousel-narrow-arrow"
+          aria-label="Previous highlighted release"
+          disabled={activeIndex === 0}
+          onClick={() => {
+            markUserActive();
+            move("previous");
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m14 6-6 6 6 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
         <div className="music-carousel-mobile-status" aria-hidden="true">
           <div className="music-carousel-spin-cue music-carousel-spin-cue-mobile">
             <span className="music-carousel-spin-cue-track">
@@ -774,6 +820,20 @@ export function ReleaseCarousel({
             </span>
           </div>
         </div>
+        <button
+          type="button"
+          className="music-carousel-control music-carousel-narrow-arrow"
+          aria-label="Next highlighted release"
+          disabled={activeIndex >= releaseCount - 1}
+          onClick={() => {
+            markUserActive();
+            move("next");
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m10 6 6 6-6 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
       </div>
     </div>
   );

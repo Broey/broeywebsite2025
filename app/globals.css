@@ -2697,6 +2697,29 @@ body.has-global-player .site-shell {
   display: none;
 }
 
+.music-carousel-narrow-arrow {
+  display: none;
+}
+
+@media (max-width: 768px) and (hover: hover) and (pointer: fine) {
+  .music-release-carousel-shell .music-carousel-mobile-controls {
+    width: max-content;
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .music-carousel-narrow-arrow {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .music-carousel-narrow-arrow:disabled {
+    pointer-events: none;
+  }
+}
+
 .music-release-primary-cta,
 .music-release-secondary-cta {
   display: inline-flex;
