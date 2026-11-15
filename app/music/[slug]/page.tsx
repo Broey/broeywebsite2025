@@ -697,8 +697,14 @@ function ReleaseCoverageSection({ release }: { release: ReleaseEntry }) {
           <article key={item.id}>
             <p>
               <strong>{item.outlet}:</strong> {item.summary}{" "}
-              <a href={item.href} target="_blank" rel="noopener noreferrer">
-                {item.ctaLabel}
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="release-detail-coverage-link"
+              >
+                {item.ctaLabel} <span aria-hidden="true">↗</span>
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </p>
           </article>

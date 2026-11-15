@@ -5385,6 +5385,21 @@ body.has-global-player .site-shell {
   color: white;
 }
 
+.release-detail-coverage-link {
+  color: var(--color-amber);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 180ms ease;
+}
+
+.release-detail-coverage-link:hover,
+.release-detail-coverage-link:focus-visible {
+  color: white;
+}
+
 .release-detail-recommendation-copy {
   margin: 0.42rem 0 0;
   color: var(--color-muted);
