@@ -703,7 +703,7 @@ function ReleaseCoverageSection({ release }: { release: ReleaseEntry }) {
                 rel="noopener noreferrer"
                 className="release-detail-coverage-link"
               >
-                {item.ctaLabel} <span aria-hidden="true">↗</span>
+                {item.ctaLabel}
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </p>
