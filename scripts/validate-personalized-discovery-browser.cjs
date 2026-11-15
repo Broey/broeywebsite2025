@@ -15,7 +15,12 @@ const check = (text) => { report.checks.push(text); console.log(`PASS ${text}`);
 const readProfile = (page) => page.evaluate((key) => JSON.parse(localStorage.getItem(key)), key);
 const cards = (page) => page.locator(".release-detail-recommendation-grid article");
 const links = (page) => cards(page).locator("a").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("href")));
-const recent = (page) => page.locator('section[aria-labelledby="recently-played-title"]');
+const recent = (page) => page.locator('section[aria-labelledby="last-played-title"]');
+async function managePreferences(page) {
+  const settings = page.locator(".music-discovery-preferences");
+  await settings.waitFor();
+  if (await settings.locator("details").getAttribute("open") === null) await settings.locator("summary").press("Enter");
+}
 const audioPlaying = async (page) => {
   try { await page.waitForFunction(() => { const a = document.querySelector("[data-broey-global-audio]"); return a && !a.paused && a.currentTime > 0; }); }
   catch (error) {
@@ -66,7 +71,12 @@ function catalogPlan() {
     }
   }
   assert.ok(cases.length, "Real catalog must expose an eligible near-tie example");
-  return { cases, eligible, focus: currentFocusRelease(releases)?.slug };
+  const homeTitles = releases.filter((r) => r.carouselEnabled)
+    .sort((a, b) => (a.carouselPriority ?? Number.MAX_SAFE_INTEGER) - (b.carouselPriority ?? Number.MAX_SAFE_INTEGER));
+  const upcoming = homeTitles.find((r) => r.availableAt && Date.now() < Date.parse(r.availableAt));
+  if (upcoming) homeTitles.sort((a, b) => Number(b.slug === upcoming.slug) - Number(a.slug === upcoming.slug));
+  return { cases, eligible, focus: currentFocusRelease(releases)?.slug, homeTitles: homeTitles.map((r) => r.title),
+    families: preferenceCatalog(releases), titles: Object.fromEntries(releases.map((r) => [r.slug, r.title])) };
 }
 
 async function contextFor(browser, width, options = {}) {
@@ -112,9 +122,10 @@ async function consentPlayback(browser, width, plan) {
   const { context, page } = await contextFor(browser, width);
   try {
     await page.goto(`${origin}/music`);
-    const enable = page.getByRole("button", { name: "Enable personalization", exact: true });
+    await managePreferences(page);
+    const enable = page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: false });
     await enable.waitFor();
-    assert.equal(await enable.getAttribute("aria-pressed"), "false");
+    assert.equal(await enable.getAttribute("aria-checked"), "false");
     await page.getByRole("button", { name: "House", exact: true }).click();
     assert.equal(await readProfile(page), null);
     await page.goto(`${origin}/music/free`);
@@ -123,16 +134,18 @@ async function consentPlayback(browser, width, plan) {
     assert.equal(await readProfile(page), null);
     check(`${width}px: first visit disabled; genre and successful playback do not store preferences before opt-in`);
     await page.goto(`${origin}/music`);
+    await managePreferences(page);
     await enable.focus();
     await enable.press("Enter");
-    await page.getByRole("button", { name: "Disable personalization", exact: true }).waitFor();
+    await page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: true }).waitFor();
     assert.deepEqual(await readProfile(page), profile());
     assert.match(await page.getByRole("status").first().innerText(), /enabled/);
-    assert.equal(await page.evaluate(() => document.activeElement.textContent), "Disable personalization");
+    assert.equal(await page.evaluate(() => document.activeElement.getAttribute("aria-label")), "Enable personalized music discovery");
     await page.getByRole("button", { name: "House", exact: true }).press("Space");
     assert.equal((await readProfile(page)).interests.house.score, 3);
     await page.reload();
-    await page.getByRole("button", { name: "Disable personalization", exact: true }).waitFor();
+    await managePreferences(page);
+    await page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: true }).waitFor();
     assert.equal((await readProfile(page)).interests.house.score, 3);
     check(`${width}px: keyboard opt-in creates versioned profile; status and focus update; genre score and reload persist`);
 
@@ -158,12 +171,12 @@ async function consentPlayback(browser, width, plan) {
     await navigateMusic(page);
     await audioPlaying(page);
     assert.ok(await page.evaluate((time) => document.querySelector("[data-broey-global-audio]").currentTime >= time, beforeNavigation));
-    await recent(page).getByRole("link", { name: "FREE", exact: true }).waitFor();
+    await recent(page).getByRole("link", { name: "View FREE", exact: true }).waitFor();
     await page.reload();
-    await recent(page).getByRole("link", { name: "FREE", exact: true }).waitFor();
+    await recent(page).getByRole("link", { name: "View FREE", exact: true }).waitFor();
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
     await page.screenshot({ path: path.join(output, `music-${width}.png`), fullPage: false });
-    check(`${width}px: intentional native playback scores; pause/resume/seek do not duplicate; SPA navigation retains playback; Recently Played survives return and reload`);
+    check(`${width}px: intentional native playback scores; pause/resume/seek do not duplicate; SPA navigation retains playback; last-played artwork tile survives return and reload`);
 
     await page.goto(`${origin}/music/fragments-ep`);
     await page.locator(".release-detail-hero").getByRole("button", { name: /^(play|replay)/i }).first().click();
@@ -181,11 +194,12 @@ async function consentPlayback(browser, width, plan) {
     check(`${width}px: real native ended/queue advancement adds no preference evidence; manual next-track selection updates history`);
 
     await navigateMusic(page);
+    await managePreferences(page);
     await page.getByRole("button", { name: "Clear music preferences", exact: true }).click();
     assert.deepEqual(await readProfile(page), profile());
     assert.equal(await recent(page).count(), 0);
     assert.match(await page.getByRole("status").first().innerText(), /cleared/);
-    await page.getByRole("button", { name: "Disable personalization", exact: true }).press("Enter");
+    await page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: true }).press("Enter");
     assert.equal(await readProfile(page), null);
     assert.match(await page.getByRole("status").first().innerText(), /disabled/);
     assert.deepEqual(await context.cookies(), []);
@@ -206,9 +220,10 @@ async function recovery(browser, width) {
     const { context, page } = await contextFor(browser, width, options);
     try {
       await page.goto(`${origin}/music`);
-      await page.getByRole("button", { name: "Enable personalization", exact: true }).waitFor();
+      await managePreferences(page);
+      await page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: false }).waitFor();
       if (options.blockedStorage) {
-        await page.getByRole("button", { name: "Enable personalization", exact: true }).press("Enter");
+        await page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: false }).press("Enter");
         assert.match(await page.getByRole("status").first().innerText(), /storage is unavailable/);
         await page.getByRole("button", { name: "House", exact: true }).click();
       } else {
@@ -313,16 +328,186 @@ async function layouts(browser, width) {
       report.layouts.push({ route, ...layout });
       assert.equal(new URL(await page.locator('link[rel="canonical"]').getAttribute("href")).href, new URL(route, expectedSiteOrigin).href);
       if (route === "/music") {
-        await recent(page).getByRole("link", { name: "FREE", exact: true }).focus();
-        assert.ok(await recent(page).getByRole("link").count() >= 2);
-        assert.ok(await page.getByRole("button", { name: "Disable personalization", exact: true }).isVisible());
+        await recent(page).getByRole("link", { name: "View FREE", exact: true }).focus();
+        assert.equal(await recent(page).getByRole("link").count(), 1);
+        await managePreferences(page);
+        assert.ok(await page.getByRole("switch", { name: "Enable personalized music discovery", exact: true, checked: true }).isVisible());
       }
       if (route === "/privacy") {
         const text = await page.locator("main").innerText();
-        for (const term of ["localStorage", "90 days", "not sent to Umami", "Disable personalization"]) assert.ok(text.includes(term), term);
+        for (const term of ["localStorage", "90 days", "not sent to Umami", "switching personalization Off"]) assert.ok(text.includes(term), term);
       }
     }
-    check(`${width}px: Music/Recently Played, release, Privacy, Rights and home have no overflow; canonical and disclosure checks pass`);
+    check(`${width}px: Music/last-played tile, release, Privacy, Rights and home have no overflow; canonical and disclosure checks pass`);
+  } finally { await context.close(); }
+}
+
+async function homeInvitation(browser, width, plan) {
+  const { context, page } = await contextFor(browser, width);
+  const popup = page.locator(".home-discovery-popup");
+  try {
+    await page.clock.install();
+    await page.goto(origin + "/music"); await page.clock.fastForward(7000);
+    assert.equal(await popup.count(), 0);
+    await page.goto(origin);
+    assert.equal(await popup.count(), 0);
+    await page.clock.fastForward(5900);
+    assert.equal(await popup.count(), 0);
+    await page.clock.fastForward(200);
+    await popup.waitFor();
+    // Once shown, retain the same popup across actual Next links, without storing activation.
+    for (const route of ["/music", "/privacy", "/rights", "/"]) {
+      await page.locator(route === "/" ? 'header a[href="/"]' : `nav[aria-label="Footer navigation"] a[href="${route}"]`).first().click();
+      await page.waitForURL(origin + route);
+      await popup.waitFor();
+    }
+    assert.deepEqual(await page.locator("[data-carousel-card]").evaluateAll(ns => ns.map(n => n.dataset.releaseTitle)), plan.homeTitles);
+    assert.equal(await page.locator(".homepage-music-signup-section .home-discovery-popup").count(), 0);
+    assert.equal(await page.getByRole("dialog").count(), 0);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    await popup.screenshot({ path: path.join(output, `welcome-${width}.png`) });
+    await page.screenshot({ path: path.join(output, `welcome-context-${width}.png`), fullPage: false });
+    for (const action of ["Not now", "Dismiss discovery invitation", "Escape"]) {
+      if (action === "Escape") await page.keyboard.press("Escape");
+      else await popup.getByRole("button", { name: action, exact: true }).press("Enter");
+      assert.equal(await popup.count(), 0);
+      assert.equal(await readProfile(page), null);
+      const until = await page.evaluate(() => Number(localStorage.getItem("broey-discovery-invitation-dismissed")));
+      const browserNow = await page.evaluate(() => Date.now());
+      assert.ok(until > browserNow && until <= browserNow + 30 * 86400000);
+      await page.reload(); await page.clock.fastForward(6100);
+      assert.equal(await popup.count(), 0);
+      // A new disposable context restored from storage models a restarted browser.
+      const state = await context.storageState();
+      const restarted = await browser.newContext({ storageState: state });
+      await restarted.route("**/*", r => new URL(r.request().url()).origin === origin ? r.continue() : r.abort());
+      const rp = await restarted.newPage(); await rp.clock.install({ time: new Date(browserNow) });
+      await rp.goto(origin); await rp.clock.fastForward(6100);
+      assert.equal(await rp.locator(".home-discovery-popup").count(), 0);
+      await restarted.close();
+      await page.evaluate(() => { localStorage.setItem("broey-discovery-invitation-dismissed", "1"); window.dispatchEvent(new Event("focus")); });
+      await page.clock.fastForward(6100);
+      await popup.waitFor();
+    }
+    await popup.getByRole("button", { name: "Enable personalization", exact: true }).press("Enter");
+    assert.deepEqual(await readProfile(page), profile());
+    assert.equal(await popup.count(), 0);
+    await page.reload(); await page.clock.fastForward(6100);
+    assert.equal(await popup.count(), 0);
+    for (const route of ["/music", "/music/free", "/privacy", "/rights"]) {
+      await page.goto(origin + route); await page.clock.fastForward(7000);
+      assert.equal(await popup.count(), 0);
+    }
+    check(`${width}px: homepage-triggered six-second popup with cross-page persistence, all three 30-day dismissals/reload/restart/expiry, empty affirmative consent, enabled suppression, unchanged promotion and no overflow`);
+  } finally { await context.close(); }
+  const blocked = await contextFor(browser, width, { blockedStorage: true });
+  try {
+    await blocked.page.clock.install(); await blocked.page.goto(origin); await blocked.page.clock.fastForward(6100);
+    await blocked.page.locator(".home-discovery-popup").getByRole("button", { name: "Enable personalization", exact: true }).click();
+    assert.match(await blocked.page.getByRole("status").first().innerText(), /storage is unavailable/);
+    await blocked.page.keyboard.press("Escape");
+  } finally { await blocked.context.close(); }
+}
+
+async function listeningTile(browser, width, plan) {
+  const { context, page } = await contextFor(browser, width, { raw: JSON.stringify(profile()) });
+  const candidates = plan.families.filter(r => r.family !== plan.families.find(r => r.slug === plan.focus)?.family && r.slug !== plan.focus);
+  const first = candidates.find(r => r.slug === "free") || candidates[0];
+  const second = candidates.find(r => r.family !== first.family);
+  const seed = async slugs => {
+    await page.evaluate(({ key, value }) => {
+      localStorage.setItem(key, JSON.stringify(value));
+      window.dispatchEvent(new StorageEvent("storage", { key }));
+    }, { key, value: { ...profile(), recent: slugs.map(slug => ({ slug, day })) } });
+    await tick(page);
+  };
+  try {
+    await page.goto(`${origin}/music`);
+    const editorial = await page.locator("#music-release-catalog h3").allTextContents();
+    assert.equal(await recent(page).count(), 0);
+    await seed(["does-not-exist", "counting", plan.focus]);
+    assert.equal(await recent(page).count(), 0);
+    await seed([plan.focus, first.slug, second.slug]);
+    await recent(page).getByRole("link", { name: `View ${plan.titles[first.slug]}`, exact: true }).waitFor();
+    assert.equal(await recent(page).locator("article").count(), 1);
+    assert.equal(await recent(page).locator("img").count(), 1);
+    assert.deepEqual(await page.locator("#music-release-catalog h3").allTextContents(), editorial);
+    assert.equal(await page.evaluate(() => {
+      const selectors = [".music-page-intro .music-discovery-preferences", ".music-featured-release", ".music-returning-listen", ".music-catalog-filter"];
+      const nodes = selectors.map(s => document.querySelector(s));
+      return nodes.every((n, i) => !i || Boolean(nodes[i - 1].compareDocumentPosition(n) & Node.DOCUMENT_POSITION_FOLLOWING));
+    }), true);
+    await seed([second.slug, first.slug]);
+    await recent(page).getByRole("link", { name: `View ${plan.titles[second.slug]}`, exact: true }).waitFor();
+    await seed([plan.focus, first.slug, second.slug]);
+    const play = recent(page).getByRole("button");
+    await play.press("Enter");
+    await audioPlaying(page);
+    assert.equal(await play.evaluate(n => n === document.activeElement), true);
+    assert.equal(await play.evaluate(n => {
+      const r = n.getBoundingClientRect();
+      return n.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+    }), true, "Focused tile play control must remain visible above the fixed player");
+    const event = await page.evaluate(slug => window.__discoveryEvents.find(e => e.name === "audio_play" && e.properties.release_slug === slug), first.slug);
+    assert.equal(event.properties.playback_trigger, "direct");
+    await recent(page).getByRole("link").press("Enter");
+    await page.waitForURL(`${origin}/music/${first.slug}`);
+    await audioPlaying(page);
+    await navigateMusic(page);
+    await recent(page).waitFor();
+    await recent(page).evaluate(node => node.scrollIntoView({ block: "center" }));
+    await tick(page);
+    await recent(page).screenshot({ path: path.join(output, `music-tile-${width}.png`) });
+    await page.screenshot({ path: path.join(output, `music-returning-${width}.png`), fullPage: true });
+    await managePreferences(page);
+    await tick(page);
+    for (let step = 0; step < 2; step++) {
+      await page.keyboard.press("Tab");
+      assert.equal(await page.evaluate(() => {
+        const n = document.activeElement;
+        // Wrapped inline links have gaps inside their combined bounding box.
+        // Check their actual painted fragments so line wrapping is not an obstruction.
+        const rects = [...n.getClientRects()].filter(r => r.width && r.height);
+        return rects.length > 0 && rects.every(r =>
+          n.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)));
+      }), true, "Expanded preferences must keep each keyboard target visible above the fixed player");
+    }
+    await page.locator(".music-discovery-preferences").screenshot({ path: path.join(output, `music-manage-${width}.png`) });
+    await page.getByRole("button", { name: "Clear music preferences", exact: true }).press("Enter");
+    assert.equal(await recent(page).count(), 0);
+    assert.deepEqual(await readProfile(page), profile());
+    assert.equal(await page.evaluate(() => document.activeElement.textContent), "Clear music preferences");
+    await page.getByRole("button", { name: "House", exact: true }).click();
+    assert.equal((await readProfile(page)).interests.house.score, 3);
+    await page.getByRole("button", { name: "All", exact: true }).click();
+    assert.deepEqual(await page.locator("#music-release-catalog h3").allTextContents(), editorial);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    check(`${width}px: one artwork tile chooses latest eligible nonfocus family; no empty/focus-only section; featured and editorial catalog order retained; keyboard play/open use existing persistent player; compact controls/filter/clear update immediately`);
+  } finally { await context.close(); }
+}
+
+async function popupCoordination(browser) {
+  const { context, page } = await contextFor(browser, 390);
+  try {
+    await page.goto(`${origin}/music/only-u`);
+    await page.locator(".release-detail-hero").getByRole("button", { name: /^(play|replay)/i }).first().click();
+    await audioPlaying(page);
+    assert.equal(await page.locator(".home-discovery-popup").count(), 0);
+    await page.locator(".playlist-prompt:not(.home-discovery-popup)").waitFor({ timeout: 75000 });
+    await page.locator('header a[href="/"]').first().click();
+    await page.waitForURL(origin + "/");
+    await page.waitForTimeout(6200);
+    assert.equal(await page.locator(".home-discovery-popup").count(), 0);
+    await page.getByRole("button", { name: "Dismiss playlist reminder" }).click();
+    await page.locator(".home-discovery-popup").waitFor();
+    await audioPlaying(page);
+    assert.equal(await readProfile(page), null);
+    const boxes = await page.evaluate(() => [".home-discovery-popup", ".global-audio-player"].map(s => { const r = document.querySelector(s).getBoundingClientRect(); return { top:r.top,bottom:r.bottom }; }));
+    assert.ok(boxes[0].bottom <= boxes[1].top);
+    await page.screenshot({ path: path.join(output, "welcome-playing-390.png") });
+    await page.keyboard.press("Escape");
+    assert.equal(await page.locator(".playlist-prompt").count(), 0);
+    check("OnlyU native 60-second listening trigger, campaign priority on home, deferred welcome after dismissal, separate suppression, uninterrupted playback and player clearance");
   } finally { await context.close(); }
 }
 
@@ -337,6 +522,11 @@ async function main() {
   report.browserVersion = browser.version();
   assert.equal(browser._options.headless, true);
   try {
+    await popupCoordination(browser);
+    for (const width of [1440, 768, 390, 320]) {
+      await homeInvitation(browser, width, plan);
+      await listeningTile(browser, width, plan);
+    }
     for (const width of [1440, 390]) {
       await consentPlayback(browser, width, plan);
       await recovery(browser, width);

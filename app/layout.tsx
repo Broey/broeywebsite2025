@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { AudioPlayerProvider } from "@/components/audio/AudioPlayerProvider";
 import { MusicPreferencesProvider } from "@/components/music/MusicPreferencesProvider";
+import { HomeMusicInvitation } from "@/components/music/HomeMusicInvitation";
 import { preferenceCatalog } from "@/content/music-personalization";
 import { releases } from "@/content/releases";
 import { Header } from "@/components/site/Header";
@@ -79,6 +80,7 @@ export default function RootLayout({
               <main className="site-main">{children}</main>
               <Footer />
             </div>
+            <HomeMusicInvitation />
           </AudioPlayerProvider>
         </MusicPreferencesProvider>
         {shouldLoadUmami ? (

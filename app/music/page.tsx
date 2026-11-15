@@ -25,7 +25,7 @@ import { releases, type ReleaseEntry } from "@/content/releases";
 import { isPublishedRelease } from "@/content/release-filters";
 import { currentFocusRelease } from "@/content/release-focus";
 import { preferenceCatalog } from "@/content/music-personalization";
-import { MusicPersonalization } from "@/components/music/MusicPersonalization";
+import { LastPlayedRelease, MusicPersonalization } from "@/components/music/MusicPersonalization";
 import { createPageMetadata } from "@/content/seo";
 
 export const metadata: Metadata = createPageMetadata(staticPageMetadata.music);
@@ -88,6 +88,7 @@ export default function MusicPage() {
     ? `${featured.title} from ${featuredQueue.queueTitle}`
     : featured.title;
   const featuredGenres = normalizedGenres(featured);
+  const eligibleRecentCatalog = preferenceCatalog(releases);
   const catalogSections: MusicCatalogSection[] = [
     {
       id: "selected-catalog",
@@ -185,12 +186,15 @@ export default function MusicPage() {
 
   return (
     <section className="inner-page" aria-labelledby="music-page-title">
-      <PageIntro
+      <div className="music-page-intro">
+        <PageIntro
         eyebrow="/ music"
         title="Broey. Selects"
         titleId="music-page-title"
         description="Browse, play, explore. Selected Broey releases across current and earlier catalog eras."
-      />
+        />
+        <MusicPersonalization />
+      </div>
 
       <section className="hero-panel music-featured-release" aria-labelledby="music-featured-title">
         <div className="music-featured-release-header">
@@ -238,10 +242,11 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <MusicPersonalization catalog={preferenceCatalog(releases)} cards={preferenceCatalog(releases).map(({ slug }) => {
+      <LastPlayedRelease catalog={eligibleRecentCatalog} featuredSlug={featured.slug} cards={eligibleRecentCatalog.map(({ slug }) => {
         const release = releases.find((entry) => entry.slug === slug)!;
-        return { slug, card: <TrackedReleaseLink href={releaseDetailHref(release)} releaseSlug={slug}
-          sourceSurface="music_catalog" className="release-detail-secondary-cta">{release.title}</TrackedReleaseLink> };
+        return { slug, card: <ReleaseCard release={release} hidePendingLinks
+          audioQueue={releaseAudioQueueForContext(release, releases, "archive")}
+          playLabel={releasePlayLabel(release)} sourceSurface="music_catalog" /> };
       })} />
       <MusicCatalogFilter filters={curatedGenreFilters} sections={catalogSections} />
     </section>

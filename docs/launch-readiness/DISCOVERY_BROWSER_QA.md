@@ -60,6 +60,33 @@ node scripts/validate-personalized-discovery.cjs
 Browser acceptance and compiled-artifact validation are both required for release.
 A compiled-artifact pass alone never counts as browser acceptance.
 
+## Phase 3.1 UX coverage
+
+The same browser command also tests the delayed homepage welcome popup, browser-local
+30-day dismissal, shared affirmative consent, expiration, keyboard focus,
+uninterrupted playback, one eligible artwork-based returning-listener tile,
+featured-family exclusion, and compact native preferences disclosure. New UX
+scenarios run at 1440/768/390/320px; the complete Phase 3 playback/recommendation
+regressions still run at 1440/390px. Evidence includes `welcome-*.png`,
+`welcome-context-*.png`, `music-tile-*.png`, `music-returning-*.png`, and
+`music-manage-*.png`. These use synthetic profiles and the unchanged real catalog.
+
+Set `PHASE3_VALIDATION_OUTPUT` to a temporary JSON file when running the compiled
+validator for later phases, to preserve the original Phase 3 evidence. The
+normal production `npm run build` works in this checkout with public visibility
+and the production canonical origin supplied to that process; do not change
+environment files for QA. A dedicated loopback development server was authorized
+and successfully launched for the November 14 Phase 3.1 task. The historical
+server rejection below describes a prior session; any new rejection still must
+be respected.
+
+The Phase 3.1 `next start --hostname 127.0.0.1 --port 3249` production-server
+launch was separately rejected by automatic approval review with only
+`blocked by policy`. It was not retried. Runtime QA used the already-running
+authorized development server on port 3248; successful production compilation
+and compiled SEO/privacy/sitemap checks are separate evidence, not a claim of
+production-server browser testing.
+
 The owner confirmed the baseline's existing public-but-unreleased suggestions
 must remain unchanged. Personalization may add only eligible released choices;
 the browser suite checks its Closest additions and exact Bridge/Discovery parity.
@@ -84,3 +111,16 @@ authorized existing server is available, record a blocked release and stop.
 Official permission guidance: https://learn.chatgpt.com/docs/permissions
 Installed Next.js guidance: `node_modules/next/dist/docs/01-app/02-guides/testing/playwright.md`
 and `01-app/03-api-reference/06-cli/next.md`.
+
+## Welcome popup refinement
+
+Home invitation is now a six-second nonmodal popup with 30-day localStorage
+suppression. The same Phase 3 browser command tests delay, route eligibility,
+all dismissals, restored-context restart persistence and real OnlyU listening
+priority/handoff, retaining the Music and recommendation regressions. Evidence
+includes welcome-*.png and welcome-context-*.png at four widths.
+
+An already-visible welcome now persists across SPA navigation through a root-layout
+mount. Initial appearance remains homepage-only; unanswered activation is memory-only
+and does not survive a fresh load. The suite checks direct Music entry and
+Home ? Music ? Privacy ? Rights ? Home continuity at all four widths.

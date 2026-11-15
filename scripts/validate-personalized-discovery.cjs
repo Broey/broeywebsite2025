@@ -47,7 +47,7 @@ async function main() {
   const output = path.join(buildDir, "server/app");
   const privacy = fs.readFileSync(path.join(output, "privacy.html"), "utf8");
   assert.match(privacy, /<link rel="canonical" href="https:\/\/broey.net\/privacy"/);
-  for (const text of ["Optional music personalization on this device", "localStorage", "90 days", "Disable personalization", "Clear music preferences", "not sent to Umami", "November 14, 2026"]) assert.ok(privacy.includes(text), text);
+  for (const text of ["Optional music personalization on this device", "localStorage", "90 days", "switching personalization Off", "Clear music preferences", "not sent to Umami", "November 14, 2026"]) assert.ok(privacy.includes(text), text);
   assert.equal(privacy.includes("does not currently create stored listener-interest profiles"), false);
   assert.doesNotMatch(privacy, /<meta name="robots" content="[^"]*noindex/);
   report.checks.push("Real compiled Privacy HTML has optional local storage disclosure, retention, controls, authored effective date, canonical and public indexability");
@@ -69,6 +69,6 @@ async function main() {
   report.passed = true;
 }
 main().catch((error) => { report.failure = error.stack; process.exitCode = 1; }).finally(() => {
-  fs.writeFileSync(path.join(root, "reports/personalized-discovery-phase-3-validation.json"), JSON.stringify(report, null, 2) + "\n");
+  fs.writeFileSync(process.env.PHASE3_VALIDATION_OUTPUT || path.join(root, "reports/personalized-discovery-phase-3-validation.json"), JSON.stringify(report, null, 2) + "\n");
   console.log(JSON.stringify(report, null, 2));
 });

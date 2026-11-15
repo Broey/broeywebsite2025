@@ -1459,6 +1459,77 @@ body.has-global-player .site-shell {
   text-transform: uppercase;
 }
 
+.music-returning-listen {
+  margin-top: 1.75rem;
+}
+
+.music-returning-listen .release-grid-card {
+  display: grid;
+  grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  height: auto;
+}
+
+.music-returning-listen .release-grid-card-copy {
+  padding: 0.45rem 0.25rem 0.45rem 0;
+}
+
+.music-returning-listen .release-grid-card-action {
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.music-discovery-preferences {
+  margin: 1.25rem 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  scroll-margin-block: calc(var(--site-header-offset) + 1rem) 9rem;
+}
+
+.music-discovery-preferences :is(button, a),
+.home-discovery-popup :is(button, a),
+.music-returning-listen :is(button, a) {
+  scroll-margin-block: calc(var(--site-header-offset) + 1rem) 9rem;
+}
+
+.music-discovery-preferences summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-block: 0.65rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.music-discovery-preferences summary::-webkit-details-marker {
+  display: none;
+}
+
+.music-discovery-preferences summary:focus-visible,
+.home-discovery-popup a:focus-visible,
+.music-returning-listen a:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 4px;
+}
+
+@media (min-width: 640px) {
+  .music-returning-listen .release-grid-card {
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 389px) {
+  .music-returning-listen .release-grid-card {
+    grid-template-columns: minmax(0, 5rem) minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+}
+
 .release-grid-card-title {
   margin: 0.5rem 0 0;
   color: white;
@@ -8169,3 +8240,135 @@ main:has(.join-page) + .site-footer .site-footer-grid {
 .playlist-prompt-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
 .playlist-prompt-close { position: absolute; top: .5rem; right: .5rem; width: 2.75rem; height: 2.75rem; color: white; font-size: 1.5rem; }
 .playlist-prompt a:focus-visible, .playlist-prompt button:focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 3px; }
+
+/* Reuse the listening reminder's non-modal presentation without its campaign state. */
+.home-discovery-popup { bottom: max(1rem, env(safe-area-inset-bottom)); }
+body.has-global-player .home-discovery-popup { bottom: calc(8rem + env(safe-area-inset-bottom)); }
+.home-discovery-popup .homepage-section-cta { white-space: normal; text-align: center; }
+.home-discovery-popup [role="status"]:empty { display: none; }
+/* Priority also holds during the React commit that mounts the listening prompt. */
+body:has(.playlist-prompt:not(.home-discovery-popup)) .home-discovery-popup { display: none; }
+
+.music-discovery-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+}
+.music-discovery-toggle-row > span { min-width: 0; white-space: nowrap; }
+.music-discovery-switch {
+  position: relative;
+  flex: 0 0 68px;
+  width: 68px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: .7rem;
+  font-weight: 750;
+}
+.music-discovery-switch::before {
+  content: "";
+  position: absolute;
+  inset: 8px 0;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: inherit;
+  background: rgba(255,255,255,.045);
+  transition: background-color 220ms ease, border-color 220ms ease;
+}
+.music-discovery-switch-thumb {
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #aab4c0;
+  box-shadow: 0 1px 3px #0003;
+  transition: transform 240ms cubic-bezier(.2,.8,.2,1), background-color 220ms ease;
+}
+.music-discovery-switch-on, .music-discovery-switch-off {
+  position: absolute;
+  top: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  transition: opacity 160ms ease;
+}
+.music-discovery-switch-off { right: 10px; }
+.music-discovery-switch-on { left: 10px; opacity: 0; color: #15181b; }
+.music-discovery-switch[aria-checked="true"]::before {
+  background: var(--color-primary-cta);
+  border-color: var(--color-primary-cta-border);
+}
+.music-discovery-switch[aria-checked="true"] .music-discovery-switch-thumb {
+  transform: translateX(40px);
+  background: #252b31;
+}
+.music-discovery-switch[aria-checked="true"] .music-discovery-switch-on { opacity: 1; }
+.music-discovery-switch[aria-checked="true"] .music-discovery-switch-off { opacity: 0; }
+.music-discovery-switch:focus-visible { outline: 2px solid var(--color-amber); outline-offset: 2px; }
+.music-discovery-details { margin-top: 0; }
+.music-discovery-details summary {
+  justify-content: flex-start;
+  gap: .5rem;
+  min-height: 32px;
+  padding: 0;
+  font-size: .75rem;
+  width: fit-content;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: rgba(170,179,191,.55);
+  text-underline-offset: .2em;
+}
+.music-discovery-details summary:hover {
+  color: var(--color-amber);
+  text-decoration-color: currentColor;
+}
+.music-discovery-details summary::after {
+  content: "";
+  flex: 0 0 .4rem;
+  width: .4rem;
+  height: .4rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-.1rem) rotate(45deg);
+}
+.music-discovery-details[open] summary::after {
+  transform: translateY(.1rem) rotate(225deg);
+}
+.music-discovery-preferences { margin: 1rem 0 1.5rem; }
+.music-discovery-preferences + .music-catalog-filter { margin-top: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .music-discovery-switch::before,
+  .music-discovery-switch-thumb,
+  .music-discovery-switch-on,
+  .music-discovery-switch-off { transition: none; }
+}
+
+.music-page-intro { margin-bottom: 1rem; }
+.music-page-intro .page-intro { margin-bottom: 0; }
+.music-page-intro .music-discovery-preferences {
+  min-width: 0;
+  margin: .75rem 0 0;
+  padding-top: .25rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.music-page-intro + .music-featured-release { margin-top: 0; }
+@media (min-width: 1100px) {
+  .music-page-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 12rem;
+    align-items: start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .music-page-intro .music-discovery-preferences {
+    margin: 2.25rem 0 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+}

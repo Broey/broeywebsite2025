@@ -68,6 +68,13 @@ export function recentReleases(profile: MusicPreferences, catalog: readonly Pref
   }).slice(0, limit);
 }
 
+// One returning-listener choice, distinct from the editorial focus and its family.
+export function lastPlayedRelease(profile: MusicPreferences, catalog: readonly PreferenceRelease[], featuredSlug: string, day = preferenceDay()) {
+  const featuredFamily = catalog.find((release) => release.slug === featuredSlug)?.family ?? featuredSlug;
+  return recentReleases(profile, catalog, day, MAX_RECENT)
+    .find((release) => release.slug !== featuredSlug && release.family !== featuredFamily);
+}
+
 type StorageAccess = () => Pick<Storage, "getItem" | "setItem" | "removeItem">;
 export class MusicPreferenceStore {
   private profile = emptyPreferences(0);

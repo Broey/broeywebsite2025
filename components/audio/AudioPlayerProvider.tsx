@@ -11,6 +11,7 @@ import {
 } from "react";
 import { GlobalAudioPlayer } from "@/components/audio/GlobalAudioPlayer";
 import { OnlyUPlaylistPrompt } from "@/components/audio/OnlyUPlaylistPrompt";
+import { PlaylistPromptVisibility } from "@/components/audio/PlaylistPromptVisibility";
 import { onlyUCampaign } from "@/content/only-u-campaign";
 import { PlaylistPromptSession } from "@/lib/playlist-prompt";
 import {
@@ -462,7 +463,7 @@ export function AudioPlayerProvider({ children }: { children: ReactNode }) {
 
   return (
     <AudioPlayerContext.Provider value={value}>
-      {children}
+      <PlaylistPromptVisibility.Provider value={Boolean(playlistPromptTrack && playlistPromptTrack === currentTrackKey)}>{children}</PlaylistPromptVisibility.Provider>
       <audio
         ref={audioRef}
         src={currentTrack?.src}

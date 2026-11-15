@@ -24,6 +24,8 @@ const { renderToStaticMarkup } = require("react-dom/server");
 const { MusicPreferencesProvider } = require("../components/music/MusicPreferencesProvider.tsx");
 const { AudioPlayerProvider } = require("../components/audio/AudioPlayerProvider.tsx");
 const { MusicPersonalization, PersonalizedRecommendations } = require("../components/music/MusicPersonalization.tsx");
+const { HomeMusicInvitation } = require("../components/music/HomeMusicInvitation.tsx");
+const { HomepageMusicArchiveSection } = require("../components/sections/HomepageMusicArchiveSection.tsx");
 const MusicPage = require("../app/music/page.tsx").default;
 const ReleasePage = require("../app/music/[slug]/page.tsx").default;
 const { releases } = require("../content/releases.ts");
@@ -44,12 +46,24 @@ test("server render never reads storage and always offers explicit disabled cons
     get localStorage() { throw new Error("Server accessed browser storage"); },
   } });
   t.after(() => descriptor ? Object.defineProperty(globalThis, "window", descriptor) : delete globalThis.window);
-  const html = render(element(MusicPersonalization, { catalog: preferenceCatalog(releases), cards: [] }));
-  assert.match(html, /Enable personalization/);
-  assert.match(html, /aria-pressed="false"/);
+  const html = render(element(MusicPersonalization));
+  assert.match(html, /role="switch"/);
+  assert.doesNotMatch(html, /<details[^>]* open/);
+  assert.match(html, /Personalize/);
+  assert.match(html, /<summary>Manage preferences<\/summary>/);
+  assert.match(html, /aria-label="Enable personalized music discovery"/);
+  assert.match(html, /aria-checked="false"/);
   assert.match(html, /aria-describedby="music-personalization-description"/);
   assert.match(html, /role="status"/);
   assert.doesNotMatch(html, /Recently played|Disable personalization|Clear music preferences/);
+});
+
+test("homepage invitation checks browser state only after hydration and retains the archive and signup", () => {
+  assert.doesNotMatch(render(element(HomeMusicInvitation)), /Enable personalization|Not now/);
+  const html = render(element(HomepageMusicArchiveSection));
+  assert.match(html, /Explore the music/);
+  assert.match(html, /Join the list/);
+  assert.doesNotMatch(html, /role="dialog"/);
 });
 test("server recommendation render keeps the baseline and its fixed Bridge and Discovery cards", () => {
   const html = render(element(PersonalizedRecommendations, { day: 20771,
@@ -63,7 +77,7 @@ test("complete music page server-renders focus and catalog with optional disable
   const html = render(element(MusicPage));
   assert.match(html, /Current focus/); assert.ok(html.includes(`/music/${currentFocusRelease(releases).slug}`));
   assert.match(html, /Filter by genre/); assert.match(html, /Selected Catalog/);
-  assert.match(html, /Enable personalization/); assert.doesNotMatch(html, /Recently played/);
+  assert.match(html, /aria-label="Enable personalized music discovery"/); assert.doesNotMatch(html, /Recently played/);
 });
 test("actual release route retains server-rendered content, structured data and baseline recommendations", async () => {
   const tree = await ReleasePage({ params: Promise.resolve({ slug: "free" }) });
